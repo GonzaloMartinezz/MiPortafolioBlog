@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-10">
       <div className="space-y-4 md:w-2/3">
         <h1 className="text-4xl font-bold tracking-tight text-blue-100">
-          Hola, soy Tu Nombre
+          Hola, soy Gonzalo Martinez
         </h1>
         <p className="text-lg text-slate-300 leading-relaxed">
           Desarrollador Web especializado en el stack MERN y ahora explorando el ecosistema .NET. 
