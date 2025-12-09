@@ -24,25 +24,4 @@ Este proyecto está construido con las tecnologías más demandadas de la indust
 
 El proyecto sigue una arquitectura modular y limpia basada en el `App Router` de Next.js:
 
-mi-portafolio/
-├── public/                 # Archivos estáticos (imágenes, favicon)
-│   ├── yo.jpg              # Tu foto
-│   └── logo.png
-├── src/
-│   ├── app/                # AQUÍ VIVEN LAS PÁGINAS (Rutas)
-│   │   ├── layout.tsx      # El marco principal (Navbar, Footer, Fondo)
-│   │   ├── page.tsx        # La página de inicio (/)
-│   │   ├── globals.css     # Estilos globales (Tailwind)
-│   │   └── blog/           # (Opcional) Si quisieras una ruta /blog
-│   │       └── page.tsx
-│   ├── components/         # TUS COMPONENTES REUTILIZABLES
-│   │   ├── ui/             # Elementos visuales puros (Botones, Fondo)
-│   │   │   └── Background.tsx
-│   │   └── home/           # Componentes específicos del Home
-│   │       ├── Hero.tsx
-│   │       ├── Timeline.tsx
-│   │       └── Projects.tsx
-│   └── data/               # (Opcional) Datos fijos para no ensuciar componentes
-│       └── projects.ts
-├── tsconfig.json           # Configuración de TypeScript (No tocar por ahora)
-└── package.json
+
