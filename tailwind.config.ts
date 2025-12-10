@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+     fontFamily: {
+        sans: ["var(--font-jakarta)", "sans-serif"], 
+        display: ["var(--font-outfit)", "sans-serif"], // Nueva fuente Display
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
