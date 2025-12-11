@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center text-center pt-8 pb-16 md:pt-16">
