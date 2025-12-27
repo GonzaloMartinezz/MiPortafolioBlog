@@ -1,71 +1,60 @@
-"use client"; // <--- ESTO ES IMPORTANTE PARA QUE DETECTE LA PESTAÑA
+"use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Hook para saber en qué página estamos
+import { usePathname } from "next/navigation";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa"; 
 
 export default function Navbar() {
-  const pathname = usePathname(); // Obtenemos la ruta actual (ej: /about)
-
-  // Función para determinar si el link está activo
+  const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="w-full flex flex-col md:flex-row items-center justify-between py-6 md:py-8 relative z-50">
+    <nav className="w-full flex flex-col md:flex-row items-center justify-between py-6 md:py-10 relative z-50 animate-fade-in-up">
       
-      {/* 1. LOGO / NOMBRE */}
-      <div className="mb-4 md:mb-0 text-center md:text-left min-w-[200px]">
+      {/* 1. LOGO */}
+      <div className="mb-4 md:mb-0 min-w-[200px] text-center md:text-left">
         <Link href="/" className="block group">
-            <h2 className="font-display text-xl font-bold tracking-tight uppercase text-slate-100 leading-none group-hover:text-blue-400 transition duration-300">
+            <h2 className="font-display text-2xl font-black tracking-tight uppercase text-slate-900 leading-none group-hover:text-blue-600 transition duration-300">
             Gonzalo <br /> Martínez
             </h2>
         </Link>
       </div>
 
-      {/* 2. MENÚ CENTRAL (PESTAÑAS) */}
-      <div className="flex gap-8 md:gap-12 items-center font-medium text-xs tracking-[0.2em] text-slate-400 mb-4 md:mb-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+      {/* 2. MENÚ (Pestañas) */}
+      <div className="flex gap-8 md:gap-12 items-center font-bold text-xs tracking-[0.2em] mb-4 md:mb-0 md:absolute md:left-1/2 md:-translate-x-1/2 bg-white/50 backdrop-blur-md px-6 py-3 rounded-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
         
-        {/* PESTAÑA HOME */}
-      <Link 
-            href="/who" 
-            className={`transition-colors duration-300 hover:text-white ${
-                isActive("/who") ? "text-blue-400 font-bold" : "text-slate-400"
-            }`}
-        >
-            ¿Quien soy?
-        </Link>
-        {/* PESTAÑA SOBRE MÍ (Aquí es donde querías el cambio) */}
-        <Link 
-            href="/about" 
-            className={`transition-colors duration-300 hover:text-white ${
-                isActive("/about") ? "text-blue-400 font-bold" : "text-slate-400"
-            }`}
-        >
-            Blog!
+        <Link href="/" className={`transition-all duration-300 hover:scale-105 ${isActive("/") ? "text-blue-600" : "text-slate-500 hover:text-slate-900"}`}>
+            HOME
         </Link>
 
-        {/* PESTAÑA BLOG */}
-        <Link 
-            href="/blog" 
-            className={`transition-colors duration-300 hover:text-white ${
-                isActive("/blog") ? "text-blue-400 font-bold" : "text-slate-400"
-            }`}
-        >
-           MySolutions
+        <Link href="/who" className={`transition-all duration-300 hover:scale-105 ${isActive("/who") ? "text-blue-600" : "text-slate-500 hover:text-slate-900"}`}>
+            ¿QUIÉN SOY?
+        </Link>
+
+        <Link href="/blog" className={`transition-all duration-300 hover:scale-105 ${isActive("/blog") ? "text-blue-600" : "text-slate-500 hover:text-slate-900"}`}>
+           My Blog!
+        </Link>
+         <Link href="/blog" className={`transition-all duration-300 hover:scale-105 ${isActive("/blog") ? "text-blue-600" : "text-slate-500 hover:text-slate-9 00"}`}>
+           Mail`s
         </Link>
       </div>
 
-      {/* 3. REDES SOCIALES */}
+      {/* 3. REDES */}
       <div className="flex gap-6 items-center min-w-[200px] justify-end">
-        <a href="https://github.com/TU_USUARIO" target="_blank" className="text-slate-400 hover:text-white hover:scale-110 transition-all">
-          <FaGithub size={20} />
-        </a>
-        <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" className="text-slate-400 hover:text-blue-400 hover:scale-110 transition-all">
-          <FaLinkedin size={20} />
-        </a>
-        <a href="https://instagram.com/TU_USUARIO" target="_blank" className="text-slate-400 hover:text-pink-500 hover:scale-110 transition-all">
-          <FaInstagram size={20} />
-        </a>
+        {[
+          { icon: FaGithub, link: "https://github.com", color: "hover:text-black" },
+          { icon: FaLinkedin, link: "https://linkedin.com", color: "hover:text-blue-700" },
+          { icon: FaInstagram, link: "https://instagram.com", color: "hover:text-pink-600" },
+        ].map((Social, index) => (
+          <a 
+            key={index}
+            href={Social.link} 
+            target="_blank" 
+            className={`text-slate-400 transition-all duration-300 hover:scale-125 ${Social.color}`}
+          >
+            <Social.icon size={22} />
+          </a>
+        ))}
       </div>
     </nav>
   );
