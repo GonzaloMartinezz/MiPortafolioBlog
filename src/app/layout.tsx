@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google"; 
 import "./globals.css";
+import Footer from "@/components/ui/Footer";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -33,10 +34,6 @@ export default function RootLayout({
         <main className="max-w-6xl mx-auto px-6 md:px-12">
           {children}
         </main>
-        
-        <footer className="text-center text-slate-400 py-10 text-xs font-mono border-t border-slate-200 mt-20">
-          © 2025 Gonzalo Martínez. Next.js & Tailwind.
-        </footer>
       </body>
     </html>
   );

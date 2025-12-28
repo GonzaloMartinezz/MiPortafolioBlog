@@ -38,10 +38,10 @@ body {
 }
 
 /* Retrasos para que las cosas aparezcan en cascada (1, 2, 3...) */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-500 { animation-delay: 500ms; }
+.delay-100 { animation-delay: 300ms; }
+.delay-200 { animation-delay: 500ms; }
+.delay-300 { animation-delay: 700ms; }
+.delay-500 { animation-delay: 900ms; }
 
 /* Efecto Hover para Tarjetas */
 .card-hover {

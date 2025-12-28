@@ -1,6 +1,6 @@
 import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/home/Hero";
-import Footer from "@/components/ui/Footer"; // <-- Importamos el Footer nuevo
+import Footer from "@/components/ui/Footer"; 
 
 export default function Home() {
   return (

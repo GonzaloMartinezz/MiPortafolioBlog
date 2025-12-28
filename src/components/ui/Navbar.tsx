@@ -34,7 +34,7 @@ export default function Navbar() {
         <Link href="/blog" className={`transition-all duration-300 hover:scale-105 ${isActive("/blog") ? "text-blue-600" : "text-slate-500 hover:text-slate-900"}`}>
            My Blog!
         </Link>
-         <Link href="/blog" className={`transition-all duration-300 hover:scale-105 ${isActive("/blog") ? "text-blue-600" : "text-slate-500 hover:text-slate-9 00"}`}>
+         <Link href="/mail" className={`transition-all duration-300 hover:scale-105 ${isActive("/mail") ? "text-blue-600" : "text-slate-500 hover:text-slate-900"}`}>
            Mail`s
         </Link>
       </div>
