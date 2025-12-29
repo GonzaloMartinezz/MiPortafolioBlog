@@ -1,4 +1,3 @@
-import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { FaMapMarkerAlt, FaBasketballBall, FaHeart, FaLaptopCode } from "react-icons/fa";
 import type { Metadata } from "next";
@@ -10,7 +9,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-900">
-      <Navbar />
       
       <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up">
         

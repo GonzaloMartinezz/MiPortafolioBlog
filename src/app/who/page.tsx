@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/ui/Navbar";
+
 import { FaMapMarkerAlt, FaBasketballBall, FaHeart, FaLaptopCode, FaServer, FaDatabase, FaDocker } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 export default function WhoPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      
       <main className="flex-1 w-full py-12 md:py-20">
         
         {/* INTRO */}
