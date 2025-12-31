@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google"; 
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar"; 
+import Footer from "@/components/ui/Footer";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
@@ -35,11 +36,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 relative z-10">
           {children}
         </main>
-        
-        <footer className="text-center text-slate-400 py-10 text-xs font-mono border-t border-slate-200/50 mt-20">
-          © 2025 Gonzalo Martínez. Next.js & Tailwind.
-        </footer>
       </body>
+      <Footer />
     </html>
   );
 }

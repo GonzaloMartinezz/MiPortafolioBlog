@@ -9,9 +9,6 @@ export default function Home() {
       <main className="flex-1 flex flex-col justify-center">
         <Hero />
       </main>
-
-      {/* Footer Abajo */}
-      <Footer />
     </div>
   );
 }

@@ -41,8 +41,8 @@ export default function Navbar() {
       <div className="flex gap-5 items-center w-full md:w-auto justify-center md:justify-end">
         {[
           { icon: FaGithub, link: "https://github.com/GonzaloMartinezz", color: "hover:text-black" },
-          { icon: FaLinkedin, link: "https://linkedin.com", color: "hover:text-blue-700" },
-          { icon: FaInstagram, link: "https://instagram.com", color: "hover:text-pink-600" },
+          { icon: FaLinkedin, link: "https://www.linkedin.com/in/gonzalomartinezz2004/", color: "hover:text-blue-700" },
+          { icon: FaInstagram, link: "https://www.instagram.com/gonchi_martinezz/", color: "hover:text-pink-600" },
         ].map((Social, index) => (
           <a 
             key={index}

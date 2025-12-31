@@ -17,8 +17,6 @@ export default function BlogPage() {
 
         <LatestPosts />
       </main>
-
-      <Footer />
     </div>
   );
 }
