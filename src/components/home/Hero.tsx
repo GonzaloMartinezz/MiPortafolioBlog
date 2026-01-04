@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | Gonzalo Martínez",
+};
 
 export default function Hero() {
-  
   // Array simple (Todos usan el mismo estilo base, así es más limpio)
   const stackFull = [
     "Javascript", "Typescript", "React", "Node.js", "Next.js", 
@@ -44,7 +48,7 @@ export default function Hero() {
   
       {/* 2. SECCIÓN FULL STACK (Con interacción nueva) */}
       <div className="animate-fade-in-up delay-100 mb-10 w-full max-w-4xl px-2 mt-8">
-        <p className="font-mono text-blue-600 mb-6 tracking-[0.2em] text-xs font-bold uppercase">Full Stack Web Developer</p>
+        <p className="font-mono text-blue-600 mb-6 tracking-[0.2em] text-xs font-bold uppercase border-b-2 border-blue-600 pb-2">Full Stack Web Developer</p>
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {stackFull.map((tech) => (
                 <span key={tech} className={badgeStyle}>
@@ -56,7 +60,7 @@ export default function Hero() {
 
       {/* 3. SECCIÓN DATA ANALYST (Con interacción nueva) */}
       <div className="animate-fade-in-up delay-200 mb-10 w-full max-w-4xl px-2">
-        <p className="font-mono text-blue-600 mb-4 tracking-[0.2em] text-xs font-bold uppercase">Data Analytics</p>
+        <p className="font-mono text-blue-600 mb-4 tracking-[0.2em] text-xs font-bold uppercase border-b-2 border-blue-600 pb-2">Data Analytics</p>
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {stackData.map((tech) => (
                 <span key={tech} className={badgeStyle}>

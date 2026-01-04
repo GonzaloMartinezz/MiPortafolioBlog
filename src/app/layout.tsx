@@ -9,6 +9,9 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 
 export const metadata: Metadata = {
   title: "Gonzalo Martínez | Portfolio",
+  icons: {
+    icon: "/LogoPerfil.jpg",
+  },
   description: "Desarrollador Full Stack y Analista de Datos",
 };
 
