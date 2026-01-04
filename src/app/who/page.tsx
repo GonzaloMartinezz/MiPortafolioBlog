@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/ui/Navbar"; // (Opcional: Si ya lo tienes en layout, bórralo de aquí)
 import { FaLaptopCode, FaServer, FaDatabase, FaDocker, FaChartLine, FaBasketballBall, FaUserTie } from "react-icons/fa";
 
 export const metadata: Metadata = {
