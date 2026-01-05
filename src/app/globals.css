@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+html, body {
+  overflow-x: hidden; /* OBLIGATORIO para móviles */
+  width: 100%;
+  position: relative;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(250, 250, 250);

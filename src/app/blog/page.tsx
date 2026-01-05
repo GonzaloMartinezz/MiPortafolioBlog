@@ -44,10 +44,7 @@ export default function BlogPage() {
       <main className="flex-1 w-full py-12 md:py-20 animate-fade-in-up">
         
         {/* HEADER DEL BLOG */}
-        <section className="text-center max-w-3xl mx-auto mb-10 px-6">
-            <span className="font-mono text-blue-600 font-bold tracking-widest text-xl mb-4 inline-block border-b-2 border-blue-600 pb-2 uppercase">
-                Mis Trabajos , aprendizajes y Experiencias 
-            </span>
+        <section className="text-center max-w-3xl mx-auto mb-10 px-6 -mt-12 md:-mt-15">
             <h1 className="font-display text-4xl md:text-6xl font-black text-slate-900 mb-6">
                 Escribiendo sobre <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
@@ -55,7 +52,7 @@ export default function BlogPage() {
                 </span>
             </h1>
             <p className="text-slate-500 text-lg leading-relaxed">
-                Aquí documento mis aprendizajes, errores (bugs) y descubrimientos mientras construyo software y analizo datos.
+                 Mis Trabajos , aprendizajes y Experiencias. Aquí documento mis aprendizajes, errores (bugs) y descubrimientos mientras construyo software y analizo datos.
             </p>
         </section>
 

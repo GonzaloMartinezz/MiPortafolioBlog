@@ -1,4 +1,9 @@
-import { FaGithub, FaExternalLinkAlt, FaFolder } from "react-icons/fa";
+"use client";
+
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+// 1. IMPORTAMOS 'Variants' AQUÍ PARA ARREGLAR EL ERROR
+import { motion, Variants } from "framer-motion"; 
+import { Reveal } from "@/components/ui/Reveal";
 
 interface ProjectProps {
   title: string;
@@ -13,7 +18,7 @@ const projects: ProjectProps[] = [
     title: "NBA API Services",
     description: "API robusta para consultar estadísticas de equipos y jugadores. Arquitectura en capas contenerizada con Docker.",
     tags: ["Node.js", "Express", "Docker", "MongoDB"],
-    repo: "https://github.com/gonzalomartinez/nba-api", // Ajusta tu usuario
+    repo: "https://github.com/gonzalomartinez/nba-api", 
     link: "#"
   },
   {
@@ -37,42 +42,69 @@ const projects: ProjectProps[] = [
     repo: "https://github.com/gonzalomartinez/malibu-style",
     link: "https://malibu.style" 
   }
-  
 ];
 
 export default function Projects() {
+  
+  // 2. APLICAMOS EL TIPO ': Variants' EXPLÍCITAMENTE
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { 
+        opacity: 1, 
+        y: 0, 
+        transition: { type: "spring", stiffness: 50 } 
+    }
+  };
+
   return (
-    <section className="py-10 animate-fade-in-up delay-200">
-      <h2 className="font-display text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-        <FaFolder className="text-blue-600" /> Proyectos Destacados
-      </h2>
+    <section className="py-20">
+      <Reveal>
+        <h2 className="font-display text-4xl font-black text-slate-900 mb-12 flex items-center gap-4">
+            <span className="text-blue-600">/</span> Proyectos Seleccionados
+        </h2>
+      </Reveal>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
         {projects.map((project, index) => (
-          <a
+          <motion.a
             key={index}
+            variants={item}
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex flex-col justify-between p-8 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1"
+            className="group relative flex flex-col justify-between p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-blue-200 hover:-translate-y-2"
           >
-            <div>
-                <div className="flex justify-between items-start mb-4">
-                    <div className="p-3 bg-blue-50 rounded-2xl text-blue-600 group-hover:scale-110 transition-transform">
+             <div>
+                <div className="flex justify-between items-start mb-6">
+                    <div className="p-4 bg-slate-50 rounded-2xl text-slate-900 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                         <FaGithub size={24} />
                     </div>
                     {project.link && (
-                        <span className="text-slate-400 hover:text-blue-600 transition-colors">
-                            <FaExternalLinkAlt size={16} />
-                        </span>
+                         <FaExternalLinkAlt className="text-slate-300 group-hover:text-blue-600 transition-colors" />
                     )}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {project.title}
                 </h3>
                 
-                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                <p className="text-slate-500 leading-relaxed mb-6 font-medium">
                     {project.description}
                 </p>
             </div>
@@ -81,15 +113,15 @@ export default function Projects() {
               {project.tags.map((tag) => (
                 <span 
                     key={tag} 
-                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 rounded-lg group-hover:bg-blue-50 group-hover:text-blue-700 transition-colors"
+                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-100 rounded-md group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-          </a>
+          </motion.a>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

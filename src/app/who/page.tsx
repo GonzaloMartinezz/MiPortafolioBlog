@@ -1,3 +1,4 @@
+import Timeline from "@/components/home/Timeline";
 import type { Metadata } from "next";
 import { FaLaptopCode, FaServer, FaDatabase, FaDocker, FaChartLine, FaBasketballBall, FaUserTie } from "react-icons/fa";
 
@@ -12,7 +13,7 @@ export default function WhoPage() {
         
         {/* 1. INTRODUCCIÓN (Expandida con datos del CV) */}
         <section className="mb-20 text-center md:text-left">
-          <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight">
+          <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-8 -mt-12 md:-mt-15 leading-tight">
             Datos, Código <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
               & Estrategia.
@@ -101,7 +102,6 @@ export default function WhoPage() {
                 ))}
             </div>
         </section>
-
         {/* 4. TRAYECTORIA PROFESIONAL (Datos Reales del CV) */}
         <section>
             <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
@@ -111,9 +111,10 @@ export default function WhoPage() {
             <div className="space-y-8 border-l-2 border-slate-100 ml-3 pl-8 md:pl-0 md:border-none md:ml-0">
                 
                 {/* EXPERIENCIA 1: TARJETA TITANIO */}
-                <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-200 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                    <div className="mb-2 md:mb-0 md:w-32 pt-1 font-mono text-sm text-blue-600 font-bold">2025 - HOY</div>
+                <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100 relative">
+                    <div className="hidden md:block w-32 pt-1 font-mono text-sm text-blue-600 font-bold">2025 - HOY</div>
                     <div className="flex-1">
+                        <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2025 - HOY</span>
                         <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Tarjeta Titanio S.A.</h3>
                         <p className="text-sm font-bold border-sky-500 text-sky-500 mb-3 uppercase tracking-wide">Ejecutivo Comercial & Analista de Datos</p>
                         <ul className="text-slate-600 text-sm leading-relaxed list-disc ml-4 space-y-1">
@@ -126,8 +127,9 @@ export default function WhoPage() {
 
                 {/* EXPERIENCIA 2: FREELANCER */}
                 <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-200 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                    <div className="mb-2 md:mb-0 md:w-32 pt-1 font-mono text-sm text-slate-400">2024 - HOY</div>
+                    <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024 - HOY</div>
                     <div className="flex-1">
+                        <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024 - HOY</span>
                         <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Desarrollador Web Freelance</h3>
                         <p className="text-sm font-bold border-sky-500 text-sky-500  mb-3 uppercase tracking-wide">Frontend & Backend</p>
                         <p className="text-slate-600 text-sm leading-relaxed">
@@ -138,8 +140,9 @@ export default function WhoPage() {
 
                 {/* EXPERIENCIA 3: MALIBU STYLE */}
                 <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-200 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                    <div className="mb-2 md:mb-0 md:w-32 pt-1 font-mono text-sm text-slate-400">2024 - 2025</div>
+                    <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024 - 2025</div>
                     <div className="flex-1">
+                        <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024 - 2025</span>
                         <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Malibu.Style</h3>
                         <p className="text-sm font-bold border-sky-500 text-sky-500  mb-3 uppercase tracking-wide">CEO & Founder (E-commerce)</p>
                         <p className="text-slate-600 text-sm leading-relaxed">
@@ -150,8 +153,9 @@ export default function WhoPage() {
 
                 {/* EXPERIENCIA 4: AMWAY */}
                 <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-200 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                    <div className="mb-2 md:mb-0 md:w-32 pt-1 font-mono text-sm text-slate-400">2024</div>
+                    <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024</div>
                     <div className="flex-1">
+                        <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024</span>
                         <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Amway Arg</h3>
                         <p className="text-sm font-bold border-sky-500 text-sky-500 mb-3 uppercase tracking-wide">Empresario - Autónomo</p>
                         <p className="text-slate-600 text-sm leading-relaxed">
