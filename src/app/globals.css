@@ -66,3 +66,29 @@ body {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+
+
+/* SCROLLBAR PERSONALIZADO */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc; /* Slate-50 (Tu fondo) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* Slate-300 */
+  border-radius: 5px;
+  border: 2px solid #f8fafc; /* Borde para que parezca flotante */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* Slate-400 */
+}
+
+/* SELECCIÓN DE TEXTO (Ya la tenías, pero aseguramos el color) */
+::selection {
+  background-color: #2563eb; /* Blue-600 */
+  color: white;
+}
