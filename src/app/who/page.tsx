@@ -1,22 +1,20 @@
 "use client";
 
-import { FaLaptopCode, FaServer, FaDatabase, FaChartLine, FaBasketballBall, FaUserTie } from "react-icons/fa";
+import { FaLaptopCode, FaServer, FaDatabase, FaChartLine, FaBasketballBall, FaUserTie, FaGraduationCap, FaCreditCard, FaCode, FaShoppingBag, FaHandshake, FaHeadset } from "react-icons/fa";
 import { Reveal } from "@/components/ui/Reveal";
 
 export default function WhoPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* CORRECCIÓN 1: pt-24 para que el Navbar no tape el título */}
       <main className="flex-1 w-full pt-24 pb-20 px-4 md:px-12">
         
         {/* 1. INTRODUCCIÓN */}
         <section className="mb-20 text-center md:text-left relative">
           <Reveal>
-            {/* CORRECCIÓN 1: Quitamos el -mt excesivo para que no se corte arriba */}
             <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight">
                 Datos, Código <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
-                & Estrategia.
+                & Negocio.
                 </span>
             </h1>
           </Reveal>
@@ -24,96 +22,89 @@ export default function WhoPage() {
           <Reveal delay={0.2}>
             <div className="space-y-6 text-lg text-slate-600 max-w-3xl leading-relaxed">
                 <p>
-                Soy una persona <strong className="text-slate-900">proactiva y comprometida</strong>. Mi enfoque profesional combina dos mundos: el desarrollo de software escalable y el análisis de datos para la toma de decisiones estratégicas.
+                  Soy un profesional con una <strong className="text-slate-900">visión 360°</strong> del ecosistema digital. Mi valor diferencial radica en la convergencia de tres mundos: la construcción de <strong>aplicaciones web escalables</strong>, el análisis de datos para la toma de decisiones y una sólida experiencia en <strong>gestión comercial y atención al cliente</strong>.
                 </p>
                 <p>
-                Actualmente, me dedico a identificar oportunidades de mejora y predecir tendencias futuras mediante el modelado de datos, mientras continúo mi formación académica en la <strong className="text-slate-900">UNSTA</strong> (Desarrollo y Calidad de Software).
+                  Actualmente, aplico esta sinergia para identificar oportunidades de mercado y optimizar la relación con el cliente mediante el modelado de datos, transformando números fríos en estrategias cálidas y efectivas.
                 </p>
             </div>
           </Reveal>
         </section>
 
-        {/* 2. TARJETAS DE PERFIL (Todas del mismo tamaño) */}
+        {/* 2. PERFIL (Tarjetas Superiores) */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             
-            {/* Tarjeta 1 */}
+            {/* Card 1: Web Dev */}
             <Reveal width="100%" delay={0.1}>
-                {/* CORRECCIÓN 2: 'h-full flex flex-col' para igualar alturas */}
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover group transition-all duration-300">
-                    <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
-                        <FaLaptopCode size={24} />
+                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-300 hover:-translate-y-2 group">
+                    <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <FaLaptopCode size={28} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3"> Web Developer 🙋🏼‍♂️</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">Web Developer</h3>
                     <p className="text-slate-500 leading-relaxed text-sm flex-1">
-                        Formado en <strong>Rolling Code School</strong>. Me especializo en la arquitectura de software frontend (React/Next.js) así como en backend robusto (.NET/Node.js) para crear soluciones que aporten valor.
+                        Formado en <strong>Rolling Code School</strong>. Me especializo en arquitectura frontend (React/Next.js) y backend robusto (.NET/Node.js) para crear soluciones tecnológicas que escalan.
                     </p>
                 </div>
             </Reveal>
 
-            {/* Tarjeta 2 */}
+            {/* Card 2: Data Analyst */}
             <Reveal width="100%" delay={0.2}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover group transition-all duration-300">
-                    <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
-                        <FaChartLine size={24} /> {/* Icono corregido para Datos */}
+                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-green-300 hover:-translate-y-2 group">
+                    <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                        <FaChartLine size={28} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3"> Data Analyst 📊</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-green-700 transition-colors">Data Analyst</h3>
                     <p className="text-slate-500 leading-relaxed text-sm flex-1">
-                        Formado en <strong>CoderHouse</strong>. Me especializo en la inspección, limpieza y transformación de datos, para crear insights que guíen la toma de decisiones.
+                        Formado en <strong>CoderHouse</strong>. Experto en limpieza, transformación y visualización de datos (ETL) para convertir información compleja en <em>insights</em> claros.
                     </p>
                 </div>
             </Reveal>
 
-            {/* Tarjeta 3 */}
+            {/* Card 3: Business & Sales */}
             <Reveal width="100%" delay={0.3}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover group transition-all duration-300">
-                    <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
-                        <FaUserTie size={24} /> {/* Icono corregido para Ventas */}
+                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-purple-300 hover:-translate-y-2 group">
+                    <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                        <FaUserTie size={28} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Customer Service & Sales</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-700 transition-colors">Business & Sales</h3>
                     <p className="text-slate-500 leading-relaxed text-sm flex-1">
-                        Formado en <strong>Tarjeta Titanio S.A</strong>. Me especializo en la atención al cliente y ventas, garantizando una experiencia de usuario excelente y cumplimiento de objetivos.
+                        Formado en la práctica en <strong>Tarjeta Titanio</strong>. Mi experiencia comercial me permite entender el "dolor" del cliente y diseñar productos que resuelven problemas reales.
                     </p>
                 </div>
             </Reveal>
 
-            {/* Tarjeta 4 */}
+            {/* Card 4: Mindset */}
             <Reveal width="100%" delay={0.4}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover group transition-all duration-300">
-                    <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition">
-                        <FaBasketballBall size={24} />
+                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-orange-300 hover:-translate-y-2 group">
+                    <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+                        <FaBasketballBall size={28} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Mindset & Basket 🏀</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-700 transition-colors">Mindset & Basket</h3>
                     <p className="text-slate-500 leading-relaxed text-sm flex-1">
-                        Liderar equipos en mis emprendimientos me enseñó resiliencia y negociación. La disciplina del deporte la aplico a cada sprint de código y análisis.
+                        El deporte de alto rendimiento me enseñó disciplina y trabajo en equipo. Aplico la mentalidad "Mamba Mentality" en cada proyecto: mejora constante y atención al detalle.
                     </p>
                 </div>
             </Reveal>
         </section>
 
-        {/* 3. CONOCIMIENTOS TÉCNICOS */}
+        {/* 3. STACK TECNOLÓGICO */}
         <section className="mb-24">
             <Reveal>
-                <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">Algunos de mis conocimientos técnicos.</h2>
+                <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">Stack Tecnológico</h2>
             </Reveal>
-            
             <Reveal delay={0.2}>
                 <div className="flex flex-wrap gap-3 md:gap-4">
                     {[
-                        { name: "JavaScript", icon: FaLaptopCode, color: "bg-yellow-100 text-yellow-700" },
-                        { name: "TypeScript", icon: FaLaptopCode, color: "bg-blue-100 text-blue-700" },
-                        { name: "React", icon: FaLaptopCode, color: "bg-cyan-100 text-cyan-700" },
-                        { name: "Node.js", icon: FaLaptopCode, color: "bg-green-100 text-green-700" },
-                        { name: "Next.js", icon: FaLaptopCode, color: "bg-slate-100 text-slate-700" },
-                        { name: "C# / .NET", icon: FaServer, color: "bg-purple-100 text-purple-700" },
-                        { name: "MongoDB", icon: FaDatabase, color: "bg-green-100 text-green-700" },
-                        { name: "Postman", icon: FaServer, color: "bg-orange-100 text-orange-700" },
-                        { name: "Data Analysis", icon: FaChartLine, color: "bg-green-100 text-green-700" },
-                        { name: "SQL Server", icon: FaDatabase, color: "bg-slate-100 text-slate-700" },
+                        { name: "JavaScript", icon: FaLaptopCode, color: "bg-yellow-100 text-yellow-800" },
+                        { name: "TypeScript", icon: FaLaptopCode, color: "bg-blue-100 text-blue-800" },
+                        { name: "React / Next.js", icon: FaLaptopCode, color: "bg-cyan-100 text-cyan-800" },
+                        { name: "C# / .NET", icon: FaServer, color: "bg-purple-100 text-purple-800" },
+                        { name: "SQL Server", icon: FaDatabase, color: "bg-slate-100 text-slate-800" },
                         { name: "Power BI", icon: FaChartLine, color: "bg-yellow-100 text-yellow-800" },
-                        { name: "Excel", icon: FaChartLine, color: "bg-green-100 text-green-700" },
-
+                        { name: "Excel", icon: FaChartLine, color: "bg-green-100 text-green-800" },
+                        { name: "Docker", icon: FaServer, color: "bg-blue-100 text-blue-800" },
                     ].map((item, idx) => (
-                        <div key={idx} className={`flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm rounded-2xl font-bold ${item.color} card-hover cursor-default transition-transform hover:-translate-y-1`}>
+                        <div key={idx} className={`flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm rounded-2xl font-bold ${item.color} shadow-sm cursor-default transition-transform hover:-translate-y-1`}>
                             <item.icon />
                             {item.name}
                         </div>
@@ -122,86 +113,186 @@ export default function WhoPage() {
             </Reveal>
         </section>
 
-        {/* 4. TRAYECTORIA PROFESIONAL */}
-        <section>
+        {/* 4. EXPERIENCIA PROFESIONAL (SEPARADA) */}
+        <section className="mb-24">
             <Reveal>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
                     <FaUserTie className="text-blue-600" /> Experiencia Profesional
                 </h2>
             </Reveal>
             
-            <div className="space-y-8 border-l-2 border-slate-100 ml-3 pl-8 md:pl-0 md:border-none md:ml-0">
+            {/* GRID DE EXPERIENCIAS */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                {/* EXPERIENCIA 1 */}
+                {/* 1. TARJETA TITANIO - ANALISTA DE DATOS */}
                 <Reveal width="100%" delay={0.1}>
-                    <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100 relative">
-                        <div className="hidden md:block w-32 pt-1 font-mono text-sm text-blue-600 font-bold">2025 - HOY</div>
-                        <div className="flex-1">
-                            <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2025 - HOY</span>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Tarjeta Titanio S.A.</h3>
-                            <p className="text-sm font-bold text-sky-500 mb-3 uppercase tracking-wide">Ejecutivo Comercial & Analista</p>
-                            <ul className="text-slate-600 text-sm leading-relaxed list-disc ml-4 space-y-1">
-                                <li>Gestión del ciclo de vida de datos y modelado.</li>
-                                <li>Traducción de datos en <i>insights</i> para estrategias comerciales.</li>
-                                <li>Validación en Bases de Datos.</li>
-                            </ul>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-blue-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">2025 - Hoy</div>
+                        
+                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <FaChartLine size={20} />
                         </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">Tarjeta Titanio S.A.</h3>
+                        <p className="text-xs font-bold text-blue-500 mb-4 uppercase tracking-wider">Analista de Datos</p>
+                        
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                            <li>Gestión del ciclo de vida completo de datos (inspección, limpieza, ETL).</li>
+                            <li>Creación de dashboards y modelos predictivos para anticipar tendencias.</li>
+                            <li>Traducción de datos brutos en insights estratégicos para la gerencia.</li>
+                        </ul>
                     </div>
                 </Reveal>
 
-                {/* EXPERIENCIA 2 */}
+                 {/* 2. TARJETA TITANIO - EJECUTIVO COMERCIAL (SOLO) */}
                 <Reveal width="100%" delay={0.2}>
-                    <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                        <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024 - HOY</div>
-                        <div className="flex-1">
-                            <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024 - HOY</span>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Freelance Developer</h3>
-                            <p className="text-sm font-bold text-sky-500 mb-3 uppercase tracking-wide">Frontend & Backend</p>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Desarrollo web responsivo con <strong>React, Node.js y MongoDB</strong>.
-                            </p>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-indigo-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-indigo-600 transition-colors">2025 - Hoy</div>
+                        
+                        <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                            <FaHandshake size={20} />
                         </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-indigo-700 transition-colors">Tarjeta Titanio S.A.</h3>
+                        <p className="text-xs font-bold text-indigo-500 mb-4 uppercase tracking-wider">Ejecutivo Comercial</p>
+                        
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                            <li>Gestión y optimización de la relación con comercios adheridos.</li>
+                            <li>Análisis estratégico para la adhesión de nuevos clientes.</li>
+                            <li>Manejo integral de documentación y validación de legajos.</li>
+                        </ul>
                     </div>
                 </Reveal>
 
-                {/* EXPERIENCIA 3 */}
+                 {/* 3. TARJETA TITANIO - ATENCIÓN AL CLIENTE */}
                 <Reveal width="100%" delay={0.3}>
-                    <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                        <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024 - 2025</div>
-                        <div className="flex-1">
-                            <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024 - 2025</span>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Malibu.Style</h3>
-                            <p className="text-sm font-bold text-sky-500 mb-3 uppercase tracking-wide">CEO & Founder</p>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Liderazgo de equipo, gestión de marca y ventas de indumentaria deportiva.
-                            </p>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-cyan-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-cyan-600 transition-colors">2025 - Hoy</div>
+                        
+                        <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-cyan-600 mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                            <FaHeadset size={20} />
                         </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-cyan-700 transition-colors">Tarjeta Titanio S.A.</h3>
+                        <p className="text-xs font-bold text-cyan-500 mb-4 uppercase tracking-wider">Atención al Cliente</p>
+                        
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                            <li>Uso de herramientas analíticas para examinar patrones de servicio.</li>
+                            <li>Gestión de sistemas internos para seguimiento y verificación de clientes.</li>
+                            <li>Comunicación efectiva para la resolución de incidencias.</li>
+                        </ul>
                     </div>
                 </Reveal>
 
-                {/* EXPERIENCIA 4 */}
+                {/* 4. FREELANCE */}
                 <Reveal width="100%" delay={0.4}>
-                    <div className="group md:flex gap-10 items-start p-6 rounded-3xl hover:bg-blue-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100">
-                        <div className="hidden md:block w-32 pt-1 font-mono text-sm text-slate-400">2024</div>
-                        <div className="flex-1">
-                            <span className="md:hidden font-mono text-xs text-blue-600 font-bold mb-1 block">2024</span>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">Amway Arg</h3>
-                            <p className="text-sm font-bold text-sky-500 mb-3 uppercase tracking-wide">Empresario - Autónomo</p>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Formación en liderazgo, oratoria y cumplimiento de objetivos de ventas.
-                            </p>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-purple-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-purple-600 transition-colors">2024 - Hoy</div>
+
+                        <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                            <FaCode size={20} />
                         </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-purple-700 transition-colors">Freelance Developer</h3>
+                        <p className="text-xs font-bold text-purple-500 mb-4 uppercase tracking-wider">Full Stack Web Developer</p>
+                        
+                        <p className="text-slate-500 text-sm leading-relaxed">
+                            Desarrollo de sitios web responsivos y aplicaciones completas. Especialista en <strong>MERN Stack</strong>. Transformo diseños en código funcional y escalable.
+                        </p>
+                    </div>
+                </Reveal>
+
+                {/* 5. MALIBU STYLE */}
+                <Reveal width="100%" delay={0.5}>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-pink-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-pink-600 transition-colors">2024 - 2025</div>
+
+                        <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                            <FaShoppingBag size={20} />
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-pink-600 transition-colors">Malibu.Style</h3>
+                        <p className="text-xs font-bold text-pink-500 mb-4 uppercase tracking-wider">CEO & Founder</p>
+                        
+                        <p className="text-slate-500 text-sm leading-relaxed">
+                            Fundación y liderazgo de marca de indumentaria deportiva. Gestión de identidad de marca, estrategias de posicionamiento online y coordinación de equipo de ventas.
+                        </p>
+                    </div>
+                </Reveal>
+
+                {/* 6. AMWAY */}
+                <Reveal width="100%" delay={0.6}>
+                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-emerald-400 hover:-translate-y-2 group relative overflow-hidden">
+                        <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-emerald-600 transition-colors">2024</div>
+
+                        <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                            <FaHandshake size={20} />
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">Amway Arg</h3>
+                        <p className="text-xs font-bold text-emerald-500 mb-4 uppercase tracking-wider">Empresario Independiente</p>
+                        
+                        <p className="text-slate-500 text-sm leading-relaxed">
+                            Desarrollo de habilidades de <strong>liderazgo, oratoria y negociación</strong>. Gestión de equipos de network marketing y cumplimiento de objetivos de ventas mensuales.
+                        </p>
                     </div>
                 </Reveal>
 
             </div>
         </section>
 
+        {/* 5. FORMACIÓN ACADÉMICA (SEPARADA Y ORDENADA) */}
+        <section>
+             <Reveal>
+                <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
+                    <FaGraduationCap className="text-blue-600" /> Formación Académica
+                </h2>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 {/* 1. UNSTA */}
+                 <Reveal width="100%" delay={0.1}>
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                        <div><span className="text-xs font-bold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">2024 - 2026</span></div>
+                        <h3 className="text-lg font-bold text-slate-900 mt-4">Tecnicatura en Desarrollo y Calidad de Software</h3>
+                        <p className="text-sm text-slate-500 mt-1">Universidad del Norte Santo Tomás de Aquino</p>
+                        <p className="text-sm text-slate-600 mt-3 flex-1">Formación integral en estructuras de datos, algoritmos, metodologías ágiles y calidad de software.</p>
+                    </div>
+                 </Reveal>
+
+                 {/* 2. CODERHOUSE - BACKEND II */}
+                 <Reveal width="100%" delay={0.2}>
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                        <div><span className="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">2025 - 2026</span></div>
+                        <h3 className="text-lg font-bold text-slate-900 mt-4">Backend II: Diseño y Arquitectura</h3>
+                        <p className="text-sm text-slate-500 mt-1">CoderHouse</p>
+                        <p className="text-sm text-slate-600 mt-3 flex-1">Especialización en arquitecturas escalables, patrones de diseño, optimización de servicios y seguridad.</p>
+                    </div>
+                 </Reveal>
+
+                 {/* 3. CODERHOUSE - DATA ANALYST */}
+                 <Reveal width="100%" delay={0.3}>
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                        <div><span className="text-xs font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">2025</span></div>
+                        <h3 className="text-lg font-bold text-slate-900 mt-4">Data Analytics</h3>
+                        <p className="text-sm text-slate-500 mt-1">CoderHouse</p>
+                        <p className="text-sm text-slate-600 mt-3 flex-1">Formación en inspección, limpieza y modelado de datos para la toma de decisiones estratégicas.</p>
+                    </div>
+                 </Reveal>
+
+                 {/* 4. ROLLING CODE */}
+                 <Reveal width="100%" delay={0.4}>
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                        <div><span className="text-xs font-bold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">2023 - 2024</span></div>
+                        <h3 className="text-lg font-bold text-slate-900 mt-4">Full Stack Web Developer</h3>
+                        <p className="text-sm text-slate-500 mt-1">Rolling Code School</p>
+                        <p className="text-sm text-slate-600 mt-3 flex-1">Desarrollo intensivo de aplicaciones web modernas utilizando el stack MERN (MongoDB, Express, React, Node.js).</p>
+                    </div>
+                 </Reveal>
+            </div>
+        </section>
+
       </main>
-      
-      {/* CORRECCIÓN 3: ELIMINÉ EL FOOTER DE AQUÍ.
-          Se mostrará automáticamente el Footer global de layout.tsx */}
-          
     </div>
   );
 }
