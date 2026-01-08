@@ -26,16 +26,18 @@ export default function Hero() {
   return (
     // CAMBIO CLAVE 1: pt-0 (antes pt-10) para subir todo el bloque al máximo.
     // min-h-[85vh] asegura que ocupe buena parte de la pantalla pero centrado.
-    <section className="flex flex-col items-center justify-center text-center pt-0 pb-10 overflow-visible min-h-[85vh]">
+    <section className="flex flex-col items-center justify-center text-center pt-0 pb-12 overflow-visible min-h-[85vh]">
 
-      {/* 1. IMAGEN (TU CÓDIGO EXACTO + Margen reducido abajo) */}
+{/* 1. IMAGEN (Modificada para subir más) */}
       <motion.div 
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-        // Mantenemos tus clases -mt-10 md:-mt-16 intactas.
-        // CAMBIO 2: Reduje mb-8 a mb-4 para pegar más el texto al logo.
-        className="relative w-32 h-32 md:w-40 md:h-40 group cursor-pointer -mt-10 md:-mt-16 z-10 mb-4"
+        
+        // CAMBIO AQUÍ: 
+        // 1. Cambié -mt-10 a -mt-24 (Móvil: sube mucho más)
+        // 2. Cambié md:-mt-16 a md:-mt-28 (PC: sube más también)
+        className="relative w-32 h-32 md:w-40 md:h-40 group cursor-pointer -mt-24 md:-mt-28 z-10 mb-4"
       >
         {/* Glow azul detrás */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-opacity-50 bg-blue-400/60 blur-[60px] rounded-full pointer-events-none animate-pulse"></div>
@@ -44,7 +46,7 @@ export default function Hero() {
           src="/LogoPerfil.jpg" 
           alt="Gonzalo Martínez" 
           fill
-          className="rounded-full object-cover border-4 border-white shadow-xl grayscale group-hover:grayscale-0 transition duration-500 ease-in-out transform group-hover:scale-105 group-hover:rotate-3"
+          className="rounded-full object-cover border-4 border-white shadow-xl grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105 group-hover:rotate-3"
           priority 
         />
         {/* Emoji flotante */}

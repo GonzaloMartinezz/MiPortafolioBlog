@@ -6,15 +6,19 @@ import { Reveal } from "@/components/ui/Reveal";
 export default function WhoPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-1 w-full pt-24 pb-20 px-4 md:px-12">
+      
+      {/* CAMBIO CLAVE: pt-14 md:pt-20 (Antes era pt-24). 
+          Esto sube todo el contenido considerablemente. */}
+      <main className="flex-1 w-full pt-14 md:pt-20 px-4 md:px-12">
         
         {/* 1. INTRODUCCIÓN */}
-        <section className="mb-20 text-center md:text-left relative">
+        <section className="mb-16 text-center md:text-left relative">
           <Reveal>
-            <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight">
-                Datos, Código <br />
+            {/* CAMBIO 2: -mt-2 para "comerle" un poco de espacio a la altura de línea */}
+            <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-6 leading-tight -mt-2">
+                Analisis de Datos y Código <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
-                & Negocio.
+                & Estrategia de Negocio.
                 </span>
             </h1>
           </Reveal>
@@ -36,7 +40,11 @@ export default function WhoPage() {
             
             {/* Card 1: Web Dev */}
             <Reveal width="100%" delay={0.1}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-300 hover:-translate-y-2 group">
+                {/* CAMBIOS: 
+                    1. Quitamos 'hover:border-blue-300' 
+                    2. Cambiamos 'hover:shadow-xl' por 'hover:shadow-lg' (más suave)
+                */}
+                <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
                     <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                         <FaLaptopCode size={28} />
                     </div>
@@ -49,7 +57,7 @@ export default function WhoPage() {
 
             {/* Card 2: Data Analyst */}
             <Reveal width="100%" delay={0.2}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-green-300 hover:-translate-y-2 group">
+                <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
                     <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
                         <FaChartLine size={28} />
                     </div>
@@ -62,7 +70,7 @@ export default function WhoPage() {
 
             {/* Card 3: Business & Sales */}
             <Reveal width="100%" delay={0.3}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-purple-300 hover:-translate-y-2 group">
+                <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
                     <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
                         <FaUserTie size={28} />
                     </div>
@@ -75,7 +83,7 @@ export default function WhoPage() {
 
             {/* Card 4: Mindset */}
             <Reveal width="100%" delay={0.4}>
-                <div className="h-full flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-orange-300 hover:-translate-y-2 group">
+                <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
                     <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
                         <FaBasketballBall size={28} />
                     </div>
@@ -97,7 +105,11 @@ export default function WhoPage() {
                     {[
                         { name: "JavaScript", icon: FaLaptopCode, color: "bg-yellow-100 text-yellow-800" },
                         { name: "TypeScript", icon: FaLaptopCode, color: "bg-blue-100 text-blue-800" },
-                        { name: "React / Next.js", icon: FaLaptopCode, color: "bg-cyan-100 text-cyan-800" },
+                        { name: "React ", icon: FaLaptopCode, color: "bg-cyan-100 text-cyan-800" },
+                        { name: "Node.js", icon: FaServer, color: "bg-green-100 text-green-800" },
+                        { name: "Next.js", icon: FaLaptopCode, color: "bg-black text-white" },
+                        { name: "MongoDB", icon: FaDatabase, color: "bg-green-100 text-green-800" },
+                        { name: "Express", icon: FaDatabase, color: "bg-orange-100 text-orange-800" },
                         { name: "C# / .NET", icon: FaServer, color: "bg-purple-100 text-purple-800" },
                         { name: "SQL Server", icon: FaDatabase, color: "bg-slate-100 text-slate-800" },
                         { name: "Power BI", icon: FaChartLine, color: "bg-yellow-100 text-yellow-800" },
@@ -113,7 +125,7 @@ export default function WhoPage() {
             </Reveal>
         </section>
 
-        {/* 4. EXPERIENCIA PROFESIONAL (SEPARADA) */}
+      {/* 4. EXPERIENCIA PROFESIONAL (ALTURA UNIFICADA) */}
         <section className="mb-24">
             <Reveal>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
@@ -126,7 +138,8 @@ export default function WhoPage() {
                 
                 {/* 1. TARJETA TITANIO - ANALISTA DE DATOS */}
                 <Reveal width="100%" delay={0.1}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-blue-400 hover:-translate-y-2 group relative overflow-hidden">
+                    {/* AGREGADO: min-h-[350px] */}
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">2025 - Hoy</div>
                         
                         <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -136,7 +149,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">Tarjeta Titanio S.A.</h3>
                         <p className="text-xs font-bold text-blue-500 mb-4 uppercase tracking-wider">Analista de Datos</p>
                         
-                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4 flex-1">
                             <li>Gestión del ciclo de vida completo de datos (inspección, limpieza, ETL).</li>
                             <li>Creación de dashboards y modelos predictivos para anticipar tendencias.</li>
                             <li>Traducción de datos brutos en insights estratégicos para la gerencia.</li>
@@ -144,9 +157,9 @@ export default function WhoPage() {
                     </div>
                 </Reveal>
 
-                 {/* 2. TARJETA TITANIO - EJECUTIVO COMERCIAL (SOLO) */}
+                 {/* 2. TARJETA TITANIO - EJECUTIVO COMERCIAL */}
                 <Reveal width="100%" delay={0.2}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-indigo-400 hover:-translate-y-2 group relative overflow-hidden">
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-indigo-600 transition-colors">2025 - Hoy</div>
                         
                         <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all">
@@ -156,7 +169,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-indigo-700 transition-colors">Tarjeta Titanio S.A.</h3>
                         <p className="text-xs font-bold text-indigo-500 mb-4 uppercase tracking-wider">Ejecutivo Comercial</p>
                         
-                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4 flex-1">
                             <li>Gestión y optimización de la relación con comercios adheridos.</li>
                             <li>Análisis estratégico para la adhesión de nuevos clientes.</li>
                             <li>Manejo integral de documentación y validación de legajos.</li>
@@ -166,7 +179,7 @@ export default function WhoPage() {
 
                  {/* 3. TARJETA TITANIO - ATENCIÓN AL CLIENTE */}
                 <Reveal width="100%" delay={0.3}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-cyan-400 hover:-translate-y-2 group relative overflow-hidden">
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-cyan-600 transition-colors">2025 - Hoy</div>
                         
                         <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-cyan-600 mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all">
@@ -176,7 +189,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-cyan-700 transition-colors">Tarjeta Titanio S.A.</h3>
                         <p className="text-xs font-bold text-cyan-500 mb-4 uppercase tracking-wider">Atención al Cliente</p>
                         
-                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4">
+                        <ul className="text-slate-500 text-sm leading-relaxed space-y-2 list-disc ml-4 flex-1">
                             <li>Uso de herramientas analíticas para examinar patrones de servicio.</li>
                             <li>Gestión de sistemas internos para seguimiento y verificación de clientes.</li>
                             <li>Comunicación efectiva para la resolución de incidencias.</li>
@@ -186,7 +199,7 @@ export default function WhoPage() {
 
                 {/* 4. FREELANCE */}
                 <Reveal width="100%" delay={0.4}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-purple-400 hover:-translate-y-2 group relative overflow-hidden">
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-purple-600 transition-colors">2024 - Hoy</div>
 
                         <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all">
@@ -196,7 +209,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-purple-700 transition-colors">Freelance Developer</h3>
                         <p className="text-xs font-bold text-purple-500 mb-4 uppercase tracking-wider">Full Stack Web Developer</p>
                         
-                        <p className="text-slate-500 text-sm leading-relaxed">
+                        <p className="text-slate-500 text-sm leading-relaxed flex-1">
                             Desarrollo de sitios web responsivos y aplicaciones completas. Especialista en <strong>MERN Stack</strong>. Transformo diseños en código funcional y escalable.
                         </p>
                     </div>
@@ -204,7 +217,7 @@ export default function WhoPage() {
 
                 {/* 5. MALIBU STYLE */}
                 <Reveal width="100%" delay={0.5}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-pink-400 hover:-translate-y-2 group relative overflow-hidden">
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-pink-600 transition-colors">2024 - 2025</div>
 
                         <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all">
@@ -214,7 +227,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-pink-600 transition-colors">Malibu.Style</h3>
                         <p className="text-xs font-bold text-pink-500 mb-4 uppercase tracking-wider">CEO & Founder</p>
                         
-                        <p className="text-slate-500 text-sm leading-relaxed">
+                        <p className="text-slate-500 text-sm leading-relaxed flex-1">
                             Fundación y liderazgo de marca de indumentaria deportiva. Gestión de identidad de marca, estrategias de posicionamiento online y coordinación de equipo de ventas.
                         </p>
                     </div>
@@ -222,7 +235,7 @@ export default function WhoPage() {
 
                 {/* 6. AMWAY */}
                 <Reveal width="100%" delay={0.6}>
-                    <div className="h-full flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-emerald-400 hover:-translate-y-2 group relative overflow-hidden">
+                    <div className="h-full min-h-[350px] flex flex-col p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-emerald-600 transition-colors">2024</div>
 
                         <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
@@ -232,7 +245,7 @@ export default function WhoPage() {
                         <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">Amway Arg</h3>
                         <p className="text-xs font-bold text-emerald-500 mb-4 uppercase tracking-wider">Empresario Independiente</p>
                         
-                        <p className="text-slate-500 text-sm leading-relaxed">
+                        <p className="text-slate-500 text-sm leading-relaxed flex-1">
                             Desarrollo de habilidades de <strong>liderazgo, oratoria y negociación</strong>. Gestión de equipos de network marketing y cumplimiento de objetivos de ventas mensuales.
                         </p>
                     </div>
@@ -240,9 +253,9 @@ export default function WhoPage() {
 
             </div>
         </section>
-
-        {/* 5. FORMACIÓN ACADÉMICA (SEPARADA Y ORDENADA) */}
-        <section>
+{/* 5. FORMACIÓN ACADÉMICA */}
+        {/* CAMBIO 1: Agregué 'mb-32' para despegarlo del footer */}
+        <section className="mb-32">
              <Reveal>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
                     <FaGraduationCap className="text-blue-600" /> Formación Académica
@@ -252,7 +265,8 @@ export default function WhoPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  {/* 1. UNSTA */}
                  <Reveal width="100%" delay={0.1}>
-                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                    {/* CAMBIO 2: Agregué 'hover:-translate-y-2 hover:shadow-lg duration-300' para el efecto de subir */}
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-2 flex flex-col cursor-default">
                         <div><span className="text-xs font-bold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">2024 - 2026</span></div>
                         <h3 className="text-lg font-bold text-slate-900 mt-4">Tecnicatura en Desarrollo y Calidad de Software</h3>
                         <p className="text-sm text-slate-500 mt-1">Universidad del Norte Santo Tomás de Aquino</p>
@@ -262,7 +276,7 @@ export default function WhoPage() {
 
                  {/* 2. CODERHOUSE - BACKEND II */}
                  <Reveal width="100%" delay={0.2}>
-                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-2 flex flex-col cursor-default">
                         <div><span className="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">2025 - 2026</span></div>
                         <h3 className="text-lg font-bold text-slate-900 mt-4">Backend II: Diseño y Arquitectura</h3>
                         <p className="text-sm text-slate-500 mt-1">CoderHouse</p>
@@ -272,7 +286,7 @@ export default function WhoPage() {
 
                  {/* 3. CODERHOUSE - DATA ANALYST */}
                  <Reveal width="100%" delay={0.3}>
-                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-2 flex flex-col cursor-default">
                         <div><span className="text-xs font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">2025</span></div>
                         <h3 className="text-lg font-bold text-slate-900 mt-4">Data Analytics</h3>
                         <p className="text-sm text-slate-500 mt-1">CoderHouse</p>
@@ -282,7 +296,7 @@ export default function WhoPage() {
 
                  {/* 4. ROLLING CODE */}
                  <Reveal width="100%" delay={0.4}>
-                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md transition-all flex flex-col">
+                    <div className="h-full p-6 rounded-3xl bg-slate-50 border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-2 flex flex-col cursor-default">
                         <div><span className="text-xs font-bold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">2023 - 2024</span></div>
                         <h3 className="text-lg font-bold text-slate-900 mt-4">Full Stack Web Developer</h3>
                         <p className="text-sm text-slate-500 mt-1">Rolling Code School</p>
