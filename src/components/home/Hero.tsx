@@ -71,6 +71,8 @@ export default function Hero() {
                 2000,
                 'Tech Enthusiast',
                 2000,
+                'Sports Enthusiast',
+                2000
               ]}
               wrapper="span"
               speed={40}
