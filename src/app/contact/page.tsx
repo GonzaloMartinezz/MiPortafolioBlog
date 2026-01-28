@@ -53,7 +53,7 @@ export default function ContactPage() {
       {/* --- 1. BADGE (ARRIBA) --- */}
       <div className="mb-6 w-full flex justify-center">
         <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-green-200 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:scale-105 duration-300">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-green-200 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:scale-105 duration-300">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
@@ -67,9 +67,9 @@ export default function ContactPage() {
       <div className="text-center mb-10 max-w-2xl relative z-10">
         <Reveal delay={0.1}>
             <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
-                Hablemos de <br />
+                Hablemos para<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient-x">
-                    Tu Próximo Proyecto.
+                    crear un Proyecto y dar soluciones.
                 </span>
             </h1>
         </Reveal>
@@ -143,32 +143,44 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          {/* COLUMNA DERECHA: REDES SOCIALES (Ocupa 1 columna en PC) */}
+          {/* COLUMNA DERECHA: REDES SOCIALES */}
           <div className="flex flex-col gap-4 h-full justify-center">
             {[
-                { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/gonzalomartinezz2004/", color: "text-blue-700", bg: "bg-blue-50", border: "hover:border-blue-200", subtitle: "Perfil Profesional" },
-                { name: "GitHub", icon: FaGithub, url: "https://github.com/GonzaloMartinezz", color: "text-slate-900", bg: "bg-slate-100", border: "hover:border-slate-400", subtitle: "Ver Código" },
+                { name: "LinkedIn", icon: FaLinkedin, url: "https://linkedin.com/in/gonzalomartinez", color: "text-blue-700", bg: "bg-blue-50", border: "hover:border-blue-200", subtitle: "Perfil Profesional" },
+                { name: "GitHub", icon: FaGithub, url: "https://github.com/gonzalomartinez", color: "text-slate-900", bg: "bg-slate-100", border: "hover:border-slate-400", subtitle: "Ver Código" },
                 { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/543816242482", color: "text-green-600", bg: "bg-green-50", border: "hover:border-green-300", subtitle: "Chat Directo" }
             ].map((social, idx) => (
-                <Reveal key={idx} width="100%" delay={0.3 + (idx * 0.1)}>
-                    <a 
-                        href={social.url}
-                        target="_blank" rel="noopener noreferrer"
-                        className={`flex items-center gap-4 p-5 bg-white/60 backdrop-blur-md rounded-[1.5rem] border border-white/50 shadow-sm ${social.border} hover:shadow-lg transition-all duration-300 group hover:-translate-x-1 h-full`}
+                <motion.a 
+                    key={idx}
+                    href={social.url}
+                    target="_blank" rel="noopener noreferrer"
+                    // 1. ANIMACIÓN DE ENTRADA (Sin Reveal para evitar cortes)
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + (idx * 0.1), duration: 0.5 }}
+                    // 2. HOVER SÚPER FLUIDO (Sin cortes)
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                    
+                    className={`flex items-center gap-4 p-5 bg-white/60 backdrop-blur-md rounded-[1.5rem] border border-white/50 shadow-sm ${social.border} hover:shadow-xl transition-colors duration-300 group h-full`}
+                >
+                    <div className={`p-3.5 ${social.bg} ${social.color} rounded-2xl shadow-inner`}>
+                        <social.icon size={26} />
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-slate-900 text-lg leading-tight">{social.name}</h4>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">{social.subtitle}</p>
+                    </div>
+                    
+                    {/* Flechita animada */}
+                    <motion.div 
+                        className="ml-auto text-slate-300 group-hover:text-slate-500"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileHover={{ opacity: 1, x: 0 }}
                     >
-                        <div className={`p-3.5 ${social.bg} ${social.color} rounded-2xl group-hover:scale-110 transition-transform shadow-inner`}>
-                            <social.icon size={26} />
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-slate-900 text-lg leading-tight">{social.name}</h4>
-                            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">{social.subtitle}</p>
-                        </div>
-                        {/* Flechita sutil a la derecha */}
-                        <div className="ml-auto text-slate-300 group-hover:text-slate-500 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </a>
-                </Reveal>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    </motion.div>
+                </motion.a>
             ))}
           </div>
 

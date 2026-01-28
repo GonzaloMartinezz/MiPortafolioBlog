@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
@@ -10,8 +9,7 @@ export default function Hero() {
   
   // Arrays (Corregí la coma extra que tenías en stackFull para evitar errores)
   const stackFull = [
-    "Javascript", "Typescript", "React", "Node.js", "Next.js", 
-    "MongoDB", "Express", "C#", ".NET"
+    "Javascript","React","Node.js","MongoDB","Express","Typescript","Tailwind", "Next.js", "C#", ".NET", "Github", "HTML5", "CSS3", "Bootstrap","Postman"
   ];
 
   const stackData = [
@@ -65,14 +63,12 @@ export default function Hero() {
           <div className="font-display text-2xl md:text-5xl font-black text-slate-900 leading-tight">
             <TypeAnimation
               sequence={[
-                'Full Stack Developer',
+                'Full Stack Developer web',
                 2000,
-                'Data Analyst',
+                'Data Analyst trainee',
                 2000,
                 'Tech Enthusiast',
                 2000,
-                'Sports Enthusiast',
-                2000
               ]}
               wrapper="span"
               speed={40}
@@ -113,7 +109,7 @@ export default function Hero() {
 
       {/* 4. BOTÓN */}
       <Reveal delay={0.7}>
-        <Link href="/blog" className="group relative inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white transition-all duration-300 bg-slate-900 rounded-full hover:bg-blue-600 hover:shadow-md hover:scale-205">
+        <Link href="/blog" className="group relative inline-flex items-center justify-center px-20 py-4 text-sm font-bold text-white transition-all duration-300 bg-slate-900 rounded-full hover:bg-blue-600 hover:shadow-md hover:scale-205">
             Ver mis trabajos!
             <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </Link>
