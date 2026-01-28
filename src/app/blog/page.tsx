@@ -19,7 +19,7 @@ export default function BlogPage() {
                 </div>
             </Reveal>
             <Reveal delay={0.1}>
-                <h1 className="font-display text-6xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+                <h1 className="font-display text-5xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
                     Construyendo<br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                         mi identidad profesional.

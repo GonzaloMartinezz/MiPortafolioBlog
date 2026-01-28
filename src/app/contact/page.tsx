@@ -146,8 +146,8 @@ export default function ContactPage() {
           {/* COLUMNA DERECHA: REDES SOCIALES */}
           <div className="flex flex-col gap-4 h-full justify-center">
             {[
-                { name: "LinkedIn", icon: FaLinkedin, url: "https://linkedin.com/in/gonzalomartinez", color: "text-blue-700", bg: "bg-blue-50", border: "hover:border-blue-200", subtitle: "Perfil Profesional" },
-                { name: "GitHub", icon: FaGithub, url: "https://github.com/gonzalomartinez", color: "text-slate-900", bg: "bg-slate-100", border: "hover:border-slate-400", subtitle: "Ver Código" },
+                { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/gonzalomartinezz2004/", color: "text-blue-700", bg: "bg-blue-50", border: "hover:border-blue-200", subtitle: "Perfil Profesional" },
+                { name: "GitHub", icon: FaGithub, url: "https://github.com/GonzaloMartinezz", color: "text-slate-900", bg: "bg-slate-100", border: "hover:border-slate-400", subtitle: "Ver Código" },
                 { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/543816242482", color: "text-green-600", bg: "bg-green-50", border: "hover:border-green-300", subtitle: "Chat Directo" }
             ].map((social, idx) => (
                 <motion.a 

@@ -26,7 +26,7 @@ export default function WhoPage() {
         <section className="mb-16 text-center md:text-left relative">
           <Reveal>
             {/* CAMBIO 2: -mt-2 para "comerle" un poco de espacio a la altura de línea */}
-            <h1 className="font-display text-5xl md:text-7xl font-black text-slate-900 mb-6 leading-tight -mt-2">
+            <h1 className="font-display text-6xl md:text-4xl font-black text-slate-900 mb-4 leading-tight -mt-1">
               Código, Analisis de Datos <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                 & Estrategia de Negocios.
@@ -46,7 +46,6 @@ export default function WhoPage() {
                 predicción de actos futuros que impulsen el crecimiento en las
                 diversas áreas de la empresa.
               </p>
-
               <p>
                 He desarrollado una sólida comprensión de las necesidades del
                 negocio y la gestión de clientes. Hoy estoy ampliando mi perfil
@@ -56,47 +55,34 @@ export default function WhoPage() {
                 <strong>Node.js & Express</strong>.
               </p>
 
+              <Reveal width="100%" delay={0.1}>
+                <div className="h-full min-h-[250px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+                  <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                    <FaLaptopCode size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
+                    FullStack Web Developer
+                  </h3>
+                  <p className="text-slate-500 leading-relaxed text-sm flex-1">
+                    Egresado de <strong>Rolling Code School</strong> como Full
+                    Stack Developer. Domino el stack <strong>MERN</strong>{" "}
+                    (MongoDB, Express, React, Node.js) para construir
+                    aplicaciones web completas: diseño interfaces interactivas,
+                    creo APIs RESTful y gestiono bases de datos no relacionales
+                    para entregar productos digitales dinámicos y funcionales.
+                  </p>
+                </div>
+              </Reveal>
               <p>
                 Aplico mis conocimientos en{" "}
-                <strong>Power BI, SQL Server, Lenguaje R, Excel y Figma</strong>{" "}
-                para transformar la información en decisiones estratégicas. Mi
+                <strong>Power BI, SQL Server, Excel y Figma</strong> para
+                transformar la información en decisiones estratégicas. Mi
                 objetivo es fusionar mi visión comercial con mis habilidades
                 técnicas para contribuir en proyectos de{" "}
                 <strong>inteligencia de negocio y desarrollo web</strong>.
               </p>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* 2. PERFIL (Tarjetas Superiores) */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          {/* Card 1: Web Dev */}
-          <Reveal width="100%" delay={0.1}>
-            {/* CAMBIOS: 
-                    1. Quitamos 'hover:border-blue-300' 
-                    2. Cambiamos 'hover:shadow-xl' por 'hover:shadow-lg' (más suave)
-                */}
-            <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                <FaLaptopCode size={28} />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                FullStack Web Developer
-              </h3>
-              <p className="text-slate-500 leading-relaxed text-sm flex-1">
-                Egresado de <strong>Rolling Code School</strong> como Full Stack
-                Developer. Domino el stack <strong>MERN</strong> (MongoDB,
-                Express, React, Node.js) para construir aplicaciones web
-                completas: diseño interfaces interactivas, creo APIs RESTful y
-                gestiono bases de datos no relacionales para entregar productos
-                digitales dinámicos y funcionales.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Card 2: Data Analyst */}
-          <Reveal width="100%" delay={0.2}>
-            <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+                        <Reveal width="100%" delay={0.2}>
+            <div className="h-full min-h-[250px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
               <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
                 <FaChartLine size={28} />
               </div>
@@ -113,6 +99,13 @@ export default function WhoPage() {
               </p>
             </div>
           </Reveal>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* 2. PERFIL (Tarjetas Superiores) */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          {/* Card 1: Web Dev */}
 
           {/* Card 3: Business & Sales */}
           <Reveal width="100%" delay={0.3}>
@@ -147,9 +140,9 @@ export default function WhoPage() {
                 Transformé mi pasión por el básquet en un emprendimiento real
                 creando mi propia marca de camisetas. Entiendo los negocios con
                 la misma <strong>disciplina y constancia</strong> de un atleta
-                de alto rendimiento. Estoy comprometido en cada desafío: resiliencia,
-                trabajo duro y una obsesión sana por mejorar los detalles día a
-                día.
+                de alto rendimiento. Estoy comprometido en cada desafío:
+                resiliencia, trabajo duro y una obsesión sana por mejorar los
+                detalles día a día.
               </p>
             </div>
           </Reveal>
