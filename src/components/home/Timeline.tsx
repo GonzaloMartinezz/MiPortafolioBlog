@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
+
 interface TimelineItemProps {
   date: string;
   title: string;
@@ -47,40 +52,54 @@ const historyData: TimelineItemProps[] = [
 export default function Timeline() {
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-10 text-slate-100 tracking-tight">Trayectoria</h2>
-      
-      <div className="space-y-12">
+      <div className="space-y-8">
         {historyData.map((item, index) => (
-          <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-10 group">
-            {/* Fecha a la izquierda (Estilo Holtz) */}
-            <div className="md:w-32 shrink-0">
-              <span className="text-sm font-mono text-slate-500 group-hover:text-blue-400 transition-colors">
-                {item.date}
-              </span>
-            </div>
-            
-            {/* Contenido */}
-            <div className="md:flex-1">
-              <h3 className="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-sm text-blue-500 mb-2">{item.role}</p>
-              <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-                {item.description}
-              </p>
-              
-              {/* Tags de tecnología */}
-              {item.tech && (
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {item.tech.map(t => (
-                    <span key={t} className="text-xs px-2 py-1 bg-blue-900/20 text-blue-300 rounded border border-blue-900/30">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+          <Reveal key={index} delay={index * 0.1}>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group relative flex flex-col md:flex-row gap-6 md:gap-8 p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 hover:-translate-y-1"
+            >
+              {/* Línea vertical en mobile */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-blue-300 rounded-full md:hidden"></div>
+
+              {/* Fecha */}
+              <div className="md:w-32 shrink-0 pl-6 md:pl-0">
+                <span className="inline-block px-2.5 sm:px-4 py-1.5 sm:py-2 bg-blue-100 text-blue-700 rounded-lg font-mono text-xs sm:text-sm font-bold group-hover:bg-blue-200 transition-colors">
+                  {item.date}
+                </span>
+              </div>
+
+              {/* Contenido */}
+              <div className="md:flex-1 pl-2 md:pl-0">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-2 uppercase tracking-wider">
+                  {item.role}
+                </p>
+                <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base mb-3 sm:mb-4">
+                  {item.description}
+                </p>
+
+                {/* Tags de tecnología */}
+                {item.tech && (
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {item.tech.map(t => (
+                      <span
+                        key={t}
+                        className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 bg-slate-100 text-slate-700 rounded-md font-semibold group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </Reveal>
         ))}
       </div>
     </section>

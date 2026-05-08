@@ -1,40 +1,69 @@
 "use client";
 import { motion } from "framer-motion";
-import { blogPosts } from "@/lib/blogData"; // 1. Importamos los datos reales
+import { blogPosts } from "@/lib/blogData";
 import Link from "next/link";
 import { FaArrowRight, FaTag, FaClock } from "react-icons/fa";
 import { Reveal } from "@/components/ui/Reveal";
+import Timeline from "@/components/home/Timeline";
 import Tilt from 'react-parallax-tilt';
 
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
-      <main className="flex-1 w-full pt-24 pb-20 px-4 md:px-12">
-        
+      <main className="flex-1 w-full pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-12">
+
         {/* HEADER */}
-        <section className="text-center max-w-3xl mx-auto mb-16 relative z-10">
+        <section className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16 relative z-10">
             <Reveal>
-                <div className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
-                    Mi Trayectoria Profesional.
+                <div className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 mb-3 sm:mb-4 text-[10px] sm:text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                    Mi Trayectoria Profesional
                 </div>
             </Reveal>
             <Reveal delay={0.1}>
-                <h1 className="font-display text-5xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 sm:mb-6 leading-tight px-2">
                     Construyendo<br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
-                        mi identidad profesional.
+                        mi identidad profesional
                     </span>
                 </h1>
             </Reveal>
             <Reveal delay={0.2}>
-                <p className="text-slate-500 text-lg leading-relaxed">
-                     Más que simples posts, aquí documento mis <strong> Casos de Estudio y trabajos</strong> reales.Construyendo dia a dia mi identidad y poder compartir mis aprendizajes en el camino.
+                <p className="text-slate-500 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed px-2">
+                     Más que simples posts, aquí documento mis <strong>casos de estudio y trabajos</strong> reales. Construyendo día a día mi identidad y compartiendo mis aprendizajes en el camino.
                 </p>
             </Reveal>
         </section>
 
-      {/* GRID DE HISTORIAS */}
-        <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* SECCIÓN DE TRAYECTORIA */}
+        <section className="py-16 sm:py-20 md:py-24 px-3 sm:px-4 bg-gradient-to-b from-white via-slate-50 to-blue-50 border-t border-slate-100">
+          <div className="max-w-4xl mx-auto">
+            <Reveal>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 sm:mb-6 md:mb-8 flex items-center gap-2 sm:gap-4">
+                <span className="text-blue-600">/</span> Mi Trayectoria Profesional
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mb-10 sm:mb-12 md:mb-16 leading-relaxed">
+                Mi camino de aprendizaje continuo desde mis inicios hasta hoy. Cada proyecto marca un hito importante en mi desarrollo profesional.
+              </p>
+            </Reveal>
+            <Timeline />
+          </div>
+        </section>
+
+      {/* GRID DE HISTORIAS / BLOG POSTS */}
+        <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
+          <div className="max-w-6xl mx-auto">
+            <Reveal>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 sm:mb-6 md:mb-8 flex items-center gap-2 sm:gap-4">
+                <span className="text-blue-600">/</span> Blog & Casos de Estudio
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mb-10 sm:mb-12 md:mb-16 leading-relaxed">
+                Documentando mis proyectos y aprendizajes. Aquí comparto casos de estudio reales y lecciones de desarrollo.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-3 sm:px-4 pb-12 sm:pb-16 md:pb-20 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {blogPosts.map((post, index) => (
                 // CAMBIO: Usamos motion.div en lugar de Reveal para evitar el corte (overflow)
                 <motion.div 
@@ -62,13 +91,14 @@ export default function BlogPage() {
                             {/* LOGICA DE GRADIENTES */}
                             <div className={`h-48 md:h-64 w-full relative overflow-hidden bg-gradient-to-br ${
                                 // Colores según categoría o palabras clave
-                                post.category.includes("Data") ? "from-emerald-500 to-teal-500" :
-                                post.category.includes("Emprendimiento") ? "from-pink-500 to-red-500" : // Corregí el typo "imgradient"
-                                post.category.includes("Business") ? "from-amber-500 to-orange-500" : 
-                                post.category.includes("Backend") ? "from-cyan-500 to-slate-900" : 
-                                post.category.includes("Software") ? "from-blue-700 to-blue-600" : 
-                                post.category.includes("Fullstack") ? "from-violet-500 to-purple-600" : 
-                                post.category.includes("Proyectos") ? "from-yellow-400 to-yellow-500" : 
+                                (post.category ?? "").includes("Data") ? "from-emerald-500 to-teal-500" :
+                                (post.category ?? "").includes("Emprendimiento") ? "from-pink-500 to-red-500" :
+                                (post.category ?? "").includes("Business") ? "from-amber-500 to-orange-500" :
+                                (post.category ?? "").includes("Backend") ? "from-cyan-500 to-slate-900" :
+                                (post.category ?? "").includes("Software") ? "from-blue-700 to-blue-600" :
+                                (post.category ?? "").includes("Fullstack") ? "from-violet-500 to-purple-600" :
+                                (post.category ?? "").includes("Frontend") ? "from-purple-500 to-pink-500" :
+                                (post.category ?? "").includes("Proyectos") ? "from-yellow-400 to-yellow-500" :
                                 "from-slate-700 to-slate-900" // Default
                             }`}>
                                 <div className="absolute inset-0 opacity-20 bg-[url('/noise.png')]"></div>
