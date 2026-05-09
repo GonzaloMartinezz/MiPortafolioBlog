@@ -63,7 +63,7 @@ export default function Hero() {
               onClick={() => setIsPlaying(true)}
             >
               <Image
-                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                 alt="Video Thumbnail"
                 fill
                 className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
