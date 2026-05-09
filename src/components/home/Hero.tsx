@@ -10,14 +10,14 @@ export default function Hero() {
   const videoId = "gH62-RxyEh8";
 
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between w-full py-20 gap-20">
+    <section className="flex flex-col lg:flex-row items-center justify-between w-full py-12 md:py-16 gap-12 lg:gap-20">
 
       {/* PROFILE CIRCLE */}
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-72 h-72 md:w-80 md:h-80"
+        className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80"
       >
         {/* Glow effect */}
         <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-[80px] animate-pulse"></div>
@@ -50,7 +50,7 @@ export default function Hero() {
         initial={{ x: 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full max-w-lg aspect-video bg-slate-900 rounded-3xl overflow-hidden shadow-2xl group"
+        className="relative w-full max-w-2xl lg:max-w-3xl aspect-video bg-slate-900 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] group"
       >
         <AnimatePresence mode="wait">
           {!isPlaying ? (
@@ -62,28 +62,42 @@ export default function Hero() {
               className="relative w-full h-full cursor-pointer"
               onClick={() => setIsPlaying(true)}
             >
+              {/* YouTube-like Header */}
+              <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/80 to-transparent z-10 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+                  <Image src="/LogoPerfil.jpg" alt="avatar" width={40} height={40} className="object-cover" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white text-sm font-bold truncate">Presentación de Proyectos - Gonzalo Martínez</span>
+                  <span className="text-white/60 text-[10px] uppercase tracking-widest font-bold">Ver ahora</span>
+                </div>
+              </div>
+
               <Image
                 src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                 alt="Video Thumbnail"
                 fill
-                className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
               />
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl"
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-20 h-14 bg-[#FF0000] rounded-2xl flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-[#FF0000]/90"
                 >
-                  <FaPlay className="ml-1" size={20} />
+                  <FaPlay className="ml-1" size={24} />
                 </motion.div>
               </div>
 
               {/* Footer info */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-slate-900/80 backdrop-blur-md flex justify-between items-center border-t border-white/10">
-                <span className="text-white text-xs font-medium">Click para reproducir</span>
-                <FiExternalLink className="text-white" size={16} />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></div>
+                  <span className="text-white text-[10px] font-bold uppercase tracking-widest">Ver en YOUTUBE</span>
+                </div>
+                <FiExternalLink className="text-white opacity-60" size={18} />
               </div>
             </motion.div>
           ) : (
@@ -97,7 +111,7 @@ export default function Hero() {
               <iframe
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&start=4`}
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

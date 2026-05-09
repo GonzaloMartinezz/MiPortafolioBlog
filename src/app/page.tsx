@@ -2,7 +2,6 @@
 import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import Expertise from "@/components/home/Expertise";
-import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
 import { motion } from "framer-motion";
 
@@ -21,16 +20,13 @@ export default function Home() {
       {/* Scroll Animation Section */}
       <HeroScrollDemo />
 
-      {/* Project Spotlight Section */}
-      <ProjectSpotlight />
+      {/* Expertise Section */}
+      <Expertise />
 
       {/* Gallery Section */}
       <div className="bg-slate-50/50 dark:bg-slate-900/20 -mx-4 md:-mx-12 px-4 md:px-12">
         <Projects />
       </div>
-
-      {/* Expertise Section */}
-      <Expertise />
     </div>
   );
-}
+}
