@@ -19,7 +19,7 @@ export function HeroScrollDemo() {
         }
       >
         <Image
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=720&fit=crop"
+          src="/coc&m,.png"
           alt="hero"
           height={720}
           width={1400}

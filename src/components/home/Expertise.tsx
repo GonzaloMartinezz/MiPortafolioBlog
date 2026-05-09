@@ -47,7 +47,7 @@ export default function Expertise() {
                 <TextStaggerHover
                   key={slide.title}
                   index={index}
-                  className="cursor-pointer text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight"
+                  className="cursor-pointer text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 dark:text-white"
                   text={slide.title}
                 />
               ))}

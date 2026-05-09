@@ -31,13 +31,9 @@ export function ThemeAnimator({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  if (!mounted) {
-    return <div className="flex-1 w-full flex flex-col">{children}</div>;
-  }
-
   return (
     <div className="flex-1 w-full flex flex-col">
-      {isChanging && (
+      {mounted && isChanging && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -47,8 +43,8 @@ export function ThemeAnimator({ children }: { children: React.ReactNode }) {
         />
       )}
       <motion.div
-        key={isChanging ? "changing" : "stable"}
-        initial={{ opacity: 0.95 }}
+        key={mounted ? (isChanging ? "changing" : "stable") : "initial"}
+        initial={mounted ? { opacity: 0.95 } : false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
         className="flex-1 w-full flex flex-col"

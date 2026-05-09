@@ -6,7 +6,12 @@
       "Bash(rm -r .next)",
       "Bash(curl -s http://localhost:3002)",
       "Bash(npm install *)",
-      "Bash(curl -s http://localhost:3000/)"
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(rm *)",
+      "Bash(git commit -m 'Configurar dominios de imagen remotos *)"
     ]
   }
 }
