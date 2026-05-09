@@ -1,107 +1,79 @@
-"use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState } from "react";
+"use client"
 
-const skills = [
+import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from "@/components/ui/animated-slideshow"
+
+const SLIDES = [
   {
-    title: "FULL STACK DEVELOPER",
-    description: "Desarrollo completo de aplicaciones web modernas",
-    techs: ["React", "Node.js", "MongoDB", "TypeScript"]
+    id: "slide-1",
+    title: "Full Stack Developer",
+    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "DATA ANALYST",
-    description: "Análisis y visualización de datos complejos",
-    techs: ["Python", "Pandas", "SQL", "Tableau"]
+    id: "slide-2",
+    title: "Data Analyst",
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "REACT DEVELOPER",
-    description: "Creación de interfaces interactivas y dinámicas",
-    techs: ["React", "Next.js", "Tailwind", "Framer Motion"]
+    id: "slide-3",
+    title: "React Developer",
+    imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "BACKEND DEVELOPER",
-    description: "Diseño de APIs y bases de datos robustas",
-    techs: ["Node.js", "Express", "PostgreSQL", "Redis"]
+    id: "slide-4",
+    title: "Backend Developer",
+    imageUrl: "https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "DISEÑADOR WEB",
-    description: "Diseño UI/UX moderno y responsive",
-    techs: ["Figma", "Tailwind CSS", "Web Design"]
-  }
-];
+    id: "slide-5",
+    title: "Web Designer",
+    imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
+  },
+]
 
 export default function Expertise() {
-  const [activeSkill, setActiveSkill] = useState(0);
-
   return (
-    <section className="w-full py-24">
-      <div className="mb-16">
-        <span className="text-blue-600 font-bold text-sm tracking-widest uppercase mb-4 block">/ MI EXPERTISE</span>
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
-          Habilidades y Especialidades
-        </h2>
-      </div>
+    <HoverSlider className="w-full py-12 md:py-20 px-3 sm:px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Slideshow Section */}
+        <div className="mb-12 md:mb-16">
+          <h3 className="mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm md:text-base font-medium uppercase tracking-widest text-blue-600">
+            / Mi Expertise
+          </h3>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Skills List */}
-        <div className="flex flex-col gap-4">
-          {skills.map((skill, index) => (
-            <motion.button
-              key={skill.title}
-              onClick={() => setActiveSkill(index)}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`p-6 rounded-2xl text-left transition-all duration-300 ${
-                activeSkill === index
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25"
-                  : "bg-slate-50 text-slate-900 hover:bg-slate-100"
-              }`}
-            >
-              <h3 className="text-xl font-black tracking-tighter mb-2">{skill.title}</h3>
-              <p className={`text-sm ${activeSkill === index ? "text-blue-100" : "text-slate-600"}`}>
-                {skill.description}
-              </p>
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Detail Card */}
-        <motion.div
-          key={activeSkill}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-          className="relative aspect-[4/5] w-full rounded-[2rem] overflow-hidden shadow-2xl"
-        >
-          <Image
-            src={`https://images.unsplash.com/photo-${
-              [
-                "1555066931-4365d14bab8c",
-                "1517694712202-14dd9538aa97",
-                "1517694712202-14dd9538aa97",
-                "1517694712202-14dd9538aa97",
-                "1561070791-2526d30994b5"
-              ][activeSkill]
-            }?w=800&h=1000&fit=crop`}
-            alt={skills[activeSkill].title}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8">
-            <h3 className="text-white text-2xl font-black mb-4">{skills[activeSkill].title}</h3>
-            <div className="flex flex-wrap gap-2">
-              {skills[activeSkill].techs.map((tech) => (
-                <span key={tech} className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
-                  {tech}
-                </span>
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+            {/* Textos interactivos */}
+            <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-6 w-full lg:w-1/2">
+              {SLIDES.map((slide, index) => (
+                <TextStaggerHover
+                  key={slide.title}
+                  index={index}
+                  className="cursor-pointer text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight"
+                  text={slide.title}
+                />
               ))}
             </div>
+
+            {/* Imágenes con hover */}
+            <div className="w-full lg:w-1/2">
+              <HoverSliderImageWrap className="w-full h-64 sm:h-80 md:h-96 lg:h-full rounded-2xl overflow-hidden shadow-2xl">
+                {SLIDES.map((slide, index) => (
+                  <div key={slide.id}>
+                    <HoverSliderImage
+                      index={index}
+                      imageUrl={slide.imageUrl}
+                      src={slide.imageUrl}
+                      alt={slide.title}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
+              </HoverSliderImageWrap>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
-  );
+    </HoverSlider>
+  )
 }
