@@ -7,6 +7,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ui.aceternity.com',
+      },
     ],
     // Formato moderno para mejor compresión
     formats: ['image/avif', 'image/webp'],
