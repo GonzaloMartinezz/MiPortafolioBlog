@@ -10,7 +10,7 @@ import Tilt from 'react-parallax-tilt';
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
-      <main className="flex-1 w-full pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-12">
+      <div className="flex-1 w-full pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-12">
 
         {/* HEADER */}
         <section className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16 relative z-10">
@@ -65,10 +65,8 @@ export default function BlogPage() {
 
         <section className="max-w-6xl mx-auto px-3 sm:px-4 pb-12 sm:pb-16 md:pb-20 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {blogPosts.map((post, index) => (
-                // CAMBIO: Usamos motion.div en lugar de Reveal para evitar el corte (overflow)
                 <motion.div 
                     key={post.slug}
-                    // Animación de entrada igual a la de Reveal pero sin cortar
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
@@ -88,9 +86,7 @@ export default function BlogPage() {
                             href={`/blog/${post.slug}`}
                             className="group relative flex flex-col h-full bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
                         >
-                            {/* LOGICA DE GRADIENTES */}
                             <div className={`h-48 md:h-64 w-full relative overflow-hidden bg-gradient-to-br ${
-                                // Colores según categoría o palabras clave
                                 (post.category ?? "").includes("Data") ? "from-emerald-500 to-teal-500" :
                                 (post.category ?? "").includes("Emprendimiento") ? "from-pink-500 to-red-500" :
                                 (post.category ?? "").includes("Business") ? "from-amber-500 to-orange-500" :
@@ -99,7 +95,7 @@ export default function BlogPage() {
                                 (post.category ?? "").includes("Fullstack") ? "from-violet-500 to-purple-600" :
                                 (post.category ?? "").includes("Frontend") ? "from-purple-500 to-pink-500" :
                                 (post.category ?? "").includes("Proyectos") ? "from-yellow-400 to-yellow-500" :
-                                "from-slate-700 to-slate-900" // Default
+                                "from-slate-700 to-slate-900"
                             }`}>
                                 <div className="absolute inset-0 opacity-20 bg-[url('/noise.png')]"></div>
                                 
@@ -114,7 +110,6 @@ export default function BlogPage() {
                                 </div>
                             </div>
 
-                            {/* CONTENIDO */}
                             <div className="flex-1 p-8 md:p-10 flex flex-col">
                                 <div className="flex items-center gap-4 text-xs font-bold text-slate-400 mb-4 uppercase tracking-wider">
                                     <span className="flex items-center gap-1"><FaClock /> Caso de Estudio</span>
@@ -143,7 +138,7 @@ export default function BlogPage() {
             ))}
         </section>
 
-      </main>
+      </div>
     </div>
   );
 }

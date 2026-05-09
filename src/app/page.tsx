@@ -1,28 +1,32 @@
+"use client";
 import Hero from "@/components/home/Hero";
-import { HeroSlideshow } from "@/components/home/HeroSlideshow";
 import Projects from "@/components/home/Projects";
+import Expertise from "@/components/home/Expertise";
+import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen justify-between">
-      <main className="flex-1 flex flex-col">
-        {/* Hero Section - Logo + Video */}
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <Hero />
+      </motion.div>
 
-        {/* Slideshow Section */}
-        <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 bg-white border-t border-slate-100">
-          <div className="max-w-6xl mx-auto">
-            <HeroSlideshow />
-          </div>
-        </section>
+      {/* Project Spotlight Section */}
+      <ProjectSpotlight />
 
-        {/* Proyectos Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-slate-50">
-          <div className="max-w-6xl mx-auto">
-            <Projects />
-          </div>
-        </section>
-      </main>
+      {/* Gallery Section */}
+      <div className="bg-slate-50/50 dark:bg-slate-900/20 -mx-4 md:-mx-12 px-4 md:px-12">
+        <Projects />
+      </div>
+
+      {/* Expertise Section */}
+      <Expertise />
     </div>
   );
-}
+}

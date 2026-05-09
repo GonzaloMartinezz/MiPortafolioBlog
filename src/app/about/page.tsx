@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-900">
       
-      <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up">
+      <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up">
         
         {/* 1. ENCABEZADO: INTRODUCCIÓN PERSONAL */}
         <section className="mb-20">
@@ -142,7 +142,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-      </main>
+      </div>
 
       <Footer />
     </div>

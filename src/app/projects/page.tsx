@@ -63,7 +63,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         {/* Galería Interactiva */}
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
           <InteractiveBentoGallery
@@ -73,13 +73,12 @@ export default function ProjectsPage() {
           />
         </section>
 
-        {/* Proyectos Detallados */}
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
             <Projects />
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

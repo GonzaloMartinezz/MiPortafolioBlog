@@ -6,11 +6,12 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-     fontFamily: {
-        sans: ["var(--font-jakarta)", "sans-serif"], 
-        display: ["var(--font-outfit)", "sans-serif"], // Nueva fuente Display
+      fontFamily: {
+        sans: ["var(--font-jakarta)", "sans-serif"],
+        display: ["var(--font-outfit)", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

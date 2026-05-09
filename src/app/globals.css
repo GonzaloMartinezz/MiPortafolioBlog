@@ -92,3 +92,40 @@ body {
   background-color: #2563eb; /* Blue-600 */
   color: white;
 }
+
+/* ANIMACIONES DE CAMBIO DE TEMA */
+@keyframes themeChange {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.98;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+html {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: themeChange 0.6s ease-out;
+}
+
+/* SCROLLBAR OSCURO */
+.dark ::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}

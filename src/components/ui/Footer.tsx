@@ -1,47 +1,27 @@
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-10 px-6 md:px-20 border-t border-slate-200 bg-gradient-to-b from-white to-blue-300">
-      
-      {/* CAMBIO AQUÍ: Se eliminó 'max-w-7xl mx-auto' y se dejó 'w-full' */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+    <footer className="w-full py-12 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8">
 
-        {/* 1. IZQUIERDA: TU MARCA */}
-        <div className="text-center md:text-left">
-           <h3 className="font-display font-black uppercase tracking-tighter text-xl text-slate-900 leading-none">
-             Gonzalo <br /> Martínez
-           </h3>
+        {/* LOGO */}
+        <div className="flex-shrink-0">
+          <h3 className="font-display font-black uppercase tracking-tighter text-lg text-slate-900 dark:text-white leading-none">
+            GONZALO MARTINEZ
+          </h3>
+          <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1">© 2024 Gonzalo Martinez. All rights reserved.</p>
         </div>
 
-        {/* 2. CENTRO: CRÉDITOS Y DATOS */}
-        <div className="text-center flex flex-col gap-2">
-          
-          {/* Línea principal */}
-          <p className="font-mono text-[15px] md:text-lg  font-bold tracking-widest text-slate-900 uppercase">
-            DEVELOPED & DESIGNED BY GONZALO MARTÍNEZ © {new Date().getFullYear()}
-          </p>
-        </div>
-
-        {/* 3. DERECHA: REDES SOCIALES */}
-        <div className="flex gap-4 items-center">
-            {[
-            { icon: FaGithub, link: "https://github.com/GonzaloMartinezz", color: "hover:text-black" },
-            { icon: FaLinkedin, link: "https://www.linkedin.com/in/gonzalomartinezz2004/", color: "hover:text-blue-700" },
-            { icon: FaInstagram, link: "https://www.instagram.com/gonchi_martinezz/", color: "hover:text-pink-600" },
-            ].map((Social, index) => (
-            <a 
-                key={index}
-                href={Social.link} 
-                target="_blank" 
-                className={`text-slate-400 transition-all duration-300 hover:scale-125 ${Social.color}`}
-            >
-                <Social.icon size={30} />
-            </a>
-            ))}
+        {/* SOCIAL LINKS */}
+        <div className="flex gap-8 items-center text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+          <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a>
+          <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Github</a>
+          <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Instagram</a>
+          <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Mail</a>
         </div>
 
       </div>
     </footer>
   );
-}
+}
