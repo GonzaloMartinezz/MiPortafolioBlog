@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <body className={`${jakarta.variable} ${outfit.variable} font-sans bg-white dark:bg-slate-950 text-slate-900 dark:text-white min-h-screen flex flex-col transition-colors duration-500 overflow-x-hidden`}>
+    <html lang="es" suppressHydrationWarning>
+      <body className={`${jakarta.variable} ${outfit.variable} font-sans bg-white text-slate-900 min-h-screen flex flex-col transition-colors duration-500 overflow-x-hidden`}>
         <ThemeProvider>
           <ThemeAnimator>
             {/* Navbar Container */}
-            <div className="w-full max-w-7xl mx-auto px-4 md:px-12 relative z-50">
+            <nav className="w-full max-w-7xl mx-auto px-4 md:px-12 relative z-50">
                 <Navbar />
-            </div>
+            </nav>
 
             {/* Contenido Principal */}
             <main className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 flex-1 w-full">
@@ -35,8 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
             
             {/* Footer Container */}
-            <div className="w-full max-w-7xl mx-auto px-4 md:px-12 relative z-10">
-              <Footer />
+            <div className="w-full border-t border-slate-100 bg-white mt-auto">
+              <footer className="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+                <Footer />
+              </footer>
             </div>
           </ThemeAnimator>
         </ThemeProvider>
@@ -44,4 +46,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-

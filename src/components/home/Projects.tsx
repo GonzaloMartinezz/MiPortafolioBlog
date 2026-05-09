@@ -71,10 +71,10 @@ export default function Projects() {
   return (
     <section className="py-20">
       <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 flex items-center gap-4">
-            <span className="w-2 h-12 bg-blue-600 dark:bg-blue-500 inline-block"></span> GALERÍA DE PROYECTOS
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 flex items-center gap-4">
+            <span className="w-2 h-12 bg-blue-600 inline-block"></span> GALERÍA DE PROYECTOS
         </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">
+        <p className="text-slate-500 text-lg max-w-2xl">
           Trabajos destacados que muestran mi expertise en desarrollo web y análisis de datos, enfocados en soluciones escalables y diseño centrado en el usuario.
         </p>
       </div>
@@ -90,23 +90,23 @@ export default function Projects() {
           <motion.div
             key={index}
             variants={item}
-            className="group relative bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-blue-500/20 transition-all duration-500"
+            className="group relative bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
           >
             <div className="flex justify-between items-start mb-8">
-              <div className="w-12 h-12 bg-blue-50 dark:bg-blue-950 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 dark:group-hover:bg-blue-600 group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                 {project.icon}
               </div>
-              <div className="flex gap-4 text-slate-400 dark:text-slate-500">
-                <FaCode className="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors" />
-                <FaExternalLinkAlt className="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors" size={14} />
+              <div className="flex gap-4 text-slate-400">
+                <FaCode className="hover:text-blue-600 cursor-pointer transition-colors" />
+                <FaExternalLinkAlt className="hover:text-blue-600 cursor-pointer transition-colors" size={14} />
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">
               {project.title}
             </h3>
 
-            <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+            <p className="text-slate-500 leading-relaxed mb-8">
               {project.description}
             </p>
 
@@ -114,7 +114,7 @@ export default function Projects() {
               {project.tags.map((tag) => (
                 <span
                     key={tag}
-                    className="px-3 py-1 text-[10px] font-bold text-blue-600 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 rounded-full"
+                    className="px-3 py-1 text-[10px] font-bold text-blue-600 bg-blue-50 rounded-full"
                 >
                   {tag}
                 </span>

@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import Expertise from "@/components/home/Expertise";
 import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
+import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -16,6 +17,9 @@ export default function Home() {
       >
         <Hero />
       </motion.div>
+
+      {/* Scroll Animation Section */}
+      <HeroScrollDemo />
 
       {/* Project Spotlight Section */}
       <ProjectSpotlight />

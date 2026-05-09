@@ -7,14 +7,14 @@ const skills = [
   "DATA ANALYST",
   "REACT DEVELOPER",
   "BACKEND DEVELOPER",
-  ".NET DEVELOPER",
+  "DISEÑADOR WEB",
 ];
 
 export default function Expertise() {
   return (
     <section className="flex flex-col lg:flex-row items-center justify-between w-full py-24 gap-12">
       <div className="flex-1">
-        <span className="text-blue-600 dark:text-blue-400 font-bold text-sm tracking-widest uppercase mb-4 block">/ MI EXPERTISE</span>
+        <span className="text-blue-600 font-bold text-sm tracking-widest uppercase mb-4 block">/ MI EXPERTISE</span>
         <div className="flex flex-col gap-2">
           {skills.map((skill, index) => (
             <motion.h2
@@ -23,16 +23,15 @@ export default function Expertise() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter ${
-                index === 0 ? "text-slate-900 dark:text-white" : "text-slate-300 dark:text-slate-700"
-              }`}
+              className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter ${index === 0 ? "text-slate-900" : "text-slate-300"
+                }`}
             >
               {skill}
             </motion.h2>
           ))}
         </div>
       </div>
-      
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}

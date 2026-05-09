@@ -12,21 +12,21 @@ export default function Navbar() {
   const linkStyles = (path: string) => `
     text-[10px] sm:text-[11px] font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap
     ${isActive(path)
-      ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
-      : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}
+      ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+      : "text-slate-500 hover:text-slate-900"}
   `;
 
   return (
-    <motion.nav
+    <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full flex items-center justify-between py-6 px-4 md:px-0"
+      className="w-full flex items-center justify-between py-6"
     >
       {/* LOGO */}
       <div className="flex-shrink-0">
         <Link href="/" className="group">
-          <h2 className="font-display text-lg sm:text-xl font-black tracking-tighter uppercase text-slate-900 dark:text-white leading-none">
+          <h2 className="font-display text-lg sm:text-xl font-black tracking-tighter uppercase text-slate-900 leading-none">
             GONZALO MARTINEZ
           </h2>
         </Link>
@@ -42,12 +42,12 @@ export default function Navbar() {
       </div>
 
       {/* ICONOS DERECHA */}
-      <div className="flex gap-4 items-center text-slate-900 dark:text-white">
-        <FaCode className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors" size={18} />
-        <FaUser className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors" size={18} />
-        <FaShareAlt className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors" size={18} />
+      <div className="flex gap-4 items-center text-slate-900">
+        <FaCode className="cursor-pointer hover:text-blue-600 transition-colors" size={18} />
+        <FaUser className="cursor-pointer hover:text-blue-600 transition-colors" size={18} />
+        <FaShareAlt className="cursor-pointer hover:text-blue-600 transition-colors" size={18} />
         <ThemeToggle />
       </div>
-    </motion.nav>
+    </motion.div>
   );
 }

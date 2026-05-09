@@ -47,10 +47,10 @@ export function ProjectSpotlight() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl px-4"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter">
             {current.title}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
             {current.description}
           </p>
 
