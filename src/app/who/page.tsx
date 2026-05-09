@@ -23,7 +23,7 @@ export default function WhoPage() {
         {/* 1. INTRODUCCIÓN */}
         <section className="mb-16 text-center md:text-left relative">
           <Reveal>
-            <h1 className="font-display text-6xl md:text-4xl font-black text-slate-900 dark:text-white mb-4 leading-tight -mt-1">
+            <h1 className="font-display text-6xl md:text-4xl font-black text-slate-900 mb-4 leading-tight -mt-1">
               Código, Analisis de Datos <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                 & Estrategia de Negocios.
@@ -32,7 +32,7 @@ export default function WhoPage() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 max-w-4xl leading-relaxed text-justify md:text-left">
+            <div className="space-y-6 text-lg text-slate-600 max-w-4xl leading-relaxed text-justify md:text-left">
               <p>
                 Soy una persona{" "}
                 <strong>proactiva, comprometida y responsable</strong> en mis
@@ -53,14 +53,14 @@ export default function WhoPage() {
               </p>
 
               <Reveal width="100%" delay={0.1}>
-                <div className="h-full min-h-[250px] flex flex-col bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
-                  <div className="w-14 h-14 bg-blue-50 dark:bg-blue-950 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                <div className="h-full min-h-[250px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+                  <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                     <FaLaptopCode size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
                     FullStack Web Developer
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm flex-1">
+                  <p className="text-slate-500 leading-relaxed text-sm flex-1">
                     Egresado de <strong>Rolling Code School</strong> como Full
                     Stack Developer. Domino el stack <strong>MERN</strong>{" "}
                     (MongoDB, Express, React, Node.js) para construir
@@ -76,14 +76,14 @@ export default function WhoPage() {
               </p>
 
               <Reveal width="100%" delay={0.2}>
-                <div className="h-full min-h-[250px] flex flex-col bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
-                  <div className="w-14 h-14 bg-green-50 dark:bg-green-950 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                <div className="h-full min-h-[250px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+                  <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
                     <FaChartLine size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-green-700 transition-colors">
                     Data Analytics
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm flex-1">
+                  <p className="text-slate-500 leading-relaxed text-sm flex-1">
                     Formado en <strong>CoderHouse</strong>. Me especializo en
                     transformar datos crudos en valor estratégico utilizando{" "}
                     <strong>SQL, Excel y Power BI</strong>.
@@ -97,14 +97,14 @@ export default function WhoPage() {
         {/* 2. PERFIL (Tarjetas Superiores) */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
           <Reveal width="100%" delay={0.3}>
-            <div className="h-full min-h-[350px] flex flex-col bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
-              <div className="w-14 h-14 bg-purple-50 dark:bg-purple-950 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+            <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+              <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
                 <FaUserTie size={28} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-700 transition-colors">
                 Business & Sales
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm flex-1">
+              <p className="text-slate-500 leading-relaxed text-sm flex-1">
                 Formado en la práctica en <strong>Tarjeta Titanio</strong>. Mi
                 perfil combina la <strong>negociación estratégica</strong> con
                 la gestión de clientes B2B.
@@ -113,14 +113,14 @@ export default function WhoPage() {
           </Reveal>
 
           <Reveal width="100%" delay={0.4}>
-            <div className="h-full min-h-[350px] flex flex-col bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
-              <div className="w-14 h-14 bg-orange-50 dark:bg-orange-950 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+            <div className="h-full min-h-[350px] flex flex-col bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2 group">
+              <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
                 <FaBasketballBall size={28} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-orange-700 dark:group-hover:text-orange-400 transition-colors">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-700 transition-colors">
                 Mindset & Basket
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm flex-1">
+              <p className="text-slate-500 leading-relaxed text-sm flex-1">
                 Transformé mi pasión por el básquet en un emprendimiento real.
                 Disciplina y constancia de un atleta de alto rendimiento.
               </p>
@@ -131,7 +131,7 @@ export default function WhoPage() {
         {/* 3. STACK TECNOLÓGICO */}
         <section className="mb-24">
           <Reveal>
-            <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-8">
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">
               Stack Tecnológico
             </h2>
           </Reveal>
@@ -161,18 +161,18 @@ export default function WhoPage() {
         {/* 4. EXPERIENCIA */}
         <section className="mb-32">
           <Reveal>
-            <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
               <FaGraduationCap className="text-blue-600" /> Formación Académica
             </h2>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal width="100%" delay={0.1}>
-              <div className="h-full p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+              <div className="h-full p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                 <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                   2024 - 2026
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-4">
+                <h3 className="text-xl font-bold text-slate-900 mt-4">
                   Desarrollo de Software
                 </h3>
                 <p className="text-slate-500 mt-2">UNSTA</p>
@@ -180,11 +180,11 @@ export default function WhoPage() {
             </Reveal>
 
             <Reveal width="100%" delay={0.2}>
-              <div className="h-full p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+              <div className="h-full p-8 rounded-3xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                 <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
                   2025 - 2026
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-4">
+                <h3 className="text-xl font-bold text-slate-900 mt-4">
                   Backend Architecture
                 </h3>
                 <p className="text-slate-500 mt-2">CoderHouse</p>
