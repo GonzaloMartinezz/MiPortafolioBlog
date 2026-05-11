@@ -13,40 +13,26 @@ interface TimelineItemProps {
 
 const historyData: TimelineItemProps[] = [
   {
-    date: "Dic 2025",
-    title: "Consultorio Dental & Portfolio",
-    role: "Freelance",
-    description: "Desarrollo del backend para un consultorio dental (Node.js/Express) y creación de este portafolio personal optimizado con Next.js.",
-    tech: ["Next.js", "TypeScript", "Tailwind"]
+    date: "Mayo 2025 - Actualidad",
+    title: "Tarjeta Titanio S.A",
+    role: "Desarrollador Full Stack Junior",
+    description: "Analisis , diseño , implementacion , pruebas y documentacion de softwre.",
+    tech: ["Javascript", "React", "Node.js", "MongoDB", "Postman"]
   },
   {
-    date: "Nov 2025",
-    title: "Seminario Informático III",
-    role: "Proyecto Final",
-    description: "Creación de una API RESTful temática de la NBA. Implementación de Docker para contenedores y MongoDB para manejo de datos masivos de jugadores y equipos.",
-    tech: ["Docker", "Node.js", "MongoDB"]
+    date: "Marzo 2024 - Actualidad",
+    title: "Tarjeta Titanio S.A",
+    role: "Data Analitycs",
+    description: "Analisis de datos y propuesta de estrategias de marketing digital.",
+    tech: ["Microsoft Excel", "Power BI", "SQL Server", "Power Query"]
   },
   {
-    date: "Oct 2025",
-    title: "Especialización Backend .NET",
-    role: "Formación Académica",
-    description: "Desarrollo de API 'TurnoMedico' usando C# y Entity Framework. Implementación de patrones de diseño (Repository, DTOs) y documentación con Swagger.",
-    tech: ["C#", ".NET", "SQL Server"]
+    date: "Agosto 2023 - Diciembre 2024",
+    title: "Fundador de Malibu Styless",
+    role: "Emprendedor Autonomo",
+    description: "Emprendedor de tienda online de ropa de hombre,venta de remeras y buzos, relacionado al deporte.",
+    tech: ["E-Commerce", "Pagina Web", "Instagram", "Whatsapp", "Marketing Digital",]
   },
-  {
-    date: "Sep 2025",
-    title: "Gym System Web",
-    role: "Proyecto Personal",
-    description: "Primera aplicación full stack para gestión de gimnasios. Manejo de estados complejos en React y creación de componentes reutilizables.",
-    tech: ["React", "JavaScript", "CSS"]
-  },
-  {
-    date: "2024 - Presente",
-    title: "Empresa de Tarjetas de Crédito",
-    role: "Analista / Administrativo",
-    description: "Análisis de datos y propuestas de estrategias de marketing local. Automatización de procesos internos.",
-    tech: ["Excel", "Data Analysis"]
-  }
 ];
 
 export default function Timeline() {

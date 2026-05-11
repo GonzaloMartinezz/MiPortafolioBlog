@@ -2,6 +2,7 @@
 import { useState, useEffect, ReactNode, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 type HeadingData = {
@@ -52,6 +53,7 @@ export function DynamicIslandTOC({
   children,
   selector = "article h1, article h2, article h3, article h4, .prose h1, .prose h2, .prose h3, .prose h4, [data-toc]",
 }: DynamicIslandTOCProps) {
+  const pathname = usePathname();
   const [headings, setHeadings] = useState<HeadingData[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -98,9 +100,9 @@ export function DynamicIslandTOC({
       setHeadings(validHeadings);
     };
 
-    const timer = setTimeout(getHeadings, 100);
+    const timer = setTimeout(getHeadings, 300);
     return () => clearTimeout(timer);
-  }, [selector]);
+  }, [selector, pathname]);
 
   useEffect(() => {
     const handleScroll = () => {

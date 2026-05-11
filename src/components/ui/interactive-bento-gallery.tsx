@@ -288,7 +288,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
     const [isDragging, setIsDragging] = useState(false);
 
     return (
-        <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-5xl">
+        <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl">
             <div className="mb-6 sm:mb-8 text-center">
                 <motion.h1
                     className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent
@@ -320,7 +320,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                     />
                 ) : (
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 auto-rows-[60px]"
+                        className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 auto-rows-[100px] md:auto-rows-[120px]"
                         initial="hidden"
                         animate="visible"
                         exit="hidden"

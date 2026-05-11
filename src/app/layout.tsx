@@ -5,6 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
+import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
@@ -25,15 +26,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <ThemeAnimator>
             {/* Navbar Container */}
-            <nav className="w-full max-w-7xl mx-auto px-4 md:px-12 relative z-50">
-                <Navbar />
-            </nav>
+            <header className="sticky top-0 w-full max-w-7xl mx-auto px-4 md:px-12 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl">
+              <Navbar />
+            </header>
 
             {/* Contenido Principal */}
             <main className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 flex-1 w-full">
-              {children}
+              <DynamicIslandTOC selector="section h2, article h1, article h2, [data-toc]">
+                {children}
+              </DynamicIslandTOC>
             </main>
-            
+
             {/* Footer Container */}
             <div className="w-full border-t border-slate-100 bg-white mt-auto">
               <footer className="max-w-7xl mx-auto px-4 md:px-12 relative z-10">

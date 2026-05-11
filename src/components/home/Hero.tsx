@@ -10,7 +10,7 @@ export default function Hero() {
   const videoId = "gH62-RxyEh8";
 
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between w-full py-12 md:py-16 gap-12 lg:gap-20">
+    <section className="flex flex-col lg:flex-row items-center justify-between w-full py-6 md:py-10 gap-8 lg:gap-12">
 
       {/* PROFILE CIRCLE */}
       <motion.div

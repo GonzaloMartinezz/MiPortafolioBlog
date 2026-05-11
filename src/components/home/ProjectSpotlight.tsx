@@ -105,7 +105,7 @@ export function ProjectSpotlight() {
                   src={current.image}
                   alt={current.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>

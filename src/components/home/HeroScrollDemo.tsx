@@ -5,14 +5,14 @@ import Image from "next/image";
 
 export function HeroScrollDemo() {
   return (
-    <div className="flex flex-col overflow-hidden py-100 md:py-16 lg:pt-200">
+    <div className="flex flex-col overflow-hidden py-4 md:py-8">
       <ContainerScroll
         titleComponent={
           <>
             <h1 className="text-4xl font-semibold text-slate-900">
-              Lleva tus proyectos al <br />
+              Mejoramos tu negocio con <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-blue-600">
-                Siguiente Nivel
+                software a medida
               </span>
             </h1>
           </>

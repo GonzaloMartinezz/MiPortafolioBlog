@@ -86,7 +86,7 @@ export default function ProjectsPage() {
 
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
-            <Projects />
+            <Projects title="OTROS PROYECTOS" />
           </div>
         </section>
       </div>

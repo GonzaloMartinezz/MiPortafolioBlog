@@ -14,7 +14,7 @@ export default function AboutPage() {
         
         {/* 1. ENCABEZADO: INTRODUCCIÓN PERSONAL */}
         <section className="mb-20">
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-slate-100 mb-8 leading-tight">
+          <h1 data-toc data-toc-title="Sobre Mí" className="font-display text-4xl md:text-6xl font-bold text-slate-100 mb-8 leading-tight">
             Más que código: <br />
             <span className="text-blue-500">Datos, Familia y Basket.</span>
           </h1>
@@ -53,7 +53,7 @@ export default function AboutPage() {
 
         {/* 2. TECH STACK (Visual) */}
         <section className="mb-20">
-            <h2 className="font-display text-2xl font-bold text-slate-100 mb-8 border-b border-slate-800 pb-2">
+            <h2 data-toc data-toc-title="Stack Tecnológico" className="font-display text-2xl font-bold text-slate-100 mb-8 border-b border-slate-800 pb-2">
                 Arsenal Tecnológico
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -67,7 +67,7 @@ export default function AboutPage() {
 
         {/* 3. MI CAMINO (Timeline Detallado) */}
         <section>
-          <h2 className="font-display text-2xl font-bold text-slate-100 mb-10 border-b border-slate-800 pb-2">
+          <h2 data-toc data-toc-title="Trayectoria" className="font-display text-2xl font-bold text-slate-100 mb-10 border-b border-slate-800 pb-2">
             Trayectoria
           </h2>
           

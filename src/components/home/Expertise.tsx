@@ -5,40 +5,32 @@ import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover }
 const SLIDES = [
   {
     id: "slide-1",
-    title: "Full Stack Developer",
-    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80",
+    title: "Frontend Developer",
+    imageUrl: "/GoStats.png",
   },
   {
     id: "slide-2",
-    title: "Data Analyst",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "slide-3",
-    title: "React Developer",
-    imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "slide-4",
     title: "Backend Developer",
     imageUrl: "https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?w=800&auto=format&fit=crop&q=80",
   },
   {
-    id: "slide-5",
+    id: "slide-3",
+    title: "Data Analyst",
+    imageUrl: "/BolsaTrabajo.png",
+  },
+  {
+    id: "slide-4",
     title: "Web Designer",
-    imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&auto=format&fit=crop&q=80",
   },
 ]
 
 export default function Expertise() {
   return (
-    <HoverSlider className="w-full py-12 md:py-20 px-3 sm:px-4 md:px-6">
+    <HoverSlider className="w-full py-8 md:py-12 px-3 sm:px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Slideshow Section */}
-        <div className="mb-12 md:mb-16">
-          <h3 className="mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm md:text-base font-medium uppercase tracking-widest text-blue-600">
-            / Mi Expertise
-          </h3>
+        <div className="mb-8 md:mb-10">
 
           <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
             {/* Textos interactivos */}
