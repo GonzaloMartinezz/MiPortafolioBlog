@@ -26,13 +26,13 @@ function CircleProgress({ percentage }: { percentage: number }) {
 
   return (
     <svg width={size} height={size} className="-rotate-90 shrink-0">
-      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth={strokeWidth} />
+      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="currentColor" className="opacity-20" strokeWidth={strokeWidth} />
       <motion.circle
         cx={size / 2}
         cy={size / 2}
         r={radius}
         fill="none"
-        stroke="rgb(0,0,0)"
+        stroke="currentColor"
         strokeWidth={strokeWidth}
         strokeDasharray={circumference}
         initial={{ strokeDashoffset: circumference }}
@@ -173,8 +173,8 @@ export function DynamicIslandTOC({
             borderRadius: isExpanded ? 24 : 26,
           }}
           transition={islandTransition}
-          style={{ cursor: isExpanded ? "default" : "pointer" }}
-          className="relative overflow-hidden border border-black/20 dark:border-white/20 bg-white dark:bg-slate-900 text-black dark:text-white shadow-2xl"
+          style={{ cursor: isExpanded ? "default" : "pointer", maxWidth: "calc(100vw - 32px)" }}
+          className="relative overflow-hidden border border-black/10 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl text-black dark:text-white shadow-2xl"
         >
           <motion.div
             initial={false}
@@ -186,7 +186,7 @@ export function DynamicIslandTOC({
             transition={{ ...islandTransition, delay: isExpanded ? 0 : 0.1 }}
             className={cn("absolute inset-0 flex items-center gap-4 px-4 sm:px-5", isExpanded && "pointer-events-none")}
           >
-            <div className="h-2 w-2 shrink-0 rounded-full bg-black" />
+            <div className="h-2 w-2 shrink-0 rounded-full bg-black dark:bg-white opacity-80" />
 
             <div className="relative flex h-full flex-1 items-center overflow-hidden text-left">
               <AnimatePresence mode="popLayout" initial={false}>
@@ -267,7 +267,7 @@ export function DynamicIslandTOC({
                         initial={false}
                         animate={{ scale: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="ml-3 h-1.5 w-1.5 shrink-0 rounded-full bg-black"
+                        className="ml-3 h-1.5 w-1.5 shrink-0 rounded-full bg-black dark:bg-white"
                       />
                     </button>
                   );

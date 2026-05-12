@@ -154,8 +154,8 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-50 md:hidden"
           >
-            {/* Solid Background */}
-            <div className="absolute inset-0 bg-white dark:bg-slate-950" />
+            {/* Solid Background with Glassmorphism */}
+            <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-3xl" />
 
             {/* Content Container */}
             <div className="relative z-10 flex flex-col h-full">

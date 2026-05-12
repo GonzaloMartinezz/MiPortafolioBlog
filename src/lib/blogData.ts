@@ -86,5 +86,23 @@ export const blogPosts: BlogPost[] = [
     category: "Fullstack",
     role: "Fullstack Developer",
     technologies: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"]
+  },
+  {
+    id: "5",
+    slug: "ClickHouse",
+    title: "Plataforma integral para la gestión deportiva de un club.",
+    excerpt: "Plataforma integral diseñada para optimizar la gestión deportiva de un club, integrando módulos de Venta de entradas, Gestión de Socios, Finanzas y Análisis de Datos.",
+    subtitle: "Solución completa de gestión deportiva con análisis de datos en tiempo real.",
+    content: {
+      challenge: "Desarrollar una solución robusta que automatizar los procesos críticos de un club (Ventas, Stock, Finanzas) y proporcionara inteligencia de negocios (BI) para la toma de decisiones.",
+      solution: "Creación de una arquitectura escalable con Backend en .NET Core y Frontend en React. Implementación de un Data Warehouse y paneles interactivos en Power BI.",
+      results: "Reducción del 30% en errores manuales, visibilidad total del rendimiento del negocio y mejora significativa en la toma de decisiones estratégicas."
+    },
+    date: "2026-05-05",
+    tags: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"],
+    author: "Gonzalo Martínez",
+    category: "Fullstack",
+    role: "Fullstack Developer",
+    technologies: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"]
   }
 ];

@@ -85,9 +85,14 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[20rem] md:h-[30rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="max-w-5xl -mt-12 mx-auto h-[24rem] md:h-[42rem] w-full border-[8px] md:border-[14px] border-[#1e1e1e] p-1 md:p-2 bg-[#1e1e1e] rounded-[24px] md:rounded-[36px] shadow-2xl relative"
     >
-      <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
+      {/* Camera Dot */}
+      <div className="absolute top-1 md:top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-black flex items-center justify-center z-10">
+        <div className="w-[1px] h-[1px] md:w-[3px] md:h-[3px] rounded-full bg-blue-500/30" />
+      </div>
+
+      <div className="h-full w-full overflow-hidden rounded-xl md:rounded-[20px] bg-gray-100 dark:bg-zinc-900 border border-white/10 relative">
         {children}
       </div>
     </motion.div>

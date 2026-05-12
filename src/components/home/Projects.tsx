@@ -38,7 +38,7 @@ const projects: Project[] = [
     description: "ClickHouse es un sistema de gestión de bases de datos analíticas OLAP (Online Analytical Processing) de código abierto, diseñado para el procesamiento de grandes volúmenes de datos en tiempo real.",
     year: "2026",
     link: "https://app-clickhouse.vercel.app/",
-    image: "/clickhouse.png",
+    image: "/ClickHouse.png",
   },
 ]
 

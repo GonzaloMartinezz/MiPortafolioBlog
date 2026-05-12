@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       title: "Tarjeta Titanio",
       desc: "Plataforma premium de gestión de tarjetas de crédito",
       url: "/TT.png",
-      span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
       links: "https://tarjetatitanio.vercel.app/",
     },
     {
@@ -37,7 +37,7 @@ export default function ProjectsPage() {
       title: "Club Belgrano CyD",
       desc: "Plataforma para club deportivo de Tucumán",
       url: "/CB.png",
-      span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
       links: "https://app-club-belgranocyd.vercel.app/",
     },
     {
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
       title: "ClickHouse",
       desc: "Plataforma inmobiliaria para departamentos",
       url: "/ClickHouse.png",
-      span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
       links: "https://app-clickhouse.vercel.app/",
     },
     {
@@ -82,7 +82,16 @@ export default function ProjectsPage() {
         </section>
 
         {/* Project Spotlight Section */}
-        <ProjectSpotlight />
+        <ProjectSpotlight 
+          projects={projectGalleryItems.map((item) => ({
+            id: item.id,
+            title: item.title,
+            description: item.desc,
+            image: item.url,
+            demoLink: item.links,
+            codeLink: "#", // Assuming code link isn't in gallery items yet
+          }))}
+        />
 
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
