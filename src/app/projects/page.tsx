@@ -1,103 +1,95 @@
 import Projects from "@/components/home/Projects";
 import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
 import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Proyectos | Gonzalo Martínez",
+  description: "Explora mi portafolio de proyectos: aplicaciones web, plataformas de gestión, e-commerce y herramientas de análisis de datos.",
+};
 
 export default function ProjectsPage() {
   const projectGalleryItems = [
     {
       id: 1,
       type: "image",
-      title: "Centro Odontológico C&M",
-      desc: "Sistema de gestión dental con citas y historias clínicas",
-      url: "/coc&m.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://app-consultorio-odontologico.vercel.app/",
+      title: "Apex Analytics Platform",
+      desc: "Traducir datos complejos en información procesable para usuarios empresariales.",
+      url: "/GoStats.png",
+      span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+      links: "https://app-gostats.vercel.app/",
+      tags: ["SaaS", "Visualización de datos", "UI/UX"],
     },
     {
       id: 2,
       type: "image",
-      title: "Tarjeta Titanio",
-      desc: "Plataforma premium de gestión de tarjetas de crédito",
-      url: "/TT.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://tarjetatitanio.vercel.app/",
+      title: "Malibu Styless",
+      desc: "E-commerce de indumentaria deportiva con catálogo y pagos.",
+      url: "/MS.png",
+      span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
+      links: "https://malibustyle.vercel.app/",
+      tags: ["E-commerce", "Desarrollo Web"],
     },
     {
       id: 3,
       type: "image",
-      title: "MalibuStyle",
-      desc: "E-commerce de indumentaria deportiva con Stripe",
-      url: "/MS.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://malibustyle.vercel.app/",
+      title: "Centro Odontológico",
+      desc: "Sitio web institucional para clínica odontológica.",
+      url: "/coc&m.png",
+      span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
+      links: "https://app-consultorio-odontologico.vercel.app/",
+      tags: ["Desarrollo Web"],
     },
     {
       id: 4,
       type: "image",
-      title: "Club Belgrano CyD",
-      desc: "Plataforma para club deportivo de Tucumán",
-      url: "/CB.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://app-club-belgranocyd.vercel.app/",
+      title: "Portal de Propiedades",
+      desc: "Plataforma móvil para búsqueda y listado de inmuebles.",
+      url: "/ClickHouse.png",
+      span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
+      links: "https://app-clickhouse.vercel.app/",
+      tags: ["Aplicación Móvil", "UI/UX"],
     },
     {
       id: 5,
       type: "image",
-      title: "GOstats",
-      desc: "Gestor financiero con análisis de gastos",
-      url: "/GoStats.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://app-gostats.vercel.app/",
-    },
-    {
-      id: 6,
-      type: "image",
-      title: "ClickHouse",
-      desc: "Plataforma inmobiliaria para departamentos",
-      url: "/ClickHouse.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://app-clickhouse.vercel.app/",
-    },
-    {
-      id: 7,
-      type: "image",
-      title: "NutriAppGO",
-      desc: "Plataforma para nutricionistas y clientes",
-      url: "/NutriApp.png",
-      span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-      links: "https://nutriappgo.vercel.app/",
+      title: "Cultura de Basket",
+      desc: "Plataforma institucional para club deportivo.",
+      url: "/CB.png",
+      span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
+      links: "https://app-club-belgranocyd.vercel.app/",
+      tags: ["Desarrollo Web"],
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-        {/* Galería Interactiva */}
+        {/* Gallery Section */}
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
           <InteractiveBentoGallery
             mediaItems={projectGalleryItems}
             title="Galería de Proyectos"
-            description="Explora y descubre mis proyectos destacados"
+            description="Explora mi portafolio completo de soluciones digitales"
           />
         </section>
 
-        {/* Project Spotlight Section */}
-        <ProjectSpotlight 
+        {/* Project Spotlight */}
+        <ProjectSpotlight
           projects={projectGalleryItems.map((item) => ({
             id: item.id,
             title: item.title,
             description: item.desc,
             image: item.url,
             demoLink: item.links,
-            codeLink: "#", // Assuming code link isn't in gallery items yet
+            codeLink: "#",
           }))}
         />
 
-        <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
-          <div className="max-w-6xl mx-auto">
-            <Projects title="OTROS PROYECTOS" />
-          </div>
-        </section>
+        {/* Other Projects */}
+        <div className="mt-10">
+          <Projects title="MÁS PROYECTOS" />
+        </div>
       </div>
     </div>
   );

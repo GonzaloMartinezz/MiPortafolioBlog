@@ -32,6 +32,11 @@ const nextConfig = {
   // Sin source maps en producción (más rápido)
   productionBrowserSourceMaps: false,
 
+  // Turbopack para compilación más rápida en dev
+  experimental: {
+    optimizePackageImports: ['react-icons', 'framer-motion', 'lucide-react'],
+  },
+
   // Headers para caché
   async headers() {
     return [

@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from "react"
+import React from "react"
 import { ArrowUpRight } from "lucide-react"
+import { motion } from "framer-motion"
 
 interface Project {
   title: string
@@ -9,221 +10,155 @@ interface Project {
   year: string
   link: string
   image: string
+  tags?: string[]
 }
 
 const projects: Project[] = [
   {
     title: "Centro Odontológico C&M",
-    description: "Sistema integral de gestión para consultorio dental. Citas online, historias clínicas digitales, seguimiento de pacientes y agenda integrada.",
+    description: "Plataforma integral para gestión odontológica: agenda inteligente de turnos, historias clínicas digitales, seguimiento de tratamientos y panel administrativo completo.",
     year: "2026",
     link: "https://app-consultorio-odontologico.vercel.app/",
     image: "/coc&m.png",
+    tags: ["React", "Node.js", "MongoDB"],
   },
   {
     title: "Tarjeta Titanio",
-    description: "Plataforma de gestión de tarjetas de crédito premium. Control de transacciones en tiempo real, límites de crédito dinámicos y portal de beneficios exclusivos.",
+    description: "Sistema financiero premium para gestión de tarjetas de crédito: monitoreo de transacciones en tiempo real, control de límites dinámicos y portal exclusivo de beneficios.",
     year: "2025",
     link: "https://tarjetatitanio.vercel.app/",
     image: "/TT.png",
+    tags: ["Next.js", "TypeScript", "Stripe"],
   },
   {
     title: "Malibu Styless",
-    description: "Emprendimiento personal dedicado a la venta de indumentaria deportiva con enfoque en calidad y diseño innovador.",
+    description: "E-commerce de indumentaria deportiva con catálogo interactivo, carrito de compras optimizado, integración con pasarela de pagos y gestión de inventario.",
     year: "2024",
     link: "https://app-malibu-style.vercel.app/",
     image: "/MS.png",
+    tags: ["React", "Firebase", "Tailwind"],
   },
   {
     title: "ClickHouse",
-    description: "ClickHouse es un sistema de gestión de bases de datos analíticas OLAP (Online Analytical Processing) de código abierto, diseñado para el procesamiento de grandes volúmenes de datos en tiempo real.",
+    description: "Plataforma inmobiliaria con búsqueda avanzada de propiedades, filtros inteligentes, galería interactiva y sistema de contacto directo con propietarios.",
     year: "2026",
     link: "https://app-clickhouse.vercel.app/",
     image: "/ClickHouse.png",
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
   },
 ]
 
-export default function Projects({ title = "PROYECTOS DESTACADOS" }: { title?: string }) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const animationRef = useRef<number | null>(null)
+interface ProjectsProps {
+  title?: string
+}
 
-  useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) => {
-      return start + (end - start) * factor
-    }
-
-    const animate = () => {
-      setSmoothPosition((prev) => ({
-        x: lerp(prev.x, mousePosition.x, 0.15),
-        y: lerp(prev.y, mousePosition.y, 0.15),
-      }))
-      animationRef.current = requestAnimationFrame(animate)
-    }
-
-    animationRef.current = requestAnimationFrame(animate)
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
-      }
-    }
-  }, [mousePosition])
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      })
-    }
-  }
-
-  const handleMouseEnter = (index: number) => {
-    setHoveredIndex(index)
-    setIsVisible(true)
-  }
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null)
-    setIsVisible(false)
-  }
-
+export default function Projects({ title = "Galería de Proyectos" }: ProjectsProps) {
   return (
-    <section ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-16">
-      <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 flex items-center gap-4">
-          <span className="w-2 h-12 bg-blue-600 inline-block"></span>{title}
-        </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">
-          Trabajos destacados que muestran mi expertise en desarrollo web y análisis de datos.
-        </p>
-      </div>
-
-      {/* Floating Image Preview (Desktop only) */}
-      <div
-        className="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl hidden md:block"
-        style={{
-          left: containerRef.current?.getBoundingClientRect().left ?? 0,
-          top: containerRef.current?.getBoundingClientRect().top ?? 0,
-          transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
-          opacity: isVisible ? 1 : 0,
-          scale: isVisible ? 1 : 0.8,
-          transition: "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
+    <section className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-16 md:py-24 overflow-hidden">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mb-24 text-center flex flex-col items-center"
       >
-        <div className="relative w-[320px] h-[200px] bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden">
-          {projects.map((project, index) => (
-            <img
-              key={project.title}
-              src={project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
-              style={{
-                opacity: hoveredIndex === index ? 1 : 0,
-                scale: hoveredIndex === index ? 1 : 1.1,
-                filter: hoveredIndex === index ? "none" : "blur(10px)",
-              }}
-            />
-          ))}
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 dark:from-black/40 to-transparent" />
-        </div>
-      </div>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+          {title}
+        </h2>
+        <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+          Explora mi portafolio completo de soluciones digitales a pantalla completa.
+        </p>
+      </motion.div>
 
-      <div className="space-y-0 mt-8">
+      {/* Vertical Stack Layout */}
+      <div className="flex flex-col">
         {projects.map((project, index) => (
-          <a
-            key={project.title}
-            href={project.link}
-            target={project.link.startsWith("http") ? "_blank" : "_self"}
-            rel="noopener noreferrer"
-            className="group block"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="relative py-6 md:py-8 border-t border-slate-200 dark:border-slate-800 transition-all duration-300 ease-out">
-              {/* Background highlight on hover */}
-              <div
-                className={`
-                  absolute inset-0 -mx-4 px-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg
-                  transition-all duration-300 ease-out
-                  ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
-                `}
-              />
-
-              <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div className="flex-1 min-w-0 pr-4">
-                  {/* Title with animated underline */}
-                  <div className="inline-flex items-center gap-2 mb-2">
-                    <h3 className="text-slate-900 dark:text-white font-bold text-xl md:text-2xl tracking-tight">
-                      <span className="relative">
-                        {project.title}
-                        {/* Animated underline */}
-                        <span
-                          className={`
-                            absolute left-0 -bottom-1 h-0.5 bg-blue-600
-                            transition-all duration-300 ease-out
-                            ${hoveredIndex === index ? "w-full" : "w-0"}
-                          `}
-                        />
-                      </span>
-                    </h3>
-
-                    {/* Arrow that slides in */}
-                    <ArrowUpRight
-                      className={`
-                        w-5 h-5 text-blue-600
-                        transition-all duration-300 ease-out
-                        ${hoveredIndex === index
-                          ? "opacity-100 translate-x-0 translate-y-0"
-                          : "opacity-0 -translate-x-4 translate-y-4 hidden md:block"
-                        }
-                      `}
-                    />
+          <React.Fragment key={project.title}>
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col items-center max-w-5xl xl:max-w-6xl mx-auto w-full group/project"
+            >
+              {/* Contenedor de la Imagen Superior */}
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200/80 dark:border-white/10 group-hover/project:border-blue-500/50 transition-all duration-700 mb-12 lg:mb-16 bg-slate-100 dark:bg-slate-900">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain transition-transform duration-[1.5s] ease-out"
+                />
+                {/* Gradiente oscuro que aparece en hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover/project:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                
+                {/* Badge de año estilo Glassmorphism flotante */}
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 translate-y-8 opacity-0 group-hover/project:translate-y-0 group-hover/project:opacity-100 transition-all duration-500 delay-100">
+                  <div className="px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold tracking-widest shadow-2xl flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    {project.year}
                   </div>
-
-                  {/* Description with fade effect */}
-                  <p
-                    className={`
-                      text-sm md:text-base leading-relaxed
-                      transition-all duration-300 ease-out
-                      ${hoveredIndex === index ? "text-slate-600 dark:text-slate-300" : "text-slate-500 dark:text-slate-400"}
-                    `}
-                  >
-                    {project.description}
-                  </p>
                 </div>
-
-                {/* Mobile Image (Visible only on small screens) */}
-                <div className="w-full h-48 md:hidden mt-4 rounded-xl overflow-hidden relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Year badge */}
-                <span
-                  className={`
-                    text-sm font-mono font-medium tracking-wider tabular-nums mt-4 md:mt-0
-                    transition-all duration-300 ease-out
-                    ${hoveredIndex === index ? "text-blue-600" : "text-slate-400 dark:text-slate-500"}
-                  `}
-                >
-                  {project.year}
-                </span>
               </div>
-            </div>
-          </a>
-        ))}
 
-        {/* Bottom border for last item */}
-        <div className="border-t border-slate-200 dark:border-slate-800" />
+              {/* Contenedor de la Descripción (Centrada debajo) */}
+              <div className="flex flex-col items-center text-center max-w-4xl relative">
+                {/* Número Gigante de Fondo (Watermark Centrado) */}
+                <div className="absolute -z-10 top-0 left-1/2 -translate-x-1/2 -translate-y-[40%] text-[150px] md:text-[250px] font-black text-slate-100 dark:text-white/[0.03] select-none pointer-events-none transition-transform duration-1000 group-hover/project:scale-110">
+                  0{index + 1}
+                </div>
+
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter transition-colors duration-500 group-hover/project:text-blue-600 dark:group-hover/project:text-blue-400">
+                  {project.title}
+                </h3>
+                
+                <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg lg:text-xl leading-relaxed mb-10 transition-colors duration-500 group-hover/project:text-slate-800 dark:group-hover/project:text-slate-300">
+                  {project.description}
+                </p>
+
+                {/* Etiquetas interactivas */}
+                <div className="flex flex-wrap gap-3 mb-12 justify-center">
+                  {project.tags?.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-xs font-bold tracking-widest uppercase border border-slate-200 dark:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600 hover:text-white hover:border-blue-600 dark:hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20 cursor-default"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Botón de Acción Elegante */}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn inline-flex items-center justify-center gap-4 px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold transition-all duration-300 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(255,255,255,0.05)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)]"
+                >
+                  <span className="text-sm tracking-widest uppercase">Explorar Proyecto</span>
+                  <div className="w-8 h-8 rounded-full bg-white/20 dark:bg-black/10 flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-2 group-hover/btn:bg-white/30 dark:group-hover/btn:bg-black/20">
+                    <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-45" />
+                  </div>
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Separador de línea con efecto de scroll (Ocultar en el último elemento) */}
+            {index !== projects.length - 1 && (
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                whileInView={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent my-24 md:my-32 origin-center relative flex items-center justify-center"
+              >
+                {/* Glow brillante en el centro de la línea */}
+                <div className="absolute w-24 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-80 blur-[2px]" />
+                <div className="absolute w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.9)]" />
+              </motion.div>
+            )}
+          </React.Fragment>
+        ))}
       </div>
     </section>
   )

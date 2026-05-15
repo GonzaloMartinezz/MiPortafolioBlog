@@ -160,7 +160,7 @@ export function DynamicIslandTOC({
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="fixed bottom-[30px] left-1/2 z-[9999] flex -translate-x-1/2 flex-col items-center"
+        className="fixed bottom-[20px] md:bottom-[30px] right-[20px] md:right-[30px] z-[9999] flex flex-col items-end"
       >
         <motion.div
           onClick={() => {
@@ -168,13 +168,13 @@ export function DynamicIslandTOC({
           }}
           initial={false}
           animate={{
-            width: isExpanded ? 340 : 280,
-            height: isExpanded ? 400 : 52,
-            borderRadius: isExpanded ? 24 : 26,
+            width: isExpanded ? (typeof window !== 'undefined' && window.innerWidth < 400 ? window.innerWidth - 40 : 340) : 220,
+            height: isExpanded ? 400 : 48,
+            borderRadius: isExpanded ? 24 : 24,
           }}
           transition={islandTransition}
-          style={{ cursor: isExpanded ? "default" : "pointer", maxWidth: "calc(100vw - 32px)" }}
-          className="relative overflow-hidden border border-black/10 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl text-black dark:text-white shadow-2xl"
+          style={{ cursor: isExpanded ? "default" : "pointer" }}
+          className="relative overflow-hidden border border-black/10 dark:border-white/10 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl text-black dark:text-white shadow-2xl origin-bottom-right"
         >
           <motion.div
             initial={false}
@@ -186,7 +186,7 @@ export function DynamicIslandTOC({
             transition={{ ...islandTransition, delay: isExpanded ? 0 : 0.1 }}
             className={cn("absolute inset-0 flex items-center gap-4 px-4 sm:px-5", isExpanded && "pointer-events-none")}
           >
-            <div className="h-2 w-2 shrink-0 rounded-full bg-black dark:bg-white opacity-80" />
+            <div className={cn("h-2 w-2 shrink-0 rounded-full", activeId ? "bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)] animate-pulse" : "bg-black/50 dark:bg-white/50")} />
 
             <div className="relative flex h-full flex-1 items-center overflow-hidden text-left">
               <AnimatePresence mode="popLayout" initial={false}>

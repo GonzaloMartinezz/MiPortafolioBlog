@@ -18,13 +18,15 @@ export default function Home() {
       </motion.div>
 
       {/* Scroll Animation Section */}
-      <HeroScrollDemo />
+      <div className="section-divider mt-12 md:mt-10">
+        <HeroScrollDemo />
+      </div>
 
       {/* Expertise Section */}
       <Expertise />
 
-      {/* Gallery Section */}
-      <div className="bg-slate-50/50 dark:bg-slate-900/20 -mx-4 md:-mx-12 px-4 md:px-12">
+      {/* Featured Projects Section */}
+      <div className="bg-gradient-to-b from-slate-50/80 via-slate-50/50 to-transparent dark:from-slate-900/30 dark:via-slate-900/20 dark:to-transparent -mx-4 sm:-mx-6 md:-mx-12 px-4 sm:px-6 md:px-12 py-4">
         <Projects />
       </div>
     </div>

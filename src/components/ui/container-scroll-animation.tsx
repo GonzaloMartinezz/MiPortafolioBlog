@@ -12,6 +12,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start end", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -27,22 +28,23 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [0.65, 0.85] : [1.05, 1];
   };
 
+  // Slower, smoother animation — mapped to the full scroll range
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="h-[40rem] md:h-[55rem] flex items-center justify-center relative p-2 md:p-10"
+      className="h-[40rem] sm:h-[55rem] md:h-[80rem] flex items-center justify-center relative p-2 sm:p-6 md:p-10"
       ref={containerRef}
     >
       <div
-        className="py-6 md:py-16 w-full relative"
+        className="py-10 md:py-20 w-full relative"
         style={{
-          perspective: "1000px",
+          perspective: "1200px",
         }}
       >
         <Header translate={translate} titleComponent={titleComponent} />
@@ -60,7 +62,7 @@ export const Header = ({ translate, titleComponent }: any) => {
       style={{
         translateY: translate,
       }}
-      className="div max-w-5xl mx-auto text-center"
+      className="div max-w-7xl mx-auto text-center px-4 mb-6 md:mb-10"
     >
       {titleComponent}
     </motion.div>
@@ -82,10 +84,8 @@ export const Card = ({
       style={{
         rotateX: rotate,
         scale,
-        boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[24rem] md:h-[42rem] w-full border-[8px] md:border-[14px] border-[#1e1e1e] p-1 md:p-2 bg-[#1e1e1e] rounded-[24px] md:rounded-[36px] shadow-2xl relative"
+      className="max-w-7xl -mt-4 sm:-mt-8 mx-auto h-[20rem] sm:h-[32rem] md:h-[56rem] w-full border-[6px] sm:border-[8px] md:border-[14px] border-[#1e1e1e] p-1 md:p-2 bg-[#1e1e1e] rounded-[16px] sm:rounded-[24px] md:rounded-[36px] relative"
     >
       {/* Camera Dot */}
       <div className="absolute top-1 md:top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-black flex items-center justify-center z-10">

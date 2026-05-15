@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -7,41 +7,65 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
 import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Home | Portfolio",
-  description: "Desarrollador Full Stack y Analista de Datos",
-  // SOLUCIÓN AL ERROR DEL FAVICON 404:
+  metadataBase: new URL("https://gonzalomartinez.dev"),
+  title: "Gonzalo Martínez — Full Stack Developer & Data Analyst",
+  description:
+    "Portafolio de Gonzalo Martínez: Desarrollo web Full Stack, análisis de datos y soluciones digitales de alto impacto desde Tucumán, Argentina.",
   icons: {
-    icon: "/LogoPerfil.jpg", // Asegúrate de que esta imagen esté en la carpeta public
+    icon: "/LogoPerfil.jpg",
+  },
+  openGraph: {
+    title: "Gonzalo Martínez — Full Stack Developer & Data Analyst",
+    description:
+      "Desarrollo web Full Stack, análisis de datos y soluciones digitales de alto impacto.",
+    type: "website",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${jakarta.variable} ${outfit.variable} font-sans bg-white text-slate-900 min-h-screen flex flex-col transition-colors duration-500 overflow-x-hidden`}>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-500 overflow-x-hidden antialiased`}
+      >
         <ThemeProvider>
           <ThemeAnimator>
-            {/* Navbar Container */}
-            <header className="sticky top-0 w-full max-w-7xl mx-auto px-4 md:px-12 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl">
-              <Navbar />
-            </header>
+            {/* Navbar */}
+            <div className="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-100/50 dark:border-slate-800/50">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+                <Navbar />
+              </div>
+            </div>
 
-            {/* Contenido Principal */}
-            <main className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 flex-1 w-full">
+            {/* Main Content */}
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 flex-1 w-full">
               <DynamicIslandTOC selector="section h2, article h1, article h2, [data-toc]">
                 {children}
               </DynamicIslandTOC>
             </main>
 
-            {/* Footer Container */}
-            <div className="w-full border-t border-slate-100 bg-white mt-auto">
-              <footer className="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+            {/* Footer */}
+            <div className="w-full border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 mt-auto">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
                 <Footer />
-              </footer>
+              </div>
             </div>
           </ThemeAnimator>
         </ThemeProvider>

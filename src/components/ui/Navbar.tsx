@@ -5,13 +5,13 @@ import { FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "./ThemeToggle";
+import ThemeSwitch from "./theme-switch";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Inicio" },
   { href: "/projects", label: "Proyectos" },
-  { href: "/who", label: "Quién soy" },
+  { href: "/who", label: "Sobre mí" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contacto" },
 ];
@@ -47,30 +47,31 @@ export default function Navbar() {
   const linkStyles = (path: string) => `
     relative text-[11px] sm:text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap py-1
     ${isActive(path)
-      ? "text-blue-600"
-      : "text-slate-500 hover:text-slate-900 dark:hover:text-white"}
+      ? "text-blue-600 dark:text-blue-400"
+      : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}
   `;
 
   return (
     <>
-      <motion.div
+      <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`w-full flex items-center justify-between py-5 md:py-6 transition-all duration-300 ${
-          scrolled ? "py-3 md:py-4" : ""
+        className={`w-full flex items-center justify-between py-4 md:py-5 transition-all duration-300 ${
+          scrolled ? "py-3 md:py-3.5" : ""
         }`}
+        aria-label="Navegación principal"
       >
         {/* LOGO */}
         <div className="flex-shrink-0">
           <Link href="/" className="group" onClick={() => setMobileOpen(false)}>
-            <h2 className="font-display text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none transition-colors">
+            <h2 className="font-[var(--font-display)] text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none transition-colors">
               GONZALO<span className="text-blue-600">.</span>
             </h2>
           </Link>
         </div>
 
-        {/* MENÚ DESKTOP */}
+        {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-6 lg:gap-8 items-center">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className={linkStyles(link.href)}>
@@ -86,36 +87,37 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* ICONOS DERECHA */}
-        <div className="flex gap-2 sm:gap-3 items-center">
+        {/* RIGHT ICONS */}
+        <div className="flex gap-2 sm:gap-2.5 items-center">
           {/* GitHub */}
           <a
             href="https://github.com/GonzaloMartinezz"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            aria-label="GitHub"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105"
+            aria-label="Ver perfil en GitHub"
           >
-            <FaGithub size={19} />
+            <FaGithub size={18} />
           </a>
 
-          {/* Gmail / Contact */}
+          {/* Email */}
           <a
-            href="mailto:gonzalomartinez@gmail.com"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-white hover:bg-red-500 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            aria-label="Email"
+            href="mailto:gonzalomartinezzz04@gmail.com"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-white hover:bg-red-500 transition-all duration-300 hover:scale-105"
+            aria-label="Enviar email"
           >
-            <HiOutlineMail size={20} />
+            <HiOutlineMail size={19} />
           </a>
 
           {/* Theme Toggle */}
-          <ThemeToggle />
+          <ThemeSwitch />
 
           {/* Hamburger - Mobile Only */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
-            aria-label="Toggle menu"
+            aria-label="Abrir menú de navegación"
+            aria-expanded={mobileOpen}
           >
             <AnimatePresence mode="wait">
               {mobileOpen ? (
@@ -142,93 +144,99 @@ export default function Navbar() {
             </AnimatePresence>
           </button>
         </div>
-      </motion.div>
+      </motion.nav>
 
-      {/* MOBILE MENU - FULLSCREEN TRANSPARENT */}
+      {/* MOBILE MENU - FULLSCREEN TAKEOVER */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-50 md:hidden"
+            initial={{ opacity: 0, clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at calc(100% - 2.5rem) 2.5rem)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 w-full h-[100dvh] z-[99999] md:hidden bg-slate-50 dark:bg-[#06080D] overflow-hidden flex flex-col overscroll-none"
           >
-            {/* Solid Background with Glassmorphism */}
-            <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-3xl" />
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/20 blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-500/20 blur-[100px] pointer-events-none" />
 
-            {/* Content Container */}
-            <div className="relative z-10 flex flex-col h-full">
-
-              {/* Top Bar - Logo + Close */}
-              <div className="flex items-center justify-between px-6 py-5">
-                <Link href="/" onClick={() => setMobileOpen(false)}>
-                  <span className="font-display text-xl font-black uppercase text-slate-900 dark:text-white tracking-tight">
-                    GONZALO<span className="text-blue-600">.</span>
-                  </span>
-                </Link>
+            {/* Top Bar inside Menu */}
+            <div className="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-200/50 dark:border-white/5 bg-white/50 dark:bg-black/10 backdrop-blur-md">
+              <Link href="/" onClick={() => setMobileOpen(false)}>
+                <span className="font-[var(--font-display)] text-xl font-black uppercase text-slate-900 dark:text-white tracking-tight">
+                  GONZALO<span className="text-blue-600">.</span>
+                </span>
+              </Link>
+              <div className="flex items-center gap-3">
+                <ThemeSwitch />
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-900 dark:text-white bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
-                  aria-label="Close menu"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-slate-900 dark:text-white bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition-all border border-slate-300/50 dark:border-white/10"
+                  aria-label="Cerrar menú"
                 >
-                  <HiX size={22} />
+                  <HiX size={20} />
                 </button>
               </div>
-
-              {/* Nav Links - Centered */}
-              <div className="flex-1 flex flex-col items-center justify-center gap-2 px-8">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ delay: 0.06 * i, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full max-w-sm"
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`block text-center py-4 rounded-2xl text-2xl font-black tracking-tight uppercase transition-all duration-300 ${
-                        isActive(link.href)
-                          ? "text-blue-600 bg-blue-50/80 dark:bg-blue-900/20"
-                          : "text-slate-800 dark:text-slate-200 hover:text-blue-600 hover:bg-slate-50/80 dark:hover:bg-slate-800/50"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Bottom Actions */}
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.35, duration: 0.4 }}
-                className="px-8 pb-10"
-              >
-                <div className="flex gap-3 max-w-sm mx-auto">
-                  <a
-                    href="https://github.com/GonzaloMartinezz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-4 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center gap-2.5 font-bold text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-transform"
-                  >
-                    <FaGithub size={18} />
-                    GitHub
-                  </a>
-                  <a
-                    href="mailto:gonzalomartinez@gmail.com"
-                    className="flex-1 py-4 rounded-2xl bg-red-500 text-white flex items-center justify-center gap-2.5 font-bold text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-transform"
-                  >
-                    <HiOutlineMail size={18} />
-                    Email
-                  </a>
-                </div>
-              </motion.div>
             </div>
+
+            {/* Nav Links (Huge Typography, Left Aligned) */}
+            <div className="relative z-10 flex-1 flex flex-col justify-center px-8 sm:px-12 gap-6 sm:gap-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ x: -40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -20, opacity: 0 }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full"
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="group flex items-baseline gap-4"
+                  >
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-500 font-mono">
+                      0{i + 1}
+                    </span>
+                    <span className={`text-4xl sm:text-5xl font-black tracking-tighter uppercase transition-colors duration-300 ${
+                      isActive(link.href)
+                        ? "text-slate-900 dark:text-white"
+                        : "text-slate-400 dark:text-slate-600 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                    }`}>
+                      {link.label}
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Actions */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 30, opacity: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="relative z-10 px-6 sm:px-8 pb-8 pt-6 border-t border-slate-200/50 dark:border-white/5 bg-white/30 dark:bg-black/20 backdrop-blur-sm"
+            >
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/GonzaloMartinezz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shadow-lg"
+                  aria-label="GitHub"
+                >
+                  <FaGithub size={20} />
+                </a>
+                <a
+                  href="mailto:gonzalomartinezzz04@gmail.com"
+                  className="flex-1 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                >
+                  <HiOutlineMail size={18} />
+                  <span>Contactar</span>
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

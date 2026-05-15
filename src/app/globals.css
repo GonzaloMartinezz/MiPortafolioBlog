@@ -2,27 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM — GONZALO MARTINEZ PORTFOLIO
+   Premium Visual Identity 2026
+   ═══════════════════════════════════════════════ */
+
 :root {
   --foreground-rgb: 15, 23, 42;
   --background-start-rgb: 248, 250, 252;
   --background-end-rgb: 255, 255, 255;
+  --accent-primary: 59, 130, 246;
+  --accent-secondary: 99, 102, 241;
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+  --gradient-text: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --shadow-elevation-low: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-elevation-medium: 0 4px 6px rgba(0, 0, 0, 0.04), 0 10px 15px rgba(0, 0, 0, 0.06);
+  --shadow-elevation-high: 0 10px 25px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.08);
 }
 
+/* ═══ GLOBAL RESETS ═══ */
 html, body {
-  overflow-x: hidden; /* OBLIGATORIO para móviles */
+  overflow-x: hidden;
   width: 100%;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(250, 250, 250);
-  overflow-x: hidden; /* Evita scroll horizontal en móvil */
+  overflow-x: hidden;
+  font-feature-settings: "cv11", "ss01", "ss03";
 }
 
-/* --- ANIMACIONES AVANZADAS --- */
+/* ═══ TYPOGRAPHY REFINEMENTS ═══ */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  font-feature-settings: "cv11", "ss01";
+  text-wrap: balance;
+}
 
-/* 1. Entrada suave hacia arriba */
+p {
+  text-wrap: pretty;
+}
+
+/* ═══ SECTION SPACING — MOBILE-FIRST ═══ */
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ═══ SECTION DIVIDER ═══ */
+.section-divider {
+  position: relative;
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 100px;
+  opacity: 0.5;
+}
+
+/* ═══ PREMIUM GRADIENT TEXT ═══ */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ GLASSMORPHISM CARD ═══ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+}
+
+/* ═══ ANIMATIONS ═══ */
+
+/* 1. Fade In Up — Principal entry animation */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translate3d(0, 30px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -32,16 +117,16 @@ body {
   opacity: 0;
 }
 
-/* 2. Flotación (para tu foto y elementos destacados) */
+/* 2. Gentle Float — For profile & decorative elements */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* 3. Movimiento de fondo (Blobs) */
+/* 3. Morphing Blob — Organic background shapes */
 @keyframes blob {
   0% { transform: translate(0px, 0px) scale(1); }
   33% { transform: translate(30px, -50px) scale(1.1); }
@@ -52,13 +137,60 @@ body {
   animation: blob 7s infinite;
 }
 
-/* 4. Retrasos para efecto cascada */
+/* 4. Smooth Pulse — For status indicators */
+@keyframes smoothPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.animate-pulse-slow {
+  animation: smoothPulse 3s ease-in-out infinite;
+}
+
+/* 5. Gradient Animation — For gradient text */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+/* 6. Shimmer — For loading states & accents */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* 7. Stagger Delays */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
 
-/* 5. Efectos Hover Potentes */
+/* ═══ HOVER INTERACTIONS ═══ */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-elevation-high);
+}
+
 .hover-jump {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -67,43 +199,43 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.hover-glow {
+  transition: all 0.4s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15), 0 0 60px rgba(59, 130, 246, 0.05);
+}
 
-/* SCROLLBAR PERSONALIZADO */
+/* ═══ CUSTOM SCROLLBAR ═══ */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8fafc; /* Slate-50 (Tu fondo) */
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1; /* Slate-300 */
-  border-radius: 5px;
-  border: 2px solid #f8fafc; /* Borde para que parezca flotante */
+  background: linear-gradient(180deg, #94a3b8, #cbd5e1);
+  border-radius: 100px;
+  border: 2px solid #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8; /* Slate-400 */
+  background: linear-gradient(180deg, #64748b, #94a3b8);
 }
 
-/* SELECCIÓN DE TEXTO (Ya la tenías, pero aseguramos el color) */
+/* ═══ TEXT SELECTION ═══ */
 ::selection {
-  background-color: #2563eb; /* Blue-600 */
-  color: white;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #1e293b;
 }
 
-/* ANIMACIONES DE CAMBIO DE TEMA */
+/* ═══ THEME TRANSITIONS ═══ */
 @keyframes themeChange {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.98;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 1; }
+  50% { opacity: 0.98; }
+  100% { opacity: 1; }
 }
 
 html {
@@ -117,15 +249,45 @@ body {
   animation: themeChange 0.6s ease-out;
 }
 
-/* SCROLLBAR OSCURO */
+/* ═══ DARK MODE SCROLLBAR ═══ */
 .dark ::-webkit-scrollbar-track {
-  background: #1c1917;
+  background: #0f172a;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #404040;
+  background: linear-gradient(180deg, #334155, #475569);
+  border-color: #0f172a;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+  background: linear-gradient(180deg, #475569, #64748b);
+}
+
+.dark ::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+  color: #e2e8f0;
+}
+
+/* ═══ FOCUS STATES — ACCESSIBILITY ═══ */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent-primary));
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ═══ SMOOTH SCROLL ═══ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ═══ RESPONSIVE UTILITIES ═══ */
+@media (max-width: 640px) {
+  .mobile-full-bleed {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
