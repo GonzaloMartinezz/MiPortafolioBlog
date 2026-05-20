@@ -88,7 +88,7 @@ export default function ProjectsPage() {
 
         {/* Other Projects */}
         <div className="mt-10">
-          <Projects title="MÁS PROYECTOS" />
+          <Projects />
         </div>
       </div>
     </div>
