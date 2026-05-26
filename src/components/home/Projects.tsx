@@ -114,10 +114,10 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
         </div>
 
         {/* Phone mockup — centered */}
-        <div className="flex justify-center items-center flex-1 py-2">
+        <div className="flex justify-center items-center flex-1 py-3 min-h-[260px] sm:min-h-[300px]">
           <PhoneMockup
             dark={isDark}
-            className={large ? "w-[48%] max-w-[200px]" : "w-[52%] max-w-[180px]"}
+            className={large ? "w-[55%] sm:w-[44%] max-w-[200px]" : "w-[60%] sm:w-[48%] max-w-[180px]"}
           >
             <img
               src={project.image}
@@ -180,10 +180,11 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
   )
 }
 
-export default function Projects() {
+export default function Projects({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-20 md:py-28">
+    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 md:py-24">
       {/* Header */}
+      {!hideHeader && (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -206,6 +207,7 @@ export default function Projects() {
           </p>
         </div>
       </motion.div>
+      )}
 
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">

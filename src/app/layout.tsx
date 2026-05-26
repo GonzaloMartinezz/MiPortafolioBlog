@@ -49,13 +49,13 @@ export default function RootLayout({
           <ThemeAnimator>
             {/* Navbar */}
             <div className="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-100/50 dark:border-slate-800/50">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+              <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
                 <Navbar />
               </div>
             </div>
 
             {/* Main Content */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 flex-1 w-full">
+            <main className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative z-10 flex-1 flex flex-col">
               <DynamicIslandTOC selector="section h2, article h1, article h2, [data-toc]">
                 {children}
               </DynamicIslandTOC>
@@ -63,7 +63,7 @@ export default function RootLayout({
 
             {/* Footer */}
             <div className="w-full border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 mt-auto">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+              <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative z-10">
                 <Footer />
               </div>
             </div>

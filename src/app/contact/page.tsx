@@ -1,205 +1,260 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from "framer-motion";
-import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaCopy, FaCheck, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
-import { Reveal } from "@/components/ui/Reveal";
-import Tilt from 'react-parallax-tilt';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail, Copy, Check, MapPin, MessageCircle,
+  ArrowUpRight, Send, Zap
+} from "lucide-react";
+
+// Brand icons removed from lucide-react — inline SVG replacements
+const Github = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+  </svg>
+);
+
+const Linkedin = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], delay },
+});
+
+const socials = [
+  {
+    name: "LinkedIn",
+    handle: "@gonzalomartinezz2004",
+    url: "https://www.linkedin.com/in/gonzalomartinezz2004/",
+    icon: Linkedin,
+    color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20",
+    glow: "hover:shadow-blue-500/10",
+    desc: "Red profesional",
+  },
+  {
+    name: "GitHub",
+    handle: "@GonzaloMartinezz",
+    url: "https://github.com/GonzaloMartinezz",
+    icon: Github,
+    color: "text-white", bg: "bg-white/10", border: "border-white/10",
+    glow: "hover:shadow-white/5",
+    desc: "Repositorios & código",
+  },
+  {
+    name: "WhatsApp",
+    handle: "+54 381 624 2482",
+    url: "https://wa.me/543816242482",
+    icon: MessageCircle,
+    color: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20",
+    glow: "hover:shadow-emerald-500/10",
+    desc: "Mensaje directo",
+  },
+];
 
 export default function ContactPage() {
-    const [copied, setCopied] = useState(false);
-    const email = "gonzalomartinezzz04@gmail.com";
+  const [copied, setCopied] = useState(false);
+  const email = "gonzalomartinezzz04@gmail.com";
 
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-        let { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
+  return (
+    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden">
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(email);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
+      {/* ── AMBIENT BACKGROUND ── */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-blue-600/8 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-600/6 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-violet-600/4 rounded-full blur-[100px]" />
+      </div>
 
-    return (
-        <div
-            className="min-h-screen flex flex-col items-center justify-start relative overflow-hidden px-4 pt-24 pb-20 bg-slate-50 dark:bg-slate-950"
-            onMouseMove={handleMouseMove}
-        >
+      <div className="relative z-10 max-w-[1120px] mx-auto px-5 sm:px-8 lg:px-12 pt-28 pb-32">
 
-            {/* Background Effects */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style={{ backgroundImage: 'url("/noise.png")' }}></div>
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(14, 165, 233, 0.15),
-              transparent 80%
-            )
-          `,
-                }}
-            />
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                <div className="absolute top-[10%] left-[20%] w-72 h-72 bg-blue-400/15 dark:bg-blue-400/10 rounded-full blur-[120px] animate-blob mix-blend-multiply dark:mix-blend-normal"></div>
-                <div className="absolute bottom-[20%] right-[20%] w-72 h-72 bg-violet-400/15 dark:bg-violet-400/10 rounded-full blur-[120px] animate-blob animation-delay-2000 mix-blend-multiply dark:mix-blend-normal"></div>
+        {/* ══════════════════════════════════════════════
+            HERO HEADER
+        ══════════════════════════════════════════════ */}
+        <div className="mb-20 md:mb-28">
+          <motion.div {...fadeUp(0)}>
+            {/* Status badge */}
+            <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full bg-slate-900/80 border border-emerald-800/40 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400">
+                Disponible para nuevos proyectos
+              </span>
             </div>
+          </motion.div>
 
-            {/* Status Badge */}
-            <div className="mb-6 w-full flex justify-center">
-                <Reveal>
-                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-800/50 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:scale-105 duration-300">
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                        </span>
-                        <span className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wider uppercase">Disponible para colaborar</span>
-                    </div>
-                </Reveal>
-            </div>
+          <motion.h1
+            {...fadeUp(0.05)}
+            className="text-[clamp(3rem,9vw,8.5rem)] font-black leading-[0.88] tracking-tighter text-white mb-8"
+          >
+            ¿Tenés una<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400">
+              idea?
+            </span>
+          </motion.h1>
 
-            {/* Page Title */}
-            <div className="text-center mb-10 max-w-2xl relative z-10">
-                <Reveal delay={0.1}>
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
-                        ¿Tenés una idea?<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 animate-gradient-x">
-                            Hagámosla realidad.
-                        </span>
-                    </h1>
-                </Reveal>
-                <Reveal delay={0.15}>
-                    <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-lg mx-auto leading-relaxed">
-                        Estoy abierto a nuevos proyectos, colaboraciones y oportunidades laborales. Escribime y conversemos.
-                    </p>
-                </Reveal>
-            </div>
+          <motion.p {...fadeUp(0.1)} className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-3">
+            Estoy abierto a nuevos proyectos, colaboraciones y oportunidades laborales.
+            Escribime y{" "}
+            <strong className="text-white">hagámosla realidad.</strong>
+          </motion.p>
 
-            {/* Main Grid */}
-            <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-20 mb-12 items-stretch">
+          <motion.div {...fadeUp(0.15)} className="flex items-center gap-2 text-slate-600 text-sm">
+            <MapPin className="w-3.5 h-3.5 text-red-400" />
+            <span>Tucumán, Argentina 🇦🇷</span>
+            <span className="mx-2 text-slate-800">·</span>
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <span>Respondo en menos de 24 hs</span>
+          </motion.div>
+        </div>
 
-                {/* Email Card */}
-                <div className="lg:col-span-2 h-full">
-                    <Reveal width="100%" delay={0.2}>
-                        <Tilt
-                            glareEnable={true}
-                            glareMaxOpacity={0.1}
-                            scale={1.01}
-                            transitionSpeed={2500}
-                            className="h-full"
-                        >
-                            <div className="h-full w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-2xl shadow-blue-900/10 dark:shadow-blue-400/5 border border-white/50 dark:border-slate-800/50 flex flex-col items-center justify-center text-center gap-8 min-h-[320px]">
+        {/* ══════════════════════════════════════════════
+            MAIN CONTACT GRID
+        ══════════════════════════════════════════════ */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
 
-                                <div className="flex flex-col items-center gap-4">
-                                    <div className="p-4 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-full shadow-inner ring-4 ring-white dark:ring-slate-800 animate-pulse-slow">
-                                        <FaEnvelope size={32} />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">Correo directo</span>
-                                        <h3 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white break-all font-mono tracking-tight hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-text selection:bg-blue-100 dark:selection:bg-blue-900/40">
-                                            {email}
-                                        </h3>
-                                    </div>
-                                </div>
+          {/* ── EMAIL CARD (spans 3 cols) ── */}
+          <motion.div {...fadeUp(0.2)} className="lg:col-span-3">
+            <div className="relative h-full flex flex-col gap-8 p-8 md:p-10 rounded-[2rem] bg-slate-900/50 border border-slate-800/60 overflow-hidden shadow-2xl">
 
-                                <div className="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md">
-                                    <button
-                                        onClick={handleCopy}
-                                        className="flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group shadow-sm hover:shadow-md"
-                                    >
-                                        <AnimatePresence mode="wait">
-                                            {copied ? (
-                                                <motion.div
-                                                    key="check"
-                                                    initial={{ scale: 0 }} animate={{ scale: 1 }}
-                                                    className="flex items-center gap-2"
-                                                >
-                                                    <FaCheck className="text-emerald-500" />
-                                                    <span className="font-bold text-emerald-600 dark:text-emerald-400">¡Copiado!</span>
-                                                </motion.div>
-                                            ) : (
-                                                <motion.div
-                                                    key="copy"
-                                                    initial={{ scale: 0 }} animate={{ scale: 1 }}
-                                                    className="flex items-center gap-2"
-                                                >
-                                                    <FaCopy className="group-hover:scale-110 transition-transform" />
-                                                    <span className="font-bold">Copiar email</span>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </button>
+              {/* Top accent glow line */}
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
 
-                                    <a
-                                        href={`mailto:${email}`}
-                                        className="flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 group"
-                                    >
-                                        <FaPaperPlane className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                                        <span className="font-bold">Enviar email</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </Tilt>
-                    </Reveal>
+              {/* Header */}
+              <div>
+                <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-500 mb-2 block">
+                  Correo directo
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white">
+                  Enviame un mensaje
+                </h2>
+              </div>
+
+              {/* Email display */}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-3 p-5 rounded-2xl bg-slate-800/60 border border-slate-700/50">
+                  <Mail className="w-5 h-5 text-blue-400 shrink-0" />
+                  <span className="text-slate-200 text-sm md:text-base font-mono font-bold tracking-tight break-all flex-1">
+                    {email}
+                  </span>
                 </div>
+              </div>
 
-                {/* Social Links */}
-                <div className="flex flex-col gap-4 h-full justify-center">
-                    {[
-                        { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/gonzalomartinezz2004/", color: "text-blue-700 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/40", border: "hover:border-blue-200 dark:hover:border-blue-700", subtitle: "Red profesional" },
-                        { name: "GitHub", icon: FaGithub, url: "https://github.com/GonzaloMartinezz", color: "text-slate-900 dark:text-white", bg: "bg-slate-100 dark:bg-slate-800", border: "hover:border-slate-400 dark:hover:border-slate-600", subtitle: "Repositorios & código" },
-                        { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/543816242482", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/40", border: "hover:border-emerald-300 dark:hover:border-emerald-700", subtitle: "Mensaje directo" }
-                    ].map((social, idx) => (
-                        <motion.a
-                            key={idx}
-                            href={social.url}
-                            target="_blank" rel="noopener noreferrer"
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + (idx * 0.1), duration: 0.5 }}
-                            whileHover={{ scale: 1.02, x: 5 }}
-                            whileTap={{ scale: 0.98 }}
+              {/* Action buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleCopy}
+                  className="group flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-slate-800/80 border border-slate-700/50 hover:border-blue-500/40 hover:bg-slate-800 text-slate-300 hover:text-white transition-all duration-300 font-bold text-sm"
+                >
+                  <AnimatePresence mode="wait">
+                    {copied ? (
+                      <motion.span
+                        key="check"
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.8, opacity: 0 }}
+                        className="flex items-center gap-2 text-emerald-400"
+                      >
+                        <Check className="w-4 h-4" /> ¡Copiado!
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="copy"
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.8, opacity: 0 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Copy className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                        Copiar email
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </button>
 
-                            className={`flex items-center gap-4 p-5 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md rounded-[1.5rem] border border-white/50 dark:border-slate-800/50 shadow-sm ${social.border} hover:shadow-xl transition-colors duration-300 group h-full`}
-                        >
-                            <div className={`p-3.5 ${social.bg} ${social.color} rounded-2xl shadow-inner`}>
-                                <social.icon size={26} />
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-900 dark:text-white text-lg leading-tight">{social.name}</h4>
-                                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">{social.subtitle}</p>
-                            </div>
+                <a
+                  href={`mailto:${email}`}
+                  className="flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02]"
+                >
+                  <Send className="w-4 h-4" />
+                  Enviar email
+                </a>
+              </div>
 
-                            {/* Arrow */}
-                            <motion.div
-                                className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400"
-                                initial={{ opacity: 0, x: -10 }}
-                                whileHover={{ opacity: 1, x: 0 }}
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-                            </motion.div>
-                        </motion.a>
-                    ))}
-                </div>
-
+              {/* Bottom ambient decoration */}
+              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-blue-600/5 rounded-full blur-2xl pointer-events-none" />
             </div>
+          </motion.div>
 
-            {/* Location Badge */}
-            <Reveal delay={0.6}>
-                <div className="group flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-full border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-default">
-                    <div className="relative">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <FaMapMarkerAlt className="text-red-500 relative z-10" />
-                    </div>
-                    <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Tucumán, Argentina 🇦🇷</span>
-                </div>
-            </Reveal>
+          {/* ── SOCIAL LINKS (spans 2 cols) ── */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            {socials.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <motion.a
+                  key={s.name}
+                  {...fadeUp(0.25 + i * 0.08)}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-4 p-5 md:p-6 rounded-2xl bg-slate-900/50 border ${s.border} hover:bg-slate-900/80 shadow-xl ${s.glow} hover:shadow-2xl transition-all duration-350 hover:-translate-y-0.5`}
+                >
+                  <div className={`p-3 rounded-2xl border ${s.bg} ${s.border} ${s.color} shrink-0`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-black text-base text-white tracking-tight">{s.name}</h4>
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest truncate">{s.desc}</p>
+                    <p className={`text-xs font-mono mt-0.5 truncate ${s.color} opacity-70`}>{s.handle}</p>
+                  </div>
+
+                  <ArrowUpRight className={`w-4 h-4 shrink-0 ${s.color} opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
+                </motion.a>
+              );
+            })}
+          </div>
 
         </div>
-    );
+
+        {/* ══════════════════════════════════════════════
+            BOTTOM CTA STRIP
+        ══════════════════════════════════════════════ */}
+        <motion.div
+          {...fadeUp(0.5)}
+          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-slate-900/40 border border-slate-800/50"
+        >
+          <div>
+            <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-1">
+              ¿Querés ver el código?
+            </h3>
+            <p className="text-slate-500 text-sm">Todos mis proyectos están disponibles públicamente en GitHub.</p>
+          </div>
+          <a
+            href="https://github.com/GonzaloMartinezz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-slate-950 hover:bg-slate-100 font-black text-sm tracking-wide transition-all duration-300 shadow-xl hover:scale-[1.03] shrink-0"
+          >
+            <Github className="w-5 h-5" />
+            Ver GitHub
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </motion.div>
+
+      </div>
+    </main>
+  );
 }

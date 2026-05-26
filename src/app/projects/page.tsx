@@ -1,6 +1,7 @@
 import Projects from "@/components/home/Projects";
 import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
 import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
+import { CardStack, CardStackItem } from "@/components/ui/card-stack";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -62,17 +63,65 @@ export default function ProjectsPage() {
     },
   ];
 
+  const featuredItems: CardStackItem[] = [
+    {
+      id: 1,
+      title: "Apex Analytics Platform",
+      description: "Plataforma SaaS avanzada para la visualización de datos complejos en tiempo real.",
+      imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      href: "https://app-gostats.vercel.app/",
+    },
+    {
+      id: 2,
+      title: "Malibu Styles E-commerce",
+      description: "Experiencia de compra fluida y moderna para indumentaria deportiva de alta gama.",
+      imageSrc: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+      href: "https://malibustyle.vercel.app/",
+    },
+    {
+      id: 3,
+      title: "ClickHouse Propiedades",
+      description: "Buscador inteligente y catálogo inmersivo para el mercado de bienes raíces premium.",
+      imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      href: "https://app-clickhouse.vercel.app/",
+    },
+    {
+      id: 4,
+      title: "Cultura de Basket",
+      description: "Portal digital interactivo y de autogestión para socios del club deportivo Belgrano.",
+      imageSrc: "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?auto=format&fit=crop&w=1200&q=80",
+      href: "https://app-club-belgranocyd.vercel.app/",
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1">
-        {/* Gallery Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4">
-          <InteractiveBentoGallery
-            mediaItems={projectGalleryItems}
-            title="Galería de Proyectos"
-            description="Explora mi portafolio completo de soluciones digitales"
-          />
+      <div className="flex-1 w-full max-w-none px-4 md:px-12 lg:px-24">
+        {/* Interactive Showcase Section */}
+        <section className="py-16 md:py-24 text-center">
+          <div className="max-w-3xl mx-auto mb-12">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-400">
+              Proyectos Destacados
+            </h1>
+            <p className="mt-4 text-lg text-neutral-400">
+              Explora una selección de mis mejores proyectos interactivos a través de esta galería dinámica de tarjetas en 3D.
+            </p>
+          </div>
+          <div className="mx-auto w-full max-w-4xl px-4 py-8">
+            <CardStack
+              items={featuredItems}
+              initialIndex={0}
+              autoAdvance
+              intervalMs={3000}
+              pauseOnHover
+              showDots
+              cardWidth={560}
+              cardHeight={350}
+            />
+          </div>
         </section>
+
+       
 
         {/* Project Spotlight */}
         <ProjectSpotlight

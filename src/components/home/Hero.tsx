@@ -10,7 +10,7 @@ export default function Hero() {
   const videoId = "gH62-RxyEh8";
 
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between w-full py-10 md:py-16 lg:py-20 gap-10 lg:gap-16">
+    <section className="flex flex-col lg:flex-row items-center justify-center w-full py-10 md:py-16 lg:py-20 gap-10 md:gap-14 lg:gap-24">
 
       {/* LEFT SIDE — Profile + Intro */}
       <motion.div

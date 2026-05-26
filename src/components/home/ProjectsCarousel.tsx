@@ -2,61 +2,61 @@
 
 import React, { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import { LaptopMockup } from "@/components/ui/DeviceMockup"
 
 const projects = [
   {
     id: 1,
-    category: "Healthcare · SaaS",
+    category: "Healthcare · SaaS Dental",
     title: "Centro Odontológico C&M",
     description:
-      "Plataforma integral para gestión odontológica: agenda inteligente de turnos, historias clínicas digitales, seguimiento de tratamientos y panel administrativo completo.",
+      "Plataforma integral SaaS para gestión odontológica. Incorpora agenda inteligente interactiva en tiempo real, digitalización segura de historias clínicas y panel de control administrativo y financiero.",
     year: "2026",
     link: "https://app-consultorio-odontologico.vercel.app/",
     image: "/coc&m.png",
-    tags: ["React", "Node.js", "MongoDB"],
-    bg: "from-emerald-50 to-teal-100 dark:from-emerald-950/40 dark:to-teal-950/60",
-    glow: "rgba(16,185,129,0.15)",
+    tags: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
+    bg: "from-emerald-50 to-teal-100 dark:from-emerald-950/20 dark:to-teal-950/40",
+    glow: "rgba(16,185,129,0.12)",
   },
   {
     id: 2,
-    category: "Fintech · Premium",
+    category: "Fintech · Premium Banking",
     title: "Tarjeta Titanio",
     description:
-      "Sistema financiero premium para gestión de tarjetas de crédito: monitoreo de transacciones en tiempo real, control de límites dinámicos y portal exclusivo de beneficios.",
+      "Portal financiero avanzado para control de tarjetas de crédito corporativas. Incluye pasarela segura de pago, visualización de movimientos en tiempo real y portal exclusivo de beneficios.",
     year: "2025",
     link: "https://tarjetatitanio.vercel.app/",
     image: "/TT.png",
-    tags: ["Next.js", "TypeScript", "Stripe"],
-    bg: "from-blue-950 to-slate-900 dark:from-blue-950 dark:to-slate-900",
-    glow: "rgba(59,130,246,0.2)",
+    tags: ["Next.js", "TypeScript", "Stripe API", "Framer Motion"],
+    bg: "from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/40",
+    glow: "rgba(59,130,246,0.15)",
   },
   {
     id: 3,
     category: "E-commerce · Fashion",
     title: "Malibu Styless",
     description:
-      "E-commerce de indumentaria deportiva con catálogo interactivo, carrito de compras optimizado, integración con pasarela de pagos y gestión de inventario.",
+      "Tienda online de indumentaria deportiva con catálogo interactivo responsivo, carrito optimizado para celulares y pasarela de pago integrada lista para facturación.",
     year: "2024",
     link: "https://app-malibu-style.vercel.app/",
     image: "/MS.png",
-    tags: ["React", "Firebase", "Tailwind"],
-    bg: "from-rose-950 to-orange-950 dark:from-rose-950 dark:to-orange-950",
-    glow: "rgba(244,63,94,0.2)",
+    tags: ["React.js", "Firebase DB", "Tailwind CSS", "Mobile UX"],
+    bg: "from-rose-50 to-orange-100 dark:from-rose-950/20 dark:to-orange-950/40",
+    glow: "rgba(244,63,94,0.15)",
   },
   {
     id: 4,
     category: "Real Estate · PropTech",
     title: "ClickHouse",
     description:
-      "Plataforma inmobiliaria con búsqueda avanzada de propiedades, filtros inteligentes, galería interactiva y sistema de contacto directo con propietarios.",
+      "Plataforma de bienes raíces moderna con filtros de geolocalización, búsqueda avanzada de propiedades e interfaces inmersivas de carga optimizada.",
     year: "2026",
     link: "https://app-clickhouse.vercel.app/",
     image: "/ClickHouse.png",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    bg: "from-violet-50 to-purple-100 dark:from-violet-950/40 dark:to-purple-950/60",
-    glow: "rgba(139,92,246,0.15)",
+    tags: ["Next.js", "Prisma ORM", "PostgreSQL", "Tailwind CSS"],
+    bg: "from-violet-50 to-purple-100 dark:from-violet-950/20 dark:to-purple-950/40",
+    glow: "rgba(139,92,246,0.12)",
   },
 ]
 
@@ -70,23 +70,26 @@ export default function ProjectsCarousel() {
   }, [])
 
   const project = projects[current]
-  const next = projects[(current + 1) % projects.length]
-
-  const isDark = project.id === 2 || project.id === 3
+  const isDarkProject = false // Keep the cards readable and uniform in the dark/light modes
 
   return (
-    <section className="relative w-full py-20 md:py-28 overflow-hidden">
+    <section className="relative w-full py-20 md:py-28 overflow-hidden bg-slate-50/20 dark:bg-slate-950/10 border-t border-slate-200/50 dark:border-slate-800/40">
+      
       {/* Section header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mb-12 md:mb-16"
-      >
-        <span className="inline-block px-4 py-1 mb-4 text-[12px] font-bold tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-950/40 rounded-full border border-blue-100 dark:border-blue-800/40">
-          PORTAFOLIO
-        </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-2 mb-3"
+        >
+          <span className="inline-block px-4 py-1 text-[11px] font-bold tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-950/40 rounded-full border border-blue-100 dark:border-blue-800/40">
+            PORTAFOLIO
+          </span>
+          <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+        </motion.div>
+        
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
             Proyectos{" "}
@@ -94,87 +97,68 @@ export default function ProjectsCarousel() {
               Destacados
             </span>
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-base max-w-sm leading-relaxed">
-            Cada proyecto resuelve un problema real con tecnología de punta.
+          <p className="text-slate-500 dark:text-slate-400 text-sm max-w-sm leading-relaxed">
+            Cada desarrollo resuelve un problema de negocio real aplicando tecnología de punta y metodologías limpias.
           </p>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Carousel */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 items-start">
+      {/* Carousel Container */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
 
-          {/* ── Main card ── */}
+        {/* ── Main display card ── */}
+        <div className="relative">
+          
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={project.id}
               custom={direction}
-              initial={{ opacity: 0, x: direction * 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction * -60 }}
-              transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
-              className={`relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br ${project.bg} p-6 sm:p-8 md:p-10`}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+              className={`relative rounded-3xl overflow-hidden border border-slate-200/50 dark:border-slate-800 bg-gradient-to-br ${project.bg} p-6 sm:p-8 md:p-10`}
               style={{
-                boxShadow: `0 40px 80px ${project.glow}, 0 0 0 1px rgba(255,255,255,0.06)`,
+                boxShadow: `0 30px 60px ${project.glow}, 0 0 0 1px rgba(255,255,255,0.03)`,
               }}
             >
-              {/* Top row */}
+              {/* Category tag */}
               <div className="flex items-center justify-between mb-6">
-                <span
-                  className={`text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full ${
-                    isDark
-                      ? "bg-white/10 text-white/60"
-                      : "bg-black/5 text-slate-500"
-                  }`}
-                >
+                <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-slate-900/10 dark:bg-white/10 text-slate-700 dark:text-slate-350">
                   {project.category}
                 </span>
-                <span
-                  className={`text-[11px] font-mono ${
-                    isDark ? "text-white/30" : "text-slate-400"
-                  }`}
-                >
-                  {project.year}
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  Año {project.year}
                 </span>
               </div>
 
-              {/* Laptop mockup */}
-              <LaptopMockup className="w-full max-w-2xl mx-auto">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-contain object-top"
-                />
-              </LaptopMockup>
+              {/* Laptop mockup - Centered and Large */}
+              <div className="relative max-w-2xl mx-auto mb-6 select-none">
+                <LaptopMockup className="w-full">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </LaptopMockup>
+              </div>
 
-              {/* Info */}
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                  <h3
-                    className={`text-2xl sm:text-3xl font-black tracking-tight mb-2 ${
-                      isDark ? "text-white" : "text-slate-900 dark:text-white"
-                    }`}
-                  >
+              {/* Info Detail Block */}
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 pt-6 border-t border-slate-200/40 dark:border-slate-800/40">
+                <div className="space-y-3">
+                  <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <p
-                    className={`text-sm leading-relaxed max-w-lg ${
-                      isDark
-                        ? "text-white/50"
-                        : "text-slate-500 dark:text-slate-400"
-                    }`}
-                  >
+                  <p className="text-xs sm:text-sm leading-relaxed max-w-xl text-slate-555 dark:text-slate-400">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5 mt-3">
+                  
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-widest uppercase ${
-                          isDark
-                            ? "bg-white/10 text-white/50 border border-white/10"
-                            : "bg-black/5 text-slate-600 border border-black/5"
-                        }`}
+                        className="px-2.5 py-0.5 rounded-md text-[9px] font-bold tracking-wider uppercase bg-slate-900/5 dark:bg-white/5 text-slate-600 dark:text-slate-400 border border-slate-250 dark:border-slate-800"
                       >
                         {tag}
                       </span>
@@ -186,126 +170,65 @@ export default function ProjectsCarousel() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:scale-105 ${
-                    isDark
-                      ? "bg-white text-slate-900 hover:bg-blue-500 hover:text-white"
-                      : "bg-slate-900 text-white hover:bg-blue-600 dark:bg-white dark:text-slate-900"
-                  }`}
+                  className="flex-shrink-0 flex items-center justify-center gap-1.5 px-5 py-3 rounded-xl text-xs font-bold bg-slate-950 text-white hover:bg-slate-850 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-all shadow-sm hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Ver Proyecto
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
+
             </motion.div>
           </AnimatePresence>
 
-          {/* ── Right column: next card preview + controls ── */}
-          <div className="hidden lg:flex flex-col gap-5">
-
-            {/* Next preview */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`next-${next.id}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                onClick={() => go(1)}
-                className={`relative cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br ${next.bg} p-4 group`}
-              >
-                <div className="absolute top-3 left-3 z-10">
-                  <span className="text-[9px] font-mono tracking-widest uppercase text-white/40">
-                    Siguiente
-                  </span>
-                </div>
-                <LaptopMockup className="w-full mt-5 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                  <img
-                    src={next.image}
-                    alt={next.title}
-                    className="w-full h-full object-contain object-top"
-                  />
-                </LaptopMockup>
-                <div className="mt-3 px-1">
-                  <p className="text-[9px] font-bold tracking-widest uppercase text-white/30 mb-0.5">
-                    {next.category}
-                  </p>
-                  <h4 className="text-sm font-black text-white leading-tight">
-                    {next.title}
-                  </h4>
-                </div>
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-white/20 transition-colors">
-                  <ChevronRight className="w-3.5 h-3.5 text-white/60" />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Controls */}
-            <div className="flex flex-col gap-3">
-              {/* Counter */}
-              <div className="flex items-center justify-between px-1">
-                <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
-                  {String(current + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-                </span>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => go(-1)}
-                    className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-200"
-                    aria-label="Anterior"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => go(1)}
-                    className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-200"
-                    aria-label="Siguiente"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Dot indicators */}
-              <div className="flex gap-2">
-                {projects.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setDirection(i > current ? 1 : -1)
-                      setCurrent(i)
-                    }}
-                    className={`rounded-full transition-all duration-300 ${
-                      i === current
-                        ? "w-8 h-2 bg-slate-900 dark:bg-white"
-                        : "w-2 h-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Ir al proyecto ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile controls */}
-          <div className="lg:hidden flex items-center justify-between mt-2">
-            <span className="text-xs font-mono text-slate-400">
-              {String(current + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-            </span>
-            <div className="flex gap-2">
-              <button
-                onClick={() => go(-1)}
-                className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-all"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => go(1)}
-                className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-all"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
         </div>
+
+        {/* ── Navigation Controls placed DIRECTLY BELOW the main card ── */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-white dark:bg-slate-900/40 rounded-2xl border border-slate-200/50 dark:border-slate-850/50 shadow-sm max-w-md mx-auto w-full">
+          
+          {/* Numerical Counter */}
+          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+            Proyecto <strong className="text-slate-900 dark:text-white">{String(current + 1).padStart(2, "0")}</strong> / {String(projects.length).padStart(2, "0")}
+          </span>
+
+          {/* Interactive Dots */}
+          <div className="flex items-center gap-2">
+            {projects.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setDirection(i > current ? 1 : -1)
+                  setCurrent(i)
+                }}
+                className={`rounded-full transition-all duration-300 ${
+                  i === current
+                    ? "w-8 h-2 bg-blue-600 dark:bg-white"
+                    : "w-2 h-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
+                }`}
+                aria-label={`Ir al proyecto ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Arrows Navigation Buttons */}
+          <div className="flex gap-2">
+            <button
+              onClick={() => go(-1)}
+              className="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-950 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 transition-all duration-200 shadow-xs cursor-pointer"
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => go(1)}
+              className="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-950 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 transition-all duration-200 shadow-xs cursor-pointer"
+              aria-label="Siguiente"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </section>
   )
