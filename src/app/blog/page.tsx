@@ -8,7 +8,7 @@ import { ArrowUpRight, Clock, Briefcase, Code2, TrendingUp, ShoppingBag, Buildin
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], delay },
+  transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number], delay },
   viewport: { once: true },
 });
 
