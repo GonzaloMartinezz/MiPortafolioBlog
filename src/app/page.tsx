@@ -1,6 +1,7 @@
 "use client";
 import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
+import ProjectsByCategory from "@/components/home/ProjectsByCategory";
 import Expertise from "@/components/home/Expertise";
 import ProjectsCarousel from "@/components/home/ProjectsCarousel";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* Projects Carousel Section */}
       <ProjectsCarousel />
+
+      {/* NEW: Categorized Projects Section */}
+      <ProjectsByCategory />
 
       {/* NEW: Tilted 3D Project Gallery Section */}
       <section className="py-20 md:py-28 relative overflow-hidden bg-slate-900 text-white rounded-[3rem] -mx-4 sm:-mx-6 md:-mx-12 px-4 sm:px-6 md:px-12">
