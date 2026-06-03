@@ -3,6 +3,7 @@ import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
 import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
 import type { Metadata } from "next";
+import ProjectsByCategory from "@/components/home/ProjectsByCategory";
 
 export const metadata: Metadata = {
   title: "Proyectos | Gonzalo Martínez",
@@ -66,31 +67,31 @@ export default function ProjectsPage() {
   const featuredItems: CardStackItem[] = [
     {
       id: 1,
-      title: "Apex Analytics Platform",
-      description: "Plataforma SaaS avanzada para la visualización de datos complejos en tiempo real.",
-      imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      href: "https://app-gostats.vercel.app/",
+      title: "Titanio Business (GoStats)",
+      description: "Plataforma SaaS avanzada para la visualización de datos financieros en tiempo real.",
+      imageSrc: "/GoStats.png",
+      href: "https://tarjetatitanio.vercel.app/",
     },
     {
       id: 2,
       title: "Malibu Styles E-commerce",
       description: "Experiencia de compra fluida y moderna para indumentaria deportiva de alta gama.",
-      imageSrc: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
-      href: "https://malibustyle.vercel.app/",
+      imageSrc: "/MS.png",
+      href: "https://app-malibu-style.vercel.app/",
     },
     {
       id: 3,
       title: "ClickHouse Propiedades",
       description: "Buscador inteligente y catálogo inmersivo para el mercado de bienes raíces premium.",
-      imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      imageSrc: "/ClickHouse.png",
       href: "https://app-clickhouse.vercel.app/",
     },
     {
       id: 4,
-      title: "Cultura de Basket",
-      description: "Portal digital interactivo y de autogestión para socios del club deportivo Belgrano.",
-      imageSrc: "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?auto=format&fit=crop&w=1200&q=80",
-      href: "https://app-club-belgranocyd.vercel.app/",
+      title: "Centro Odontológico C&M",
+      description: "SaaS de gestión médica y turnos inteligentes para profesionales de la salud.",
+      imageSrc: "/coc&m.png",
+      href: "https://app-consultorio-odontologico.vercel.app/",
     },
   ];
 
@@ -121,7 +122,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-       
+
 
         {/* Project Spotlight */}
         <ProjectSpotlight
@@ -138,6 +139,10 @@ export default function ProjectsPage() {
         {/* Other Projects */}
         <div className="mt-10">
           <Projects />
+        </div>
+        {/* NEW: Categorized Projects Section */}
+        <div className="-mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
+          <ProjectsByCategory />
         </div>
       </div>
     </div>

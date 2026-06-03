@@ -184,8 +184,8 @@ export default function DualDeviceShowcase() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Project selector grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 w-full max-w-4xl mx-auto">
+        {/* Project selector grid - subido con margin negativo */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 w-full max-w-4xl mx-auto -mt-6 md:-mt-10 relative z-30">
           {projectsData.map((proj, idx) => {
             const isActive = idx === activeTab
             return (
@@ -243,7 +243,7 @@ export default function DualDeviceShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start text-white bg-slate-950/70 p-5 sm:p-7 md:p-10 rounded-2xl md:rounded-[2rem] border border-slate-800 backdrop-blur-xl"
+            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start text-white bg-slate-950/30 p-5 sm:p-7 md:p-10 rounded-2xl md:rounded-[2rem] border border-slate-800/60 backdrop-blur-2xl mt-4 md:mt-8 shadow-2xl"
           >
             {/* Left: title + description + CTA */}
             <div className="md:col-span-7 flex flex-col gap-5">

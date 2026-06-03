@@ -67,7 +67,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden">
+    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden -mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
 
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
@@ -97,12 +97,9 @@ export default function ContactPage() {
 
           <motion.h1
             {...fadeUp(0.05)}
-            className="text-[clamp(3rem,9vw,8.5rem)] font-black leading-[0.88] tracking-tighter text-white mb-8"
+            className="text-[clamp(4rem,12vw,12rem)] font-black leading-[0.88] tracking-tighter text-white mb-8 mt-4"
           >
-            ¿Tenés una<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400">
-              idea?
-            </span>
+            Hablemos<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400">.</span>
           </motion.h1>
 
           <motion.p {...fadeUp(0.1)} className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-3">
@@ -246,7 +243,7 @@ export default function ContactPage() {
             href="https://github.com/GonzaloMartinezz"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-slate-950 hover:bg-slate-100 font-black text-sm tracking-wide transition-all duration-300 shadow-xl hover:scale-[1.03] shrink-0"
+            className="group flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-slate-950 hover:bg-slate-100 font-black text-sm tracking-wide transition-all duration-300 shadow-xl hover:scale-[1.03] shrink-0 z-10"
           >
             <Github className="w-5 h-5" />
             Ver GitHub
@@ -255,6 +252,29 @@ export default function ContactPage() {
         </motion.div>
 
       </div>
+
+      {/* ══════════════════════════════════════════════
+          INFINITE MARQUEE FOOTER
+      ══════════════════════════════════════════════ */}
+      <div className="relative mt-20 md:mt-32 w-[100vw] overflow-hidden bg-blue-600 py-6 sm:py-8 border-y border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.2)]">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <motion.div 
+          initial={{ x: 0 }}
+          animate={{ x: "-50%" }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
+          className="flex whitespace-nowrap w-fit items-center"
+        >
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center">
+              <span className="text-3xl sm:text-5xl font-black tracking-tighter text-white uppercase mx-6 sm:mx-10">
+                DISPONIBLE PARA NUEVOS PROYECTOS
+              </span>
+              <span className="text-blue-300">✦</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
     </main>
   );
 }

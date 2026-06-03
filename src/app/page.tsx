@@ -3,13 +3,13 @@ import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import ProjectsByCategory from "@/components/home/ProjectsByCategory";
 import Expertise from "@/components/home/Expertise";
-import ProjectsCarousel from "@/components/home/ProjectsCarousel";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
 import { motion } from "framer-motion";
 import DualDeviceShowcase from "@/components/home/DualDeviceShowcase";
 import { ScrollTiltedGrid } from "@/components/ui/scroll-tilted-grid";
 import { PricingWithChart } from "@/components/ui/pricing-with-chart";
 import WorkMethodology from "@/components/home/WorkMethodology";
+import AppDevelopmentSteps from "@/components/home/HeroSlideshow";
 
 export default function Home() {
   const projectImages = [
@@ -50,8 +50,8 @@ export default function Home() {
       {/* NEW: Work Methodology (Steps to develop your business app) */}
       <WorkMethodology />
 
-      {/* Projects Carousel Section */}
-      <ProjectsCarousel />
+      {/* NEW: App Development Steps (ZigZag Timeline) */}
+      <AppDevelopmentSteps />
 
       {/* NEW: Categorized Projects Section */}
       <ProjectsByCategory />

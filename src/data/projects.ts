@@ -35,7 +35,7 @@ export const projectCategories: ProjectCategory[] = [
         description: "Portal financiero avanzado para control de tarjetas de crédito corporativas. Incluye pasarela segura de pago y monitoreo.",
         year: "2025",
         link: "https://tarjetatitanio.vercel.app/",
-        image: "/TT.png",
+        image: "/appcompu.png",
         tags: ["Next.js", "TypeScript", "Stripe API"],
         bgGradient: "from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/40",
         glowColor: "rgba(59,130,246,0.15)",

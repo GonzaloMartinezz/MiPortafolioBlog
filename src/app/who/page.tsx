@@ -84,77 +84,75 @@ const pillars = [
 
 export default function WhoPage() {
   return (
-    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden">
+    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden -mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
 
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/8 rounded-full blur-[130px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-violet-600/6 rounded-full blur-[110px]" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-violet-600/8 rounded-full blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-[1120px] mx-auto px-5 sm:px-8 lg:px-12 pt-28 pb-32">
+      <div className="relative z-10 w-full pt-28 pb-32">
 
         {/* ══════════════════════════════════════════════
             HERO HEADER
         ══════════════════════════════════════════════ */}
-        <motion.div {...fadeUp(0)} className="mb-24 md:mb-32">
-          <span className="inline-flex items-center gap-2 mb-6 px-3.5 py-1 text-[10px] font-black tracking-[0.25em] text-blue-400 uppercase bg-blue-950/50 rounded-full border border-blue-800/40">
-            <UserCircle2 className="w-3 h-3" /> Sobre mí
-          </span>
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-24 md:mb-32">
+          <motion.div {...fadeUp(0)}>
+            <span className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 text-[11px] font-black tracking-[0.25em] text-blue-400 uppercase bg-blue-950/50 rounded-full border border-blue-800/40 backdrop-blur-md">
+              <UserCircle2 className="w-3.5 h-3.5" /> Arquitecto de Software
+            </span>
 
-          <h1 className="text-[clamp(3rem,9vw,8.5rem)] font-black leading-[0.88] tracking-tighter text-white mb-8">
-            Código,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
-              Datos
-            </span>{" "}
-            &<br />
-            Negocio.
-          </h1>
+            <h1 className="text-[clamp(3.5rem,8.5vw,9rem)] font-black leading-[0.85] tracking-tighter text-white mb-10">
+              Ingeniería.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
+                Datos.
+              </span><br />
+              Diseño.
+            </h1>
 
-          <div className="max-w-2xl">
-            <p className="text-slate-400 text-lg md:text-xl leading-relaxed mb-6">
-              Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, Full Stack Developer & Data Analyst. Combino ingeniería de software con análisis de datos para construir productos que generan{" "}
-              <strong className="text-white font-bold">impacto comercial real</strong>.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed">
-              Actualmente estudio{" "}
-              <strong className="text-slate-300">Desarrollo y Calidad de Software en la UNSTA</strong>,
-              y aplico arquitecturas modernas para convertir ideas en SaaS de nivel mundial.
-            </p>
-          </div>
-        </motion.div>
+            <div className="max-w-3xl">
+              <p className="text-slate-300 text-xl md:text-2xl leading-relaxed mb-6 font-light">
+                Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, Ingeniero de Software & Diseñador de Producto. 
+                Construyo arquitecturas escalables y diseño experiencias de usuario impecables que generan <strong className="text-white font-bold">impacto comercial directo</strong>.
+              </p>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                Especializado en el ecosistema JavaScript moderno, análisis profundo de datos y en transformar complejidad técnica en interfaces de alta conversión.
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
         {/* ══════════════════════════════════════════════
-            4 PILARES (BENTO GRID)
+            4 PILARES (BENTO GRID EXPANSIVO)
         ══════════════════════════════════════════════ */}
-        <section className="mb-28">
-          <motion.div {...fadeUp(0)} className="mb-10">
-            <span className="text-[10px] font-black tracking-[0.25em] text-slate-500 uppercase">Mi Perfil</span>
+        <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-32">
+          <motion.div {...fadeUp(0)} className="mb-12">
+            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Mi Filosofía</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
               Cuatro dimensiones<br />
               <span className="text-slate-500">que me definen.</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {pillars.map((p, i) => {
               const Icon = p.icon;
               return (
                 <motion.div
                   key={i}
                   {...fadeUp(i * 0.08)}
-                  className={`group relative flex flex-col gap-5 p-7 md:p-9 rounded-3xl bg-slate-900/50 border ${p.border} hover:bg-slate-900/80 transition-all duration-400 shadow-xl ${p.glow} hover:shadow-2xl`}
+                  className={`group relative flex flex-col gap-6 p-8 rounded-3xl bg-slate-900/40 border ${p.border} hover:bg-slate-900/80 transition-all duration-500 shadow-xl ${p.glow} hover:shadow-2xl hover:-translate-y-1`}
                 >
-                  {/* Top accent line */}
-                  <div className={`absolute top-0 inset-x-0 h-px rounded-t-3xl bg-gradient-to-r from-transparent via-current to-transparent opacity-30 ${p.color}`} />
+                  <div className={`absolute top-0 inset-x-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-current to-transparent opacity-30 ${p.color}`} />
 
-                  <div className={`w-fit p-3 rounded-2xl border ${p.bg} ${p.border}`}>
-                    <Icon className={`w-5 h-5 ${p.color}`} />
+                  <div className={`w-fit p-4 rounded-2xl border ${p.bg} ${p.border}`}>
+                    <Icon className={`w-6 h-6 ${p.color}`} />
                   </div>
 
-                  <div>
-                    <span className={`text-[9px] font-black tracking-[0.25em] uppercase ${p.color} mb-1 block`}>{p.tag}</span>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{p.title}</h3>
+                  <div className="flex-1">
+                    <span className={`text-[10px] font-black tracking-[0.25em] uppercase ${p.color} mb-2 block`}>{p.tag}</span>
+                    <h3 className="text-2xl font-bold text-white mb-3 tracking-tight leading-tight">{p.title}</h3>
                     <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
                   </div>
                 </motion.div>
@@ -164,64 +162,68 @@ export default function WhoPage() {
         </section>
 
         {/* ══════════════════════════════════════════════
-            STACK TECNOLÓGICO
+            STACK TECNOLÓGICO (INFINITE MARQUEE)
         ══════════════════════════════════════════════ */}
-        <section className="mb-28">
-          <motion.div {...fadeUp(0)} className="mb-10">
-            <span className="text-[10px] font-black tracking-[0.25em] text-slate-500 uppercase">Herramientas</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
-              Stack<br />
-              <span className="text-slate-500">Tecnológico.</span>
+        <section className="mb-32 relative py-12 bg-slate-950/50 border-y border-slate-900 overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-10 text-center">
+            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Arsenal Técnico</span>
+            <h2 className="text-3xl font-black tracking-tight text-white mt-2">
+              El Stack Tecnológico
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="flex flex-wrap gap-3">
-            {stack.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
-                className={`flex flex-col px-5 py-3.5 rounded-2xl bg-gradient-to-b border cursor-default hover:-translate-y-1 transition-transform duration-300 ${item.color}`}
-              >
-                <span className="text-sm font-bold">{item.name}</span>
-                <span className="text-[10px] font-bold opacity-60 tracking-wider uppercase">{item.sub}</span>
-              </motion.div>
-            ))}
+          <div className="relative flex overflow-x-hidden w-full group">
+            {/* Fade edges */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#040810] to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#040810] to-transparent z-10" />
+
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+              className="flex whitespace-nowrap gap-4 px-2"
+            >
+              {/* Render twice for seamless loop */}
+              {[...stack, ...stack, ...stack].map((item, i) => (
+                <div
+                  key={i}
+                  className={`flex flex-col px-8 py-5 rounded-2xl bg-slate-900 border ${item.color.split(' ')[2]} shrink-0 w-[240px] shadow-lg`}
+                >
+                  <span className={`text-lg font-black tracking-tight ${item.color.split(' ')[3]}`}>{item.name}</span>
+                  <span className="text-[11px] font-bold text-slate-500 tracking-[0.2em] uppercase mt-1">{item.sub}</span>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════
             FORMACIÓN ACADÉMICA — TIMELINE VERTICAL
         ══════════════════════════════════════════════ */}
-        <section>
-          <motion.div {...fadeUp(0)} className="mb-12">
-            <span className="text-[10px] font-black tracking-[0.25em] text-slate-500 uppercase">Educación</span>
+        <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+          <motion.div {...fadeUp(0)} className="mb-14">
+            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Fundación</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
-              Formación<br />
-              <span className="text-slate-500">Académica.</span>
+              Bases<br />
+              <span className="text-slate-500">Académicas.</span>
             </h2>
           </motion.div>
 
-          {/* Vertical timeline */}
-          <div className="relative pl-8 md:pl-12">
-            {/* Vertical track */}
-            <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-blue-500/50 via-indigo-500/30 to-transparent" />
+          <div className="relative pl-10 md:pl-16 max-w-4xl">
+            <div className="absolute left-0 top-2 bottom-2 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500/50 to-transparent" />
 
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-12">
               {education.map((ed, i) => (
-                <motion.div key={i} {...fadeUp(i * 0.1)} className="relative">
-                  {/* Dot on the track */}
-                  <div className={`absolute -left-[2.05rem] md:-left-[3.05rem] top-1.5 w-3 h-3 rounded-full ${ed.dot} ring-4 ring-[#040810] shadow-lg`} />
+                <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group">
+                  {/* Glowing Dot */}
+                  <div className={`absolute -left-[2.85rem] md:-left-[4.35rem] top-1.5 w-4 h-4 rounded-full ${ed.dot} ring-[6px] ring-[#040810] shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-transform duration-300`} />
 
-                  <span className={`text-[10px] font-black tracking-[0.2em] uppercase ${ed.accent} mb-2 block`}>
+                  <span className={`text-[11px] font-black tracking-[0.2em] uppercase ${ed.accent} mb-3 block`}>
                     {ed.period}
                   </span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-1">
+                  <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-2 group-hover:text-slate-200 transition-colors">
                     {ed.title}
                   </h3>
-                  <p className="text-slate-500 text-sm font-medium">{ed.institution}</p>
+                  <p className="text-slate-400 text-base md:text-lg font-medium">{ed.institution}</p>
                 </motion.div>
               ))}
             </div>

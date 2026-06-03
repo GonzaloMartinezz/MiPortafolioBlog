@@ -378,17 +378,26 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
   return (
     <div className="relative h-full w-full">
       {/* image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-slate-950 overflow-hidden">
         {item.imageSrc ? (
-          <img
-            src={item.imageSrc}
-            alt={item.title}
-            className="h-full w-full object-cover"
-            draggable={false}
-            loading="eager"
-          />
+          <>
+            {/* Fondo difuminado para rellenar espacios vacíos */}
+            <img
+              src={item.imageSrc}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover blur-[30px] opacity-50 scale-110 pointer-events-none"
+            />
+            {/* Imagen principal completa */}
+            <img
+              src={item.imageSrc}
+              alt={item.title}
+              className="absolute inset-0 h-full w-full object-contain z-10 pointer-events-none"
+              draggable={false}
+              loading="eager"
+            />
+          </>
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground">
+          <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground z-10 relative">
             No image
           </div>
         )}
