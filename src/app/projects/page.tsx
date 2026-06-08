@@ -97,11 +97,11 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 w-full max-w-none px-4 md:px-12 lg:px-24">
+      <div className="flex-1 w-full max-w-none">
         {/* Interactive Showcase Section */}
         <section className="py-16 md:py-24 text-center">
           <div className="max-w-3xl mx-auto mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-400">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-400 px-4">
               Proyectos Destacados
             </h1>
             <p className="mt-4 text-lg text-neutral-400">

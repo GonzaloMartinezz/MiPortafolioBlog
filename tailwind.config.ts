@@ -9,9 +9,15 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        yellowx: "#FCD100",
+        goldx: "#EAB308",
+        whitegrey: "#E5E5E5",
+      },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
         display: ["var(--font-display)", "var(--font-inter)", "sans-serif"],
+        plakatgrotesk: ["var(--font-display)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -20,6 +26,7 @@ const config: Config = {
       },
       animation: {
         blob: "blob 7s infinite",
+        marquee: 'marquee 25s linear infinite',
       },
       keyframes: {
         blob: {
@@ -35,6 +42,10 @@ const config: Config = {
           "100%": {
             transform: "translate(0px, 0px) scale(1)",
           },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
     },

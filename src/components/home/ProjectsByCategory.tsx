@@ -176,7 +176,7 @@ export default function ProjectsByCategory() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight mb-5"
           >
             Explora por{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500">

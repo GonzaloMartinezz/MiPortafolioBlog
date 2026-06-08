@@ -3,7 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
-import { PhoneMockup } from "@/components/ui/DeviceMockup"
+import { PhoneMockup, LaptopMockup } from "@/components/ui/DeviceMockup"
 
 interface Project {
   id: number
@@ -16,6 +16,7 @@ interface Project {
   tags: string[]
   dark?: boolean
   gradient?: string
+  deviceType: "phone" | "laptop"
 }
 
 const projects: Project[] = [
@@ -27,9 +28,11 @@ const projects: Project[] = [
       "Plataforma integral para gestión odontológica: agenda inteligente de turnos, historias clínicas digitales y panel administrativo completo.",
     year: "2026",
     link: "https://app-consultorio-odontologico.vercel.app/",
-    image: "/coc&m.png",
+    image: "/loginncoc&m.png",
     tags: ["React", "Node.js", "MongoDB"],
-    gradient: "from-emerald-200 via-teal-100 to-cyan-200",
+    gradient: "from-emerald-950 via-slate-900 to-teal-900",
+    dark: true,
+    deviceType: "phone"
   },
   {
     id: 2,
@@ -39,10 +42,11 @@ const projects: Project[] = [
       "Sistema financiero premium para gestión de tarjetas de crédito con monitoreo de transacciones en tiempo real y beneficios exclusivos.",
     year: "2025",
     link: "https://tarjetatitanio.vercel.app/",
-    image: "/TT.png",
+    image: "/appcompu.png",
     tags: ["Next.js", "TypeScript", "Stripe"],
     dark: true,
     gradient: "from-blue-900 via-slate-900 to-indigo-900",
+    deviceType: "laptop"
   },
   {
     id: 3,
@@ -56,6 +60,7 @@ const projects: Project[] = [
     tags: ["React", "Firebase", "Tailwind"],
     dark: true,
     gradient: "from-rose-900 via-slate-900 to-orange-900",
+    deviceType: "phone"
   },
   {
     id: 4,
@@ -67,8 +72,38 @@ const projects: Project[] = [
     link: "https://app-clickhouse.vercel.app/",
     image: "/ClickHouse.png",
     tags: ["Next.js", "Prisma", "PostgreSQL"],
-    gradient: "from-violet-200 via-purple-100 to-pink-200",
+    dark: true,
+    gradient: "from-violet-900 via-slate-900 to-pink-900",
+    deviceType: "laptop"
   },
+  {
+    id: 5,
+    title: "Apex Analytics",
+    category: "Data Analytics · SaaS",
+    description:
+      "Tablero de control y analítica de datos comerciales en tiempo real con integración de gráficos interactivos de alto rendimiento.",
+    year: "2026",
+    link: "https://app-gostats.vercel.app/",
+    image: "/appcompugostats.png",
+    tags: ["React", "Recharts", "Tailwind"],
+    dark: true,
+    gradient: "from-cyan-900 via-slate-900 to-teal-900",
+    deviceType: "laptop"
+  },
+  {
+    id: 6,
+    title: "Club Bochas",
+    category: "Productivity · App",
+    description:
+      "Aplicación institucional y de administración para clubes deportivos. Control de socios, noticias y pasarela de pago integrada.",
+    year: "2026",
+    link: "#",
+    image: "/CB.png",
+    tags: ["React Native", "Firebase", "Tailwind"],
+    dark: true,
+    gradient: "from-amber-900 via-slate-900 to-yellow-900",
+    deviceType: "phone"
+  }
 ]
 
 function ProjectCard({ project, large }: { project: Project; large?: boolean }) {
@@ -106,25 +141,37 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
           </span>
           <span
             className={`text-[11px] font-mono ${
-              isDark ? "text-white/30" : "text-slate-400"
+              isDark ? "text-white/30" : "text-slate-450"
             }`}
           >
             {project.year}
           </span>
         </div>
 
-        {/* Phone mockup — centered */}
-        <div className="flex justify-center items-center flex-1 py-3 min-h-[260px] sm:min-h-[300px]">
-          <PhoneMockup
-            dark={isDark}
-            className={large ? "w-[55%] sm:w-[44%] max-w-[200px]" : "w-[60%] sm:w-[48%] max-w-[180px]"}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            />
-          </PhoneMockup>
+        {/* Device mockup — centered */}
+        <div className="flex justify-center items-center flex-1 py-4 min-h-[260px] sm:min-h-[300px] w-full">
+          {project.deviceType === "laptop" ? (
+            <LaptopMockup
+              className="w-[85%] sm:w-[75%] max-w-[340px] drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+            </LaptopMockup>
+          ) : (
+            <PhoneMockup
+              dark={isDark}
+              className={large ? "w-[50%] sm:w-[40%] max-w-[170px]" : "w-[55%] sm:w-[44%] max-w-[150px]"}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+            </PhoneMockup>
+          )}
         </div>
 
         {/* Bottom: info */}
@@ -222,6 +269,12 @@ export default function Projects({ hideHeader = false }: { hideHeader?: boolean 
         </div>
         <div className="md:col-span-7">
           <ProjectCard project={projects[3]} large />
+        </div>
+        <div className="md:col-span-7">
+          <ProjectCard project={projects[4]} large />
+        </div>
+        <div className="md:col-span-5">
+          <ProjectCard project={projects[5]} />
         </div>
       </div>
     </section>

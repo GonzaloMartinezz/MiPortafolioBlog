@@ -75,10 +75,10 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
               transition={{ duration: 0.4 }}
               className="text-center w-full"
             >
-              <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-5 tracking-tighter">
                 {current.title}
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg lg:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed px-2">
                 {current.description}
               </p>
 
@@ -87,7 +87,7 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
                   href={current.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-sm tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
+                  className="group relative flex items-center justify-center gap-3 px-6 md:px-10 py-3 md:py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
                 >
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <FaPlay size={12} className="relative z-10 group-hover:text-white transition-colors" /> 
@@ -97,7 +97,7 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
                   href={current.codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-white/50 dark:bg-[#0B0F19]/50 backdrop-blur-md text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-bold text-sm tracking-widest uppercase hover:bg-slate-50 dark:hover:bg-[#131B2F] transition-all hover:scale-105 hover:border-slate-300 dark:hover:border-slate-700"
+                  className="group flex items-center justify-center gap-3 px-6 md:px-10 py-3 md:py-5 bg-white/50 dark:bg-[#0B0F19]/50 backdrop-blur-md text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-slate-50 dark:hover:bg-[#131B2F] transition-all hover:scale-105 hover:border-slate-300 dark:hover:border-slate-700"
                 >
                   <FaCode size={16} className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" /> 
                   <span>Ver código en GitHub</span>

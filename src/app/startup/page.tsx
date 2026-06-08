@@ -38,7 +38,7 @@ export default function StartupLandingPage() {
   const [currentStep, setCurrentStep] = useState(1);
 
   return (
-    <main className="relative min-h-screen bg-slate-950 text-white overflow-hidden">
+    <main className="relative min-h-screen bg-slate-950 text-white overflow-hidden -mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
       
       {/* ── SECTION 1: GSAP FlowArt Scroll ── */}
       <FlowArt aria-label="Lanzamiento Startup Flow">
@@ -208,7 +208,7 @@ export default function StartupLandingPage() {
 
       {/* ── SECTION 2: Especialización Bento Grid ── */}
       <section className="relative py-24 md:py-32 bg-slate-950 border-t border-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
             <span className="inline-block px-3.5 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-indigo-400 uppercase bg-indigo-950/40 rounded-full border border-indigo-900/40">
@@ -303,7 +303,7 @@ export default function StartupLandingPage() {
 
       {/* ── SECTION 3: Estimador de Costos Interactivo (Stepper) ── */}
       <section id="estimador" className="relative py-24 md:py-32 bg-slate-900/40 border-y border-slate-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 md:px-12">
           
           <div className="text-center mb-16">
             <span className="inline-block px-3.5 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-orange-400 uppercase bg-orange-950/40 rounded-full border border-orange-900/40">

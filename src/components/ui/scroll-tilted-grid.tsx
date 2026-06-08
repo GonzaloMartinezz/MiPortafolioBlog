@@ -80,10 +80,12 @@ function Tile({
   src,
   side,
   config,
+  isMobile,
 }: {
   src: string;
   side: Side;
   config: TileConfig;
+  isMobile: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress: p } = useScroll({
@@ -95,18 +97,22 @@ function Tile({
   const sign = side === "L" ? -1 : 1;
   const { aspectRatio, perspective, maxTilt, maxBlur, rounded } = config;
 
+  const shiftPct = isMobile ? 12 : 40;
+  const skewDeg = isMobile ? 6 : 20;
+  const tiltDeg = isMobile ? Math.min(25, maxTilt) : maxTilt;
+
   const blur     = useTransform(p, [0, 0.5, 1], [maxBlur, 0, maxBlur], { ease: focusEase });
   const bright   = useTransform(p, [0, 0.5, 1], [0.3, 1, 0.3],             { ease: focusEase });
   const contrast = useTransform(p, [0, 0.5, 1], [2, 1, 2],             { ease: focusEase });
 
   const ty = useTransform(p, [0, 0.5, 1], ["100%", "0%", "-100%"], { ease: focusEase });
   const tz = useTransform(p, [0, 0.5, 1], [300, 0, 300],           { ease: focusEase });
-  const rx = useTransform(p, [0, 0.5, 1], [maxTilt, 0, -maxTilt],  { ease: focusEase });
+  const rx = useTransform(p, [0, 0.5, 1], [tiltDeg, 0, -tiltDeg],  { ease: focusEase });
 
   const tx = useTransform(p, [0, 0.5, 1],
-    [`${sign * 40}%`, "0%", `${sign * 40}%`], { ease: focusEase });
+    [`${sign * shiftPct}%`, "0%", `${sign * shiftPct}%`], { ease: focusEase });
   const rot = useTransform(p, [0, 0.5, 1], [-sign * 5, 0, sign * 5],   { ease: focusEase });
-  const sk  = useTransform(p, [0, 0.5, 1], [sign * 20, 0, -sign * 20], { ease: focusEase });
+  const sk  = useTransform(p, [0, 0.5, 1], [sign * skewDeg, 0, -sign * skewDeg], { ease: focusEase });
 
   const innerSY = useTransform(p, [0, 0.5, 1], [1.8, 1, 1.8], { ease: focusEase });
 
@@ -216,6 +222,14 @@ export function ScrollTiltedGrid({
 }: ScrollTiltedGridProps = {}) {
   const [cycles, setCycles] = useState(loop ? initialCycles : 1);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!loop) return;
@@ -261,10 +275,11 @@ export function ScrollTiltedGrid({
       <div className={gridClass}>
         {items.map((src, i) => (
           <Tile
-            key={`${i}-${src}`}
+            key={`${isMobile ? "m" : "d"}-${i}-${src}`}
             src={src}
             side={i % 2 === 0 ? "L" : "R"}
             config={config}
+            isMobile={isMobile}
           />
         ))}
       </div>

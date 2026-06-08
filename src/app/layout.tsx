@@ -48,21 +48,21 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeAnimator>
             {/* Navbar */}
-            <div className="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-100/50 dark:border-slate-800/50">
+            <div className="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/10">
               <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
                 <Navbar />
               </div>
             </div>
 
             {/* Main Content */}
-            <main className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative z-10 flex-1 flex flex-col">
+            <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B]">
               <DynamicIslandTOC selector="section h2, article h1, article h2, [data-toc]">
                 {children}
               </DynamicIslandTOC>
             </main>
 
             {/* Footer */}
-            <div className="w-full border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 mt-auto">
+            <div className="w-full border-t border-white/10 bg-[#0B0B0B] mt-auto">
               <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative z-10">
                 <Footer />
               </div>

@@ -44,8 +44,8 @@ const projectsData: ShowcaseProject[] = [
     title: "Tarjeta Titanio",
     subtitle: "Fintech · Premium Banking",
     description: "Portal financiero para administración de tarjetas de crédito corporativas. Pasarela de pago cifrada, movimientos en vivo y catálogo exclusivo de recompensas.",
-    desktopImage: "/TT.png",
-    mobileImage: "/TT.png",
+    desktopImage: "/appcompu.png",
+    mobileImage: "/appiphone.png",
     glowColor: "rgba(59, 130, 246, 0.15)",
     tags: ["Next.js", "TypeScript", "Stripe API", "Framer Motion"],
     demoLink: "https://tarjetatitanio.vercel.app/",
@@ -80,8 +80,8 @@ const projectsData: ShowcaseProject[] = [
     title: "Apex Analytics",
     subtitle: "Data Analytics · SaaS",
     description: "Tablero de inteligencia empresarial para visualizar datos en tiempo real. Gráficos dinámicos, alertas configurables y exportación de reportes automatizada.",
-    desktopImage: "/GoStats.png",
-    mobileImage: "/GoStats.png",
+    desktopImage: "/appcompugostats.png",
+    mobileImage: "/appiphonegostats.png",
     glowColor: "rgba(6, 182, 212, 0.15)",
     tags: ["React.js", "Recharts", "Tailwind CSS", "Data Analysis"],
     demoLink: "https://app-gostats.vercel.app/",
@@ -93,10 +93,47 @@ const projectsData: ShowcaseProject[] = [
       { icon: Zap, title: "Monitoreo Constante", desc: "Alertas configurables por umbrales." },
     ],
   },
+  {
+    id: 5,
+    title: "Nuevo Proyecto 1",
+    subtitle: "E-Commerce · Retail",
+    description: "Plataforma de comercio electrónico con pasarela de pagos integrada, gestión de inventario y panel administrativo en tiempo real.",
+    desktopImage: "/MS.png",
+    mobileImage: "/MS.png",
+    glowColor: "rgba(236, 72, 153, 0.15)", // Pink
+    tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+    demoLink: "#",
+    colorTheme: "text-pink-400",
+    brandBg: "bg-pink-500/10 border-pink-500/20 text-pink-400",
+    features: [
+      { icon: Activity, title: "Ventas Reactivas", desc: "Panel de control en vivo." },
+      { icon: Shield, title: "Pagos Seguros", desc: "Integración con Stripe." },
+      { icon: Zap, title: "SEO Optimizado", desc: "Posicionamiento orgánico." },
+    ],
+  },
+  {
+    id: 6,
+    title: "Nuevo Proyecto 2",
+    subtitle: "Productivity · App",
+    description: "Aplicación de gestión de tareas y equipos con chat integrado, tableros Kanban y sincronización en la nube.",
+    desktopImage: "/CB.png",
+    mobileImage: "/CB.png",
+    glowColor: "rgba(245, 158, 11, 0.15)", // Amber
+    tags: ["React Native", "Firebase", "Tailwind CSS"],
+    demoLink: "#",
+    colorTheme: "text-amber-400",
+    brandBg: "bg-amber-500/10 border-amber-500/20 text-amber-400",
+    features: [
+      { icon: Activity, title: "Kanban Board", desc: "Gestión visual de tareas." },
+      { icon: Shield, title: "Chat Seguro", desc: "Comunicaciones cifradas." },
+      { icon: Zap, title: "Sync Real-time", desc: "Sincronización multidispositivo." },
+    ],
+  },
 ]
 
 export default function DualDeviceShowcase() {
   const [activeTab, setActiveTab] = useState<number>(0)
+  const [deviceView, setDeviceView] = useState<"desktop" | "mobile">("desktop")
   const project = projectsData[activeTab]
 
   return (
@@ -134,58 +171,8 @@ export default function DualDeviceShowcase() {
           </p>
         </div>
 
-        {/* Device showcase */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.97 }}
-            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-row items-end justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-14 w-full select-none"
-          >
-            {/* MacBook */}
-            <div
-              className="w-[63%] sm:w-[60%] md:w-[57%] max-w-[560px] relative z-10 hover:scale-[1.012] transition-transform duration-500"
-              style={{ WebkitBoxReflect: "below 1px linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.15) 100%)" }}
-            >
-              <div className="relative w-full aspect-[16/10] bg-zinc-950 border-[8px] sm:border-[10px] md:border-[12px] border-zinc-900 rounded-t-xl md:rounded-t-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden">
-                <img
-                  src={project.desktopImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/3 to-white/8 pointer-events-none" />
-              </div>
-              <div className="w-full h-1 bg-zinc-950 border-b border-zinc-900/60" />
-              <div className="w-[114%] -ml-[7%] h-2.5 md:h-3.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 rounded-b-xl shadow-[0_8px_20px_rgba(0,0,0,0.8)] border-t border-white/10">
-                <div className="w-12 md:w-16 h-1.5 bg-zinc-950 rounded-b-md absolute top-0 left-1/2 -translate-x-1/2" />
-              </div>
-            </div>
-
-            {/* iPhone */}
-            <div
-              className="w-[27%] sm:w-[24%] md:w-[20%] max-w-[200px] relative z-20 hover:scale-[1.03] transition-transform duration-500"
-              style={{
-                WebkitBoxReflect: "below 1px linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.2) 100%)",
-                marginBottom: "1.2%",
-              }}
-            >
-              <div className="relative w-full aspect-[9/19.5] rounded-[28px] sm:rounded-[32px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[10px] border-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-zinc-950 overflow-hidden">
-                <img
-                  src={project.mobileImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute top-[3%] left-1/2 -translate-x-1/2 w-[28%] h-[4%] bg-black rounded-full z-30" />
-                <div className="absolute bottom-[1.5%] left-1/2 -translate-x-1/2 w-[32%] h-[0.6%] bg-white/60 rounded-full z-30" />
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Project selector grid - subido con margin negativo */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 w-full max-w-4xl mx-auto -mt-6 md:-mt-10 relative z-30">
+        {/* Project selector grid - now at the top */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 w-full max-w-6xl mx-auto relative z-30">
           {projectsData.map((proj, idx) => {
             const isActive = idx === activeTab
             return (
@@ -234,6 +221,90 @@ export default function DualDeviceShowcase() {
             )
           })}
         </div>
+
+        {/* Device toggle for mobile only */}
+        <div className="flex md:hidden justify-center -mb-2 z-30 relative">
+          <div className="inline-flex p-1 bg-slate-950/80 border border-slate-800 rounded-xl">
+            <button
+              onClick={() => setDeviceView("desktop")}
+              className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                deviceView === "desktop"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
+                  : "text-slate-450 hover:text-slate-200"
+              }`}
+            >
+              Escritorio
+            </button>
+            <button
+              onClick={() => setDeviceView("mobile")}
+              className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                deviceView === "mobile"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
+                  : "text-slate-450 hover:text-slate-200"
+              }`}
+            >
+              Celular
+            </button>
+          </div>
+        </div>
+
+        {/* Device showcase */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.97 }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-row items-end justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-14 w-full select-none"
+          >
+            {/* MacBook */}
+            <div
+              className={`relative z-10 hover:scale-[1.012] transition-all duration-500 ${
+                deviceView === "desktop" 
+                  ? "w-[92%] sm:w-[70%] md:w-[57%] max-w-[560px] block" 
+                  : "hidden md:block md:w-[57%] max-w-[560px]"
+              }`}
+              style={{ WebkitBoxReflect: "below 1px linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.15) 100%)" }}
+            >
+              <div className="relative w-full aspect-[16/10] bg-zinc-950 border-[8px] sm:border-[10px] md:border-[12px] border-zinc-900 rounded-t-xl md:rounded-t-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden">
+                <img
+                  src={project.desktopImage}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/3 to-white/8 pointer-events-none" />
+              </div>
+              <div className="w-full h-1 bg-zinc-950 border-b border-zinc-900/60" />
+              <div className="w-[114%] -ml-[7%] h-2.5 md:h-3.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 rounded-b-xl shadow-[0_8px_20px_rgba(0,0,0,0.8)] border-t border-white/10">
+                <div className="w-12 md:w-16 h-1.5 bg-zinc-950 rounded-b-md absolute top-0 left-1/2 -translate-x-1/2" />
+              </div>
+            </div>
+
+            {/* iPhone */}
+            <div
+              className={`relative z-20 hover:scale-[1.03] transition-all duration-500 ${
+                deviceView === "mobile" 
+                  ? "w-[55%] sm:w-[40%] md:w-[20%] max-w-[200px] block mx-auto" 
+                  : "hidden md:block md:w-[20%] max-w-[200px]"
+              }`}
+              style={{
+                WebkitBoxReflect: "below 1px linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.2) 100%)",
+                marginBottom: "1.2%",
+              }}
+            >
+              <div className="relative w-full aspect-[9/19.5] rounded-[28px] sm:rounded-[32px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[10px] border-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-zinc-950 overflow-hidden">
+                <img
+                  src={project.mobileImage}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute top-[3%] left-1/2 -translate-x-1/2 w-[28%] h-[4%] bg-black rounded-full z-30" />
+                <div className="absolute bottom-[1.5%] left-1/2 -translate-x-1/2 w-[32%] h-[0.6%] bg-white/60 rounded-full z-30" />
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Details panel */}
         <AnimatePresence mode="wait">

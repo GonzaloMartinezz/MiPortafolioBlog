@@ -47,8 +47,8 @@ export default function Navbar() {
   const linkStyles = (path: string) => `
     relative text-[11px] sm:text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap py-1
     ${isActive(path)
-      ? "text-blue-600 dark:text-blue-400"
-      : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}
+      ? "text-blue-500"
+      : "text-white/60 hover:text-white"}
   `;
 
   return (
@@ -57,16 +57,15 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`w-full flex items-center justify-between py-4 md:py-5 transition-all duration-300 ${
-          scrolled ? "py-3 md:py-3.5" : ""
-        }`}
+        className={`w-full flex items-center justify-between py-4 md:py-5 transition-all duration-300 ${scrolled ? "py-3 md:py-3.5" : ""
+          }`}
         aria-label="Navegación principal"
       >
         {/* LOGO */}
         <div className="flex-shrink-0">
           <Link href="/" className="group" onClick={() => setMobileOpen(false)}>
-            <h2 className="font-[var(--font-display)] text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none transition-colors">
-              GONZALO<span className="text-blue-600">.</span>
+            <h2 className="font-[var(--font-display)] text-xl sm:text-2xl font-black tracking-tight uppercase text-white leading-none transition-colors">
+              GONZALO<span className="text-blue-500">.</span>
             </h2>
           </Link>
         </div>
@@ -75,14 +74,12 @@ export default function Navbar() {
         <div className="hidden md:flex gap-6 lg:gap-8 items-center">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className={linkStyles(link.href)}>
-              {link.label}
-              {isActive(link.href) && (
-                <motion.div
-                  layoutId="navbar-indicator"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
+              <div className="relative overflow-hidden group">
+                <div className="flex flex-col transition-transform duration-500 group-hover:-translate-y-full">
+                  <span className="mb-2 block">{link.label}</span>
+                  <span className="block text-blue-500 absolute top-full left-0">{link.label}</span>
+                </div>
+              </div>
             </Link>
           ))}
         </div>
@@ -198,11 +195,10 @@ export default function Navbar() {
                     <span className="text-sm font-bold text-blue-600 dark:text-blue-500 font-mono">
                       0{i + 1}
                     </span>
-                    <span className={`text-4xl sm:text-5xl font-black tracking-tighter uppercase transition-colors duration-300 ${
-                      isActive(link.href)
-                        ? "text-slate-900 dark:text-white"
-                        : "text-slate-400 dark:text-slate-600 group-hover:text-blue-600 dark:group-hover:text-blue-400"
-                    }`}>
+                    <span className={`text-4xl sm:text-5xl font-black tracking-tighter uppercase transition-colors duration-300 ${isActive(link.href)
+                      ? "text-slate-900 dark:text-white"
+                      : "text-slate-400 dark:text-slate-600 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                      }`}>
                       {link.label}
                     </span>
                   </Link>

@@ -120,10 +120,28 @@ export function CardStack<T extends CardStackItem>({
   const reduceMotion = useReducedMotion();
   const len = items.length;
 
+  const [mounted, setMounted] = React.useState(false);
   const [active, setActive] = React.useState(() =>
     wrapIndex(initialIndex, len),
   );
   const [hovering, setHovering] = React.useState(false);
+  const [stageWidth, setStageWidth] = React.useState(cardWidth);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setStageWidth(window.innerWidth < 768 ? Math.min(window.innerWidth - 32, cardWidth) : cardWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [cardWidth]);
+
+  const finalWidth = stageWidth;
+  const finalHeight = stageWidth !== cardWidth ? Math.round(stageWidth * (cardHeight / cardWidth)) : cardHeight;
 
   // keep active in bounds if items change
   React.useEffect(() => {
@@ -138,7 +156,7 @@ export function CardStack<T extends CardStackItem>({
 
   const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
 
-  const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
+  const cardSpacing = Math.max(10, Math.round(finalWidth * (1 - overlap)));
   const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
@@ -191,6 +209,35 @@ export function CardStack<T extends CardStackItem>({
 
   if (!len) return null;
 
+  // Render a stable skeleton on the server to avoid hydration mismatches
+  if (!mounted) {
+    return (
+      <div className={cn("w-full", className)}>
+        <div
+          className="relative w-full flex items-center justify-center"
+          style={{ height: Math.max(280, cardHeight + 80) }}
+        >
+          <div
+            className="rounded-2xl border-4 border-black/10 dark:border-white/10 overflow-hidden shadow-xl bg-slate-900/50 animate-pulse"
+            style={{ width: cardWidth, height: cardHeight }}
+          />
+        </div>
+        {showDots && (
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <div className="flex items-center gap-2">
+              {items.map((it) => (
+                <div
+                  key={it.id}
+                  className="h-2 w-2 rounded-full bg-foreground/30"
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   const activeItem = items[active]!;
 
   return (
@@ -202,7 +249,7 @@ export function CardStack<T extends CardStackItem>({
       {/* Stage */}
       <div
         className="relative w-full"
-        style={{ height: Math.max(380, cardHeight + 80) }}
+        style={{ height: Math.max(280, finalHeight + 80) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -259,7 +306,7 @@ export function CardStack<T extends CardStackItem>({
                       if (reduceMotion) return;
                       const travel = info.offset.x;
                       const v = info.velocity.x;
-                      const threshold = Math.min(160, cardWidth * 0.22);
+                      const threshold = Math.min(160, finalWidth * 0.22);
 
                       // swipe logic
                       if (travel > threshold || v > 650) prev();
@@ -279,8 +326,8 @@ export function CardStack<T extends CardStackItem>({
                       : "cursor-pointer",
                   )}
                   style={{
-                    width: cardWidth,
-                    height: cardHeight,
+                    width: finalWidth,
+                    height: finalHeight,
                     zIndex,
                     transformStyle: "preserve-3d",
                   }}

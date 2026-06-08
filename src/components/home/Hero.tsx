@@ -110,7 +110,7 @@ export default function Hero() {
               {/* Header Overlay */}
               <div className="absolute top-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full overflow-hidden border border-white/20 ring-2 ring-white/10">
-                  <Image src="/LogoPerfil.jpg" alt="Gonzalo Martínez" width={36} height={36} className="object-cover" />
+                  <Image src="/LogoPerfil.jpg" alt="Gonzalo Martínez" width={36} height={36} className="object-cover" priority />
                 </div>
                 <div className="flex flex-col min-w-0">
                   <span className="text-white text-sm font-bold truncate">
@@ -127,6 +127,8 @@ export default function Hero() {
                 src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                 alt="Video presentación de proyectos"
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover opacity-70 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700"
               />
 

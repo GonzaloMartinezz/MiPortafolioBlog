@@ -22,21 +22,17 @@ export function HeroScrollDemo() {
       >
         <div className="relative w-full h-full bg-slate-950 overflow-hidden">
           {/* Capa 1: Fondo difuminado por si la imagen queda chica */}
-          <Image
+          <img
             src="/2.jpg"
             alt="Fondo Blur"
-            fill
-            className="object-cover blur-[40px] opacity-40 scale-110 pointer-events-none"
-            priority
+            className="absolute inset-0 w-full h-full object-cover blur-[40px] opacity-40 scale-110 pointer-events-none"
           />
           {/* Capa 2: Imagen principal expandida para llenar los bordes */}
-          <Image
+          <img
             src="/2.jpg"
             alt="Demostración de proyecto"
-            fill
-            className="object-cover object-top z-10 pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover object-top z-10 pointer-events-none"
             draggable={false}
-            priority
           />
           {/* Capa 3: Sutil filtro oscuro */}
           <div className="absolute inset-0 bg-slate-950/20 z-20 pointer-events-none" />
