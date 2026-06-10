@@ -5,8 +5,8 @@ import { FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeSwitch from "./theme-switch";
 import { useState, useEffect } from "react";
+import ThemeSwitch from "./theme-switch";
 
 const navLinks = [
   { href: "/", label: "Inicio" },

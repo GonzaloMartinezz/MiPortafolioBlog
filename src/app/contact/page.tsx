@@ -97,7 +97,7 @@ export default function ContactPage() {
 
           <motion.h1
             {...fadeUp(0.05)}
-            className="text-[clamp(4rem,12vw,12rem)] font-black leading-[0.88] tracking-tighter text-white mb-8 mt-4"
+            className="text-[clamp(3rem,8vw,8rem)] font-black leading-[0.88] tracking-tighter text-white mb-6 mt-4"
           >
             Hablemos<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400">.</span>
           </motion.h1>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-500 mb-2 block">
                   Correo directo
                 </span>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white">
+                <h2 className="text-2xl md:text-2xl lg:text-3xl font-black tracking-tight text-white">
                   Enviame un mensaje
                 </h2>
               </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
           className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-slate-900/40 border border-slate-800/50"
         >
           <div>
-            <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-1">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-white mb-1">
               ¿Querés ver el código?
             </h3>
             <p className="text-slate-500 text-sm">Todos mis proyectos están disponibles públicamente en GitHub.</p>
@@ -266,7 +266,7 @@ export default function ContactPage() {
         >
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center">
-              <span className="text-3xl sm:text-5xl font-black tracking-tighter text-white uppercase mx-6 sm:mx-10">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tighter text-white uppercase mx-6 sm:mx-10">
                 DISPONIBLE PARA NUEVOS PROYECTOS
               </span>
               <span className="text-blue-300">✦</span>

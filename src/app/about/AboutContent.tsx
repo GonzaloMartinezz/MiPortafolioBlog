@@ -20,7 +20,7 @@ export default function AboutContent() {
           <h1
             data-toc
             data-toc-title="Sobre Mí"
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-slate-100 mb-8 leading-tight"
+            className="font-display text-4xl md:text-4xl lg:text-5xl font-black text-slate-100 mb-6 leading-tight"
           >
             Más que código: <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -87,7 +87,7 @@ export default function AboutContent() {
           <h2
             data-toc
             data-toc-title="Stack Tecnológico"
-            className="font-display text-2xl md:text-3xl font-black text-slate-100 mb-8 border-b border-slate-800 pb-3"
+            className="font-display text-2xl md:text-2xl lg:text-3xl font-black text-slate-100 mb-6 border-b border-slate-800 pb-3"
           >
             Arsenal Tecnológico
           </h2>
@@ -119,7 +119,7 @@ export default function AboutContent() {
           <h2
             data-toc
             data-toc-title="Trayectoria"
-            className="font-display text-2xl md:text-3xl font-black text-slate-100 mb-10 border-b border-slate-800 pb-3"
+            className="font-display text-2xl md:text-2xl lg:text-3xl font-black text-slate-100 mb-8 border-b border-slate-800 pb-3"
           >
             Trayectoria
           </h2>

@@ -2,8 +2,8 @@
 import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import ProjectsByCategory from "@/components/home/ProjectsByCategory";
-import Expertise from "@/components/home/Expertise";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
+import MeSection from "@/components/home/MeSection";
 import { motion } from "framer-motion";
 import DualDeviceShowcase from "@/components/home/DualDeviceShowcase";
 import { ScrollTiltedGrid } from "@/components/ui/scroll-tilted-grid";
@@ -28,6 +28,9 @@ export default function Home() {
       <div className="section-divider mt-12 md:mt-10">
         <HeroScrollDemo />
       </div>
+
+      {/* NEW: Me Section (Full Page Scroll) */}
+      <MeSection />
 
       {/* NEW: Dual Device App Showcase (Computer + Cellular) */}
       <DualDeviceShowcase />

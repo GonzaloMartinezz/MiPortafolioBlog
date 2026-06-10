@@ -15,10 +15,10 @@ export default function ProjectsPage() {
     {
       id: 1,
       type: "image",
-      title: "Apex Analytics Platform",
-      desc: "Traducir datos complejos en información procesable para usuarios empresariales.",
+      title: "Analytics Platform",
+      desc: "Panel de control de gastos financieros en tiempo real.Determinacion de finanzas para control de ganancias y perdidas.",
       url: "/GoStats.png",
-      span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+      span: "md:col-span-4 md:row-span-4 sm:col-span-2 sm:row-span-2",
       links: "https://app-gostats.vercel.app/",
       tags: ["SaaS", "Visualización de datos", "UI/UX"],
     },

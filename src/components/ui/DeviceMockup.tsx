@@ -181,7 +181,7 @@ export function PhoneMockup({ children, className = "", dark = true }: PhoneMock
         {/* Status bar */}
         <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 pt-2 pb-1">
           <span className="text-[10px] font-bold text-black leading-none mt-1">
-            {new Date().getHours()}:{String(new Date().getMinutes()).padStart(2, "0")}
+            09:41
           </span>
           <div className="flex items-center gap-1 mt-1">
             {/* Signal dots */}

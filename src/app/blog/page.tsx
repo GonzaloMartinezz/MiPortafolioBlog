@@ -77,7 +77,7 @@ export default function BlogPage() {
               <Code2 className="w-3.5 h-3.5" /> Bitácora Técnica
             </span>
 
-            <h1 className="text-[clamp(3.5rem,8.5vw,9rem)] font-black leading-[0.85] tracking-tighter text-white mb-10">
+            <h1 className="text-[clamp(3rem,6vw,6rem)] font-black leading-[0.85] tracking-tighter text-white mb-8">
               Ingeniería<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400">
                 Documentada.
@@ -97,7 +97,7 @@ export default function BlogPage() {
         <section className="mb-32 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeUp(0)} className="mb-14">
             <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Carrera</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mt-2">
               Trayectoria<br />
               <span className="text-slate-500">Profesional.</span>
             </h2>
@@ -121,7 +121,7 @@ export default function BlogPage() {
                       {item.period}
                     </span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black tracking-tight text-white mb-2">{item.company}</h3>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white mb-2">{item.company}</h3>
                   <span className="text-sm md:text-base font-bold text-slate-400 tracking-wide">{item.role}</span>
                 </div>
 
@@ -150,7 +150,7 @@ export default function BlogPage() {
         <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeUp(0)} className="mb-14">
             <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Publicaciones</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mt-2">
               Casos de<br />
               <span className="text-slate-500">Estudio.</span>
             </h2>
@@ -183,7 +183,7 @@ export default function BlogPage() {
                         </span>
                         <span className="text-[11px] font-bold text-slate-500">{post.date}</span>
                       </div>
-                      <h3 className="text-3xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-6 group-hover:text-blue-200 transition-colors">
+                      <h3 className="text-2xl md:text-4xl lg:text-4xl font-black text-white leading-[1.1] tracking-tight mb-4 group-hover:text-blue-200 transition-colors">
                         {post.title}
                       </h3>
                       <p className="text-slate-400 text-lg leading-relaxed mb-10 font-light">
@@ -227,7 +227,7 @@ export default function BlogPage() {
                       </div>
 
                       <div className="flex flex-col flex-1 p-8">
-                        <h3 className="text-xl md:text-2xl font-bold text-white leading-snug mb-4 tracking-tight group-hover:text-slate-200 transition-colors">
+                        <h3 className="text-xl md:text-xl lg:text-2xl font-bold text-white leading-snug mb-3 tracking-tight group-hover:text-slate-200 transition-colors">
                           {post.title}
                         </h3>
                         <p className="text-slate-400 text-base leading-relaxed flex-1 font-light">

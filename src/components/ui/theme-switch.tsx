@@ -2,7 +2,7 @@
 
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -13,7 +13,9 @@ const ThemeSwitch = ({
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isDark = resolvedTheme === "dark";
 
@@ -22,7 +24,16 @@ const ThemeSwitch = ({
   }, [isDark, setTheme]);
 
   if (!mounted) {
-    return <div className={cn("w-[64px] h-[32px] rounded-full bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800", className)} />;
+    return (
+      <button
+        className={cn(
+          "relative flex items-center w-[64px] h-[32px] rounded-full p-1 transition-colors duration-500 border bg-slate-100 border-slate-300/80 dark:bg-[#0f172a] dark:border-slate-700/50",
+          className
+        )}
+        {...props}
+        aria-label="Alternar tema oscuro/claro"
+      />
+    );
   }
 
   return (
