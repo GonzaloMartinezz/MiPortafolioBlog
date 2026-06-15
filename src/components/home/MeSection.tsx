@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Users, TrendingUp, Award, MessageSquareQuote, CheckCircle2 } from "lucide-react";
+import { Users, TrendingUp, Award, MessageSquareQuote, CheckCircle } from "lucide-react";
 
 export default function MeSection() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -18,7 +18,7 @@ export default function MeSection() {
 
   const stats = [
     { label: "Clientes Activos", value: "50+", icon: <Users className="w-6 h-6 text-yellow-500" /> },
-    { label: "Proyectos Entregados", value: "120+", icon: <CheckCircle2 className="w-6 h-6 text-yellow-500" /> },
+    { label: "Proyectos Entregados", value: "120+", icon: <CheckCircle className="w-6 h-6 text-yellow-500" /> },
     { label: "Años de Experiencia", value: "6+", icon: <Award className="w-6 h-6 text-yellow-500" /> },
     { label: "Crecimiento", value: "300%", icon: <TrendingUp className="w-6 h-6 text-yellow-500" /> },
   ];

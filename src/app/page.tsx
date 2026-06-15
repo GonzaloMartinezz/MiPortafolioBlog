@@ -10,6 +10,9 @@ import { ScrollTiltedGrid } from "@/components/ui/scroll-tilted-grid";
 import { PricingWithChart } from "@/components/ui/pricing-with-chart";
 import WorkMethodology from "@/components/home/WorkMethodology";
 import AppDevelopmentSteps from "@/components/home/HeroSlideshow";
+import BusinessStrategy from "@/components/home/BusinessStrategy";
+import CapabilitiesSection from "@/components/home/CapabilitiesSection";
+import ProjectCarousel from "@/components/home/ProjectCarousel";
 
 export default function Home() {
 
@@ -24,30 +27,34 @@ export default function Home() {
         <Hero />
       </motion.div>
 
+      {/* NEW: Business Strategy Section */}
+      <BusinessStrategy />
+
+      {/* NEW: Capabilities Bento Section */}
+      <CapabilitiesSection />
+
       {/* Scroll Animation Section */}
       <div className="section-divider mt-12 md:mt-10">
         <HeroScrollDemo />
       </div>
 
       {/* NEW: Me Section (Full Page Scroll) */}
-      <MeSection />
+      {/* <MeSection /> */}
 
       {/* NEW: Dual Device App Showcase (Computer + Cellular) */}
-      <DualDeviceShowcase />
+      {/* <DualDeviceShowcase /> */}
 
       {/* NEW: Work Methodology (Steps to develop your business app) */}
-      <WorkMethodology />
+      {/* <WorkMethodology /> */}
 
       {/* NEW: App Development Steps (ZigZag Timeline) */}
-      <AppDevelopmentSteps />
+      {/*  <AppDevelopmentSteps /> */}
 
       {/* NEW: Categorized Projects Section */}
-      <ProjectsByCategory />
+      {/*  <ProjectsByCategory /> */}
 
-      {/* Featured Projects Section */}
-      <div className="bg-gradient-to-b from-slate-50/80 via-slate-50/50 to-transparent dark:from-slate-900/30 dark:via-slate-900/20 dark:to-transparent -mx-4 sm:-mx-6 md:-mx-12 px-4 sm:px-6 md:px-12 py-12">
-        <Projects />
-      </div>
+      {/* Featured Projects Carousel Section */}
+      <ProjectCarousel />
 
       {/* NEW: Startup Pricing Section with Charts */}
       <section className="py-20 md:py-28 border-t border-slate-200/50 dark:border-slate-800/40">

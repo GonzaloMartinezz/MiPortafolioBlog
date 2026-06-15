@@ -6,6 +6,7 @@ import Footer from "@/components/ui/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
 import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -54,6 +55,9 @@ export default function RootLayout({
                 <Navbar />
               </div>
             </div>
+
+            {/* Scroll Progress Indicator */}
+            <ScrollProgress />
 
             {/* Main Content */}
             <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B]">

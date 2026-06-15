@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Brain, Palette, Database, Rocket, Sparkles, CheckCircle2 } from "lucide-react"
+import { Brain, Palette, Database, Rocket, Sparkles, CheckCircle } from "lucide-react"
 
 interface StepData {
   id: number
@@ -232,7 +232,7 @@ export default function Expertise() {
                                   transition={{ delay: dIdx * 0.1 }}
                                   className="flex items-start gap-2.5 text-xs text-slate-400 font-medium"
                                 >
-                                  <CheckCircle2 className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${s.textColor}`} />
+                                  <CheckCircle className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${s.textColor}`} />
                                   <span>{del}</span>
                                 </motion.li>
                               ))}
