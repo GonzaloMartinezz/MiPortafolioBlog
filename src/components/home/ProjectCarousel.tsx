@@ -8,47 +8,51 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
-    client: "FORZA",
-    clientSuffix: "CO",
-    title: "Forza Co.",
-    category: "BRANDING MODA",
+    client: "ODONTO",
+    clientSuffix: "APP",
+    title: "Consultorio Odontológico",
+    category: "SaaS / WEB APP",
     year: "2024",
-    description: "Marca urbana necesitaba un sistema visual audaz para diferenciarse.",
-    image: "https://images.unsplash.com/photo-1550614000-4b95d4edfa22?q=80&w=2070&auto=format&fit=crop",
-    color: "#5dfd5c", // Neon green from the image
+    description: "Gestión integral de turnos y pacientes para clínicas odontológicas.",
+    image: "/coc&m.png",
+    color: "#3b82f6", // Blue
+    link: "https://app-consultorio-odontologico.vercel.app/"
   },
   {
     id: 2,
-    client: "AURA",
-    clientSuffix: "APP",
-    title: "Aura Wellness",
-    category: "APP DESIGN",
-    year: "2023",
-    description: "Plataforma digital interactiva centrada en el bienestar y la meditación guiada.",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop",
-    color: "#FCD100", // Yellow from app
+    client: "TITANIO",
+    clientSuffix: "FIN",
+    title: "Tarjeta Titanio",
+    category: "FINTECH PLATFORM",
+    year: "2024",
+    description: "Plataforma financiera integral para la gestión de tarjetas de crédito y préstamos.",
+    image: "/TT.png",
+    color: "#eab308", // Yellow/Gold
+    link: "https://tarjetatitanio.vercel.app/"
   },
   {
     id: 3,
-    client: "NEXUS",
-    clientSuffix: "DEV",
-    title: "Nexus Tech",
-    category: "WEB DEVELOPMENT",
-    year: "2024",
-    description: "Rediseño completo de la arquitectura web corporativa para mayor escalabilidad.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
-    color: "#3b82f6", // Blue
+    client: "JHONES",
+    clientSuffix: "COM",
+    title: "Mr Jhones",
+    category: "E-COMMERCE",
+    year: "2023",
+    description: "Tienda online de indumentaria con pasarela de pagos y gestión de stock en tiempo real.",
+    image: "/MS.png",
+    color: "#ef4444", // Red
+    link: "https://mrjhones.vercel.app/"
   },
   {
     id: 4,
-    client: "LUMINA",
-    clientSuffix: "PKG",
-    title: "Lumina Care",
-    category: "PACKAGING",
+    client: "BELGRANO",
+    clientSuffix: "CLUB",
+    title: "Club Belgrano",
+    category: "INSTITUCIONAL",
     year: "2023",
-    description: "Identidad visual minimalista y diseño de empaque para línea de cuidado personal.",
-    image: "https://images.unsplash.com/photo-1615397323381-e2e4e16bb49d?q=80&w=2070&auto=format&fit=crop",
-    color: "#ec4899", // Pink
+    description: "Sistema de gestión de socios, actividades y pagos para club deportivo.",
+    image: "/CB.png",
+    color: "#10b981", // Emerald
+    link: "https://app-club-belgranocyd.vercel.app/"
   },
 ];
 
@@ -100,7 +104,65 @@ const ProjectCarousel = () => {
   const currentProject = projects[currentIndex];
 
   return (
-    <section className="relative w-full h-[80vh] md:h-screen bg-black overflow-hidden font-sans">
+    <>
+      {/* Mobile Layout */}
+      <div className="block md:hidden w-full bg-[#0B0B0B] pt-12 pb-24 px-6 overflow-hidden relative font-sans">
+        <div className="mb-8">
+          <p className="text-[10px] font-bold tracking-[0.2em] text-[#71717a] uppercase mb-4">
+            PROYECTOS / 0{projects.length}
+          </p>
+          <h2 className="text-5xl font-black leading-[0.9] tracking-tighter text-white uppercase">
+            RESULTADOS<br />REALES
+          </h2>
+        </div>
+
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 no-scrollbar">
+          {projects.map((project) => (
+            <div 
+              key={project.id} 
+              className="relative w-[85vw] shrink-0 snap-center rounded-2xl overflow-hidden h-[60vh] bg-[#121212] border border-white/5 shadow-2xl"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover object-center opacity-80" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-black/20 to-transparent" />
+              </div>
+
+
+
+              {/* Bottom Info */}
+              <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                <p className="text-[10px] font-bold tracking-[0.2em] text-[#a1a1aa] uppercase mb-3">
+                  {project.category} <span className="mx-1">—</span> {project.year}
+                </p>
+                <h4 className="text-3xl font-black text-white mb-4 leading-none tracking-tight">
+                  {project.title}
+                </h4>
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-[#fbbf24] flex items-center gap-2"
+                >
+                  Ver proyecto ↗
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Yellow floating button (asterisk) - matches reference */}
+        <div className="absolute bottom-6 right-6 w-12 h-12 bg-[#fbbf24] text-black rounded-xl flex items-center justify-center text-3xl font-black shadow-lg">
+          *
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <section className="hidden md:block relative w-full h-[100vh] bg-black overflow-hidden font-sans">
       
       {/* Background Images with AnimatePresence */}
       <AnimatePresence initial={false} custom={direction}>
@@ -129,8 +191,8 @@ const ProjectCarousel = () => {
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" /> {/* Bottom gradient for text readability */}
+          <div className="absolute inset-0 bg-black/10 z-10" /> {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10" /> {/* Bottom gradient for text readability */}
           
           <img
             src={currentProject.image}
@@ -150,30 +212,7 @@ const ProjectCarousel = () => {
           </p>
         </div>
 
-        {/* Center Giant Watermark Text */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center opacity-[0.15] mix-blend-overlay">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentProject.id}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 1.1, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-start"
-            >
-              <h1 className="text-[15vw] md:text-[18vw] font-black leading-none tracking-tighter text-white">
-                {currentProject.client}
-              </h1>
-              {currentProject.clientSuffix && (
-                <div className="mt-[2vw] ml-[1vw] border-[0.3vw] border-white rounded-full w-[4vw] h-[4vw] md:w-[3vw] md:h-[3vw] flex items-center justify-center">
-                  <span className="text-[1.5vw] md:text-[1vw] font-bold text-white">
-                    {currentProject.clientSuffix}
-                  </span>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+
 
         {/* Bottom Content Area */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mt-auto pointer-events-auto">
@@ -215,6 +254,7 @@ const ProjectCarousel = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open(currentProject.link, '_blank')}
                 className="rounded-full px-8 py-3.5 flex items-center gap-3 font-semibold text-black transition-all shadow-lg"
                 style={{ backgroundColor: currentProject.color }}
               >
@@ -267,7 +307,8 @@ const ProjectCarousel = () => {
         </button>
       </div>
 
-    </section>
+      </section>
+    </>
   );
 };
 

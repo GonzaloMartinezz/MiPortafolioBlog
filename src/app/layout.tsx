@@ -8,6 +8,8 @@ import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
 import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
+import FloatingHelpMenu from "@/components/ui/FloatingHelpMenu";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -72,6 +74,9 @@ export default function RootLayout({
                 <Footer />
               </div>
             </div>
+
+            {/* Floating Menu Widget */}
+            <FloatingHelpMenu />
           </ThemeAnimator>
         </ThemeProvider>
       </body>

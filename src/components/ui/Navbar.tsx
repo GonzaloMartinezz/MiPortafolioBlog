@@ -6,7 +6,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import ThemeSwitch from "./theme-switch";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -19,12 +19,12 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Close mobile menu on route change
+  // Close menu on route change
   useEffect(() => {
-    setMobileOpen(false);
+    setMenuOpen(false);
   }, [pathname]);
 
   // Detect scroll for sticky effect
@@ -34,22 +34,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when menu is open
   useEffect(() => {
-    if (mobileOpen) {
+    if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  const linkStyles = (path: string) => `
-    relative text-[11px] sm:text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap py-1
-    ${isActive(path)
-      ? "text-blue-500"
-      : "text-white/60 hover:text-white"}
-  `;
+  }, [menuOpen]);
 
   return (
     <>
@@ -62,36 +55,22 @@ export default function Navbar() {
         aria-label="Navegación principal"
       >
         {/* LOGO */}
-        <div className="flex-shrink-0">
-          <Link href="/" className="group" onClick={() => setMobileOpen(false)}>
+        <div className="flex-shrink-0 relative z-[999999]">
+          <Link href="/" className="group" onClick={() => setMenuOpen(false)}>
             <h2 className="font-[var(--font-display)] text-xl sm:text-2xl font-black tracking-tight uppercase text-white leading-none transition-colors">
               GONZALO<span className="text-blue-500">.</span>
             </h2>
           </Link>
         </div>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-6 lg:gap-8 items-center">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={linkStyles(link.href)}>
-              <div className="relative overflow-hidden group">
-                <div className="flex flex-col transition-transform duration-500 group-hover:-translate-y-full">
-                  <span className="mb-2 block">{link.label}</span>
-                  <span className="block text-blue-500 absolute top-full left-0">{link.label}</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* RIGHT ICONS */}
-        <div className="flex gap-2 sm:gap-2.5 items-center">
+        {/* RIGHT ICONS & MENU BUTTON */}
+        <div className="flex gap-2 sm:gap-2.5 items-center relative z-[999999]">
           {/* GitHub */}
           <a
             href="https://github.com/GonzaloMartinezz"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105"
+            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${menuOpen ? 'text-white/70 hover:text-white' : 'text-slate-500 hover:text-white hover:bg-slate-900'}`}
             aria-label="Ver perfil en GitHub"
           >
             <FaGithub size={18} />
@@ -100,25 +79,22 @@ export default function Navbar() {
           {/* Email */}
           <a
             href="mailto:gonzalomartinezzz04@gmail.com"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-white hover:bg-red-500 transition-all duration-300 hover:scale-105"
+            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${menuOpen ? 'text-white/70 hover:text-white hover:bg-red-500' : 'text-slate-500 hover:text-white hover:bg-red-500'}`}
             aria-label="Enviar email"
           >
             <HiOutlineMail size={19} />
           </a>
 
-          {/* Theme Toggle */}
-          <ThemeSwitch />
-
-          {/* Hamburger - Mobile Only */}
+          {/* Hamburger - All Screens */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${menuOpen ? 'text-white hover:bg-white/10' : 'text-white hover:bg-slate-800'}`}
             aria-label="Abrir menú de navegación"
-            aria-expanded={mobileOpen}
+            aria-expanded={menuOpen}
           >
             <AnimatePresence mode="wait">
-              {mobileOpen ? (
-                <motion.div
+              {menuOpen ? (
+                <motion.span
                   key="close"
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -126,9 +102,9 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   <HiX size={24} />
-                </motion.div>
+                </motion.span>
               ) : (
-                <motion.div
+                <motion.span
                   key="menu"
                   initial={{ rotate: 90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -136,103 +112,130 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   <HiMenuAlt3 size={24} />
-                </motion.div>
+                </motion.span>
               )}
             </AnimatePresence>
           </button>
         </div>
       </motion.nav>
 
-      {/* MOBILE MENU - FULLSCREEN TAKEOVER */}
+      {/* FULLSCREEN DROPDOWN MENU */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" }}
-            animate={{ opacity: 1, clipPath: "circle(150% at calc(100% - 2.5rem) 2.5rem)" }}
-            exit={{ opacity: 0, clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" }}
-            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 w-full h-[100dvh] z-[99999] md:hidden bg-slate-50 dark:bg-[#06080D] overflow-hidden flex flex-col overscroll-none"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 w-full h-[100dvh] z-[99998] bg-[#050505] overflow-hidden flex flex-col md:flex-row overscroll-none"
           >
-            {/* Ambient Background Glows */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/20 blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-500/20 blur-[100px] pointer-events-none" />
-
-            {/* Top Bar inside Menu */}
-            <div className="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-200/50 dark:border-white/5 bg-white/50 dark:bg-black/10 backdrop-blur-md">
-              <Link href="/" onClick={() => setMobileOpen(false)}>
-                <span className="font-[var(--font-display)] text-xl font-black uppercase text-slate-900 dark:text-white tracking-tight">
-                  GONZALO<span className="text-blue-600">.</span>
-                </span>
-              </Link>
-              <div className="flex items-center gap-3">
-                <ThemeSwitch />
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-slate-900 dark:text-white bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition-all border border-slate-300/50 dark:border-white/10"
-                  aria-label="Cerrar menú"
-                >
-                  <HiX size={20} />
-                </button>
-              </div>
+            {/* Left Side: Image */}
+            <div className="relative w-full md:w-1/2 h-1/4 md:h-full border-b md:border-b-0 md:border-r border-white/5">
+              <img 
+                src="/d4d5020e9104569354e8d5e6329fe752.jpg" 
+                alt="Background" 
+                className="w-full h-full object-cover object-center grayscale-[20%] opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#050505] via-black/40 to-transparent" />
             </div>
 
-            {/* Nav Links (Huge Typography, Left Aligned) */}
-            <div className="relative z-10 flex-1 flex flex-col justify-center px-8 sm:px-12 gap-6 sm:gap-8">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ x: -40, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -20, opacity: 0 }}
-                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full"
-                >
+            {/* Right Side: Nav Links & Info */}
+            <div className="relative w-full md:w-1/2 h-3/4 md:h-full flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24">
+              <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10">
+                {navLinks.map((link, i) => (
                   <Link
+                    key={link.href}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="group flex items-baseline gap-4"
+                    onClick={() => setMenuOpen(false)}
+                    className="group flex flex-col items-start"
                   >
-                    <span className="text-sm font-bold text-blue-600 dark:text-blue-500 font-mono">
+                    {/* Link Number */}
+                    <motion.span
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
+                      className="text-xs font-bold text-blue-500 font-mono mb-1 tracking-[0.3em]"
+                    >
                       0{i + 1}
-                    </span>
-                    <span className={`text-4xl sm:text-5xl font-black tracking-tighter uppercase transition-colors duration-300 ${isActive(link.href)
-                      ? "text-slate-900 dark:text-white"
-                      : "text-slate-400 dark:text-slate-600 group-hover:text-blue-600 dark:group-hover:text-blue-400"
-                      }`}>
-                      {link.label}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+                    </motion.span>
 
-            {/* Bottom Actions */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 30, opacity: 0 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-              className="relative z-10 px-6 sm:px-8 pb-8 pt-6 border-t border-slate-200/50 dark:border-white/5 bg-white/30 dark:bg-black/20 backdrop-blur-sm"
-            >
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/GonzaloMartinezz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shadow-lg"
-                  aria-label="GitHub"
-                >
-                  <FaGithub size={20} />
-                </a>
-                <a
-                  href="mailto:gonzalomartinezzz04@gmail.com"
-                  className="flex-1 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                >
-                  <HiOutlineMail size={18} />
-                  <span>Contactar</span>
-                </a>
+                    {/* Staggered Letter Animation */}
+                    <motion.span
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: {
+                            staggerChildren: 0.04,
+                            delayChildren: 0.3 + i * 0.1,
+                          },
+                        },
+                      }}
+                      className="flex overflow-visible"
+                    >
+                      {link.label.split("").map((char, charIndex) => (
+                        <motion.span
+                          key={charIndex}
+                          variants={{
+                            hidden: { opacity: 0, scale: 0.2, x: -40 },
+                            visible: {
+                              opacity: 1,
+                              scale: 1,
+                              x: 0,
+                              transition: { type: "spring", stiffness: 200, damping: 12 },
+                            },
+                          }}
+                          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase inline-block ${
+                            char === " " ? "w-3 sm:w-6" : ""
+                          } transition-colors duration-300 ${
+                            isActive(link.href)
+                              ? "text-[#fbbf24]"
+                              : "text-white/40 group-hover:text-[#fbbf24]"
+                          }`}
+                          style={{ 
+                            transformOrigin: "left center",
+                            transitionDelay: `${charIndex * 0.05}s`
+                          }}
+                        >
+                          {char}
+                        </motion.span>
+                      ))}
+                    </motion.span>
+                  </Link>
+                ))}
               </div>
-            </motion.div>
+
+              {/* Bottom Actions / Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.6, duration: 0.4 }}
+                className="absolute bottom-8 left-8 md:left-16 lg:left-24 flex flex-col gap-2"
+              >
+                <p className="text-white/30 text-[10px] font-mono tracking-widest uppercase">Social</p>
+                <div className="flex gap-6">
+                  <a
+                    href="https://github.com/GonzaloMartinezz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/50 text-xs sm:text-sm font-bold tracking-widest hover:text-white transition-colors"
+                  >
+                    GITHUB
+                  </a>
+                  <a
+                    href="mailto:gonzalomartinezzz04@gmail.com"
+                    className="text-white/50 text-xs sm:text-sm font-bold tracking-widest hover:text-white transition-colors"
+                  >
+                    EMAIL
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
