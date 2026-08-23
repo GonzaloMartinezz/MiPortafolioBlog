@@ -63,7 +63,7 @@ export default function DataAnalyticsSection() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0B0B0B] text-white py-24 md:py-32 overflow-hidden font-sans">
+    <section className="relative w-full bg-transparent text-white py-24 md:py-32 overflow-hidden font-sans">
       <div className="max-w-[1400px] mx-auto flex flex-col items-center gap-16 lg:gap-24">
         
         {/* Top: Text Content */}

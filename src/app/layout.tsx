@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
-import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
+
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 import FloatingHelpMenu from "@/components/ui/FloatingHelpMenu";
@@ -52,8 +52,8 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeAnimator>
             {/* Navbar */}
-            <div className="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/10">
-              <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+            <div className="fixed top-0 w-full z-50 pointer-events-none">
+              <div className="max-w-none w-full pointer-events-auto">
                 <Navbar />
               </div>
             </div>
@@ -63,9 +63,7 @@ export default function RootLayout({
 
             {/* Main Content */}
             <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B]">
-              <DynamicIslandTOC selector="section h2, article h1, article h2, [data-toc]">
-                {children}
-              </DynamicIslandTOC>
+              {children}
             </main>
 
             {/* Footer */}

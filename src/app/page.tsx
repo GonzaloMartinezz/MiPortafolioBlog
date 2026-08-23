@@ -1,5 +1,6 @@
 "use client";
 import Hero from "@/components/home/Hero";
+import BrandSpeed from "@/components/home/BrandSpeed";
 import Projects from "@/components/home/Projects";
 import ProjectsByCategory from "@/components/home/ProjectsByCategory";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
@@ -16,6 +17,7 @@ import ProjectCarousel from "@/components/home/ProjectCarousel";
 import ProjectList from "@/components/home/ProjectList";
 import DataAnalyticsSection from "@/components/home/DataAnalyticsSection";
 import ParallaxSection from "@/components/ui/ParallaxSection";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
 export default function Home() {
 
@@ -30,40 +32,73 @@ export default function Home() {
         <Hero />
       </motion.div>
 
+      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" />
+
+      {/* Brand Speed Dark Section */}
+      <div className="bg-[#0B0B0B]">
+        <BrandSpeed />
+      </div>
+
+      <WaveDivider topColor="#0B0B0B" bottomColor="#111111" flip />
+
       {/* NEW: Business Strategy Section */}
-      <ParallaxSection>
-        <BusinessStrategy />
-      </ParallaxSection>
+      <div className="bg-[#111111] pb-12">
+        <ParallaxSection>
+          <BusinessStrategy />
+        </ParallaxSection>
+      </div>
+
+      <WaveDivider topColor="#111111" bottomColor="#050505" />
 
       {/* NEW: Capabilities Bento Section */}
-      <ParallaxSection offset={80}>
-        <CapabilitiesSection />
-      </ParallaxSection>
+      <div className="bg-[#050505] py-12">
+        <ParallaxSection offset={80}>
+          <CapabilitiesSection />
+        </ParallaxSection>
+      </div>
+
+      <WaveDivider topColor="#050505" bottomColor="#0B0B0B" flip />
 
       {/* Scroll Animation Section */}
-      <div className="section-divider mt-12 md:mt-10">
+      <div className="bg-[#0B0B0B] py-12">
         <HeroScrollDemo />
       </div>
 
+      <WaveDivider topColor="#0B0B0B" bottomColor="#111111" />
+
       {/* Featured Projects Carousel Section */}
-      <ProjectCarousel />
+      <div className="bg-[#111111] py-12">
+        <ProjectCarousel />
+      </div>
 
-      {/* NEW: Project List Section (Alternating zig-zag style) */}
-      <ParallaxSection offset={60}>
-        <ProjectList />
-      </ParallaxSection>
+      <WaveDivider topColor="#111111" bottomColor="#050505" flip />
 
-      {/* NEW: Data Analytics Section with Floating Phones */}
-      <ParallaxSection offset={40}>
-        <DataAnalyticsSection />
-      </ParallaxSection>
+      {/* NEW: Project List Section */}
+      <div className="bg-[#050505] py-12">
+        <ParallaxSection offset={60}>
+          <ProjectList />
+        </ParallaxSection>
+      </div>
 
-      {/* NEW: Startup Pricing Section with Charts */}
-      <ParallaxSection offset={100}>
-        <section className="py-20 md:py-28 border-t border-slate-200/50 dark:border-slate-800/40">
-          <PricingWithChart />
-        </section>
-      </ParallaxSection>
+      <WaveDivider topColor="#050505" bottomColor="#0B0B0B" />
+
+      {/* NEW: Data Analytics Section */}
+      <div className="bg-[#0B0B0B] py-12">
+        <ParallaxSection offset={40}>
+          <DataAnalyticsSection />
+        </ParallaxSection>
+      </div>
+
+      <WaveDivider topColor="#0B0B0B" bottomColor="#111111" flip />
+
+      {/* NEW: Startup Pricing Section */}
+      <div className="bg-[#111111] pb-24">
+        <ParallaxSection offset={100}>
+          <section className="py-20 md:py-28 border-t border-white/5">
+            <PricingWithChart />
+          </section>
+        </ParallaxSection>
+      </div>
     </div>
   );
 }

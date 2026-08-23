@@ -57,7 +57,7 @@ const projects = [
 
 export default function ProjectList() {
   return (
-    <section className="w-full bg-[#0B0B0B] text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 font-sans">
+    <section className="w-full bg-transparent text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 font-sans">
       <div className="max-w-[1400px] mx-auto flex flex-col gap-32 md:gap-48">
         {projects.map((project, index) => {
           const isEven = index % 2 === 0;

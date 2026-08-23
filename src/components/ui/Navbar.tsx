@@ -1,19 +1,20 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaGithub } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
+import { FaWhatsapp } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { FiMail, FiHome, FiBriefcase, FiUser, FiFileText, FiMessageCircle, FiArrowRight, FiPlayCircle } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/projects", label: "Proyectos" },
-  { href: "/who", label: "Sobre mí" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contacto" },
+// Left Column Links
+const mainLinks = [
+  { href: "/", label: "Inicio", desc: "Vuelve a la pantalla principal", icon: FiHome },
+  { href: "/projects", label: "Proyectos", desc: "Explora mis últimos trabajos", icon: FiBriefcase },
+  { href: "/who", label: "Sobre mí", desc: "Conoce mi historia y método", icon: FiUser },
+  { href: "/blog", label: "Blog", desc: "Artículos sobre diseño y código", icon: FiFileText },
+  { href: "/contact", label: "Contacto", desc: "Hablemos sobre tu proyecto", icon: FiMessageCircle },
 ];
 
 export default function Navbar() {
@@ -50,46 +51,27 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`w-full flex items-center justify-between py-4 md:py-5 transition-all duration-300 ${scrolled ? "py-3 md:py-3.5" : ""
-          }`}
+        className={`w-full flex items-center justify-between py-4 md:py-5 transition-all duration-300 relative z-[999999] px-6 md:px-12 ${
+          scrolled ? "py-3 md:py-3.5 bg-white/80 backdrop-blur-md shadow-sm border-b border-black/5" : "bg-transparent"
+        }`}
         aria-label="Navegación principal"
       >
-        {/* LOGO */}
-        <div className="flex-shrink-0 relative z-[999999]">
-          <Link href="/" className="group" onClick={() => setMenuOpen(false)}>
-            <h2 className="font-[var(--font-display)] text-xl sm:text-2xl font-black tracking-tight uppercase text-white leading-none transition-colors">
-              GONZALO<span className="text-blue-500">.</span>
-            </h2>
-          </Link>
+        {/* LOGO (Clicks open mega menu) */}
+        <div className="flex-shrink-0 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+           <div className="w-10 h-10 md:w-12 md:h-12 bg-black rounded-full flex items-center justify-center overflow-hidden border-2 border-transparent hover:border-[#F66C44] transition-all">
+             <Image src="/LOGOia.png" alt="Logo" width={48} height={48} className="object-cover w-full h-full" />
+           </div>
         </div>
 
         {/* RIGHT ICONS & MENU BUTTON */}
-        <div className="flex gap-2 sm:gap-2.5 items-center relative z-[999999]">
-          {/* GitHub */}
-          <a
-            href="https://github.com/GonzaloMartinezz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${menuOpen ? 'text-white/70 hover:text-white' : 'text-slate-500 hover:text-white hover:bg-slate-900'}`}
-            aria-label="Ver perfil en GitHub"
-          >
-            <FaGithub size={18} />
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:gonzalomartinezzz04@gmail.com"
-            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 ${menuOpen ? 'text-white/70 hover:text-white hover:bg-red-500' : 'text-slate-500 hover:text-white hover:bg-red-500'}`}
-            aria-label="Enviar email"
-          >
-            <HiOutlineMail size={19} />
-          </a>
-
+        <div className="flex gap-3 md:gap-4 items-center">
           {/* Hamburger - All Screens */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${menuOpen ? 'text-white hover:bg-white/10' : 'text-white hover:bg-slate-800'}`}
-            aria-label="Abrir menú de navegación"
+            className={`w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all shadow-md border ${
+              menuOpen ? 'bg-[#0B0B0B] text-white border-transparent' : 'bg-white text-black border-slate-200 hover:bg-slate-50'
+            }`}
+            aria-label="Menú"
             aria-expanded={menuOpen}
           >
             <AnimatePresence mode="wait">
@@ -101,7 +83,7 @@ export default function Navbar() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <HiX size={24} />
+                  <HiX size={20} />
                 </motion.span>
               ) : (
                 <motion.span
@@ -111,7 +93,7 @@ export default function Navbar() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <HiMenuAlt3 size={24} />
+                  <HiMenuAlt3 size={20} />
                 </motion.span>
               )}
             </AnimatePresence>
@@ -119,122 +101,109 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* FULLSCREEN DROPDOWN MENU */}
+      {/* OVERLAY */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 bg-[#0B0B0B]/60 backdrop-blur-sm z-[999998]"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* MEGA MENU DROPDOWN */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 w-full h-[100dvh] z-[99998] bg-[#050505] overflow-hidden flex flex-col md:flex-row overscroll-none"
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-[70px] md:top-[80px] left-4 right-4 md:left-12 md:right-auto md:w-[850px] bg-[#0F0F11] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-[999999] overflow-hidden border border-white/10 flex flex-col origin-top-left"
           >
-            {/* Left Side: Image */}
-            <div className="relative w-full md:w-1/2 h-1/4 md:h-full border-b md:border-b-0 md:border-r border-white/5">
-              <img 
-                src="/d4d5020e9104569354e8d5e6329fe752.jpg" 
-                alt="Background" 
-                className="w-full h-full object-cover object-center grayscale-[20%] opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#050505] via-black/40 to-transparent" />
-            </div>
-
-            {/* Right Side: Nav Links & Info */}
-            <div className="relative w-full md:w-1/2 h-3/4 md:h-full flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-24">
-              <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10">
-                {navLinks.map((link, i) => (
-                  <Link
+            {/* Columns Container */}
+            <div className="flex flex-col md:flex-row h-full max-h-[75vh] md:max-h-[80vh] overflow-y-auto md:overflow-visible">
+              
+              {/* Left Column: Features/Links */}
+              <div className="w-full md:w-[60%] p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+                <div className="col-span-full">
+                  <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Navegación</p>
+                </div>
+                
+                {mainLinks.map((link) => (
+                  <Link 
+                    href={link.href} 
                     key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="group flex flex-col items-start"
+                    className="flex items-start gap-4 p-3 -m-3 rounded-2xl hover:bg-white/5 transition-colors group"
                   >
-                    {/* Link Number */}
-                    <motion.span
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
-                      className="text-xs font-bold text-blue-500 font-mono mb-1 tracking-[0.3em]"
-                    >
-                      0{i + 1}
-                    </motion.span>
-
-                    {/* Staggered Letter Animation */}
-                    <motion.span
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: {
-                          opacity: 1,
-                          transition: {
-                            staggerChildren: 0.04,
-                            delayChildren: 0.3 + i * 0.1,
-                          },
-                        },
-                      }}
-                      className="flex overflow-visible"
-                    >
-                      {link.label.split("").map((char, charIndex) => (
-                        <motion.span
-                          key={charIndex}
-                          variants={{
-                            hidden: { opacity: 0, scale: 0.2, x: -40 },
-                            visible: {
-                              opacity: 1,
-                              scale: 1,
-                              x: 0,
-                              transition: { type: "spring", stiffness: 200, damping: 12 },
-                            },
-                          }}
-                          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase inline-block ${
-                            char === " " ? "w-3 sm:w-6" : ""
-                          } transition-colors duration-300 ${
-                            isActive(link.href)
-                              ? "text-[#fbbf24]"
-                              : "text-white/40 group-hover:text-[#fbbf24]"
-                          }`}
-                          style={{ 
-                            transformOrigin: "left center",
-                            transitionDelay: `${charIndex * 0.05}s`
-                          }}
-                        >
-                          {char}
-                        </motion.span>
-                      ))}
-                    </motion.span>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isActive(link.href) ? "bg-[#F66C44]/20 text-[#F66C44] scale-110" : "bg-white/5 text-white/50 group-hover:bg-[#F66C44]/20 group-hover:text-[#F66C44] group-hover:scale-110"
+                    }`}>
+                      <link.icon size={18} />
+                    </div>
+                    <div>
+                      <h3 className={`font-bold text-sm mb-1 transition-colors ${isActive(link.href) ? "text-white" : "text-white/70 group-hover:text-white"}`}>
+                        {link.label}
+                      </h3>
+                      <p className="text-[11px] text-white/40 leading-snug group-hover:text-white/60 transition-colors">
+                        {link.desc}
+                      </p>
+                    </div>
                   </Link>
                 ))}
               </div>
 
-              {/* Bottom Actions / Info */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-                className="absolute bottom-8 left-8 md:left-16 lg:left-24 flex flex-col gap-2"
-              >
-                <p className="text-white/30 text-[10px] font-mono tracking-widest uppercase">Social</p>
-                <div className="flex gap-6">
-                  <a
-                    href="https://github.com/GonzaloMartinezz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/50 text-xs sm:text-sm font-bold tracking-widest hover:text-white transition-colors"
-                  >
-                    GITHUB
-                  </a>
-                  <a
-                    href="mailto:gonzalomartinezzz04@gmail.com"
-                    className="text-white/50 text-xs sm:text-sm font-bold tracking-widest hover:text-white transition-colors"
-                  >
-                    EMAIL
-                  </a>
+              {/* Right Column: Explore */}
+              <div className="w-full md:w-[40%] bg-[#151518] p-6 md:p-8 flex flex-col border-t md:border-t-0 md:border-l border-white/5">
+                <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-6">Explorar</p>
+                
+                <div className="flex flex-col gap-5 flex-1">
+                  {/* Highlight Item 1 */}
+                  <Link href="/projects" className="group flex gap-4 items-center p-2 -m-2 rounded-xl hover:bg-white/5 transition-all">
+                    <div className="w-16 h-12 bg-white/5 rounded-lg shrink-0 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-colors">
+                      <div className="w-8 h-8 bg-blue-500 rounded-sm transform -rotate-6 group-hover:rotate-0 transition-transform"></div>
+                    </div>
+                    <p className="text-xs font-semibold text-white/60 leading-snug group-hover:text-blue-400 transition-colors">
+                      Caso de Éxito: Gestión Odontológica
+                    </p>
+                  </Link>
+
+                  {/* Highlight Item 2 */}
+                  <Link href="/projects" className="group flex gap-4 items-center p-2 -m-2 rounded-xl hover:bg-white/5 transition-all">
+                    <div className="w-16 h-12 bg-white/5 rounded-lg shrink-0 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-purple-500/50 transition-colors">
+                      <div className="w-8 h-8 bg-purple-500 rounded-sm transform rotate-3 group-hover:rotate-0 transition-transform"></div>
+                    </div>
+                    <p className="text-xs font-semibold text-white/60 leading-snug group-hover:text-purple-400 transition-colors">
+                      Tarjeta Titanio: Finanzas modernas
+                    </p>
+                  </Link>
+                  
+                  {/* Highlight Item 3 */}
+                  <Link href="/who" className="group flex gap-4 items-center p-2 -m-2 rounded-xl hover:bg-white/5 transition-all">
+                    <div className="w-16 h-12 bg-white/5 rounded-lg shrink-0 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F66C44]/50 transition-colors">
+                      <div className="w-8 h-8 bg-[#F66C44] rounded-full group-hover:scale-110 transition-transform"></div>
+                    </div>
+                    <p className="text-xs font-semibold text-white/60 leading-snug group-hover:text-[#F66C44] transition-colors">
+                      Mi metodología y cómo trabajo
+                    </p>
+                  </Link>
                 </div>
-              </motion.div>
+
+                <Link href="/projects" className="mt-8 text-xs font-bold text-blue-400 flex items-center gap-1 hover:gap-2 transition-all w-fit">
+                  Ver todos los proyectos <FiArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="w-full bg-[#0A0A0C] border-t border-white/10 p-4 md:px-8 py-4 flex justify-between items-center text-xs md:text-sm">
+               <span className="text-white/50 font-medium">¿Listo para transformar tu idea?</span>
+               <Link href="/contact" className="font-bold text-[#F66C44] flex items-center gap-1.5 hover:text-[#FF8666] transition-colors bg-[#F66C44]/10 px-3 py-1.5 rounded-full hover:bg-[#F66C44]/20">
+                  <FiPlayCircle size={16} /> Agenda una charla
+               </Link>
             </div>
           </motion.div>
         )}
