@@ -12,30 +12,34 @@ export interface BlogPost {
   category?: string;
   role?: string;
   technologies?: string[];
+  duration?: string;
+  rating?: number;
 }
 
 export const blogPosts: BlogPost[] = [
   {
     id: "1",
-    slug: "Centro Odontologico C & M",
-    title: "Construyendo un sistema de gestion y registro de pacientes para un consultorio odontológico. Manejo de turnos y agendas médicas, historias clínicas y estudios realizados.",
-    excerpt: "Un sistema web para la gestión integral de un consultorio odontológico. Permite el registro y la administración de pacientes, el manejo de turnos y agendas médicas, la gestión de historias clínicas y el registro de estudios realizados por cada paciente. ",
-    subtitle: "Un sistema web para la gestión integral de un consultorio odontológico",
+    slug: "centro-odontologico-c-y-m",
+    title: "Sistema integral de gestión de turnos y registro de pacientes para Consultorio Odontológico.",
+    excerpt: "Plataforma web con panel administrativo para automatizar reservas, enviar recordatorios por WhatsApp y gestionar historias clínicas.",
+    subtitle: "Modernización total: De turnos manuales por mensaje a un sistema automatizado 24/7.",
     content: {
-      challenge: "Desarrollar un sistema web que permitiera gestionar de manera eficiente todas las operaciones de un consultorio odontológico. El sistema debía permitir el registro y la administración de pacientes, el manejo de turnos y agendas médicas, la gestión de historias clínicas y el registro de estudios realizados por cada paciente. ",
-      solution: "El desafío fue crear una API escalable que pudiera manejar datos de múltiples fuentes.",
-      results: "Sistema completo con funcionalidades de registro, administración, gestión de turnos y agendas médicas, gestión de historias clínicas y registro de estudios realizados por cada paciente."
+      challenge: "Antes, el circuito de un turno era manual: el paciente llamaba o escribía, la secretaria revisaba la agenda a mano y asignaba día y horario por mensaje o llamada.",
+      solution: "Le armé un sitio web oficial con panel de administrador completo:\n🦷 Muestra al consultorio: especialidades, instalaciones y casos de éxito\n📅 El paciente elige día y horario directamente en la web\n📲 El pedido llega ya armado a WhatsApp, sin coordinar a mano\n🗂️ Agenda digital para que los administradores (odontólogos, Secretaria) gestionen los turnos\n🔔 Recordatorio automático por WhatsApp y mail el día anterior\n🤖 Chatbot de preguntas frecuentes + botón de WhatsApp directo",
+      results: "Está en producción, usado a diario por pacientes reales. El cliente está satisfecho con 5 estrellas."
     },
     date: "2026-04-10",
-    tags: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"],
+    tags: ["React", "Node.js", "Express", "MongoDB", "WhatsApp API", "Vercel"],
     author: "Gonzalo Martínez",
     category: "Fullstack",
-    role: "Fullstack Developer",
-    technologies: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"]
+    role: "Único Desarrollador",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "WhatsApp Business API", "Google Calendar", "Vercel", "Render"],
+    duration: "2 meses",
+    rating: 5
   },
   {
     id: "2",
-    slug: "Tarjeta Titanio S.A",
+    slug: "tarjeta-titanio-sa",
     title: "Desarrollo de una aplicacion web , manejo de diseño y reestructuración del sistema para la empresa.",
     excerpt: "Diseño y reestructuración de una aplicación web para una empresa de tarjeta de credito. El sistema permite el registro y la administración de clientes, el manejo de datos de las tarjetas y el registro de compras y consumos realizados por cada cliente. ",
     subtitle: "Manejo de diseño y reestructuración de una aplicación web para una empresa de tarjeta de credito",
@@ -53,7 +57,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "3",
-    slug: "Malibu Styless",
+    slug: "malibu-styless",
     title: "Marca Personal de venta de indumentaria. Reestructuración del E-commerce.",
     excerpt: "Diseño y reestructuración de la marca personal y su e-commerce. Aplicación de principios de branding y diseño de interfaces para mejorar la experiencia del usuario. ",
     subtitle: "Venta de ropa basada en el basquet ,con remeras de excelente calidad y buzos que marcan tendencia.",
@@ -71,7 +75,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "4",
-    slug: "Club Belgrano C&D",
+    slug: "club-belgrano-c-y-d",
     title: "Plataforma integral para la gestión deportiva de un club.",
     excerpt: "Plataforma integral diseñada para optimizar la gestión deportiva de un club, integrando módulos de Venta de entradas, Gestión de Socios, Finanzas y Análisis de Datos.",
     subtitle: "Solución completa de gestión deportiva con análisis de datos en tiempo real.",
@@ -89,7 +93,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "5",
-    slug: "ClickHouse",
+    slug: "clickhouse",
     title: "Plataforma integral para la gestión deportiva de un club.",
     excerpt: "Plataforma integral diseñada para optimizar la gestión deportiva de un club, integrando módulos de Venta de entradas, Gestión de Socios, Finanzas y Análisis de Datos.",
     subtitle: "Solución completa de gestión deportiva con análisis de datos en tiempo real.",

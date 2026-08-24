@@ -13,6 +13,8 @@ const config: Config = {
         yellowx: "#FCD100",
         goldx: "#EAB308",
         whitegrey: "#E5E5E5",
+        tealLight: "#5FB0C9",
+        tealDark: "#20666B",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],

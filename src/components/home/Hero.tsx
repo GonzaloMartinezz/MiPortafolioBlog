@@ -5,29 +5,30 @@ import { FaInstagram, FaLinkedinIn, FaGithub, FaWhatsapp, FaEnvelope } from "rea
 
 export default function Hero() {
   // Social icons configuration with varying animation parameters for a natural floating effect
+  // Scaled up x, y positions to accommodate the larger profile picture
   const socials = [
-    { id: 1, Icon: FaInstagram, color: "#E1306C", delay: 0.1, y: 86, x: -103, rotate: -15, href: "https://instagram.com" },
-    { id: 2, Icon: FaLinkedinIn, color: "#0077B5", delay: 0.3, y: 122, x: -57, rotate: -5, href: "https://linkedin.com" },
-    { id: 3, Icon: FaGithub, color: "#333", delay: 0.5, y: 135, x: 0, rotate: 0, href: "https://github.com/GonzaloMartinezz" },
-    { id: 4, Icon: FaEnvelope, color: "#EA4335", delay: 0.2, y: 122, x: 57, rotate: 5, href: "mailto:gonzalomartinezzz04@gmail.com" },
-    { id: 5, Icon: FaWhatsapp, color: "#25D366", delay: 0.6, y: 86, x: 103, rotate: 15, href: "https://wa.me/" },
+    { id: 1, Icon: FaInstagram, color: "#E1306C", delay: 0.1, y: 125, x: -150, rotate: -15, href: "https://instagram.com" },
+    { id: 2, Icon: FaLinkedinIn, color: "#0077B5", delay: 0.3, y: 177, x: -82, rotate: -5, href: "https://linkedin.com" },
+    { id: 3, Icon: FaGithub, color: "#333", delay: 0.5, y: 196, x: 0, rotate: 0, href: "https://github.com/GonzaloMartinezz" },
+    { id: 4, Icon: FaEnvelope, color: "#EA4335", delay: 0.2, y: 177, x: 82, rotate: 5, href: "mailto:gonzalomartinezzz04@gmail.com" },
+    { id: 5, Icon: FaWhatsapp, color: "#25D366", delay: 0.6, y: 125, x: 150, rotate: 15, href: "https://wa.me/" },
   ];
 
   return (
-    <section className="relative w-full min-h-[85vh] bg-[#FDF6EC] flex flex-col items-center justify-start overflow-hidden px-6 md:px-12 py-12 lg:py-24 pt-28 lg:pt-32 font-sans">
+    <section className="relative w-full min-h-[70vh] bg-[#FDF6EC] flex flex-col items-center justify-start overflow-hidden px-6 md:px-12 pb-4 lg:pb-8 pt-20 lg:pt-24 font-sans">
 
       {/* Central Content */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto mt-4 md:mt-6">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto mt-0 md:mt-2">
 
-        {/* Profile Image - Replaces the girl drawing */}
+        {/* Profile Image - Ampliado y sin recortes circulares, con redes sociales */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-20 mb-8 mt-4 flex items-center justify-center"
         >
-          {/* Profile Picture - Perfectly Rounded */}
-          <div className="w-48 h-48 md:w-56 md:h-56 relative rounded-full overflow-hidden border-4 border-transparent shadow-xl z-20">
+          {/* Profile Picture Container - Redondeado */}
+          <div className="w-64 h-64 md:w-80 md:h-80 relative z-20 rounded-full overflow-hidden shadow-xl border-4 border-[#FDF6EC]">
             <img
               src="/LogoPerfil.jpg"
               alt="Gonzalo Martinez"

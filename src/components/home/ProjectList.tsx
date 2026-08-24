@@ -31,33 +31,43 @@ const projects = [
   },
   {
     id: 3,
-    client: "JHONES",
-    clientSuffix: "COM",
-    title: "Mr Jhones",
+    client: "MALIBU",
+    clientSuffix: "STYLESS",
+    title: "Malibu Styless",
     category: "E-COMMERCE",
     year: "2023",
     description: "Tienda online de indumentaria con pasarela de pagos y gestión de stock en tiempo real.",
     image: "/MS.png",
     tags: ["E-COMMERCE", "BRANDING", "DESARROLLO"],
-    link: "https://mrjhones.vercel.app/"
+    link: "https://app-malibu-style.vercel.app/"
   },
   {
     id: 4,
-    client: "BELGRANO",
-    clientSuffix: "CLUB",
-    title: "Club Belgrano",
-    category: "INSTITUCIONAL",
-    year: "2023",
-    description: "Sistema de gestión de socios, actividades y pagos para club deportivo.",
-    image: "/CB.png",
-    tags: ["INSTITUCIONAL", "WEB APP", "DESARROLLO"],
-    link: "https://app-club-belgranocyd.vercel.app/"
+    client: "MR",
+    clientSuffix: "JHONES",
+    title: "Mr. John's & Warhol",
+    category: "BAR & CLUB",
+    year: "2024",
+    description: "Descubrí la experiencia nocturna más exclusiva de la provincia con reservas de mesas y eventos VIP.",
+    image: "/MrJhones.png",
+    tags: ["RESERVAS", "WEB APP", "DISEÑO"],
+    link: "https://mrjhones.vercel.app/"
   },
 ];
 
 export default function ProjectList() {
   return (
     <section className="w-full bg-transparent text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 font-sans">
+      <div className="max-w-[1400px] mx-auto mb-16 md:mb-24 text-center md:text-left">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter uppercase text-white leading-none"
+        >
+          NEW PROYECTS!
+        </motion.h2>
+      </div>
       <div className="max-w-[1400px] mx-auto flex flex-col gap-32 md:gap-48">
         {projects.map((project, index) => {
           const isEven = index % 2 === 0;

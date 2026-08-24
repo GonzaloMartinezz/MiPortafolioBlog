@@ -2,7 +2,7 @@
 import { blogPosts } from "@/lib/blogData";
 import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
-import { FaArrowLeft, FaCalendar, FaTag, FaLaptopCode } from "react-icons/fa";
+import { FaArrowLeft, FaCalendar, FaTag, FaLaptopCode, FaClock, FaStar } from "react-icons/fa";
 import { Reveal } from "@/components/ui/Reveal";
 import { motion } from "framer-motion";
 
@@ -41,7 +41,7 @@ export default function BlogPost() {
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight"
+                className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight whitespace-pre-line"
             >
                 {post.title}
             </motion.h1>
@@ -54,10 +54,22 @@ export default function BlogPost() {
                     <FaCalendar className="text-blue-400" />
                     <span>{post.date}</span>
                 </div>
+                {post.duration && (
+                  <div className="flex items-center gap-2">
+                      <FaClock className="text-green-400" />
+                      <span>{post.duration}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                     <FaLaptopCode className="text-purple-400" />
                     <span>{post.role}</span>
                 </div>
+                {post.rating && (
+                  <div className="flex items-center gap-1.5 bg-white/10 px-2 py-1 rounded-full border border-white/5">
+                      <FaStar className="text-yellow-400 w-3 h-3" />
+                      <span className="text-yellow-400 font-bold">{post.rating}.0</span>
+                  </div>
+                )}
             </motion.div>
         </div>
       </div>
@@ -93,7 +105,7 @@ export default function BlogPost() {
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2 sm:mb-3 md:mb-4 flex items-center gap-2 sm:gap-3">
                         🎯 El Desafío
                     </h2>
-                    <p className="text-xs sm:text-sm md:text-base">{post.content.challenge}</p>
+                    <p className="text-xs sm:text-sm md:text-base whitespace-pre-line">{post.content.challenge}</p>
                 </section>
             </Reveal>
 
@@ -102,7 +114,7 @@ export default function BlogPost() {
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2 sm:mb-3 md:mb-4 flex items-center gap-2 sm:gap-3">
                         💡 La Solución
                     </h2>
-                    <p className="text-xs sm:text-sm md:text-base">{post.content.solution}</p>
+                    <p className="text-xs sm:text-sm md:text-base whitespace-pre-line leading-relaxed">{post.content.solution}</p>
                 </section>
             </Reveal>
 
@@ -111,7 +123,7 @@ export default function BlogPost() {
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2 sm:mb-3 md:mb-4 flex items-center gap-2 sm:gap-3">
                         🚀 El Resultado
                     </h2>
-                    <div className="p-3 sm:p-4 md:p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-xl italic text-slate-700 text-xs sm:text-sm md:text-base">
+                    <div className="p-3 sm:p-4 md:p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-xl italic text-slate-700 text-xs sm:text-sm md:text-base whitespace-pre-line">
                         {post.content.results}
                     </div>
                 </section>

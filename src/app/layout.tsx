@@ -5,9 +5,6 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ThemeAnimator } from "@/components/providers/ThemeAnimator";
-
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
-
 import FloatingHelpMenu from "@/components/ui/FloatingHelpMenu";
 
 const inter = Inter({
@@ -58,19 +55,14 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* Scroll Progress Indicator */}
-            <ScrollProgress />
-
             {/* Main Content */}
             <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B]">
               {children}
             </main>
 
             {/* Footer */}
-            <div className="w-full border-t border-white/10 bg-[#0B0B0B] mt-auto">
-              <div className="max-w-none w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative z-10">
-                <Footer />
-              </div>
+            <div className="w-full mt-auto relative z-10">
+              <Footer />
             </div>
 
             {/* Floating Menu Widget */}

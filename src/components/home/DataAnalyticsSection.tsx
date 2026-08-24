@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FiTrendingUp, FiActivity, FiTarget } from "react-icons/fi";
+import { FiTrendingUp, FiActivity, FiTarget, FiLayers, FiPieChart, FiMousePointer } from "react-icons/fi";
 
 const PhoneMockup = ({ 
   src, 
@@ -50,6 +50,8 @@ export default function DataAnalyticsSection() {
     { icon: FiTrendingUp, title: "Análisis de Tráfico", desc: "Monitorea visitantes únicos y tiempos de sesión." },
     { icon: FiTarget, title: "Mapas de Calor", desc: "Descubre exactamente dónde hacen clic tus usuarios." },
     { icon: FiActivity, title: "Embudos de Conversión", desc: "Optimiza cada paso para convertir más clientes." },
+    { icon: FiLayers, title: "A/B Testing", desc: "Prueba versiones para encontrar la que más vende." },
+    { icon: FiPieChart, title: "Reportes en Tiempo Real", desc: "Visualiza el rendimiento de tu negocio en vivo." },
   ];
 
   const desktopPhones = [
@@ -63,90 +65,59 @@ export default function DataAnalyticsSection() {
   ];
 
   return (
-    <section className="relative w-full bg-transparent text-white py-24 md:py-32 overflow-hidden font-sans">
+    <section className="relative w-full bg-transparent text-slate-900 py-24 md:py-32 overflow-hidden font-sans">
       <div className="max-w-[1400px] mx-auto flex flex-col items-center gap-16 lg:gap-24">
         
         {/* Top: Text Content */}
         <div className="w-full max-w-4xl flex flex-col items-center text-center gap-8 z-10 px-6">
-          <div className="flex items-center gap-4 text-[#fbbf24] text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">
-            <div className="w-8 sm:w-12 h-[1px] bg-[#fbbf24]"></div>
+          <div className="flex items-center gap-4 text-white text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">
+            <div className="w-8 sm:w-12 h-[1px] bg-white/50"></div>
             DATA & ANALYTICS
-            <div className="w-8 sm:w-12 h-[1px] bg-[#fbbf24]"></div>
+            <div className="w-8 sm:w-12 h-[1px] bg-white/50"></div>
           </div>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9]">
             El análisis perfecto <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 drop-shadow-sm">
               para tu web.
             </span>
           </h2>
 
-          <p className="text-[#a1a1aa] text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-slate-700 font-medium text-base md:text-lg leading-relaxed max-w-2xl">
             Un diseño hermoso no es suficiente. Al lanzar tu sitio web, integramos 
             herramientas de análisis avanzado para entender el comportamiento real 
             de tus usuarios, medir qué funciona y maximizar tus conversiones.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-8 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-6 w-full mt-12 max-w-7xl mx-auto px-4">
             {features.map((feature, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.15, duration: 0.5 }}
-                className="flex flex-col items-center text-center gap-4 group w-[240px]"
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="relative flex flex-col items-center text-center gap-5 px-6 py-12 md:py-16 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2.5rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 overflow-hidden transition-all duration-500 group h-full min-h-[340px]"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#18181b] border border-white/5 flex items-center justify-center text-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-black transition-colors duration-300">
-                  <feature.icon size={24} />
+                {/* Efecto de relleno de color */}
+                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                
+                {/* Ícono */}
+                <div className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-white shadow-sm flex items-center justify-center text-blue-600 shrink-0">
+                  <feature.icon size={32} className="md:w-10 md:h-10" />
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold mb-2">{feature.title}</h4>
-                  <p className="text-sm text-[#71717a]">{feature.desc}</p>
+                
+                {/* Textos */}
+                <div className="relative z-10 flex flex-col flex-grow justify-center mt-2">
+                  <h4 className="text-lg md:text-xl font-black mb-4 leading-tight text-slate-900 group-hover:text-white transition-colors duration-500">{feature.title}</h4>
+                  <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium group-hover:text-blue-100 transition-colors duration-500">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Bottom: Floating Phones Visuals */}
-        <div className="w-full relative mt-8">
-          {/* Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-[800px] h-[300px] bg-[#fbbf24]/10 rounded-full blur-[120px] pointer-events-none" />
-
-          {/* Desktop View: Arc of 7 Phones */}
-          <div className="hidden lg:flex w-full justify-center items-center h-[650px]">
-            {desktopPhones.map((phone) => (
-              <div 
-                key={phone.id}
-                className="-ml-24 xl:-ml-28 first:ml-0 relative transition-transform hover:-translate-y-4 duration-500"
-                style={{ 
-                  zIndex: phone.zIndex, 
-                  transform: `scale(${phone.scale}) translateY(${phone.yOffset}px)` 
-                }}
-              >
-                <PhoneMockup 
-                  src="/brave_screenshot_21st.dev (1).png"
-                  rotate={phone.rotate}
-                  delay={phone.delay}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile View: Scrollable Row without overlap */}
-          <div className="flex lg:hidden w-full overflow-x-auto snap-x snap-mandatory gap-6 px-8 pb-16 pt-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {Array.from({ length: 7 }).map((_, i) => (
-              <div key={i} className="snap-center shrink-0">
-                <PhoneMockup 
-                  src="/brave_screenshot_21st.dev (1).png"
-                  rotate={0}
-                  delay={i * 0.2}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Bottom: Floating Phones Visuals Removed */}
 
       </div>
     </section>

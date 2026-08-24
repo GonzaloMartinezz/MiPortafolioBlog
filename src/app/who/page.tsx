@@ -84,7 +84,7 @@ const pillars = [
 
 export default function WhoPage() {
   return (
-    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden -mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
+    <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden w-full">
 
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
@@ -135,25 +135,40 @@ export default function WhoPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {pillars.map((p, i) => {
               const Icon = p.icon;
               return (
                 <motion.div
                   key={i}
                   {...fadeUp(i * 0.08)}
-                  className={`group relative flex flex-col gap-6 p-8 rounded-3xl bg-slate-900/40 border ${p.border} hover:bg-slate-900/80 transition-all duration-500 shadow-xl ${p.glow} hover:shadow-2xl hover:-translate-y-1`}
+                  className={`group relative flex flex-col h-full p-8 md:p-10 rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:-translate-y-2 overflow-hidden`}
                 >
-                  <div className={`absolute top-0 inset-x-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-current to-transparent opacity-30 ${p.color}`} />
-
-                  <div className={`w-fit p-4 rounded-2xl border ${p.bg} ${p.border}`}>
-                    <Icon className={`w-6 h-6 ${p.color}`} />
+                  {/* Subtle inner ambient glow */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+                  
+                  {/* Animated Top Border Line */}
+                  <div className={`absolute top-0 inset-x-0 h-[2px] opacity-40 group-hover:opacity-100 transition-opacity duration-500`}>
+                     <div className={`w-full h-full bg-gradient-to-r from-transparent via-current to-transparent ${p.color}`} />
                   </div>
 
-                  <div className="flex-1">
-                    <span className={`text-[10px] font-black tracking-[0.25em] uppercase ${p.color} mb-2 block`}>{p.tag}</span>
-                    <h3 className="text-2xl font-bold text-white mb-3 tracking-tight leading-tight">{p.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+                  {/* Icon Container */}
+                  <div className={`relative w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 group-hover:border-white/20 transition-colors duration-500 mb-8 bg-[#050505] shadow-inner`}>
+                    <div className={`absolute inset-0 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 ${p.bg}`} />
+                    <Icon className={`w-6 h-6 ${p.color} relative z-10 group-hover:scale-110 transition-transform duration-500`} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-grow relative z-10">
+                    <span className={`text-[10px] md:text-xs font-black tracking-[0.25em] uppercase ${p.color} mb-4 block drop-shadow-sm`}>
+                      {p.tag}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight leading-[1.1] transition-colors duration-300">
+                      {p.title}
+                    </h3>
+                    <p className="text-white/50 text-sm md:text-base leading-relaxed font-medium mt-auto group-hover:text-white/70 transition-colors duration-500">
+                      {p.desc}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -164,34 +179,52 @@ export default function WhoPage() {
         {/* ══════════════════════════════════════════════
             STACK TECNOLÓGICO (INFINITE MARQUEE)
         ══════════════════════════════════════════════ */}
-        <section className="mb-32 relative py-12 bg-slate-950/50 border-y border-slate-900 overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-10 text-center">
-            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Arsenal Técnico</span>
-            <h2 className="text-3xl font-black tracking-tight text-white mt-2">
+        <section className="mb-32 relative py-16 bg-[#040810] border-y border-white/5 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1120]/50 to-transparent pointer-events-none" />
+          
+          <div className="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-14 text-center z-10">
+            <span className="text-[10px] font-black tracking-[0.3em] text-[#F66C44] uppercase">Arsenal Técnico</span>
+            <h2 className="text-4xl font-black tracking-tight text-white mt-2">
               El Stack Tecnológico
             </h2>
           </div>
 
-          <div className="relative flex overflow-x-hidden w-full group">
+          <div className="relative flex overflow-x-hidden w-full group/marquee">
             {/* Fade edges */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#040810] to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#040810] to-transparent z-10" />
+            <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#040810] to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#040810] to-transparent z-20 pointer-events-none" />
 
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-              className="flex whitespace-nowrap gap-4 px-2"
+              transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+              className="flex whitespace-nowrap gap-6 px-3 items-center group-hover/marquee:[animation-play-state:paused]"
             >
-              {/* Render twice for seamless loop */}
-              {[...stack, ...stack, ...stack].map((item, i) => (
-                <div
-                  key={i}
-                  className={`flex flex-col px-8 py-5 rounded-2xl bg-slate-900 border ${item.color.split(' ')[2]} shrink-0 w-[240px] shadow-lg`}
-                >
-                  <span className={`text-lg font-black tracking-tight ${item.color.split(' ')[3]}`}>{item.name}</span>
-                  <span className="text-[11px] font-bold text-slate-500 tracking-[0.2em] uppercase mt-1">{item.sub}</span>
-                </div>
-              ))}
+              {/* Render 4 times for a flawless ultra-wide loop */}
+              {[...stack, ...stack, ...stack, ...stack].map((item, i) => {
+                const textColor = item.color.split(' ')[3]; // e.g. text-yellow-400
+                const bgColor = textColor.replace('text-', 'bg-'); // e.g. bg-yellow-400
+
+                return (
+                  <div
+                    key={i}
+                    className={`group/stack relative flex flex-col justify-center px-8 py-7 rounded-3xl bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/5 hover:border-white/20 transition-all duration-300 shrink-0 w-[260px] md:w-[280px] shadow-2xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden cursor-default hover:-translate-y-1`}
+                  >
+                    {/* Animated Top Border */}
+                    <div className={`absolute top-0 inset-x-0 h-[2px] opacity-20 group-hover/stack:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-current to-transparent ${textColor}`} />
+                    
+                    {/* Internal Radial Glow */}
+                    <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] opacity-10 group-hover/stack:opacity-20 transition-opacity duration-500 -translate-y-1/2 translate-x-1/2 ${bgColor}`} />
+                    <div className="absolute inset-0 bg-white/[0.01] opacity-0 group-hover/stack:opacity-100 transition-opacity duration-500" />
+
+                    <span className={`text-xl md:text-2xl font-black tracking-tight ${textColor} drop-shadow-sm relative z-10 transition-transform duration-300 group-hover/stack:scale-[1.02] origin-left`}>
+                      {item.name}
+                    </span>
+                    <span className="text-[10px] md:text-[11px] font-black text-slate-500 tracking-[0.25em] uppercase mt-2 relative z-10">
+                      {item.sub}
+                    </span>
+                  </div>
+                );
+              })}
             </motion.div>
           </div>
         </section>
@@ -201,29 +234,48 @@ export default function WhoPage() {
         ══════════════════════════════════════════════ */}
         <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeUp(0)} className="mb-14">
-            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">Fundación</span>
+            <span className="text-[10px] font-black tracking-[0.3em] text-[#F66C44] uppercase">Fundación</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
               Bases<br />
               <span className="text-slate-500">Académicas.</span>
             </h2>
           </motion.div>
 
-          <div className="relative pl-10 md:pl-16 max-w-4xl">
-            <div className="absolute left-0 top-2 bottom-2 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500/50 to-transparent" />
+          <div className="relative pl-10 md:pl-20 max-w-4xl pb-10">
+            {/* Main Vertical Timeline Line */}
+            <div className="absolute left-0 top-10 bottom-0 w-[2px] bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
 
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-8 md:gap-10">
               {education.map((ed, i) => (
                 <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group">
-                  {/* Glowing Dot */}
-                  <div className={`absolute -left-[2.85rem] md:-left-[4.35rem] top-1.5 w-4 h-4 rounded-full ${ed.dot} ring-[6px] ring-[#040810] shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-transform duration-300`} />
+                  
+                  {/* Glowing Node Base */}
+                  <div className={`absolute -left-[2.85rem] md:-left-[5.35rem] top-8 w-4 h-4 rounded-full bg-[#111111] border-[2px] border-white/20 transition-all duration-500 ring-0 group-hover:ring-[8px] ring-white/5 z-10`} />
+                  
+                  {/* Glowing Node Hover Fill */}
+                  <div className={`absolute -left-[2.85rem] md:-left-[5.35rem] top-8 w-4 h-4 rounded-full ${ed.dot} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 shadow-lg`} />
 
-                  <span className={`text-[11px] font-black tracking-[0.2em] uppercase ${ed.accent} mb-3 block`}>
-                    {ed.period}
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-2 group-hover:text-slate-200 transition-colors">
-                    {ed.title}
-                  </h3>
-                  <p className="text-slate-400 text-base md:text-lg font-medium">{ed.institution}</p>
+                  {/* Glass Card */}
+                  <div className="relative p-6 md:p-10 rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden group-hover:-translate-y-1">
+                    
+                    {/* Inner Ambient Color Glow */}
+                    <div className={`absolute top-0 left-0 w-64 h-64 blur-[80px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none -translate-x-1/2 -translate-y-1/2 ${ed.dot}`} />
+
+                    <div className="relative z-10 flex flex-col items-start">
+                      {/* Date Badge */}
+                      <span className={`inline-flex px-4 py-1.5 bg-[#050505] border border-white/5 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} mb-5 shadow-inner transition-colors duration-300`}>
+                        {ed.period}
+                      </span>
+                      
+                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3 drop-shadow-sm">
+                        {ed.title}
+                      </h3>
+                      
+                      <p className="text-white/40 text-sm md:text-base font-medium leading-relaxed group-hover:text-white/60 transition-colors duration-300">
+                        {ed.institution}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
