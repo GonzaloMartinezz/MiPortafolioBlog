@@ -48,6 +48,8 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ThemeAnimator>
+
+
             {/* Navbar */}
             <div className="fixed top-0 w-full z-50 pointer-events-none">
               <div className="max-w-none w-full pointer-events-auto">
@@ -56,7 +58,7 @@ export default function RootLayout({
             </div>
 
             {/* Main Content */}
-            <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B]">
+            <main className="max-w-none w-full relative z-10 flex-1 flex flex-col bg-[#0B0B0B] overflow-x-hidden">
               {children}
             </main>
 

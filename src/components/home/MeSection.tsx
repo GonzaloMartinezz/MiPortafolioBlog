@@ -55,7 +55,7 @@ export default function MeSection() {
         <motion.div style={{ x }} className="flex w-[400vw]">
           
           {/* Panel 1: Sobre Mi */}
-          <div className="h-screen w-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative overflow-hidden">
+          <div className="h-screen w-full flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative overflow-hidden">
             {/* Aesthetic Glow */}
             <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#F66C44]/10 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#F66C44]/5 blur-[100px] rounded-full pointer-events-none" />
@@ -79,7 +79,7 @@ export default function MeSection() {
           </div>
 
           {/* Panel 2: Estadísticas */}
-          <div className="h-screen w-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
+          <div className="h-screen w-full flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-10 sm:mb-16 text-white">
               El impacto en <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#FCD100]">Números</span>
             </h3>
@@ -101,7 +101,7 @@ export default function MeSection() {
           </div>
 
           {/* Panel 3: Clientes */}
-          <div className="h-screen w-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
+          <div className="h-screen w-full flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-[#F66C44]/5 rounded-full blur-[100px] pointer-events-none"></div>
             <div className="text-center mb-10 sm:mb-16 relative z-10">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 sm:mb-6">
@@ -123,7 +123,7 @@ export default function MeSection() {
           </div>
 
           {/* Panel 4: Opiniones */}
-          <div className="h-screen w-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
+          <div className="h-screen w-full flex flex-col justify-center px-6 sm:px-12 md:px-24 shrink-0 relative">
             <div className="flex items-center gap-3 sm:gap-4 mb-10 sm:mb-16">
               <MessageSquareQuote className="w-10 h-10 sm:w-14 sm:h-14 text-[#F66C44]" />
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-black text-white">

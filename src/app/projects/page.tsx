@@ -1,9 +1,10 @@
-import Projects from "@/components/home/Projects";
+
 import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
 import { ProjectSpotlight } from "@/components/home/ProjectSpotlight";
 import { CardStack, CardStackItem } from "@/components/ui/card-stack";
+import { ArticleGrid } from "@/components/ui/article-grid";
 import type { Metadata } from "next";
-import ProjectsByCategory from "@/components/home/ProjectsByCategory";
+
 
 export const metadata: Metadata = {
   title: "Proyectos | Gonzalo Martínez",
@@ -15,83 +16,107 @@ export default function ProjectsPage() {
     {
       id: 1,
       type: "image",
-      title: "Analytics Platform",
-      desc: "Panel de control de gastos financieros en tiempo real.Determinacion de finanzas para control de ganancias y perdidas.",
-      url: "/GoStats.png",
+      title: "Creapp",
+      desc: "Ecosistema Digital: Plataforma integral con herramientas de gestión, diseño moderno y soluciones escalables para potenciar negocios.",
+      url: "/CREAPPPROYECTO.png",
       span: "md:col-span-4 md:row-span-4 sm:col-span-2 sm:row-span-2",
-      links: "https://app-gostats.vercel.app/",
-      tags: ["SaaS", "Visualización de datos", "UI/UX"],
+      links: "https://creapp-gamma.vercel.app/",
+      tags: ["SaaS", "Gestión", "UI/UX"],
     },
     {
       id: 2,
       type: "image",
-      title: "Malibu Styless",
-      desc: "E-commerce de indumentaria deportiva con catálogo y pagos.",
-      url: "/MS.png",
+      title: "DropUp Equipament",
+      desc: "E-commerce para venta de equipamientos médicos con catálogo de productos, carrito de compras, gestión de inventario y pagos integrados.",
+      url: "/DROPUPROYECTO.png",
       span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-      links: "https://malibustyle.vercel.app/",
-      tags: ["E-commerce", "Desarrollo Web"],
+      links: "https://dropup-equipament.vercel.app/",
+      tags: ["E-commerce", "Equipamiento Médico"],
     },
     {
       id: 3,
       type: "image",
-      title: "Centro Odontológico",
-      desc: "Sitio web institucional para clínica odontológica.",
-      url: "/coc&m.png",
+      title: "GoStats",
+      desc: "SaaS analítico avanzado para la visualización de datos financieros, gráficos en tiempo real y métricas clave de negocio.",
+      url: "/GoStats.png",
       span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-      links: "https://app-consultorio-odontologico.vercel.app/",
-      tags: ["Desarrollo Web"],
+      links: "https://app-gostats.vercel.app/",
+      tags: ["Desarrollo Web", "Finanzas"],
     },
     {
       id: 4,
       type: "image",
-      title: "Portal de Propiedades",
-      desc: "Plataforma móvil para búsqueda y listado de inmuebles.",
-      url: "/ClickHouse.png",
+      title: "Malibu Style",
+      desc: "Tienda online de indumentaria con arquitectura escalable, catálogo dinámico y panel administrativo propio sin intermediarios.",
+      url: "/MS.png",
       span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-      links: "https://app-clickhouse.vercel.app/",
-      tags: ["Aplicación Móvil", "UI/UX"],
+      links: "https://app-malibu-style.vercel.app/",
+      tags: ["Aplicación Web", "E-commerce"],
     },
     {
       id: 5,
       type: "image",
-      title: "Cultura de Basket",
-      desc: "Plataforma institucional para club deportivo.",
-      url: "/CB.png",
+      title: "Blog Nutrición Deportiva",
+      desc: "Plataforma integral para nutricionista deportiva. Incluye blog, control de pacientes y un modelo estratégico para mejorar la condición física de alumnos.",
+      url: "/SISASISTANTPROYECTO.png",
       span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-      links: "https://app-club-belgranocyd.vercel.app/",
-      tags: ["Desarrollo Web"],
+      links: "#",
+      tags: ["Blog", "Salud y Deporte"],
+    },
+    {
+      id: 6,
+      type: "image",
+      title: "3D Dental Studio",
+      desc: "Aplicación web institucional y SaaS de turnos para clínica odontológica con panel administrativo para profesionales de la salud.",
+      url: "/3DENTALSTUDIOPROYECTO.png",
+      span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
+      links: "https://3d-dentalstudio-beta.vercel.app/",
+      tags: ["Software Médico", "Gestión"],
     },
   ];
 
   const featuredItems: CardStackItem[] = [
     {
       id: 1,
-      title: "Titanio Business (GoStats)",
-      description: "Plataforma SaaS avanzada para la visualización de datos financieros en tiempo real.",
-      imageSrc: "/GoStats.png",
-      href: "https://tarjetatitanio.vercel.app/",
+      title: "Creapp",
+      description: "Ecosistema Digital: Plataforma integral con herramientas de gestión, diseño moderno y soluciones escalables para potenciar negocios.",
+      imageSrc: "/CREAPPPROYECTO.png",
+      href: "https://creapp-gamma.vercel.app/",
     },
     {
       id: 2,
-      title: "Malibu Styles E-commerce",
-      description: "Experiencia de compra fluida y moderna para indumentaria deportiva de alta gama.",
+      title: "DropUp Equipament",
+      description: "E-commerce para venta de equipamientos médicos con catálogo de productos, carrito de compras, gestión de inventario y pagos integrados.",
+      imageSrc: "/DROPUPROYECTO.png",
+      href: "https://dropup-equipament.vercel.app/",
+    },
+    {
+      id: 3,
+      title: "GoStats",
+      description: "SaaS analítico avanzado para la visualización de datos financieros, gráficos en tiempo real y métricas clave de negocio.",
+      imageSrc: "/GoStats.png",
+      href: "https://app-gostats.vercel.app/",
+    },
+    {
+      id: 4,
+      title: "Malibu Style",
+      description: "Tienda online de indumentaria con arquitectura escalable, catálogo dinámico y panel administrativo propio sin intermediarios.",
       imageSrc: "/MS.png",
       href: "https://app-malibu-style.vercel.app/",
     },
     {
-      id: 3,
-      title: "ClickHouse Propiedades",
-      description: "Buscador inteligente y catálogo inmersivo para el mercado de bienes raíces premium.",
-      imageSrc: "/ClickHouse.png",
-      href: "https://app-clickhouse.vercel.app/",
+      id: 5,
+      title: "Blog Nutrición Deportiva",
+      description: "Plataforma integral para nutricionista deportiva. Incluye blog, control de pacientes y un modelo estratégico para mejorar la condición física de alumnos.",
+      imageSrc: "/SISASISTANTPROYECTO.png",
+      href: "#",
     },
     {
-      id: 4,
-      title: "Centro Odontológico C&M",
-      description: "SaaS de gestión médica y turnos inteligentes para profesionales de la salud.",
-      imageSrc: "/coc&m.png",
-      href: "https://app-consultorio-odontologico.vercel.app/",
+      id: 6,
+      title: "3D Dental Studio",
+      description: "Aplicación web institucional y SaaS de turnos para clínica odontológica con panel administrativo para profesionales de la salud.",
+      imageSrc: "/3DENTALSTUDIOPROYECTO.png",
+      href: "https://3d-dentalstudio-beta.vercel.app/",
     },
   ];
 
@@ -122,7 +147,71 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-
+        {/* New Article/Blog Grid Section */}
+        <section className="bg-[#0A0A0A] border-t border-white/5 pb-20">
+          <ArticleGrid articles={[
+            {
+              id: 1,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "Creapp",
+              description: "Ecosistema Digital: Plataforma integral con herramientas de gestión, diseño moderno y soluciones escalables para potenciar negocios.",
+              image: "/CREAPPPROYECTO.png",
+              href: "https://creapp-gamma.vercel.app/"
+            },
+            {
+              id: 2,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "DropUp Equipament",
+              description: "E-commerce de equipamiento deportivo y fitness con carrito de compras, gestión de inventario y pagos integrados.",
+              image: "/DROPUPROYECTO.png",
+              href: "https://dropup-equipament.vercel.app/"
+            },
+            {
+              id: 3,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "GoStats",
+              description: "SaaS analítico avanzado para la visualización de datos financieros, gráficos en tiempo real y métricas clave de negocio.",
+              image: "/GoStats.png",
+              href: "https://app-gostats.vercel.app/"
+            },
+            {
+              id: 4,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "Malibu Style",
+              description: "Tienda online de indumentaria con arquitectura escalable, catálogo dinámico y panel administrativo propio sin intermediarios.",
+              image: "/MS.png",
+              href: "https://app-malibu-style.vercel.app/"
+            },
+            {
+              id: 5,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "Blog Nutrición Deportiva",
+              description: "Plataforma integral para nutricionista deportiva: blog de contenido, control de pacientes y modelo estratégico personalizado para mejorar la condición física de alumnos.",
+              image: "/SISASISTANTPROYECTO.png",
+              href: "#"
+            },
+            {
+              id: 6,
+              author: "Gonzalo Martínez",
+              date: "2026",
+              readTime: "Ver Demo →",
+              title: "3D Dental Studio",
+              description: "Aplicación web institucional y SaaS de turnos para clínica odontológica con panel administrativo para profesionales de la salud.",
+              image: "/3DENTALSTUDIOPROYECTO.png",
+              href: "https://3d-dentalstudio-beta.vercel.app/"
+            }
+          ]} />
+        </section>
 
         {/* Project Spotlight */}
         <ProjectSpotlight
@@ -136,14 +225,8 @@ export default function ProjectsPage() {
           }))}
         />
 
-        {/* Other Projects */}
-        <div className="mt-10">
-          <Projects />
-        </div>
-        {/* NEW: Categorized Projects Section */}
-        <div className="-mx-4 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-24">
-          <ProjectsByCategory />
-        </div>
+
+
       </div>
     </div>
   );

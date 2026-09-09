@@ -3,23 +3,32 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiCheck } from "react-icons/fi";
+import { useRouter, usePathname } from "next/navigation";
 
 const navOptions = [
-  { label: "Creapp", id: "creapp" },
+  { label: "Studio Dental", id: "creapp" },
   { label: "Proyectos", id: "proyectos" },
-  { label: "About Me", id: "about" },
-  { label: "Experiencia", id: "experiencia" },
+  { label: "Sobre Mi", href: "/who" },
+  { label: "Experiencia", href: "/blog" },
 ];
 
 export default function FloatingHelpMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const scrollToSection = (id: string) => {
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      setIsOpen(false);
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -45,13 +54,23 @@ export default function FloatingHelpMenu() {
 
             <div className="flex flex-col gap-1">
               {navOptions.map((option) => (
-                <button
-                  key={option.id}
-                  onClick={() => scrollToSection(option.id)}
-                  className="flex items-center justify-between text-left text-white/80 hover:text-white hover:bg-[#F66C44]/20 hover:border-[#F66C44]/30 border border-transparent px-4 py-3 rounded-xl transition-all duration-300"
-                >
-                  <span className="text-sm font-medium">{option.label}</span>
-                </button>
+                option.href ? (
+                  <button
+                    key={option.href}
+                    onClick={() => { router.push(option.href!); setIsOpen(false); }}
+                    className="flex items-center justify-between text-left text-white/80 hover:text-white hover:bg-[#F66C44]/20 hover:border-[#F66C44]/30 border border-transparent px-4 py-3 rounded-xl transition-all duration-300"
+                  >
+                    <span className="text-sm font-medium">{option.label}</span>
+                  </button>
+                ) : (
+                  <button
+                    key={option.id}
+                    onClick={() => scrollToSection(option.id!)}
+                    className="flex items-center justify-between text-left text-white/80 hover:text-white hover:bg-[#F66C44]/20 hover:border-[#F66C44]/30 border border-transparent px-4 py-3 rounded-xl transition-all duration-300"
+                  >
+                    <span className="text-sm font-medium">{option.label}</span>
+                  </button>
+                )
               ))}
             </div>
           </motion.div>

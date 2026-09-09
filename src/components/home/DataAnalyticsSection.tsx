@@ -2,48 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FiTrendingUp, FiActivity, FiTarget, FiLayers, FiPieChart, FiMousePointer } from "react-icons/fi";
-
-const PhoneMockup = ({ 
-  src, 
-  className, 
-  delay = 0,
-  rotate = 0,
-}: { 
-  src: string; 
-  className?: string; 
-  delay?: number;
-  rotate?: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50, rotate: rotate - 5 }}
-    whileInView={{ opacity: 1, y: 0, rotate: rotate }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
-    className={`relative shrink-0 ${className || ''}`}
-  >
-    <motion.div
-      animate={{ y: [0, -15, 0] }}
-      transition={{ duration: 5, repeat: Infinity, delay: delay, ease: "easeInOut" }}
-      className="relative rounded-[2.5rem] border-[6px] border-[#27272a] bg-black shadow-[0_0_40px_rgba(251,191,36,0.15)] overflow-hidden w-[220px] h-[480px] sm:w-[260px] sm:h-[540px]"
-    >
-      {/* Phone Notch/Island */}
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[30%] h-[24px] bg-[#1a1a1c] rounded-full z-20 flex justify-center items-center">
-        <div className="w-1.5 h-1.5 rounded-full bg-black/50" />
-      </div>
-      
-      {/* Screen Content */}
-      <div className="absolute inset-0 w-full h-full bg-[#050505]">
-        <img 
-          src={src} 
-          alt="Analytics Interface" 
-          className="w-full h-full object-cover object-top opacity-90" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#fbbf24]/10 mix-blend-overlay pointer-events-none" />
-      </div>
-    </motion.div>
-  </motion.div>
-);
+import { FiTrendingUp, FiActivity, FiTarget, FiLayers, FiPieChart, FiMousePointer, FiArrowRight } from "react-icons/fi";
+import { Warp } from "@paper-design/shaders-react";
 
 export default function DataAnalyticsSection() {
   const features = [
@@ -52,17 +12,74 @@ export default function DataAnalyticsSection() {
     { icon: FiActivity, title: "Embudos de Conversión", desc: "Optimiza cada paso para convertir más clientes." },
     { icon: FiLayers, title: "A/B Testing", desc: "Prueba versiones para encontrar la que más vende." },
     { icon: FiPieChart, title: "Reportes en Tiempo Real", desc: "Visualiza el rendimiento de tu negocio en vivo." },
+    { icon: FiMousePointer, title: "Segmentación Avanzada", desc: "Filtra métricas por dispositivo, ubicación y comportamiento." },
   ];
 
-  const desktopPhones = [
-    { id: 1, rotate: 15, zIndex: 10, scale: 0.75, delay: 0, yOffset: 60 },
-    { id: 2, rotate: 10, zIndex: 20, scale: 0.85, delay: 0.5, yOffset: 30 },
-    { id: 3, rotate: 5, zIndex: 30, scale: 0.95, delay: 1, yOffset: 10 },
-    { id: 4, rotate: 0, zIndex: 40, scale: 1.05, delay: 1.5, yOffset: 0 },
-    { id: 5, rotate: -5, zIndex: 30, scale: 0.95, delay: 2, yOffset: 10 },
-    { id: 6, rotate: -10, zIndex: 20, scale: 0.85, delay: 2.5, yOffset: 30 },
-    { id: 7, rotate: -15, zIndex: 10, scale: 0.75, delay: 3, yOffset: 60 },
-  ];
+  const getShaderConfig = (index: number) => {
+    const configs = [
+      {
+        proportion: 0.3,
+        softness: 0.8,
+        distortion: 0.15,
+        swirl: 0.6,
+        swirlIterations: 8,
+        shape: "checks" as const,
+        shapeScale: 0.08,
+        colors: ["hsl(280, 100%, 30%)", "hsl(320, 100%, 60%)", "hsl(340, 90%, 40%)", "hsl(300, 100%, 70%)"],
+      },
+      {
+        proportion: 0.4,
+        softness: 1.2,
+        distortion: 0.2,
+        swirl: 0.9,
+        swirlIterations: 12,
+        shape: "dots" as const,
+        shapeScale: 0.12,
+        colors: ["hsl(200, 100%, 25%)", "hsl(180, 100%, 65%)", "hsl(160, 90%, 35%)", "hsl(190, 100%, 75%)"],
+      },
+      {
+        proportion: 0.35,
+        softness: 0.9,
+        distortion: 0.18,
+        swirl: 0.7,
+        swirlIterations: 10,
+        shape: "checks" as const,
+        shapeScale: 0.1,
+        colors: ["hsl(120, 100%, 25%)", "hsl(140, 100%, 60%)", "hsl(100, 90%, 30%)", "hsl(130, 100%, 70%)"],
+      },
+      {
+        proportion: 0.45,
+        softness: 1.1,
+        distortion: 0.22,
+        swirl: 0.8,
+        swirlIterations: 15,
+        shape: "dots" as const,
+        shapeScale: 0.09,
+        colors: ["hsl(30, 100%, 35%)", "hsl(50, 100%, 65%)", "hsl(40, 90%, 40%)", "hsl(45, 100%, 75%)"],
+      },
+      {
+        proportion: 0.38,
+        softness: 0.95,
+        distortion: 0.16,
+        swirl: 0.85,
+        swirlIterations: 11,
+        shape: "checks" as const,
+        shapeScale: 0.11,
+        colors: ["hsl(250, 100%, 30%)", "hsl(270, 100%, 65%)", "hsl(260, 90%, 35%)", "hsl(265, 100%, 70%)"],
+      },
+      {
+        proportion: 0.42,
+        softness: 1.0,
+        distortion: 0.19,
+        swirl: 0.75,
+        swirlIterations: 9,
+        shape: "dots" as const,
+        shapeScale: 0.13,
+        colors: ["hsl(330, 100%, 30%)", "hsl(350, 100%, 60%)", "hsl(340, 90%, 35%)", "hsl(345, 100%, 75%)"],
+      },
+    ]
+    return configs[index % configs.length]
+  }
 
   return (
     <section className="relative w-full bg-transparent text-slate-900 py-24 md:py-32 overflow-hidden font-sans">
@@ -88,36 +105,54 @@ export default function DataAnalyticsSection() {
             herramientas de análisis avanzado para entender el comportamiento real 
             de tus usuarios, medir qué funciona y maximizar tus conversiones.
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-6 w-full mt-12 max-w-7xl mx-auto px-4">
-            {features.map((feature, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="relative flex flex-col items-center text-center gap-5 px-6 py-12 md:py-16 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2.5rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 overflow-hidden transition-all duration-500 group h-full min-h-[340px]"
-              >
-                {/* Efecto de relleno de color */}
-                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-                
-                {/* Ícono */}
-                <div className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-white shadow-sm flex items-center justify-center text-blue-600 shrink-0">
-                  <feature.icon size={32} className="md:w-10 md:h-10" />
-                </div>
-                
-                {/* Textos */}
-                <div className="relative z-10 flex flex-col flex-grow justify-center mt-2">
-                  <h4 className="text-lg md:text-xl font-black mb-4 leading-tight text-slate-900 group-hover:text-white transition-colors duration-500">{feature.title}</h4>
-                  <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium group-hover:text-blue-100 transition-colors duration-500">{feature.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
-        {/* Bottom: Floating Phones Visuals Removed */}
+        {/* Bottom: Shader Cards Grid */}
+        <div className="w-full max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => {
+              const shaderConfig = getShaderConfig(index)
+              return (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="relative h-80 group cursor-pointer"
+                >
+                  <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    <Warp
+                      style={{ height: "100%", width: "100%" }}
+                      proportion={shaderConfig.proportion}
+                      softness={shaderConfig.softness}
+                      distortion={shaderConfig.distortion}
+                      swirl={shaderConfig.swirl}
+                      swirlIterations={shaderConfig.swirlIterations}
+                      shape={shaderConfig.shape}
+                      shapeScale={shaderConfig.shapeScale}
+                      scale={1}
+                      rotation={0}
+                      speed={0.8}
+                      colors={shaderConfig.colors}
+                    />
+                  </div>
+
+                  <div className="absolute inset-0 z-10 p-8 rounded-3xl h-full flex flex-col bg-black/40 border border-white/20 transition-all duration-500 group-hover:-translate-y-2 group-hover:bg-black/20">
+                    <div className="mb-6 filter drop-shadow-lg text-white">
+                      <feature.icon size={48} strokeWidth={1.5} />
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-3 text-white drop-shadow-md">{feature.title}</h3>
+
+                    <p className="leading-relaxed flex-grow text-white/90 font-medium drop-shadow-sm">{feature.desc}</p>
+
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
 
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { WaveDivider } from "./WaveDivider";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,31 +21,35 @@ export default function Footer() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden flex flex-col pt-0 md:pt-4 pb-8 px-6 md:px-12 bg-[#FDF6EC] -mt-[1px]">
+    <footer className="w-full flex flex-col relative z-10">
+      {/* Wave Transition (Now global for all pages) */}
+      <WaveDivider topColor="transparent" bottomColor="#FDF6EC" />
 
-      {/* CTA Section */}
-      <div className="relative z-10 flex flex-col items-center text-center mb-32 max-w-4xl mx-auto mt-8">
-        <span className="text-slate-500 text-[10px] md:text-xs font-black tracking-widest uppercase mb-6">
+      <div className="relative w-full overflow-hidden flex flex-col pt-16 md:pt-24 pb-8 px-6 md:px-12 bg-[#FDF6EC] -mt-[1px]">
+        {/* CTA Section */}
+      <div className="relative z-10 flex flex-col items-center text-center mb-8 max-w-4xl mx-auto mt-4">
+        <span className="text-slate-500 text-[10px] md:text-xs font-black tracking-widest uppercase mb-3">
           Membresía exclusiva para diseño de calidad
         </span>
-        <h2 className="text-6xl md:text-[7rem] lg:text-[9rem] font-black uppercase text-[#F66C44] mb-8 leading-[0.9] tracking-tighter">
+
+        <h2 className="text-6xl md:text-[6rem] lg:text-[7.5rem] font-black uppercase text-[#F66C44] mb-4 leading-[0.9] tracking-tighter">
           Diseño que <br className="hidden md:block"/> acelera
         </h2>
-        <p className="text-slate-600 text-sm md:text-lg mb-12 max-w-2xl mx-auto font-medium">
+        <p className="text-slate-600 text-sm md:text-base mb-6 max-w-2xl mx-auto font-medium">
           Si te encuentras atascado entre la idea y el producto final, seré el socio tecnológico para guiarte al siguiente nivel sin fricciones.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="/contact" className="bg-[#F66C44] text-white px-8 py-4 rounded-full font-bold hover:bg-[#e64c22] transition-colors shadow-xl">
+          <Link href="/contact" className="bg-[#F66C44] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e64c22] transition-colors shadow-xl">
             Agendar Llamada
           </Link>
-          <Link href="/projects" className="bg-transparent border border-[#F66C44]/30 text-[#F66C44] px-8 py-4 rounded-full font-bold hover:bg-[#F66C44]/10 hover:border-[#F66C44] transition-all">
+          <Link href="/projects" className="bg-transparent border border-[#F66C44]/30 text-[#F66C44] px-8 py-3 rounded-full font-bold hover:bg-[#F66C44]/10 hover:border-[#F66C44] transition-all">
             Ver Proyectos
           </Link>
         </div>
       </div>
 
       {/* Footer Bottom Links */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-slate-300/50">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pt-6 border-t border-slate-300/50">
         
         {/* Brand */}
         <Link href="/" className="group">
@@ -89,6 +94,7 @@ export default function Footer() {
         </div>
 
       </div>
-    </div>
+      </div>
+    </footer>
   );
 }

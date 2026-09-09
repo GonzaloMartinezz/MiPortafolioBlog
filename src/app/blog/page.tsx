@@ -36,7 +36,7 @@ export default function BlogPage() {
             </h1>
 
             <p className="text-slate-300 text-xl md:text-2xl leading-relaxed max-w-3xl font-light">
-              Mi recorrido construyendo productos digitales, diseñando arquitecturas escalables y creando experiencias excepcionales.
+              Transformo la complejidad técnica en soluciones digitales de alto impacto. Desde el desarrollo de arquitecturas robustas hasta el análisis avanzado de datos, este es mi recorrido impulsando el crecimiento a través de la tecnología.
             </p>
           </motion.div>
         </div>

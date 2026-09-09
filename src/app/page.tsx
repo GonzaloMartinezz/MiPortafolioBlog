@@ -1,8 +1,6 @@
 "use client";
 import Hero from "@/components/home/Hero";
 import BrandSpeed from "@/components/home/BrandSpeed";
-import Projects from "@/components/home/Projects";
-import ProjectsByCategory from "@/components/home/ProjectsByCategory";
 import { HeroScrollDemo } from "@/components/home/HeroScrollDemo";
 
 import CasosDeEstudio from "@/components/home/CasosDeEstudio";
@@ -21,11 +19,14 @@ import ParallaxSection from "@/components/ui/ParallaxSection";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 import AppShowcase from "@/components/home/AppShowcase";
 import DualAppShowcase from "@/components/home/DualAppShowcase";
+import MainLoader from "@/components/ui/MainLoader";
+import TemplateHero from "@/components/home/TemplateHero";
 
 export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <MainLoader />
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -36,10 +37,10 @@ export default function Home() {
       </motion.div>
 
       {/* Wave Transition between Hero and Dark Section */}
-      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" height="clamp(150px, 15vw, 300px)" />
+      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" flip height="clamp(150px, 15vw, 300px)" />
 
       {/* Creapp App Showcase Section */}
-      <div className="bg-[#0B0B0B]" id="creapp">
+      <div className="bg-[#0B0B0B] relative -mt-[1px]" id="creapp">
         <AppShowcase />
       </div>
 
@@ -47,11 +48,9 @@ export default function Home() {
       <WaveDivider topColor="#0B0B0B" bottomColor="#FDF6EC" flip height="clamp(150px, 15vw, 300px)" />
 
       {/* Brand Speed Beige Section */}
-      <div className="bg-[#FDF6EC]">
+      <div className="bg-[#FDF6EC] relative">
         <BrandSpeed />
       </div>
-
-      <WaveDivider topColor="#FDF6EC" bottomColor="#111111" flip />
 
       {/* Business Strategy Section */}
       <div className="bg-[#111111] pb-12 relative z-10">
@@ -60,51 +59,70 @@ export default function Home() {
         </ParallaxSection>
       </div>
 
-      <WaveDivider topColor="#111111" bottomColor="#5BC0BE" height="clamp(100px, 10vw, 200px)" />
-
-      {/* Dual App Showcase Section (Laptop + Mobile view of Club Belgrano) */}
-      <div className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative -mt-[1px]">
-        <DualAppShowcase />
+      {/* Dual App Showcase Section (First Instance - Tarjeta Titanio) */}
+      <div className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative">
+        <DualAppShowcase 
+          url="https://tarjetatitanio.vercel.app/"
+          title={
+            <>
+              Innovación para <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e64c22] to-[#FF5E00]">
+                Tarjeta Titanio.
+              </span>
+            </>
+          }
+          description="Contribuí activamente en el proceso de desarrollo web de la empresa, construyendo interfaces modernas y optimizando la arquitectura para brindar la mejor experiencia a miles de usuarios."
+        />
       </div>
 
-      <WaveDivider topColor="#BFE3FA" bottomColor="#050505" flip height="clamp(100px, 10vw, 200px)" />
-
-      {/* NEW: Project List Section */}
-      <div className="bg-[#050505] py-12" id="proyectos">
+      {/* Projects Timeline/Showcase Section */}
+      <div id="proyectos" className="bg-[#111111] py-12 relative overflow-hidden">
         <ParallaxSection offset={60}>
           <ProjectList />
         </ParallaxSection>
       </div>
 
-      <WaveDivider topColor="#050505" bottomColor="#0B0B0B" />
-      
+      {/* Template Hero Preview Section */}
+      <div className="relative" id="template-hero">
+        <TemplateHero />
+      </div>
+
       {/* Casos de Estudio Section */}
-      <div className="bg-[#0B0B0B] py-10" id="casos-de-estudio">
+      <div className="bg-[#0B0B0B] py-10 relative" id="casos-de-estudio">
         <CasosDeEstudio />
       </div>
 
-      <WaveDivider topColor="#0B0B0B" bottomColor="#5BC0BE" height="clamp(100px, 10vw, 200px)" />
+      {/* Dual App Showcase Section (Second Instance - Creapp) */}
+      <div id="creapp" className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative">
+        <DualAppShowcase 
+          url="https://creapp-gamma.vercel.app/" 
+          title={
+            <>
+              Conoce mi trabajo <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e64c22] to-[#FF5E00]">
+                y mi visión.
+              </span>
+            </>
+          }
+          description="Desarrollé esta plataforma web para que mis futuros clientes puedan conocer en profundidad quién soy, la calidad de mi trabajo y los resultados de alto impacto que podemos lograr juntos."
+        />
+      </div>
 
       {/* NEW: Data Analytics Section */}
-      <div className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] py-12 relative overflow-hidden -mt-[1px]">
+      <div className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] py-12 relative overflow-hidden">
         <ParallaxSection offset={40}>
           <DataAnalyticsSection />
         </ParallaxSection>
       </div>
 
-      <WaveDivider topColor="#BFE3FA" bottomColor="#111111" flip height="clamp(100px, 10vw, 200px)" />
-
       {/* NEW: Startup Pricing Section */}
-      <div className="bg-[#111111] pb-12">
+      <div className="bg-[#111111] pb-12 relative">
         <ParallaxSection offset={100}>
           <section className="py-20 md:py-28 border-t border-white/5">
             <PricingWithChart />
           </section>
         </ParallaxSection>
       </div>
-
-      {/* Wave Transition into Footer */}
-      <WaveDivider topColor="#111111" bottomColor="#FDF6EC" height="clamp(150px, 15vw, 300px)" />
     </div>
   );
 }

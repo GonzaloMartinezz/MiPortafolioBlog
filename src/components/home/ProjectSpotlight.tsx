@@ -65,7 +65,7 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
         </motion.div>
 
         {/* Text Section */}
-        <div className="min-h-[350px] md:min-h-[250px] flex flex-col items-center justify-center mb-8">
+        <div className="min-h-[300px] md:min-h-[220px] flex flex-col items-center justify-center mb-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id + "-text"}
@@ -75,32 +75,32 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
               transition={{ duration: 0.4 }}
               className="text-center w-full"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-5 tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter">
                 {current.title}
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed px-2">
+              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base lg:text-lg mb-8 max-w-2xl mx-auto leading-relaxed px-4">
                 {current.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-8">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-6">
                 <a
                   href={current.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center gap-3 px-6 md:px-10 py-3 md:py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
+                  className="group relative flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-xs tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
                 >
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  <FaPlay size={12} className="relative z-10 group-hover:text-white transition-colors" /> 
+                  <FaPlay size={10} className="relative z-10 group-hover:text-white transition-colors" /> 
                   <span className="relative z-10 group-hover:text-white transition-colors">Ver App</span>
                 </a>
                 <a
                   href={current.codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-3 px-6 md:px-10 py-3 md:py-5 bg-white/50 dark:bg-[#0B0F19]/50 backdrop-blur-md text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-slate-50 dark:hover:bg-[#131B2F] transition-all hover:scale-105 hover:border-slate-300 dark:hover:border-slate-700"
+                  className="group flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white/50 dark:bg-[#0B0F19]/50 backdrop-blur-md text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-bold text-xs tracking-widest uppercase hover:bg-slate-50 dark:hover:bg-[#131B2F] transition-all hover:scale-105 hover:border-slate-300 dark:hover:border-slate-700"
                 >
-                  <FaCode size={16} className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" /> 
-                  <span>Ver código en GitHub</span>
+                  <FaCode size={14} className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" /> 
+                  <span>Ver código</span>
                 </a>
               </div>
             </motion.div>
@@ -108,9 +108,9 @@ export function ProjectSpotlight({ projects = fallbackProjects }: ProjectSpotlig
         </div>
 
         {/* Device Mockup */}
-        <div className="relative mx-auto w-full group mt-4 md:mt-8">
+        <div className="relative mx-auto w-full max-w-5xl group mt-4 md:mt-8">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2rem] md:rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative w-full aspect-[16/9] bg-slate-100 dark:bg-[#0B0F19] rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border-[8px] md:border-[12px] border-white dark:border-[#131B2F] overflow-hidden transition-colors duration-500">
+          <div className="relative w-full aspect-[16/10] bg-slate-100 dark:bg-[#0B0F19] rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border-[8px] md:border-[12px] border-white dark:border-[#131B2F] overflow-hidden transition-colors duration-500">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id + "-img"}

@@ -8,36 +8,26 @@ interface WaveDividerProps {
   blur?: boolean;
 }
 
-export const WaveDivider: React.FC<WaveDividerProps> = ({ topColor, bottomColor, height = '120px', flip = false, blur = false }) => {
+export const WaveDivider: React.FC<WaveDividerProps> = ({ topColor, bottomColor, height = '120px', flip = false }) => {
   return (
     <div 
-      className="wave-divider relative z-10" 
+      className="relative w-full -mt-[1px] mb-[-1px] pointer-events-none" 
       style={{ 
-        width: '100%', 
-        overflow: 'hidden', 
-        lineHeight: 0,
-        backgroundColor: topColor
+        height: height, 
+        backgroundColor: topColor,
+        overflow: 'hidden'
       }}
     >
       <svg 
-        viewBox="0 0 1440 200" 
+        viewBox="0 0 1200 120" 
         preserveAspectRatio="none" 
-        style={{ 
-          display: 'block', 
-          width: '100%', 
-          height: height,
-          transform: flip ? 'scaleX(-1)' : 'none'
-        }}
+        className="absolute bottom-0 left-0 w-full h-full"
+        style={{ transform: flip ? 'scaleX(-1)' : 'none' }}
       >
         <path 
           fill={bottomColor} 
-          d="M0,150 C400,200 800,50 1440,20 L1440,300 L0,300 Z"
-          style={{ 
-            filter: blur ? 'blur(15px)' : 'drop-shadow(0px -10px 15px rgba(0,0,0,0.4))',
-            transform: blur ? 'scale(1.05)' : 'none',
-            transformOrigin: 'bottom'
-          }}
-        ></path>
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z"
+        />
       </svg>
     </div>
   );

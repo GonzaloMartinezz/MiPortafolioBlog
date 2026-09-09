@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { Sparkles, Play } from "lucide-react";
+import Link from "next/link";
 
 export default function BrandSpeed() {
   return (
@@ -81,14 +82,14 @@ export default function BrandSpeed() {
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
         >
           {/* Primary CTA */}
-          <button className="w-full sm:w-auto bg-gradient-to-r from-[#F66C44] to-[#e05a33] hover:brightness-110 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_30px_rgba(246,108,68,0.4)] hover:shadow-[0_0_40px_rgba(246,108,68,0.6)] hover:scale-105">
+          <Link href="/contact" className="w-full sm:w-auto bg-gradient-to-r from-[#F66C44] to-[#e05a33] hover:brightness-110 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_30px_rgba(246,108,68,0.4)] hover:shadow-[0_0_40px_rgba(246,108,68,0.6)] hover:scale-105">
             Agendá una charla
-          </button>
+          </Link>
           
           {/* Secondary CTA */}
-          <button className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-xl">
+          <Link href="/projects" className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-xl">
             Ver Proyectos
-          </button>
+          </Link>
         </motion.div>
         
       </div>

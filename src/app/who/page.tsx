@@ -14,40 +14,48 @@ const fadeUp = (delay = 0) => ({
 });
 
 const stack = [
-  { name: "JavaScript", sub: "ES2024+", color: "from-yellow-500/20 to-yellow-500/5 border-yellow-500/20 text-yellow-400" },
-  { name: "TypeScript", sub: "Strict Mode", color: "from-blue-500/20 to-blue-500/5 border-blue-500/20 text-blue-400" },
-  { name: "React & Next.js", sub: "App Router", color: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/20 text-cyan-400" },
-  { name: "Node.js & Express", sub: "REST / WS", color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-400" },
-  { name: "MongoDB", sub: "NoSQL", color: "from-green-500/20 to-green-500/5 border-green-500/20 text-green-400" },
-  { name: "SQL Server", sub: "Relacional", color: "from-slate-400/20 to-slate-400/5 border-slate-400/20 text-slate-300" },
-  { name: "Power BI", sub: "Analytics", color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-400" },
-  { name: "Tailwind CSS", sub: "Design System", color: "from-sky-500/20 to-sky-500/5 border-sky-500/20 text-sky-400" },
+  { name: "Next.js & React", sub: "Frontend Moderno", color: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/20 text-cyan-400" },
+  { name: "React Native & Expo", sub: "Desarrollo Mobile", color: "from-blue-500/20 to-blue-500/5 border-blue-500/20 text-blue-400" },
+  { name: "Node.js & Express", sub: "Backend y APIs REST", color: "from-green-500/20 to-green-500/5 border-green-500/20 text-green-400" },
+  { name: "NestJS", sub: "Arquitectura Backend", color: "from-rose-500/20 to-rose-500/5 border-rose-500/20 text-rose-500" },
+  { name: "TypeScript", sub: "Desarrollo Escalable", color: "from-blue-600/20 to-blue-600/5 border-blue-600/20 text-blue-500" },
+  { name: "MongoDB & Prisma", sub: "Bases NoSQL & ORMs", color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-400" },
+  { name: "PostgreSQL & SQL", sub: "Bases Relacionales", color: "from-slate-400/20 to-slate-400/5 border-slate-400/20 text-slate-300" },
+  { name: "Power BI & Excel", sub: "Inteligencia de Negocio", color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-400" },
+  { name: "Lenguaje R", sub: "Data Analytics", color: "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-400" },
+  { name: "Docker", sub: "Contenedores & DevOps", color: "from-sky-500/20 to-sky-500/5 border-sky-500/20 text-sky-400" },
+  { name: "Figma & Canva", sub: "Diseño UI/UX", color: "from-fuchsia-500/20 to-fuchsia-500/5 border-fuchsia-500/20 text-fuchsia-400" },
+  { name: "HTML & CSS", sub: "Bases Web", color: "from-orange-500/20 to-orange-500/5 border-orange-500/20 text-orange-400" },
 ];
 
 const education = [
   {
-    period: "2024 — 2026",
-    title: "Tecnicatura en Desarrollo de Software",
+    period: "mar. 2024 — ago. 2026",
+    title: "Tecnicatura en Desarrollo y Calidad de Software",
     institution: "Universidad del Norte Santo Tomás de Aquino — UNSTA",
-    accent: "text-blue-400", ring: "ring-blue-500/30", dot: "bg-blue-400",
+    accent: "text-[#F66C44]", ring: "ring-[#F66C44]/30", dot: "bg-[#F66C44]",
+    image: ""
   },
   {
-    period: "2025 — 2026",
-    title: "Arquitectura Backend & APIs REST",
-    institution: "CoderHouse — Node.js & Express Avanzado",
-    accent: "text-indigo-400", ring: "ring-indigo-500/30", dot: "bg-indigo-400",
-  },
-  {
-    period: "2024",
+    period: "may. 2025 — ago. 2025",
     title: "Data Analytics",
-    institution: "CoderHouse — SQL Server, Power BI & Excel",
+    institution: "Coderhouse",
     accent: "text-emerald-400", ring: "ring-emerald-500/30", dot: "bg-emerald-400",
+    image: ""
   },
   {
-    period: "2023",
-    title: "Full Stack Web Developer",
-    institution: "Rolling Code School — MERN Stack",
+    period: "abr. 2024 — ago. 2025",
+    title: "Full Stack Web Developer (MERN)",
+    institution: "RollingCode School",
     accent: "text-violet-400", ring: "ring-violet-500/30", dot: "bg-violet-400",
+    image: "/cert-rollingcode.png"
+  },
+  {
+    period: "2024 — 2025",
+    title: "Backend II: Diseño y Arquitectura de Software",
+    institution: "Coderhouse",
+    accent: "text-blue-400", ring: "ring-blue-500/30", dot: "bg-blue-400",
+    image: ""
   },
 ];
 
@@ -57,7 +65,7 @@ const pillars = [
     tag: "Full Stack",
     title: "Ingeniero de Producto",
     desc: "Construyo aplicaciones web de extremo a extremo con el stack MERN, Next.js 14 y TypeScript. Cada pieza de código está pensada para escalar.",
-    color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20", glow: "shadow-blue-500/10",
+    color: "text-[#F66C44]", bg: "bg-[#F66C44]/10", border: "border-[#F66C44]/20", glow: "shadow-[#F66C44]/10",
   },
   {
     icon: BarChart3,
@@ -78,7 +86,7 @@ const pillars = [
     tag: "Mentalidad",
     title: "Disciplina de Atleta",
     desc: "El básquet me forjó con disciplina, trabajo en equipo y resiliencia. Esa mentalidad deportiva es el motor de cada proyecto que entrego.",
-    color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20", glow: "shadow-amber-500/10",
+    color: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20", glow: "shadow-yellow-500/10",
   },
 ];
 
@@ -88,8 +96,8 @@ export default function WhoPage() {
 
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-violet-600/8 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#F66C44]/5 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 w-full pt-28 pb-32">
@@ -99,25 +107,25 @@ export default function WhoPage() {
         ══════════════════════════════════════════════ */}
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-24 md:mb-32">
           <motion.div {...fadeUp(0)}>
-            <span className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 text-[11px] font-black tracking-[0.25em] text-blue-400 uppercase bg-blue-950/50 rounded-full border border-blue-800/40 backdrop-blur-md">
-              <UserCircle2 className="w-3.5 h-3.5" /> Arquitecto de Software
+            <span className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 text-[11px] font-black tracking-[0.25em] text-[#F66C44] uppercase bg-[#F66C44]/10 rounded-full border border-[#F66C44]/20 backdrop-blur-md">
+              <UserCircle2 className="w-3.5 h-3.5" /> Full Stack & Data Analyst
             </span>
 
             <h1 className="text-[clamp(3.5rem,8.5vw,9rem)] font-black leading-[0.85] tracking-tighter text-white mb-10">
-              Ingeniería.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
-                Datos.
+              Negocios.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] via-[#FF8A00] to-[#FCD100]">
+                Código.
               </span><br />
-              Diseño.
+              Resultados.
             </h1>
 
             <div className="max-w-3xl">
               <p className="text-slate-300 text-xl md:text-2xl leading-relaxed mb-6 font-light">
-                Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, Ingeniero de Software & Diseñador de Producto. 
-                Construyo arquitecturas escalables y diseño experiencias de usuario impecables que generan <strong className="text-white font-bold">impacto comercial directo</strong>.
+                Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, desarrollador de software y analista de datos. 
+                No solo escribo código; construyo <strong className="text-white font-bold">ecosistemas digitales de alto rendimiento</strong> que resuelven problemas de negocio reales.
               </p>
               <p className="text-slate-500 text-lg leading-relaxed">
-                Especializado en el ecosistema JavaScript moderno, análisis profundo de datos y en transformar complejidad técnica en interfaces de alta conversión.
+                Desde automatizar la gestión de clínicas de salud hasta crear plataformas B2B y e-commerce sin intermediarios. Mi enfoque es claro: combinar arquitectura escalable con diseño premium para acelerar el crecimiento de tu empresa.
               </p>
             </div>
           </motion.div>
@@ -135,38 +143,49 @@ export default function WhoPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
             {pillars.map((p, i) => {
               const Icon = p.icon;
               return (
                 <motion.div
                   key={i}
-                  {...fadeUp(i * 0.08)}
-                  className={`group relative flex flex-col h-full p-8 md:p-10 rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:-translate-y-2 overflow-hidden`}
+                  {...fadeUp(i * 0.1)}
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  className="group relative flex flex-col justify-between p-8 md:p-10 rounded-[2rem] bg-[#0A0A0A]/80 backdrop-blur-3xl border border-white/5 hover:border-white/10 transition-all duration-500 overflow-hidden shadow-2xl"
                 >
-                  {/* Subtle inner ambient glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-                  
-                  {/* Animated Top Border Line */}
-                  <div className={`absolute top-0 inset-x-0 h-[2px] opacity-40 group-hover:opacity-100 transition-opacity duration-500`}>
+                  {/* Subtle Top Border Glow */}
+                  <div className={`absolute top-0 inset-x-0 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`}>
                      <div className={`w-full h-full bg-gradient-to-r from-transparent via-current to-transparent ${p.color}`} />
                   </div>
 
-                  {/* Icon Container */}
-                  <div className={`relative w-14 h-14 rounded-2xl flex items-center justify-center border border-white/5 group-hover:border-white/20 transition-colors duration-500 mb-8 bg-[#050505] shadow-inner`}>
-                    <div className={`absolute inset-0 rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 ${p.bg}`} />
-                    <Icon className={`w-6 h-6 ${p.color} relative z-10 group-hover:scale-110 transition-transform duration-500`} />
+                  {/* Cinematic Corner Flares */}
+                  <div className={`absolute -top-32 -right-32 w-64 h-64 rounded-full blur-[100px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none ${p.bg.split('/')[0]}`} />
+                  <div className={`absolute -bottom-32 -left-32 w-64 h-64 rounded-full blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none ${p.bg.split('/')[0]}`} />
+
+                  {/* Header: Icon & Tag */}
+                  <div className="relative z-10 flex justify-between items-start mb-16">
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-[#111111] border border-white/5 group-hover:border-white/20 transition-all duration-500 shadow-inner group-hover:shadow-[0_0_40px_0_rgba(255,255,255,0.05)]`}>
+                      <Icon className={`w-6 h-6 ${p.color} transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 drop-shadow-md`} />
+                    </div>
+                    
+                    <div className="flex items-center px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/5 backdrop-blur-md group-hover:bg-white/[0.04] transition-all duration-500">
+                      <span className={`w-1.5 h-1.5 rounded-full mr-2.5 ${p.bg.split('/')[0]} animate-pulse`} />
+                      <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/60 group-hover:text-white/90 transition-colors duration-300">
+                        {p.tag}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col flex-grow relative z-10">
-                    <span className={`text-[10px] md:text-xs font-black tracking-[0.25em] uppercase ${p.color} mb-4 block drop-shadow-sm`}>
-                      {p.tag}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight leading-[1.1] transition-colors duration-300">
+                  <div className="relative z-10 mt-auto">
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/50 transition-all duration-500">
                       {p.title}
                     </h3>
-                    <p className="text-white/50 text-sm md:text-base leading-relaxed font-medium mt-auto group-hover:text-white/70 transition-colors duration-500">
+                    
+                    {/* Expanding Divider */}
+                    <div className="h-[1px] w-12 bg-white/10 mb-5 group-hover:w-full transition-all duration-700 ease-out" />
+                    
+                    <p className="text-white/40 text-sm md:text-base leading-relaxed font-medium group-hover:text-white/70 transition-colors duration-500 max-w-[95%]">
                       {p.desc}
                     </p>
                   </div>
@@ -189,30 +208,27 @@ export default function WhoPage() {
             </h2>
           </div>
 
-          <div className="relative flex overflow-x-hidden w-full group/marquee">
+          <div className="relative flex flex-col gap-6 overflow-x-hidden w-full group/marquee py-4">
             {/* Fade edges */}
             <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#040810] to-transparent z-20 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#040810] to-transparent z-20 pointer-events-none" />
 
+            {/* Row 1: Moves Left */}
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
               className="flex whitespace-nowrap gap-6 px-3 items-center group-hover/marquee:[animation-play-state:paused]"
             >
-              {/* Render 4 times for a flawless ultra-wide loop */}
               {[...stack, ...stack, ...stack, ...stack].map((item, i) => {
-                const textColor = item.color.split(' ')[3]; // e.g. text-yellow-400
-                const bgColor = textColor.replace('text-', 'bg-'); // e.g. bg-yellow-400
+                const textColor = item.color.split(' ')[3];
+                const bgColor = textColor.replace('text-', 'bg-');
 
                 return (
                   <div
-                    key={i}
+                    key={`r1-${i}`}
                     className={`group/stack relative flex flex-col justify-center px-8 py-7 rounded-3xl bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/5 hover:border-white/20 transition-all duration-300 shrink-0 w-[260px] md:w-[280px] shadow-2xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden cursor-default hover:-translate-y-1`}
                   >
-                    {/* Animated Top Border */}
                     <div className={`absolute top-0 inset-x-0 h-[2px] opacity-20 group-hover/stack:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-current to-transparent ${textColor}`} />
-                    
-                    {/* Internal Radial Glow */}
                     <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] opacity-10 group-hover/stack:opacity-20 transition-opacity duration-500 -translate-y-1/2 translate-x-1/2 ${bgColor}`} />
                     <div className="absolute inset-0 bg-white/[0.01] opacity-0 group-hover/stack:opacity-100 transition-opacity duration-500" />
 
@@ -226,59 +242,95 @@ export default function WhoPage() {
                 );
               })}
             </motion.div>
+
+            {/* Row 2: Moves Right */}
+            <motion.div
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
+              className="flex whitespace-nowrap gap-6 px-3 items-center group-hover/marquee:[animation-play-state:paused]"
+            >
+              {[...stack, ...stack, ...stack, ...stack].map((item, i) => {
+                // Reverse the item order for variety or just offset it by mapping backwards
+                const revItem = stack[(stack.length - 1) - (i % stack.length)];
+                const textColor = revItem.color.split(' ')[3];
+                const bgColor = textColor.replace('text-', 'bg-');
+
+                return (
+                  <div
+                    key={`r2-${i}`}
+                    className={`group/stack relative flex flex-col justify-center px-8 py-7 rounded-3xl bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/5 hover:border-white/20 transition-all duration-300 shrink-0 w-[260px] md:w-[280px] shadow-2xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden cursor-default hover:-translate-y-1`}
+                  >
+                    <div className={`absolute top-0 inset-x-0 h-[2px] opacity-20 group-hover/stack:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-current to-transparent ${textColor}`} />
+                    <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] opacity-10 group-hover/stack:opacity-20 transition-opacity duration-500 -translate-y-1/2 translate-x-1/2 ${bgColor}`} />
+                    <div className="absolute inset-0 bg-white/[0.01] opacity-0 group-hover/stack:opacity-100 transition-opacity duration-500" />
+
+                    <span className={`text-xl md:text-2xl font-black tracking-tight ${textColor} drop-shadow-sm relative z-10 transition-transform duration-300 group-hover/stack:scale-[1.02] origin-left`}>
+                      {revItem.name}
+                    </span>
+                    <span className="text-[10px] md:text-[11px] font-black text-slate-500 tracking-[0.25em] uppercase mt-2 relative z-10">
+                      {revItem.sub}
+                    </span>
+                  </div>
+                );
+              })}
+            </motion.div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════
             FORMACIÓN ACADÉMICA — TIMELINE VERTICAL
         ══════════════════════════════════════════════ */}
-        <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-32">
           <motion.div {...fadeUp(0)} className="mb-14">
-            <span className="text-[10px] font-black tracking-[0.3em] text-[#F66C44] uppercase">Fundación</span>
+            <span className="text-[10px] font-black tracking-[0.3em] text-[#F66C44] uppercase">Fundación y Logros</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-2">
-              Bases<br />
-              <span className="text-slate-500">Académicas.</span>
+              Bases Académicas<br />
+              <span className="text-slate-500">& Certificaciones.</span>
             </h2>
           </motion.div>
 
-          <div className="relative pl-10 md:pl-20 max-w-4xl pb-10">
-            {/* Main Vertical Timeline Line */}
-            <div className="absolute left-0 top-10 bottom-0 w-[2px] bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
-
-            <div className="flex flex-col gap-8 md:gap-10">
-              {education.map((ed, i) => (
-                <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {education.map((ed, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group">
+                <div className="flex flex-col h-full rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden group-hover:-translate-y-1">
                   
-                  {/* Glowing Node Base */}
-                  <div className={`absolute -left-[2.85rem] md:-left-[5.35rem] top-8 w-4 h-4 rounded-full bg-[#111111] border-[2px] border-white/20 transition-all duration-500 ring-0 group-hover:ring-[8px] ring-white/5 z-10`} />
-                  
-                  {/* Glowing Node Hover Fill */}
-                  <div className={`absolute -left-[2.85rem] md:-left-[5.35rem] top-8 w-4 h-4 rounded-full ${ed.dot} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 shadow-lg`} />
-
-                  {/* Glass Card */}
-                  <div className="relative p-6 md:p-10 rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden group-hover:-translate-y-1">
+                  {/* Image Container */}
+                  <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] md:aspect-[16/9] bg-[#050505] border-b border-white/5 overflow-hidden flex items-center justify-center">
+                    {/* Glowing background fallback if no image */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${ed.dot.replace('bg-', '')}`} />
                     
-                    {/* Inner Ambient Color Glow */}
-                    <div className={`absolute top-0 left-0 w-64 h-64 blur-[80px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none -translate-x-1/2 -translate-y-1/2 ${ed.dot}`} />
+                    {ed.image ? (
+                      <img src={ed.image} alt={`Certificado ${ed.title}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-white/20 group-hover:text-white/40 transition-colors duration-500">
+                        <GraduationCap className="w-12 h-12 mb-2 opacity-50" />
+                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Certificado Pendiente</span>
+                      </div>
+                    )}
 
-                    <div className="relative z-10 flex flex-col items-start">
-                      {/* Date Badge */}
-                      <span className={`inline-flex px-4 py-1.5 bg-[#050505] border border-white/5 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} mb-5 shadow-inner transition-colors duration-300`}>
-                        {ed.period}
-                      </span>
-                      
-                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3 drop-shadow-sm">
-                        {ed.title}
-                      </h3>
-                      
-                      <p className="text-white/40 text-sm md:text-base font-medium leading-relaxed group-hover:text-white/60 transition-colors duration-300">
-                        {ed.institution}
-                      </p>
-                    </div>
+                    {/* Gradient Overlay for seamless blend */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/20 to-transparent pointer-events-none" />
                   </div>
-                </motion.div>
-              ))}
-            </div>
+
+                  {/* Content */}
+                  <div className="relative p-8 md:p-10 flex flex-col flex-grow z-10 -mt-8">
+                    <div className={`absolute top-0 right-10 w-32 h-32 blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none -translate-y-1/2 ${ed.dot}`} />
+                    
+                    <span className={`inline-block self-start px-4 py-1.5 bg-[#050505] border border-white/10 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} mb-5 shadow-inner transition-colors duration-300`}>
+                      {ed.period}
+                    </span>
+                    
+                    <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3 drop-shadow-sm group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all duration-300">
+                      {ed.title}
+                    </h3>
+                    
+                    <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed mt-auto">
+                      {ed.institution}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
 

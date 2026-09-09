@@ -1,7 +1,7 @@
 {
+  "/blog/club-belgrano-c-y-d/page": "app/blog/club-belgrano-c-y-d/page.js",
   "/page": "app/page.js",
-  "/who/page": "app/who/page.js",
   "/blog/page": "app/blog/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/projects/page": "app/projects/page.js"
+  "/who/page": "app/who/page.js",
+  "/blog/tarjeta-titanio-sa/page": "app/blog/tarjeta-titanio-sa/page.js"
 }

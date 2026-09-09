@@ -81,20 +81,21 @@ const plans = [
 ];
 
 const chartData = [
-  { mes: 'Mes 1', landing: 10, webapp: 0, saas: 0 },
-  { mes: 'Mes 2', landing: 25, webapp: 10, saas: 0 },
-  { mes: 'Mes 3', landing: 40, webapp: 30, saas: 15 },
-  { mes: 'Mes 4', landing: 48, webapp: 55, saas: 35 },
-  { mes: 'Mes 5', landing: 55, webapp: 80, saas: 60 },
-  { mes: 'Mes 6', landing: 60, webapp: 100, saas: 90 },
-  { mes: 'Mes 7', landing: 63, webapp: 120, saas: 130 },
-  { mes: 'Mes 8', landing: 65, webapp: 138, saas: 175 },
+  { mes: 'Mes 1', landing: 10, webapp: 0, saas: 0, roi: 5 },
+  { mes: 'Mes 2', landing: 25, webapp: 10, saas: 0, roi: 20 },
+  { mes: 'Mes 3', landing: 40, webapp: 30, saas: 15, roi: 45 },
+  { mes: 'Mes 4', landing: 48, webapp: 55, saas: 35, roi: 75 },
+  { mes: 'Mes 5', landing: 55, webapp: 80, saas: 60, roi: 110 },
+  { mes: 'Mes 6', landing: 60, webapp: 100, saas: 90, roi: 150 },
+  { mes: 'Mes 7', landing: 63, webapp: 120, saas: 130, roi: 185 },
+  { mes: 'Mes 8', landing: 65, webapp: 138, saas: 175, roi: 220 },
 ];
 
 const chartConfig = {
   landing: { label: 'Presencia Digital', color: '#10b981' },
   webapp: { label: 'App Web', color: '#3b82f6' },
   saas: { label: 'SaaS / Empresa', color: '#8b5cf6' },
+  roi: { label: 'ROI Estimado', color: '#f97316' },
 } satisfies ChartConfig;
 
 export function PricingWithChart() {
@@ -124,7 +125,7 @@ export function PricingWithChart() {
           return (
             <div
               key={plan.id}
-              className={`relative flex flex-col rounded-2xl sm:rounded-3xl border p-5 sm:p-7 transition-all duration-300 hover:shadow-xl ${
+              className={`relative flex flex-col rounded-[2rem] sm:rounded-[2.5rem] border p-5 sm:p-7 transition-all duration-300 hover:shadow-xl ${
                 plan.highlight
                   ? 'bg-[#0B0B0B] border-[#F66C44]/50 shadow-lg shadow-[#F66C44]/10 scale-[1.01]'
                   : 'bg-[#050505] border-[#1C1C1E]'
@@ -172,7 +173,7 @@ export function PricingWithChart() {
               {/* CTA */}
               <a
                 href={plan.href}
-                className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${plan.btnClass.replace(/text-white/g, 'text-white/90')} shadow-md`}
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-full text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${plan.btnClass.replace(/text-white/g, 'text-white/90')} shadow-md`}
               >
                 {plan.cta}
                 <ArrowUpRight className="w-4 h-4" />
@@ -183,7 +184,7 @@ export function PricingWithChart() {
       </div>
 
       {/* ROI Chart & Metrics Container */}
-      <div className="rounded-2xl sm:rounded-3xl border border-[#1C1C1E] bg-[#050505] overflow-hidden flex flex-col">
+      <div className="rounded-[2rem] sm:rounded-[3rem] border border-[#1C1C1E] bg-[#050505] overflow-hidden flex flex-col">
         {/* Chart Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-5 sm:p-7 border-b border-[#1C1C1E]">
           <div>
@@ -227,6 +228,7 @@ export function PricingWithChart() {
               <Line dataKey="landing" type="monotone" stroke="#10b981" strokeWidth={2.5} dot={false} />
               <Line dataKey="webapp" type="monotone" stroke="#3b82f6" strokeWidth={2.5} dot={false} />
               <Line dataKey="saas" type="monotone" stroke="#8b5cf6" strokeWidth={2.5} dot={false} />
+              <Line dataKey="roi" type="monotone" stroke="#f97316" strokeWidth={2.5} dot={false} />
             </LineChart>
           </ChartContainer>
         </div>

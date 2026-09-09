@@ -13,7 +13,7 @@ const mainLinks = [
   { href: "/", label: "Inicio", desc: "Vuelve a la pantalla principal", icon: FiHome },
   { href: "/projects", label: "Proyectos", desc: "Explora mis últimos trabajos", icon: FiBriefcase },
   { href: "/who", label: "Sobre mí", desc: "Conoce mi historia y método", icon: FiUser },
-  { href: "/blog", label: "Blog", desc: "Artículos sobre diseño y código", icon: FiFileText },
+  { href: "/blog", label: "Casos de Estudio", desc: "Proyectos reales y resultados", icon: FiFileText },
   { href: "/contact", label: "Contacto", desc: "Hablemos sobre tu proyecto", icon: FiMessageCircle },
 ];
 
@@ -141,22 +141,22 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
             exit={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-[100px] md:top-[120px] left-1/2 w-[95%] max-w-5xl bg-[#050505]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] z-[999999] overflow-hidden border border-white/10 flex flex-col origin-top"
+            className="fixed top-[100px] md:top-[120px] left-1/2 w-[95%] max-w-5xl bg-[#050505]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] z-[999999] overflow-hidden border border-white/10 flex flex-col origin-top max-h-[calc(100vh-115px)] md:max-h-[calc(100vh-140px)]"
           >
             {/* Inner Glow Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#F66C44]/5 via-transparent to-blue-500/5 pointer-events-none" />
 
             {/* Columns Container */}
-            <div className="flex flex-col md:flex-row h-full max-h-[85vh] overflow-y-auto md:overflow-visible relative z-10">
+            <div className="flex flex-col md:flex-row flex-1 min-h-0 overflow-y-auto relative z-10 custom-scrollbar">
 
               {/* Left Column: Navigation */}
-              <div className="w-full md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                <p className="text-[10px] font-black text-[#F66C44] uppercase tracking-widest mb-8 flex items-center gap-2">
+              <div className="w-full md:w-[60%] p-6 md:p-12 flex flex-col justify-center">
+                <p className="text-[10px] font-black text-[#F66C44] uppercase tracking-widest mb-6 md:mb-8 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#F66C44] animate-pulse" />
                   Navegación
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                <div className="grid grid-cols-1 gap-y-3">
                   {mainLinks.map((link, i) => (
                     <motion.div 
                       key={link.href}
@@ -189,31 +189,24 @@ export default function Navbar() {
               </div>
 
               {/* Right Column: Explore */}
-              <div className="w-full md:w-[40%] bg-[#0B0B0B]/50 p-8 md:p-12 flex flex-col border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden">
+              <div className="w-full md:w-[40%] bg-[#0B0B0B]/50 p-6 md:p-12 flex flex-col border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20 mix-blend-overlay pointer-events-none" />
                 
-                <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-8 relative z-10">Explorar</p>
+                <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-6 md:mb-8 relative z-10">Explorar</p>
 
                 <div className="flex flex-col gap-4 flex-1 relative z-10">
                   {/* Highlight Item 1 */}
-                  <Link href="/projects" className="group relative flex flex-col p-5 rounded-3xl bg-[#111111] border border-white/5 hover:border-blue-500/30 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10">
+                  <Link href="/blog/centro-odontologico-c-y-m" className="group relative flex flex-col p-5 rounded-3xl bg-[#111111] border border-white/5 hover:border-blue-500/30 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-500/30 transition-colors duration-700" />
                     <h4 className="text-white font-bold text-sm mb-1 group-hover:text-blue-400 transition-colors">Caso de Éxito Odontológico</h4>
                     <p className="text-white/40 text-[11px] leading-relaxed">Plataforma integral para gestión de clínicas</p>
                   </Link>
 
                   {/* Highlight Item 2 */}
-                  <Link href="/projects" className="group relative flex flex-col p-5 rounded-3xl bg-[#111111] border border-white/5 hover:border-purple-500/30 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
+                  <Link href="/blog/tarjeta-titanio-sa" className="group relative flex flex-col p-5 rounded-3xl bg-[#111111] border border-white/5 hover:border-purple-500/30 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 group-hover:bg-purple-500/30 transition-colors duration-700" />
                     <h4 className="text-white font-bold text-sm mb-1 group-hover:text-purple-400 transition-colors">Tarjeta Titanio: Finanzas</h4>
                     <p className="text-white/40 text-[11px] leading-relaxed">Sistemas internos y dashboards operativos</p>
-                  </Link>
-
-                  {/* Highlight Item 3 */}
-                  <Link href="/who" className="group relative flex flex-col p-5 rounded-3xl bg-[#111111] border border-white/5 hover:border-[#F66C44]/30 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F66C44]/10">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#F66C44]/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 group-hover:bg-[#F66C44]/30 transition-colors duration-700" />
-                    <h4 className="text-white font-bold text-sm mb-1 group-hover:text-[#F66C44] transition-colors">Metodología de trabajo</h4>
-                    <p className="text-white/40 text-[11px] leading-relaxed">Cómo transformo ideas en código de alto nivel</p>
                   </Link>
                 </div>
 
@@ -224,7 +217,7 @@ export default function Navbar() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="w-full bg-[#030303] border-t border-white/5 px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 relative z-10">
+            <div className="w-full bg-[#030303] border-t border-white/5 px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 relative z-10 shrink-0">
               <span className="text-white/50 text-xs font-medium">¿Listo para transformar tu idea en un producto digital?</span>
               <Link href="/contact" className="group flex items-center gap-2 font-bold text-black text-xs uppercase tracking-widest bg-white px-6 py-3 rounded-full hover:bg-[#F66C44] hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(246,108,68,0.4)]">
                 <FiPlayCircle size={16} className="group-hover:scale-110 transition-transform" /> Agenda una charla

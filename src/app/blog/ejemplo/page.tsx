@@ -1,11 +1,8 @@
 "use client";
-import { DynamicIslandTOC } from "@/components/ui/dynamic-island-toc";
 
 export default function BlogPostPage() {
   return (
     <div className="relative min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white">
-      {/* TOC Component */}
-      <DynamicIslandTOC />
 
       <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24 lg:px-8">
         <article className="flex flex-col gap-8">
