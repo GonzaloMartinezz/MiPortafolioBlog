@@ -37,7 +37,7 @@ export default function Home() {
       </motion.div>
 
       {/* Wave Transition between Hero and Dark Section */}
-      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" flip height="clamp(150px, 15vw, 300px)" />
+      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" flip height="clamp(60px, 6vw, 100px)" />
 
       {/* Creapp App Showcase Section */}
       <div className="bg-[#0B0B0B] relative -mt-[1px]" id="creapp">
@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       {/* Wave Transition (Right to Left / Flipped) */}
-      <WaveDivider topColor="#0B0B0B" bottomColor="#FDF6EC" flip height="clamp(150px, 15vw, 300px)" />
+      <WaveDivider topColor="#0B0B0B" bottomColor="#FDF6EC" flip height="clamp(60px, 6vw, 100px)" />
 
       {/* Brand Speed Beige Section */}
       <div className="bg-[#FDF6EC] relative">

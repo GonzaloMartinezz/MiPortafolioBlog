@@ -79,38 +79,36 @@ export default function AppShowcase() {
         ))}
       </div>
 
-      <ContainerScroll
-        titleComponent={
-          <div className="text-center z-10 mb-8 md:mb-16 px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
-            >
-              Ecosistemas Digitales <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#FCD100]">
-                para el Sector Salud.
-              </span>
-            </motion.h2>
+      {/* ── TÍTULO siempre visible, fuera del translateY del scroll ── */}
+      <div className="relative z-20 text-center px-6 pt-16 pb-6 md:pt-20 md:pb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
+        >
+          Ecosistemas Digitales{" "}
+          <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#FCD100]">
+            para el Sector Salud.
+          </span>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-4 text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+        >
+          Construyo plataformas de alto rendimiento exclusivas para odontología, clínicas médicas, centros de diagnóstico y veterinarias. Interfaces fluidas, máxima seguridad y código escalable.
+        </motion.p>
+      </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="mt-4 text-white/50 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
-            >
-              Construyo plataformas de alto rendimiento exclusivas para odontología, clínicas médicas, centros de diagnóstico y veterinarias. Interfaces fluidas, máxima seguridad y código escalable para automatizar tu gestión y elevar la atención a tus pacientes.
-            </motion.p>
-          </div>
-        }
-      >
+      <ContainerScroll titleComponent={<></>}>
         <div className="w-full h-full rounded-2xl overflow-hidden relative">
           <iframe
             src="https://app-consultorio-odontologico.vercel.app/"
-            className="absolute top-0 left-0 h-full border-none bg-black"
-            style={{ width: 'calc(100% + 24px)' }}
+            className="absolute top-0 left-0 w-full h-full border-none bg-black"
             title="App Mobile View"
             sandbox="allow-scripts allow-same-origin allow-popups"
             loading="lazy"
