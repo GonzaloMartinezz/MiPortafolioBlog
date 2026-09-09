@@ -24,20 +24,20 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[70vh] bg-[#FDF6EC] flex flex-col items-center justify-start overflow-hidden px-6 md:px-12 pb-4 lg:pb-6 pt-16 lg:pt-20 font-sans">
+    <section className="relative w-full min-h-[78vh] bg-[#FDF6EC] flex flex-col items-center justify-center overflow-hidden px-6 md:px-12 pb-6 lg:pb-10 pt-16 lg:pt-24 font-sans">
 
       {/* Central Content */}
       <div className="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto mt-0 md:mt-2">
 
-        {/* Profile Image - Ampliado y sin recortes circulares, con redes sociales */}
+        {/* Profile Image - Con suficiente margen inferior para los iconos flotantes */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-20 mb-8 mt-4 flex items-center justify-center"
+          className="relative z-20 mb-14 md:mb-8 mt-2 flex items-center justify-center"
         >
           {/* Profile Picture Container - Redondeado */}
-          <div className="w-48 h-48 md:w-60 md:h-60 relative z-20 rounded-full overflow-hidden shadow-xl border-4 border-[#FDF6EC]">
+          <div className="w-48 h-48 md:w-64 md:h-64 relative z-20 rounded-full overflow-hidden shadow-xl border-4 border-[#FDF6EC]">
             <img
               src="/LogoPerfil.jpg"
               alt="Gonzalo Martinez"
@@ -89,28 +89,28 @@ export default function Hero() {
         </motion.div>
 
         {/* Big Bold Title Container */}
-        <div className="relative text-center z-20 flex flex-col items-center mt-4">
+        <div className="relative text-center z-20 flex flex-col items-center mt-2 md:mt-2">
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="font-black leading-[0.9] tracking-tighter uppercase text-center flex flex-col items-center relative z-20"
+            className="font-black leading-[1] md:leading-[0.9] tracking-tighter uppercase text-center flex flex-col items-center relative z-20 gap-1 md:gap-0"
             style={{
               color: "#F66C44",
-              fontSize: "clamp(2.2rem, 7vw, 6rem)"
+              fontSize: "clamp(3.2rem, 13vw, 6.8rem)"
             }}
           >
             {/* Desktop: WELCOME TO on one line */}
             <span className="hidden md:block">WELCOME TO</span>
 
-            {/* Mobile: each word its own line */}
-            <span className="md:hidden">WELCOME</span>
-            <span className="md:hidden">TO</span>
-            <span className="md:hidden">MY</span>
+            {/* Mobile: each word its own line with clear spacing */}
+            <span className="md:hidden tracking-tight">WELCOME</span>
+            <span className="md:hidden tracking-tight">TO</span>
+            <span className="md:hidden tracking-tight">MY</span>
 
             {/* Desktop: MY PORTFOLIO with ball + underline */}
-            <span className="hidden md:relative md:mt-2 md:inline-block relative mt-2 md:flex">
+            <span className="hidden md:relative md:mt-2 relative mt-2 md:flex">
               MY PORTFOLIO
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -137,7 +137,7 @@ export default function Hero() {
             </span>
 
             {/* Mobile: PORTFOLIO with ball + underline */}
-            <span className="md:hidden relative mt-2">
+            <span className="md:hidden relative mt-1">
               PORTFOLIO
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -150,12 +150,12 @@ export default function Hero() {
                 drag
                 dragConstraints={{ left: -500, right: 500, top: -500, bottom: 500 }}
                 whileDrag={{ scale: 1.2 }}
-                className="absolute top-1/2 -translate-y-1/2 -right-[3rem] cursor-grab active:cursor-grabbing z-50 touch-none"
+                className="absolute top-1/2 -translate-y-1/2 -right-[2.5rem] sm:-right-[3rem] cursor-grab active:cursor-grabbing z-50 touch-none"
               >
                 <motion.div
                   animate={{ y: [0, -20, 0] }}
                   transition={{ duration: 0.6, repeat: Infinity, ease: "easeOut", repeatType: "mirror" }}
-                  className="text-[2.5rem] inline-block"
+                  className="text-[2.2rem] sm:text-[2.5rem] inline-block"
                   style={{ transformOrigin: "bottom" }}
                 >
                   🏀

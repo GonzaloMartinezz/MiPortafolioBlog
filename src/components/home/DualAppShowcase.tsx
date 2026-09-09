@@ -144,12 +144,12 @@ export default function DualAppShowcase({
               <div className="absolute top-[90px] md:top-[150px] -right-[4px] md:-right-[6px] w-[2px] md:w-[3px] h-[30px] md:h-[50px] bg-[#2C2C2E] rounded-r-sm" />
 
               {/* Iframe Content inside the phone */}
-              <div ref={phoneRef} className="w-full h-full bg-[#111111] overflow-hidden rounded-[15px] md:rounded-[30px] relative">
+              <div ref={phoneRef} className="w-full h-full bg-[#111111] overflow-hidden rounded-[15px] md:rounded-[30px] relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <iframe
                   src={url}
-                  className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left"
-                  style={{ transform: `scale(${phoneScale})`, overflow: 'auto' }}
-                  scrolling="auto"
+                  className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                  style={{ transform: `scale(${phoneScale})` }}
+                  scrolling="no"
                   title="App Mobile View"
                   sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                   loading="lazy"

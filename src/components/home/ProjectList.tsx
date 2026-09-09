@@ -68,7 +68,21 @@ const IframeCard = ({ iframeUrl, image, title }: { iframeUrl?: string, image: st
   );
 };
 
-const projects = [
+interface Project {
+  id: number;
+  client: string;
+  clientSuffix: string;
+  title: string;
+  category: string;
+  year: string;
+  description: React.ReactNode;
+  image: string;
+  iframeUrl?: string;
+  tags: string[];
+  link: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     client: "ODONTO",

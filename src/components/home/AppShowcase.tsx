@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 const leftFeatures = [
   { id: 1, label: "UI/UX Design", icon: "✨", desc: "Diseño intuitivo y premium" },
@@ -15,106 +14,191 @@ const rightFeatures = [
   { id: 6, label: "Responsive", icon: "📱", desc: "Perfecto en cada pantalla" },
 ];
 
-const FeatureBadge = ({ feature, side, index }: { feature: any; side: "left" | "right"; index: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: side === "left" ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay: index * 0.2, ease: "easeOut" }}
-      className={`flex items-center gap-3 md:gap-4 ${side === "right" ? "flex-row-reverse" : ""}`}
-    >
-      <div className="relative group">
-        <div className="absolute inset-0 bg-[#F66C44]/20 blur-md rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="relative flex items-center gap-3 bg-black/40 backdrop-blur-xl border border-white/10 hover:border-[#F66C44]/50 transition-colors px-4 py-3 rounded-xl shadow-2xl">
-          <span className="text-2xl md:text-3xl">{feature.icon}</span>
-          <div className={`flex flex-col ${side === "right" ? "text-right" : "text-left"}`}>
-            <span className="text-white font-medium text-sm md:text-base whitespace-nowrap">{feature.label}</span>
-            <span className="text-white/50 text-xs hidden md:block whitespace-nowrap">{feature.desc}</span>
-          </div>
-        </div>
-      </div>
-      {/* Connecting line */}
-      <div 
-        className={`w-8 md:w-16 lg:w-32 h-[1px] bg-gradient-to-${side === "left" ? "r" : "l"} from-[#F66C44]/50 to-transparent`} 
-      />
-    </motion.div>
-  );
-};
-
 export default function AppShowcase() {
   const [mounted, setMounted] = useState(false);
+  const phoneRef = useRef<HTMLDivElement>(null);
+  const [phoneScale, setPhoneScale] = useState(0.75);
 
   useEffect(() => {
     setMounted(true);
+
+    const updateScale = () => {
+      if (phoneRef.current) {
+        setPhoneScale(phoneRef.current.getBoundingClientRect().width / 430);
+      }
+    };
+
+    updateScale();
+    const observer = new ResizeObserver(() => updateScale());
+    if (phoneRef.current) observer.observe(phoneRef.current);
+    window.addEventListener("resize", updateScale);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateScale);
+    };
   }, []);
 
   if (!mounted) return null;
 
   return (
-    <div className="relative w-full overflow-hidden bg-transparent pt-4 flex flex-col items-center justify-center min-h-0">
+    <section className="relative w-full overflow-hidden bg-[#0B0B0B] py-16 md:py-24 px-4 sm:px-6 lg:px-12 font-sans">
       
-      {/* Soft Top/Bottom Blends to prevent harsh blur cutoffs */}
-      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#0B0B0B] to-transparent z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#0B0B0B] to-transparent z-10 pointer-events-none" />
+      {/* Background Glows & Texture */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-[#F66C44]/15 blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[700px] h-[700px] border border-white/[0.03] rounded-full pointer-events-none z-0" />
 
-      {/* Massive Aesthetic Blurs (Difuminado Estético) */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] md:w-[1200px] h-[800px] md:h-[1200px] bg-[#F66C44]/20 blur-[150px] md:blur-[250px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#F66C44]/15 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-[-100px] -translate-y-1/2 w-[600px] h-[600px] border border-white/[0.04] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-[-200px] -translate-y-1/2 w-[400px] h-[400px] border border-white/[0.06] rounded-full pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center gap-12 lg:gap-16">
+        
+        {/* Title Header */}
+        <div className="text-center max-w-3xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-3 justify-center mb-4"
+          >
+            <span className="w-8 h-[2px] bg-[#F66C44]" />
+            <span className="text-[11px] font-extrabold tracking-[0.25em] text-[#F66C44] uppercase">
+              STUDIO DENTAL & SALUD
+            </span>
+            <span className="w-8 h-[2px] bg-[#F66C44]" />
+          </motion.div>
 
-      {/* Floating Indicators Left */}
-      <div className="hidden lg:flex absolute left-4 xl:left-12 top-[55%] -translate-y-1/2 flex-col gap-12 xl:gap-20 z-20">
-        {leftFeatures.map((feat, i) => (
-          <FeatureBadge key={feat.id} feature={feat} side="left" index={i} />
-        ))}
-      </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
+          >
+            Ecosistemas Digitales{" "}
+            <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#FCD100]">
+              para el Sector Salud.
+            </span>
+          </motion.h2>
 
-      {/* Floating Indicators Right */}
-      <div className="hidden lg:flex absolute right-4 xl:right-12 top-[55%] -translate-y-1/2 flex-col gap-12 xl:gap-20 z-20">
-        {rightFeatures.map((feat, i) => (
-          <FeatureBadge key={feat.id} feature={feat} side="right" index={i} />
-        ))}
-      </div>
-
-      {/* ── TÍTULO siempre visible, fuera del translateY del scroll ── */}
-      <div className="relative z-20 text-center px-6 pt-16 pb-6 md:pt-20 md:pb-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
-        >
-          Ecosistemas Digitales{" "}
-          <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#FCD100]">
-            para el Sector Salud.
-          </span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-4 text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
-        >
-          Construyo plataformas de alto rendimiento exclusivas para odontología, clínicas médicas, centros de diagnóstico y veterinarias. Interfaces fluidas, máxima seguridad y código escalable.
-        </motion.p>
-      </div>
-
-      <ContainerScroll titleComponent={<></>}>
-        <div className="w-full h-full rounded-2xl overflow-hidden relative">
-          <iframe
-            src="https://app-consultorio-odontologico.vercel.app/"
-            className="absolute top-0 left-0 w-full h-full border-none bg-black"
-            title="App Mobile View"
-            sandbox="allow-scripts allow-same-origin allow-popups"
-            loading="lazy"
-          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 text-zinc-400 font-medium text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+          >
+            Plataformas de alto rendimiento diseñadas exclusivamente para odontología, clínicas médicas y centros de salud. Interfaces fluidas, máxima seguridad y código escalable.
+          </motion.p>
         </div>
-      </ContainerScroll>
-    </div>
+
+        {/* 3-Column Interactive Desktop Grid / Phone Showcase */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center justify-items-center relative">
+
+          {/* LEFT FEATURES (Desktop Only) */}
+          <div className="hidden lg:flex lg:col-span-3 flex-col gap-10 xl:gap-14 w-full items-end z-20">
+            {leftFeatures.map((feat, i) => (
+              <motion.div
+                key={feat.id}
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="flex items-center gap-3 w-full justify-end group"
+              >
+                <div className="flex items-center gap-3 bg-zinc-900/80 backdrop-blur-xl border border-white/10 hover:border-[#F66C44]/60 transition-all p-3.5 rounded-2xl shadow-xl hover:-translate-y-1">
+                  <span className="text-2xl">{feat.icon}</span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-white font-bold text-sm leading-tight">{feat.label}</span>
+                    <span className="text-zinc-400 text-xs mt-0.5">{feat.desc}</span>
+                  </div>
+                </div>
+                {/* Connector line pointing right towards phone */}
+                <div className="w-10 xl:w-16 h-[2px] bg-gradient-to-r from-[#F66C44] to-transparent shrink-0" />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CENTER IPHONE MOCKUP */}
+          <div className="lg:col-span-6 flex justify-center w-full relative z-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[9/19.5] rounded-[44px] md:rounded-[52px] border-[8px] md:border-[12px] border-zinc-900 shadow-[0_25px_60px_rgba(246,108,68,0.25)] bg-black overflow-hidden group"
+            >
+              {/* Dynamic Island / Notch */}
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 md:w-28 h-4 md:h-5 bg-black rounded-full z-30 flex items-center justify-end px-2 border border-white/5 shadow-md">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#1c1c1e] border border-blue-900/50" />
+              </div>
+
+              {/* Speaker Bar */}
+              <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-1 bg-zinc-800 rounded-full z-30" />
+
+              {/* Live Iframe Screen */}
+              <div ref={phoneRef} className="w-full h-full bg-black overflow-hidden relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <iframe
+                  src="https://app-consultorio-odontologico.vercel.app/"
+                  className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                  style={{ transform: `scale(${phoneScale})` }}
+                  scrolling="no"
+                  title="App Mobile View"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Glass Reflection Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-20" />
+            </motion.div>
+          </div>
+
+          {/* RIGHT FEATURES (Desktop Only) */}
+          <div className="hidden lg:flex lg:col-span-3 flex-col gap-10 xl:gap-14 w-full items-start z-20">
+            {rightFeatures.map((feat, i) => (
+              <motion.div
+                key={feat.id}
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="flex items-center gap-3 w-full justify-start group"
+              >
+                {/* Connector line pointing left towards phone */}
+                <div className="w-10 xl:w-16 h-[2px] bg-gradient-to-l from-[#F66C44] to-transparent shrink-0" />
+                <div className="flex items-center gap-3 bg-zinc-900/80 backdrop-blur-xl border border-white/10 hover:border-[#F66C44]/60 transition-all p-3.5 rounded-2xl shadow-xl hover:-translate-y-1">
+                  <span className="text-2xl">{feat.icon}</span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-white font-bold text-sm leading-tight">{feat.label}</span>
+                    <span className="text-zinc-400 text-xs mt-0.5">{feat.desc}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+
+        {/* MOBILE & TABLET FEATURES GRID (< lg screens) */}
+        <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-4xl pt-4">
+          {[...leftFeatures, ...rightFeatures].map((feat, i) => (
+            <motion.div
+              key={feat.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex items-center gap-3.5 bg-zinc-900/90 border border-white/10 p-4 rounded-2xl"
+            >
+              <span className="text-2xl shrink-0">{feat.icon}</span>
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-sm">{feat.label}</span>
+                <span className="text-zinc-400 text-xs">{feat.desc}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
   );
 }
