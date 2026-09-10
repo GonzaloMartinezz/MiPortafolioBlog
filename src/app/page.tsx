@@ -98,7 +98,7 @@ export default function Home() {
       {/* Dual App Showcase Section (Second Instance - Creapp) */}
       <div id="creapp" className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative">
         <DualAppShowcase 
-          url="https://creapp-gamma.vercel.app/" 
+          image="/CREAPPPROYECTO.png" 
           title={
             <>
               Conoce mi trabajo <br className="hidden sm:block" />

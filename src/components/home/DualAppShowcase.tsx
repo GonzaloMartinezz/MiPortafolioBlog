@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 
 interface DualAppShowcaseProps {
   url?: string;
+  image?: string;
+  mobileImage?: string;
   title?: React.ReactNode;
   description?: string;
 }
 
 export default function DualAppShowcase({ 
   url = "https://tarjetatitanio.vercel.app/",
+  image,
+  mobileImage,
   title = (
     <>
       Ecosistemas Digitales <br className="hidden sm:block" />
@@ -104,15 +108,19 @@ export default function DualAppShowcase({
               ref={laptopRef}
               className="relative w-full aspect-[16/10] bg-zinc-950 border-[5px] sm:border-[8px] md:border-[12px] border-zinc-900 rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden"
             >
-              <iframe
-                src={url}
-                className="absolute top-0 left-0 border-none w-[1920px] h-[1200px] origin-top-left pointer-events-none sm:pointer-events-auto"
-                style={{ transform: `scale(${laptopScale})`, overflow: 'auto' }}
-                scrolling="auto"
-                title="App Desktop View"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                loading="lazy"
-              />
+              {image ? (
+                <img src={image} alt="Desktop App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-top" />
+              ) : (
+                <iframe
+                  src={url}
+                  className="absolute top-0 left-0 border-none w-[1920px] h-[1200px] origin-top-left pointer-events-none sm:pointer-events-auto"
+                  style={{ transform: `scale(${laptopScale})`, overflow: 'auto' }}
+                  scrolling="auto"
+                  title="App Desktop View"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                  loading="lazy"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
             </div>
             {/* Keyboard Base */}
@@ -140,15 +148,19 @@ export default function DualAppShowcase({
 
               {/* Iframe Content inside the phone */}
               <div ref={phoneRef} className="w-full h-full bg-[#111111] overflow-hidden rounded-[14px] sm:rounded-[20px] md:rounded-[30px] relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                <iframe
-                  src={url}
-                  className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left pointer-events-none sm:pointer-events-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-                  style={{ transform: `scale(${phoneScale})` }}
-                  scrolling="no"
-                  title="App Mobile View"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                  loading="lazy"
-                />
+                {(mobileImage || image) ? (
+                  <img src={mobileImage || image} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-top" />
+                ) : (
+                  <iframe
+                    src={url}
+                    className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left pointer-events-none sm:pointer-events-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                    style={{ transform: `scale(${phoneScale})` }}
+                    scrolling="no"
+                    title="App Mobile View"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                    loading="lazy"
+                  />
+                )}
               </div>
             </div>
           </motion.div>
