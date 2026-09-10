@@ -1,15 +1,179 @@
 {
   "pages": {
+    "/_not-found": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/app/_not-found-db13188f8c085432.js"
+    ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/703-7839ff695052be29.js",
+      "static/chunks/97-f4248ddbe6bd43ee.js",
+      "static/css/db7dc92362b11898.css",
+      "static/chunks/app/layout-fb496e8bd46d25c4.js"
+    ],
+    "/blog/centro-odontologico-c-y-m/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/centro-odontologico-c-y-m/page-6112be2f2392ad52.js"
+    ],
+    "/blog/[slug]/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/[slug]/page-e9acbfa3b4563caf.js"
+    ],
+    "/blog/club-belgrano-c-y-d/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/club-belgrano-c-y-d/page-c8cbbc1eba7f0104.js"
+    ],
+    "/blog/clickhouse/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/clickhouse/page-e683e803d92c31a5.js"
+    ],
+    "/blog/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/746-fb484d6ce5dfa101.js",
+      "static/chunks/app/blog/page-8e836161f61f9146.js"
+    ],
+    "/blog/tarjeta-titanio-sa/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/tarjeta-titanio-sa/page-f8be628f75fabecd.js"
+    ],
+    "/blog/malibu-styless/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/app/blog/malibu-styless/page-ea8a0d04949e09a9.js"
     ],
     "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/ee560e2c-513dd419542df7f8.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/703-7839ff695052be29.js",
+      "static/chunks/585-a217b1a594071f0d.js",
+      "static/chunks/746-fb484d6ce5dfa101.js",
+      "static/chunks/134-fd9abc0f938943dd.js",
+      "static/chunks/app/page-98ae0a04765331f4.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/2-9943dd66d75c0b6c.js",
+      "static/chunks/app/contact/page-5541de121e9594e7.js"
+    ],
+    "/who/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/app/who/page-f8962679e4e78982.js"
+    ],
+    "/startup/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/c15bf2b0-a42479b618787fdc.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/703-7839ff695052be29.js",
+      "static/chunks/59-ca82e18840666322.js",
+      "static/chunks/app/startup/page-4709d79ea188e254.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/app/about/page-9999a71a6dde1d62.js"
+    ],
+    "/blog/ejemplo/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/app/blog/ejemplo/page-9f6a41e823db0c86.js"
+    ],
+    "/jack/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/585-a217b1a594071f0d.js",
+      "static/chunks/app/jack/page-e74034f9f2622148.js"
+    ],
+    "/projects/page": [
+      "static/chunks/webpack-5ae1968ca4188457.js",
+      "static/chunks/fd9d1056-4f839f90fe3ec0d4.js",
+      "static/chunks/69-5efb024371b42c41.js",
+      "static/chunks/main-app-368d53b4160060e6.js",
+      "static/chunks/8e1d74a4-1458ed55f91c0511.js",
+      "static/chunks/412-63be5ad117b8194f.js",
+      "static/chunks/792-5b5d60d57b065c15.js",
+      "static/chunks/703-7839ff695052be29.js",
+      "static/chunks/227-2442a4eb58a03b70.js",
+      "static/chunks/app/projects/page-e4aa81468b330cb4.js"
     ]
   }
 }

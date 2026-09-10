@@ -1,3 +1,18 @@
 {
-  "/page": "app/page.js"
+  "/_not-found": "app/_not-found.js",
+  "/blog/centro-odontologico-c-y-m/page": "app/blog/centro-odontologico-c-y-m/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/blog/club-belgrano-c-y-d/page": "app/blog/club-belgrano-c-y-d/page.js",
+  "/blog/clickhouse/page": "app/blog/clickhouse/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/tarjeta-titanio-sa/page": "app/blog/tarjeta-titanio-sa/page.js",
+  "/blog/malibu-styless/page": "app/blog/malibu-styless/page.js",
+  "/page": "app/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/who/page": "app/who/page.js",
+  "/startup/page": "app/startup/page.js",
+  "/about/page": "app/about/page.js",
+  "/blog/ejemplo/page": "app/blog/ejemplo/page.js",
+  "/jack/page": "app/jack/page.js",
+  "/projects/page": "app/projects/page.js"
 }

@@ -7,7 +7,7 @@ interface DualAppShowcaseProps {
   image?: string;
   mobileImage?: string;
   title?: React.ReactNode;
-  description?: string;
+  description?: React.ReactNode;
 }
 
 export default function DualAppShowcase({ 
