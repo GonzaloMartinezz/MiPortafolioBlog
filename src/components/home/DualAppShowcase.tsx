@@ -109,7 +109,7 @@ export default function DualAppShowcase({
               className="relative w-full aspect-[16/10] bg-zinc-950 border-[5px] sm:border-[8px] md:border-[12px] border-zinc-900 rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden"
             >
               {image ? (
-                <img src={image} alt="Desktop App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-top" />
+                <img src={image} alt="Desktop App Preview" className="absolute top-0 left-0 w-full h-full object-contain object-center bg-[#0B0B0B]" />
               ) : (
                 <iframe
                   src={url}
@@ -161,7 +161,7 @@ export default function DualAppShowcase({
                     loading="lazy"
                   />
                 ) : image ? (
-                  <img src={image} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-center" />
+                  <img src={image} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-contain object-center bg-[#111111]" />
                 ) : null}
               </div>
             </div>

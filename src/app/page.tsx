@@ -96,21 +96,29 @@ export default function Home() {
       </div>
 
       {/* Dual App Showcase Section (Second Instance - Creapp) */}
-      <div id="creapp" className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative">
+      <div id="creapp" className="bg-[#0B0B0B] overflow-hidden relative">
+        {/* Naranja difuminado */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FF5E00]/20 blur-[150px] rounded-full pointer-events-none" />
+        
         <DualAppShowcase 
-          url="https://creapp-gamma.vercel.app/"
+          url=""
+          image="/CREAPPPROYECTO.png"
+          mobileImage="/mobilecreapp.png"
           title={
             <span className="text-white drop-shadow-md font-bold tracking-tight">
               Creapp
             </span>
           }
           description={
-            <span className="text-white/90 drop-shadow-sm font-medium text-lg">
+            <span className="text-white/70 drop-shadow-sm font-medium text-lg">
               Agencia de desarrollo de software enfocada en crear productos digitales modernos, veloces y escalables.
             </span>
           }
         />
       </div>
+
+      {/* Wave Transition (Dark to Light Blue) */}
+      <WaveDivider topColor="#0B0B0B" bottomColor="#BFE3FA" height="clamp(60px, 6vw, 100px)" />
 
       {/* NEW: Data Analytics Section */}
       <div className="bg-gradient-to-b from-[#BFE3FA] to-[#5BC0BE] py-12 relative overflow-hidden">
