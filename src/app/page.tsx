@@ -98,16 +98,17 @@ export default function Home() {
       {/* Dual App Showcase Section (Second Instance - Creapp) */}
       <div id="creapp" className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] overflow-hidden relative">
         <DualAppShowcase 
-          image="/CREAPPPROYECTO.png" 
+          url="https://creapp-gamma.vercel.app/"
           title={
-            <>
-              Conoce mi trabajo <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e64c22] to-[#FF5E00]">
-                y mi visión.
-              </span>
-            </>
+            <span className="text-white drop-shadow-md font-bold tracking-tight">
+              Creapp
+            </span>
           }
-          description="Desarrollé esta plataforma web para que mis futuros clientes puedan conocer en profundidad quién soy, la calidad de mi trabajo y los resultados de alto impacto que podemos lograr juntos."
+          description={
+            <span className="text-white/90 drop-shadow-sm font-medium text-lg">
+              Agencia de desarrollo de software enfocada en crear productos digitales modernos, veloces y escalables.
+            </span>
+          }
         />
       </div>
 

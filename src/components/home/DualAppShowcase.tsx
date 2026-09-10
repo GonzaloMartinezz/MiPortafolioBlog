@@ -37,7 +37,7 @@ export default function DualAppShowcase({
         setLaptopScale(laptopRef.current.clientWidth / 1920);
       }
       if (phoneRef.current) {
-        setPhoneScale(phoneRef.current.clientWidth / 430);
+        setPhoneScale(phoneRef.current.clientWidth / 500);
       }
     };
 
@@ -138,7 +138,7 @@ export default function DualAppShowcase({
             transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0.2 }}
             className="absolute right-0 xs:right-2 sm:right-0 md:-right-4 bottom-[-8px] sm:bottom-[-5%] md:-bottom-10 z-30 w-[110px] xs:w-[125px] sm:w-[150px] md:w-[190px]"
           >
-            <div className="relative w-full aspect-[9/19.5] bg-black rounded-[18px] sm:rounded-[24px] md:rounded-[36px] border-[3px] md:border-[6px] border-[#1C1C1E] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center">
+            <div className="relative w-full aspect-[9/19.5] bg-black rounded-[10px] sm:rounded-[14px] md:rounded-[20px] border-[3px] md:border-[6px] border-[#1C1C1E] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden flex items-center justify-center">
 
               {/* Hardware Buttons Decoration */}
               <div className="absolute top-[40px] sm:top-[60px] md:top-[100px] -left-[4px] md:-left-[6px] w-[2px] md:w-[3px] h-[10px] md:h-[20px] bg-[#2C2C2E] rounded-l-sm" />
@@ -147,20 +147,22 @@ export default function DualAppShowcase({
               <div className="absolute top-[65px] sm:top-[90px] md:top-[150px] -right-[4px] md:-right-[6px] w-[2px] md:w-[3px] h-[20px] md:h-[50px] bg-[#2C2C2E] rounded-r-sm" />
 
               {/* Iframe Content inside the phone */}
-              <div ref={phoneRef} className="w-full h-full bg-[#111111] overflow-hidden rounded-[14px] sm:rounded-[20px] md:rounded-[30px] relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                {(mobileImage || image) ? (
-                  <img src={mobileImage || image} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-top" />
-                ) : (
+              <div ref={phoneRef} className="w-full h-full bg-[#111111] overflow-hidden rounded-[6px] sm:rounded-[10px] md:rounded-[14px] relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                {mobileImage ? (
+                  <img src={mobileImage} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-top" />
+                ) : url ? (
                   <iframe
                     src={url}
-                    className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left pointer-events-none sm:pointer-events-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                    className="absolute top-0 left-0 border-none w-[500px] h-[1083px] origin-top-left pointer-events-none sm:pointer-events-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     style={{ transform: `scale(${phoneScale})` }}
                     scrolling="no"
                     title="App Mobile View"
                     sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                     loading="lazy"
                   />
-                )}
+                ) : image ? (
+                  <img src={image} alt="Mobile App Preview" className="absolute top-0 left-0 w-full h-full object-cover object-center" />
+                ) : null}
               </div>
             </div>
           </motion.div>
