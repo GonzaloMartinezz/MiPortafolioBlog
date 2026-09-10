@@ -39,12 +39,16 @@ export default function CaseStudyMalibuStyle() {
           {/* FICHA TÉCNICA */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-12 text-sm font-medium">
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-              <FaLaptopCode className="text-amber-400" />
-              <span>E-commerce (Marca Personal) & Plantilla SaaS</span>
+              <FaCalendar className="text-amber-400" />
+              <span>Marzo 2024</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              <FaClock className="text-amber-400" />
+              <span>2 meses</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaCheckCircle className="text-[#F66C44]" />
-              <span>Fundador & Full Stack Developer</span>
+              <span>CEO Y FUNDADOR</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaStar className="text-yellow-400" />

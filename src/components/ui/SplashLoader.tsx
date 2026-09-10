@@ -9,16 +9,14 @@ export default function SplashLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Evitar scroll mientras carga
     if (isLoading) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
 
-    // Simulador de progreso fluido
-    const duration = 1200; // 1.2s total de carga para una sensación más snappy
-    const interval = 20; // Actualizar cada 20ms
+    const duration = 1200; 
+    const interval = 20; 
     const step = 100 / (duration / interval);
     let currentProgress = 0;
 
@@ -27,7 +25,6 @@ export default function SplashLoader() {
       if (currentProgress >= 100) {
         setProgress(100);
         clearInterval(timer);
-        // Esperamos un poco (300ms) una vez al 100% para mostrar la barra llena
         setTimeout(() => {
           setIsLoading(false);
         }, 300);
@@ -48,61 +45,77 @@ export default function SplashLoader() {
         <motion.div
           key="global-loader"
           initial={{ opacity: 1 }}
-          // Efecto "Toaster" - se desliza hacia arriba
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#070709] overflow-hidden select-none"
         >
-          {/* Fondo Radial sutil */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#050505] to-[#050505] pointer-events-none" />
+          {/* Subtle Ambient Background Effects */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-950/20 via-[#070709] to-[#070709] pointer-events-none" />
+          <div className="absolute w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-          {/* Contenedor del Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative w-40 h-40 sm:w-52 sm:h-52 mb-12 z-10 rounded-full overflow-hidden border-4 border-white/5 shadow-[0_0_50px_rgba(246,108,68,0.2)] bg-black"
-          >
-            {/* Efecto de resplandor (Glow) detrás del logo */}
-            <div className="absolute inset-0 bg-[#F66C44]/30 blur-3xl rounded-full" />
+          {/* Main Content Box */}
+          <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-sm w-full">
             
-            <Image
-              src="/LOGOia.png"
-              alt="Gonzalo Martínez Logo"
-              fill
-              className="object-cover relative z-10"
-              priority
-            />
-          </motion.div>
-
-          {/* Contenedor de la barra de progreso */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-56 sm:w-80 h-[6px] bg-[#111111] border border-white/10 rounded-full overflow-hidden relative z-10 shadow-inner"
-          >
+            {/* Logo Wrapper - Clean, NO orange circular border */}
             <motion.div
-              className="h-full bg-gradient-to-r from-[#e64c22] via-[#F66C44] to-[#FFB098] rounded-full relative"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ ease: "linear", duration: 0.05 }} 
+              initial={{ opacity: 0, y: 15, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center"
             >
-              {/* Brillo en la punta de la barra */}
-              <div className="absolute top-0 right-0 bottom-0 w-8 bg-white/40 blur-[2px] translate-x-1/2" />
+              <Image
+                src="/LOGOia.png"
+                alt="Gonzalo Martínez"
+                width={144}
+                height={144}
+                className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+                priority
+              />
             </motion.div>
-          </motion.div>
-          
-          {/* Porcentaje numérico */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6 text-xs sm:text-sm font-mono font-bold tracking-[0.3em] text-white/50 z-10"
-          >
-            {Math.round(progress)}%
-          </motion.div>
 
+            {/* Typography */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="mb-8 space-y-1.5"
+            >
+              <h1 className="text-xl sm:text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                Gonzalo Martínez
+              </h1>
+              <p className="text-[10px] sm:text-xs font-mono text-slate-400 tracking-[0.25em] uppercase">
+                Software & Data Portfolio
+              </p>
+            </motion.div>
+
+            {/* High-Tech Sleek Progress Bar */}
+            <motion.div
+              initial={{ opacity: 0, width: "60%" }}
+              animate={{ opacity: 1, width: "100%" }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="w-full space-y-3"
+            >
+              <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-blue-500 via-indigo-400 to-white rounded-full relative"
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ ease: "linear", duration: 0.04 }}
+                >
+                  <div className="absolute top-0 right-0 bottom-0 w-6 bg-white/80 blur-[2px] translate-x-1/2" />
+                </motion.div>
+              </div>
+
+              {/* Progress Percentage Counter */}
+              <div className="flex items-center justify-between text-[11px] font-mono tracking-widest text-slate-400">
+                <span>CARGANDO EXPERIENCIA</span>
+                <span className="font-bold text-white">
+                  {Math.round(progress).toString().padStart(3, "0")}%
+                </span>
+              </div>
+            </motion.div>
+
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

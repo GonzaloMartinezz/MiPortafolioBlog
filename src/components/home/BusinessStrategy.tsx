@@ -74,9 +74,9 @@ const BusinessStrategy = () => {
 
             {/* Floating 'Services' Card */}
             <div className="absolute -bottom-10 md:bottom-10 left-[5%] md:left-auto right-auto md:-right-10 w-[90%] md:w-[340px] bg-[#0B0B0B] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-3xl p-6 md:p-8 hover:-translate-y-2 transition-transform duration-500 z-20">
-              <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+              <div className="text-lg md:text-xl font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
                 Nuestros <span className="text-[#F66C44]">Servicios</span>
-              </h3>
+              </div>
               <ul className="space-y-4">
                 {servicesList.map((service, idx) => (
                   <li key={idx} className="flex items-start gap-4 group">
@@ -140,7 +140,7 @@ const BusinessStrategy = () => {
 
                       <div className="pt-1">
                         <div className="flex items-center justify-between">
-                          <h4 className={`text-sm md:text-lg font-bold uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}`}>
+                          <h4 className={`text-sm md:text-lg font-bold uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-gray-200'}`}>
                             {step.title}
                           </h4>
                           <ChevronRight 

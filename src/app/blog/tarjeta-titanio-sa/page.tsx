@@ -40,11 +40,11 @@ export default function CaseStudyTarjetaTitanio() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-12 text-sm font-medium">
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaCalendar className="text-purple-400" />
-              <span>Marzo 2026</span>
+              <span>Julio 2025</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaClock className="text-purple-400" />
-              <span>4 meses</span>
+              <span>2 meses</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaLaptopCode className="text-[#F66C44]" />

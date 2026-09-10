@@ -37,7 +37,7 @@ export default function Home() {
       </motion.div>
 
       {/* Wave Transition between Hero and Dark Section */}
-      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" flip height="clamp(60px, 6vw, 100px)" />
+      <WaveDivider topColor="#FDF6EC" bottomColor="#0B0B0B" height="clamp(60px, 6vw, 100px)" />
 
       {/* Creapp App Showcase Section */}
       <div className="bg-[#0B0B0B] relative -mt-[1px]" id="creapp">
@@ -52,8 +52,11 @@ export default function Home() {
         <BrandSpeed />
       </div>
 
+      {/* Wave Transition (Beige to Dark Grey) */}
+      <WaveDivider topColor="#FDF6EC" bottomColor="#111111" height="clamp(60px, 6vw, 100px)" />
+
       {/* Business Strategy Section */}
-      <div className="bg-[#111111] pb-12 relative z-10">
+      <div className="bg-[#111111] pb-12 relative z-10 -mt-[1px]">
         <ParallaxSection>
           <BusinessStrategy />
         </ParallaxSection>
@@ -109,14 +112,17 @@ export default function Home() {
       </div>
 
       {/* NEW: Data Analytics Section */}
-      <div className="bg-gradient-to-b from-[#5BC0BE] to-[#BFE3FA] py-12 relative overflow-hidden">
+      <div className="bg-gradient-to-b from-[#BFE3FA] to-[#5BC0BE] py-12 relative overflow-hidden">
         <ParallaxSection offset={40}>
           <DataAnalyticsSection />
         </ParallaxSection>
       </div>
 
+      {/* Wave Transition (Teal to Dark Grey) */}
+      <WaveDivider topColor="#5BC0BE" bottomColor="#111111" height="clamp(60px, 6vw, 100px)" />
+
       {/* NEW: Startup Pricing Section */}
-      <div className="bg-[#111111] pb-12 relative">
+      <div className="bg-[#111111] pb-12 relative -mt-[1px]">
         <ParallaxSection offset={100}>
           <section className="py-20 md:py-28 border-t border-white/5">
             <PricingWithChart />

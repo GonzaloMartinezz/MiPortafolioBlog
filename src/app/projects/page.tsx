@@ -133,7 +133,7 @@ export default function ProjectsPage() {
               Explora una selección de mis mejores proyectos interactivos a través de esta galería dinámica de tarjetas en 3D.
             </p>
           </div>
-          <div className="mx-auto w-full max-w-4xl px-4 py-8">
+          <div className="mx-auto w-full max-w-3xl px-4 py-4">
             <CardStack
               items={featuredItems}
               initialIndex={0}
@@ -141,8 +141,8 @@ export default function ProjectsPage() {
               intervalMs={3000}
               pauseOnHover
               showDots
-              cardWidth={560}
-              cardHeight={350}
+              cardWidth={440}
+              cardHeight={275}
             />
           </div>
         </section>

@@ -17,14 +17,31 @@ const rightFeatures = [
 export default function AppShowcase() {
   const [mounted, setMounted] = useState(false);
   const phoneRef = useRef<HTMLDivElement>(null);
-  const [phoneScale, setPhoneScale] = useState(0.75);
+  
+  // Initialize scale smoothly based on initial screen width to prevent layout jump on mobile
+  const [phoneScale, setPhoneScale] = useState(() => {
+    if (typeof window !== "undefined") {
+      const containerW = Math.min(window.innerWidth - 48, 280) - 16;
+      return window.innerWidth < 640 ? Math.max(0.5, containerW / 430) : 0.75;
+    }
+    return 0.61;
+  });
+
+  const [phoneHeight, setPhoneHeight] = useState(932);
 
   useEffect(() => {
     setMounted(true);
 
     const updateScale = () => {
       if (phoneRef.current) {
-        setPhoneScale(phoneRef.current.getBoundingClientRect().width / 430);
+        const width = phoneRef.current.clientWidth;
+        const height = phoneRef.current.clientHeight;
+        if (width > 0) {
+          const scale = width / 430;
+          setPhoneScale(scale);
+          // Calculate the exact virtual height needed for the iframe to fill the container perfectly without black bars
+          setPhoneHeight(height / scale);
+        }
       }
     };
 
@@ -118,28 +135,32 @@ export default function AppShowcase() {
           </div>
 
           {/* CENTER IPHONE MOCKUP */}
-          <div className="lg:col-span-6 flex justify-center w-full relative z-20">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center w-full relative z-20">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[9/19.5] rounded-[44px] md:rounded-[52px] border-[8px] md:border-[12px] border-zinc-900 shadow-[0_25px_60px_rgba(246,108,68,0.25)] bg-black overflow-hidden group"
+              className="relative w-[270px] sm:w-[320px] md:w-[340px] max-w-[85vw] aspect-[9/19.5] rounded-[40px] sm:rounded-[44px] md:rounded-[52px] border-[8px] md:border-[12px] border-zinc-900 shadow-[0_25px_60px_rgba(246,108,68,0.25)] bg-black overflow-hidden group mx-auto"
             >
               {/* Dynamic Island / Notch */}
-              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 md:w-28 h-4 md:h-5 bg-black rounded-full z-30 flex items-center justify-end px-2 border border-white/5 shadow-md">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#1c1c1e] border border-blue-900/50" />
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 md:w-28 h-3.5 md:h-5 bg-black rounded-full z-30 flex items-center justify-end px-2 border border-white/5 shadow-md">
+                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#1c1c1e] border border-blue-900/50" />
               </div>
 
               {/* Speaker Bar */}
-              <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-1 bg-zinc-800 rounded-full z-30" />
+              <div className="absolute top-1 left-1/2 -translate-x-1/2 w-10 md:w-12 h-1 bg-zinc-800 rounded-full z-30" />
 
               {/* Live Iframe Screen */}
               <div ref={phoneRef} className="w-full h-full bg-black overflow-hidden relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <iframe
                   src="https://app-consultorio-odontologico.vercel.app/"
-                  className="absolute top-0 left-0 border-none w-[430px] h-[932px] origin-top-left [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-                  style={{ transform: `scale(${phoneScale})` }}
+                  className="absolute top-0 left-0 border-none origin-top-left pointer-events-none sm:pointer-events-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                  style={{ 
+                    width: '430px', 
+                    height: `${phoneHeight}px`,
+                    transform: `scale(${phoneScale})` 
+                  }}
                   scrolling="no"
                   title="App Mobile View"
                   sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
@@ -150,6 +171,17 @@ export default function AppShowcase() {
               {/* Glass Reflection Highlight */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-20" />
             </motion.div>
+
+            {/* Mobile Direct Visit Button */}
+            <a
+              href="https://app-consultorio-odontologico.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#F66C44] bg-[#F66C44]/10 hover:bg-[#F66C44]/20 border border-[#F66C44]/30 px-4 py-2 rounded-full transition-all duration-300"
+            >
+              <span>Ver App interactiva en vivo</span>
+              <span>↗</span>
+            </a>
           </div>
 
           {/* RIGHT FEATURES (Desktop Only) */}

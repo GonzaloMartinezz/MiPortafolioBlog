@@ -56,8 +56,8 @@ const historyData: TimelineItemData[] = [
     achievements: [
       { icon: <Globe size={18} />, value: "+60", label: "Comercios incorporados" },
       { icon: <BarChart3 size={18} />, value: "100%", label: "Dashboards Power BI" },
-      { icon: <Database size={18} />, value: "Millones", label: "Filas procesadas" },
-      { icon: <CheckCircle2 size={18} />, value: "0", label: "Errores en prod." },
+      { icon: <Database size={18} />, value: "Manejo de", label: "Bases de Datos" },
+      { icon: <CheckCircle2 size={18} />, value: "5", label: "Proyectos entregados para potenciar la empresa" },
     ],
     tasks: [
       {

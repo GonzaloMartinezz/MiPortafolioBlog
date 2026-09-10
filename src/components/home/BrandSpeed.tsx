@@ -56,9 +56,9 @@ export default function BrandSpeed() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-7xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[1.05] text-black mb-8"
+          className="text-[2.2rem] xs:text-4xl sm:text-7xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[1.08] text-black mb-8 px-2"
         >
-          Tu marca merece <br className="hidden sm:block" />
+          Tu marca merece <br />
           <span className="font-serif italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#F66C44] to-[#f83600]">
             ir más rápido
           </span>

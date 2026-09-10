@@ -120,7 +120,7 @@ const ProjectCarousel = () => {
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="relative w-[85vw] shrink-0 snap-center rounded-2xl overflow-hidden h-[60vh] bg-[#121212] border border-white/5 shadow-2xl"
+              className="relative w-[78vw] max-w-[340px] shrink-0 snap-center rounded-2xl overflow-hidden h-[48vh] max-h-[420px] bg-[#121212] border border-white/5 shadow-2xl"
             >
               {/* Background Image */}
               <div className="absolute inset-0">

@@ -132,7 +132,7 @@ export function PricingWithChart() {
               }`}
             >
               {plan.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#F66C44] text-white text-[10px] font-bold tracking-widest uppercase shadow-md">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#F66C44] text-[#111111] text-[10px] font-bold tracking-widest uppercase shadow-md">
                   Más Popular
                 </div>
               )}
@@ -191,7 +191,7 @@ export function PricingWithChart() {
             <h3 className="text-sm sm:text-base font-black text-white">
               Retorno Estimado por Plan
             </h3>
-            <p className="text-xs text-white/50 mt-0.5">
+            <p className="text-xs text-gray-400 mt-0.5">
               Impacto acumulado en el negocio (índice relativo) a lo largo del tiempo
             </p>
           </div>
@@ -199,7 +199,7 @@ export function PricingWithChart() {
             {Object.entries(chartConfig).map(([key, cfg]) => (
               <div key={key} className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: cfg.color }} />
-                <span className="text-[11px] text-white/50 font-medium">{cfg.label}</span>
+                <span className="text-[11px] text-gray-400 font-medium">{cfg.label}</span>
               </div>
             ))}
           </div>
@@ -243,7 +243,7 @@ export function PricingWithChart() {
                 <TrendingUp className="w-3.5 h-3.5" />
               </div>
             </div>
-            <p className="text-[10px] sm:text-xs text-white/50 font-medium mb-1 uppercase tracking-wider">Conversión</p>
+            <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">Conversión</p>
             <p className="text-xl sm:text-3xl font-black text-emerald-400">+45%</p>
             <p className="text-[10px] text-white/40 mt-1">Aumento prom. en ventas</p>
           </div>
@@ -255,7 +255,7 @@ export function PricingWithChart() {
                 <Users className="w-3.5 h-3.5" />
               </div>
             </div>
-            <p className="text-[10px] sm:text-xs text-white/50 font-medium mb-1 uppercase tracking-wider">Retención</p>
+            <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">Retención</p>
             <p className="text-xl sm:text-3xl font-black text-blue-400">+60%</p>
             <p className="text-[10px] text-white/40 mt-1">Usuarios activos diarios</p>
           </div>
@@ -267,7 +267,7 @@ export function PricingWithChart() {
                 <Activity className="w-3.5 h-3.5" />
               </div>
             </div>
-            <p className="text-[10px] sm:text-xs text-white/50 font-medium mb-1 uppercase tracking-wider">Rendimiento</p>
+            <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">Rendimiento</p>
             <p className="text-xl sm:text-3xl font-black text-purple-400">99.9%</p>
             <p className="text-[10px] text-white/40 mt-1">Uptime & Velocidad</p>
           </div>
@@ -279,7 +279,7 @@ export function PricingWithChart() {
                 <BarChart3 className="w-3.5 h-3.5" />
               </div>
             </div>
-            <p className="text-[10px] sm:text-xs text-white/50 font-medium mb-1 uppercase tracking-wider">ROI Estimado</p>
+            <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">ROI Estimado</p>
             <p className="text-xl sm:text-3xl font-black text-orange-400">4.5x</p>
             <p className="text-[10px] text-white/40 mt-1">vs Inversión inicial</p>
           </div>

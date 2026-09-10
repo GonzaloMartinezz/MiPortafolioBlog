@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaHome, FaBuilding, FaHandshake, FaDesktop, FaMobileAlt, FaDatabase, FaLaptopCode, FaCheckCircle, FaStar, FaWhatsapp } from "react-icons/fa";
+import { FaArrowLeft, FaHome, FaBuilding, FaHandshake, FaDesktop, FaMobileAlt, FaDatabase, FaLaptopCode, FaCheckCircle, FaStar, FaWhatsapp, FaCalendar, FaClock } from "react-icons/fa";
 import { FiActivity, FiLayout, FiMessageCircle, FiSettings } from "react-icons/fi";
 
 export default function CaseStudyClickhouse() {
@@ -39,6 +39,14 @@ export default function CaseStudyClickhouse() {
 
           {/* FICHA TÉCNICA */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-12 text-sm font-medium">
+            <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              <FaCalendar className="text-emerald-400" />
+              <span>Marzo 2026</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              <FaClock className="text-emerald-400" />
+              <span>1 mes</span>
+            </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaLaptopCode className="text-emerald-400" />
               <span>Desarrollo Web & Dashboard Admin</span>

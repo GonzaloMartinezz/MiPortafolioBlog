@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
   FiArrowUpRight, FiMonitor, FiCalendar, FiMessageCircle, FiBookOpen, 
   FiBell, FiCpu, FiCode, FiShoppingCart, FiLayout, FiEye, 
@@ -56,11 +57,12 @@ const IframeCard = ({ iframeUrl, image, title }: { iframeUrl?: string, image: st
           />
         </div>
       ) : (
-        <img 
+        <Image 
           src={image} 
           alt={title} 
-          className="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="absolute inset-0 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/60 via-transparent to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none" />
@@ -317,6 +319,7 @@ export default function ProjectList() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Visitar sitio de ${project.title}`}
                   whileHover={{ scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="block relative rounded-[3rem] overflow-hidden bg-[#18181b] p-2 md:p-3 border border-white/10 hover:border-[#fbbf24]/40 shadow-2xl aspect-video transition-colors duration-500 z-10"

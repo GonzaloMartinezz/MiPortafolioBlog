@@ -5,6 +5,8 @@ import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@/lib/utils"
 
+
+
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
 
@@ -45,17 +47,39 @@ const ChartContainer = React.forwardRef<
 >(({ id, className, children, config, ...props }, ref) => {
   const uniqueId = React.useId()
   const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`
-  const [mounted, setMounted] = React.useState(false)
+  const containerRef = React.useRef<HTMLDivElement | null>(null)
+  const [hasSize, setHasSize] = React.useState(false)
+
+  const combinedRef = React.useCallback(
+    (node: HTMLDivElement) => {
+      containerRef.current = node
+      if (typeof ref === "function") ref(node)
+      else if (ref) ref.current = node
+    },
+    [ref]
+  )
 
   React.useEffect(() => {
-    setMounted(true)
+    if (!containerRef.current) return
+    const observer = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (entry && entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+        setHasSize(true)
+      } else {
+        setHasSize(false)
+      }
+    })
+    observer.observe(containerRef.current)
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
     <ChartContext.Provider value={{ config }}>
       <div
         data-chart={chartId}
-        ref={ref}
+        ref={combinedRef}
         className={cn(
           "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
           className,
@@ -63,7 +87,7 @@ const ChartContainer = React.forwardRef<
         {...props}
       >
         <ChartStyle id={chartId} config={config} />
-        {mounted ? (
+        {hasSize ? (
           <RechartsPrimitive.ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
             {children}
           </RechartsPrimitive.ResponsiveContainer>

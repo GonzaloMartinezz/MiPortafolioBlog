@@ -186,6 +186,8 @@ const Hero = React.memo(() => {
           <img
             src="https://i.postimg.cc/Ss6yShGy/glows.png"
             alt=""
+            width={1200}
+            height={600}
             className="w-full h-auto"
             loading="eager"
           />
@@ -195,6 +197,8 @@ const Hero = React.memo(() => {
           <img
             src="https://i.postimg.cc/SKcdVTr1/Dashboard2.png"
             alt="Dashboard preview showing analytics and metrics interface"
+            width={1200}
+            height={750}
             className="w-full h-auto rounded-lg shadow-2xl"
             loading="eager"
           />

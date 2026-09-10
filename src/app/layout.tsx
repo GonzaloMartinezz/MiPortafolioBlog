@@ -49,7 +49,6 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeAnimator>
 
-
             {/* Navbar */}
             <div className="fixed top-0 w-full z-50 pointer-events-none">
               <div className="max-w-none w-full pointer-events-auto">
@@ -69,6 +68,7 @@ export default function RootLayout({
 
             {/* Floating Menu Widget */}
             <FloatingHelpMenu />
+            
           </ThemeAnimator>
         </ThemeProvider>
       </body>

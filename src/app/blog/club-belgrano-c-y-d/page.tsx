@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaDatabase, FaShieldAlt, FaChartPie, FaMobileAlt, FaLaptopCode, FaCheckCircle, FaStar, FaBasketballBall } from "react-icons/fa";
+import { FaArrowLeft, FaDatabase, FaShieldAlt, FaChartPie, FaMobileAlt, FaLaptopCode, FaCheckCircle, FaStar, FaBasketballBall, FaCalendar, FaClock } from "react-icons/fa";
 import { FiActivity, FiServer, FiLayout, FiImage } from "react-icons/fi";
 
 export default function CaseStudyClubBelgrano() {
@@ -39,6 +39,14 @@ export default function CaseStudyClubBelgrano() {
 
           {/* FICHA TÉCNICA */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-12 text-sm font-medium">
+            <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              <FaCalendar className="text-sky-400" />
+              <span>Abril 2026</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              <FaClock className="text-sky-400" />
+              <span>2.5 meses</span>
+            </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaLaptopCode className="text-sky-400" />
               <span>ERP & BI (Club Belgrano C y D)</span>

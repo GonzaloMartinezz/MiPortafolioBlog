@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "4",
     slug: "club-belgrano-c-y-d",
-    title: "Plataforma integral para la gestión deportiva de un club.",
+    title: "Plataforma Integral y BI para Club Belgrano Cultural y Deportivo",
     excerpt: "Plataforma integral diseñada para optimizar la gestión deportiva de un club, integrando módulos de Venta de entradas, Gestión de Socios, Finanzas y Análisis de Datos.",
     subtitle: "Solución completa de gestión deportiva con análisis de datos en tiempo real.",
     content: {
@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
       solution: "Creación de una arquitectura escalable con Backend en .NET Core y Frontend en React. Implementación de un Data Warehouse y paneles interactivos en Power BI.",
       results: "Reducción del 30% en errores manuales, visibilidad total del rendimiento del negocio y mejora significativa en la toma de decisiones estratégicas."
     },
-    date: "2026-05-05",
+    date: "2026-04-01",
     tags: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"],
     author: "Gonzalo Martínez",
     category: "Fullstack",
@@ -94,15 +94,15 @@ export const blogPosts: BlogPost[] = [
   {
     id: "5",
     slug: "clickhouse",
-    title: "Plataforma integral para la gestión deportiva de un club.",
-    excerpt: "Plataforma integral diseñada para optimizar la gestión deportiva de un club, integrando módulos de Venta de entradas, Gestión de Socios, Finanzas y Análisis de Datos.",
-    subtitle: "Solución completa de gestión deportiva con análisis de datos en tiempo real.",
+    title: "Clickhouse: Plataforma Inmobiliaria para Gestión y Venta Directa",
+    excerpt: "Desarrollo web y dashboard administrativo para una plataforma inmobiliaria que facilita la gestión de propiedades y el contacto directo con clientes.",
+    subtitle: "Solución PropTech para la gestión eficiente de inmuebles y ventas.",
     content: {
-      challenge: "Desarrollar una solución robusta que automatizar los procesos críticos de un club (Ventas, Stock, Finanzas) y proporcionara inteligencia de negocios (BI) para la toma de decisiones.",
-      solution: "Creación de una arquitectura escalable con Backend en .NET Core y Frontend en React. Implementación de un Data Warehouse y paneles interactivos en Power BI.",
-      results: "Reducción del 30% en errores manuales, visibilidad total del rendimiento del negocio y mejora significativa en la toma de decisiones estratégicas."
+      challenge: "Crear una plataforma ágil y moderna que permitiera publicar, administrar y vender propiedades inmobiliarias sin intermediarios.",
+      solution: "Desarrollo de un panel de administración a medida y una interfaz de usuario atractiva y optimizada para búsquedas de propiedades.",
+      results: "Mayor visibilidad del catálogo de inmuebles, gestión centralizada de leads y mejora en la experiencia de usuario final."
     },
-    date: "2026-05-05",
+    date: "2026-03-01",
     tags: ["React", "JavaScript", "API", "Node.js", "Express", "MongoDB", "Backend"],
     author: "Gonzalo Martínez",
     category: "Fullstack",

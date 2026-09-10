@@ -22,8 +22,11 @@ export default function Footer() {
 
   return (
     <footer className="w-full flex flex-col relative z-10">
-      {/* Wave Transition (Now global for all pages) */}
-      <WaveDivider topColor="transparent" bottomColor="#FDF6EC" />
+      {/* Wave Transition with smooth difuminado gradient for mobile and desktop */}
+      <div className="relative w-full overflow-hidden pointer-events-none -mb-[1px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FDF6EC]/40 to-[#FDF6EC] z-10" />
+        <WaveDivider topColor="transparent" bottomColor="#FDF6EC" height="clamp(50px, 6vw, 100px)" />
+      </div>
 
       <div className="relative w-full overflow-hidden flex flex-col pt-16 md:pt-24 pb-8 px-6 md:px-12 bg-[#FDF6EC] -mt-[1px]">
         {/* CTA Section */}

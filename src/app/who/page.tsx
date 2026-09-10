@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Code2, Database, BarChart3, UserCircle2, GraduationCap,
@@ -33,29 +34,37 @@ const education = [
     period: "mar. 2024 — ago. 2026",
     title: "Tecnicatura en Desarrollo y Calidad de Software",
     institution: "Universidad del Norte Santo Tomás de Aquino — UNSTA",
-    accent: "text-[#F66C44]", ring: "ring-[#F66C44]/30", dot: "bg-[#F66C44]",
-    image: ""
+    status: "EGRESADO",
+    accent: "text-[#F66C44]",
+    bg: "bg-[#F66C44]",
+    badge: "bg-[#F66C44]/10 border-[#F66C44]/30 text-[#F66C44]",
   },
   {
     period: "may. 2025 — ago. 2025",
     title: "Data Analytics",
     institution: "Coderhouse",
-    accent: "text-emerald-400", ring: "ring-emerald-500/30", dot: "bg-emerald-400",
-    image: ""
+    status: null,
+    accent: "text-emerald-400",
+    bg: "bg-emerald-400",
+    badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
   },
   {
     period: "abr. 2024 — ago. 2025",
     title: "Full Stack Web Developer (MERN)",
     institution: "RollingCode School",
-    accent: "text-violet-400", ring: "ring-violet-500/30", dot: "bg-violet-400",
-    image: "/cert-rollingcode.png"
+    status: "EGRESADO",
+    accent: "text-violet-400",
+    bg: "bg-violet-400",
+    badge: "bg-violet-500/10 border-violet-500/30 text-violet-400",
   },
   {
     period: "2024 — 2025",
     title: "Backend II: Diseño y Arquitectura de Software",
     institution: "Coderhouse",
-    accent: "text-blue-400", ring: "ring-blue-500/30", dot: "bg-blue-400",
-    image: ""
+    status: null,
+    accent: "text-blue-400",
+    bg: "bg-blue-400",
+    badge: "bg-blue-500/10 border-blue-500/30 text-blue-400",
   },
 ];
 
@@ -91,6 +100,18 @@ const pillars = [
 ];
 
 export default function WhoPage() {
+  const [marqueeDuration, setMarqueeDuration] = useState(10);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMarqueeDuration(window.innerWidth < 768 ? 8 : 12);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <main className="relative min-h-screen bg-[#040810] text-white overflow-hidden w-full">
 
@@ -121,7 +142,7 @@ export default function WhoPage() {
 
             <div className="max-w-3xl">
               <p className="text-slate-300 text-xl md:text-2xl leading-relaxed mb-6 font-light">
-                Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, desarrollador de software y analista de datos. 
+                Soy <strong className="text-white font-bold">Gonzalo Martínez</strong>, desarrollador de software y analista de datos.
                 No solo escribo código; construyo <strong className="text-white font-bold">ecosistemas digitales de alto rendimiento</strong> que resuelven problemas de negocio reales.
               </p>
               <p className="text-slate-500 text-lg leading-relaxed">
@@ -155,7 +176,7 @@ export default function WhoPage() {
                 >
                   {/* Subtle Top Border Glow */}
                   <div className={`absolute top-0 inset-x-0 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`}>
-                     <div className={`w-full h-full bg-gradient-to-r from-transparent via-current to-transparent ${p.color}`} />
+                    <div className={`w-full h-full bg-gradient-to-r from-transparent via-current to-transparent ${p.color}`} />
                   </div>
 
                   {/* Cinematic Corner Flares */}
@@ -167,7 +188,7 @@ export default function WhoPage() {
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-[#111111] border border-white/5 group-hover:border-white/20 transition-all duration-500 shadow-inner group-hover:shadow-[0_0_40px_0_rgba(255,255,255,0.05)]`}>
                       <Icon className={`w-6 h-6 ${p.color} transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 drop-shadow-md`} />
                     </div>
-                    
+
                     <div className="flex items-center px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/5 backdrop-blur-md group-hover:bg-white/[0.04] transition-all duration-500">
                       <span className={`w-1.5 h-1.5 rounded-full mr-2.5 ${p.bg.split('/')[0]} animate-pulse`} />
                       <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/60 group-hover:text-white/90 transition-colors duration-300">
@@ -181,10 +202,10 @@ export default function WhoPage() {
                     <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/50 transition-all duration-500">
                       {p.title}
                     </h3>
-                    
+
                     {/* Expanding Divider */}
-                    <div className="h-[1px] w-12 bg-white/10 mb-5 group-hover:w-full transition-all duration-700 ease-out" />
-                    
+                    <div className="h-[1px] w-12 bg-white/10 mb-5 group-hover:w-full ease-out" />
+
                     <p className="text-white/40 text-sm md:text-base leading-relaxed font-medium group-hover:text-white/70 transition-colors duration-500 max-w-[95%]">
                       {p.desc}
                     </p>
@@ -200,7 +221,7 @@ export default function WhoPage() {
         ══════════════════════════════════════════════ */}
         <section className="mb-32 relative py-16 bg-[#040810] border-y border-white/5 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1120]/50 to-transparent pointer-events-none" />
-          
+
           <div className="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mb-14 text-center z-10">
             <span className="text-[10px] font-black tracking-[0.3em] text-[#F66C44] uppercase">Arsenal Técnico</span>
             <h2 className="text-4xl font-black tracking-tight text-white mt-2">
@@ -216,7 +237,7 @@ export default function WhoPage() {
             {/* Row 1: Moves Left */}
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
+              transition={{ repeat: Infinity, ease: "linear", duration: marqueeDuration }}
               className="flex whitespace-nowrap gap-6 px-3 items-center group-hover/marquee:[animation-play-state:paused]"
             >
               {[...stack, ...stack, ...stack, ...stack].map((item, i) => {
@@ -246,7 +267,7 @@ export default function WhoPage() {
             {/* Row 2: Moves Right */}
             <motion.div
               animate={{ x: ["-50%", "0%"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
+              transition={{ repeat: Infinity, ease: "linear", duration: marqueeDuration }}
               className="flex whitespace-nowrap gap-6 px-3 items-center group-hover/marquee:[animation-play-state:paused]"
             >
               {[...stack, ...stack, ...stack, ...stack].map((item, i) => {
@@ -289,45 +310,47 @@ export default function WhoPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {education.map((ed, i) => (
-              <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group">
-                <div className="flex flex-col h-full rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/5 hover:border-white/10 hover:bg-[#111111] transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden group-hover:-translate-y-1">
-                  
-                  {/* Image Container */}
-                  <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] md:aspect-[16/9] bg-[#050505] border-b border-white/5 overflow-hidden flex items-center justify-center">
-                    {/* Glowing background fallback if no image */}
-                    <div className={`absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${ed.dot.replace('bg-', '')}`} />
-                    
-                    {ed.image ? (
-                      <img src={ed.image} alt={`Certificado ${ed.title}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center text-white/20 group-hover:text-white/40 transition-colors duration-500">
-                        <GraduationCap className="w-12 h-12 mb-2 opacity-50" />
-                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Certificado Pendiente</span>
-                      </div>
-                    )}
+              <motion.div key={i} {...fadeUp(i * 0.1)} className="relative group flex">
+                <div className="flex flex-col justify-between w-full p-8 md:p-10 rounded-[2.5rem] bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/5 hover:border-white/15 hover:bg-[#111111] transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden group-hover:-translate-y-1 relative min-h-[220px]">
 
-                    {/* Gradient Overlay for seamless blend */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/20 to-transparent pointer-events-none" />
+                  {/* Subtle Background Glow */}
+                  <div className={`absolute top-0 right-0 w-48 h-48 blur-[80px] opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none ${ed.bg}`} />
+
+                  {/* Header: Period & Icon */}
+                  <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
+                    <span className={`px-4 py-1.5 bg-[#050505] border border-white/10 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} shadow-inner`}>
+                      {ed.period}
+                    </span>
+
+                    <GraduationCap className={`w-5 h-5 opacity-40 ${ed.accent}`} />
                   </div>
 
                   {/* Content */}
-                  <div className="relative p-8 md:p-10 flex flex-col flex-grow z-10 -mt-8">
-                    <div className={`absolute top-0 right-10 w-32 h-32 blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none -translate-y-1/2 ${ed.dot}`} />
-                    
-                    <span className={`inline-block self-start px-4 py-1.5 bg-[#050505] border border-white/10 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} mb-5 shadow-inner transition-colors duration-300`}>
-                      {ed.period}
-                    </span>
-                    
+                  <div className="relative z-10 flex-grow flex flex-col justify-center my-2">
                     <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3 drop-shadow-sm group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all duration-300">
                       {ed.title}
                     </h3>
-                    
-                    <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed mt-auto">
+
+                    <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed">
                       {ed.institution}
                     </p>
                   </div>
+
+                  {/* Bottom Footer: Status Badge for EGRESADO */}
+                  {ed.status && (
+                    <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
+                      <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                        Condición
+                      </span>
+                      <span className={`px-3 py-1 rounded-full border text-[10px] font-black tracking-widest uppercase flex items-center gap-1.5 ${ed.badge}`}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                        {ed.status}
+                      </span>
+                    </div>
+                  )}
+
                 </div>
               </motion.div>
             ))}

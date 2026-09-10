@@ -40,7 +40,7 @@ export default function CaseStudyOdontologico() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-12 text-sm font-medium">
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaCalendar className="text-blue-400" />
-              <span>10 Abril 2026</span>
+              <span>10 Marzo 2026</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
               <FaClock className="text-blue-400" />
