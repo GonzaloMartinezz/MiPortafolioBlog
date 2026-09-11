@@ -47,6 +47,7 @@ const education = [
     accent: "text-emerald-400",
     bg: "bg-emerald-400",
     badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
+    certificate: "/Certificado_Gonzalo_Martinez2.pdf",
   },
   {
     period: "abr. 2024 — ago. 2025",
@@ -56,6 +57,7 @@ const education = [
     accent: "text-violet-400",
     bg: "bg-violet-400",
     badge: "bg-violet-500/10 border-violet-500/30 text-violet-400",
+    certificate: "/cert-rollingcode.png",
   },
   {
     period: "2024 — 2025",
@@ -65,6 +67,7 @@ const education = [
     accent: "text-blue-400",
     bg: "bg-blue-400",
     badge: "bg-blue-500/10 border-blue-500/30 text-blue-400",
+    certificate: "/Certificado_Gonzalo_Martinez (1).pdf",
   },
 ];
 
@@ -318,6 +321,37 @@ export default function WhoPage() {
                   {/* Subtle Background Glow */}
                   <div className={`absolute top-0 right-0 w-48 h-48 blur-[80px] opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none ${ed.bg}`} />
 
+                  {/* Certificate Image / Preview */}
+                  {ed.certificate && (
+                    <div className="w-full h-40 md:h-48 mb-6 rounded-2xl overflow-hidden border border-white/10 relative group/preview">
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center backdrop-blur-sm pointer-events-none">
+                        <span className="px-4 py-2 bg-white/10 rounded-full text-xs font-bold text-white border border-white/20 shadow-xl flex items-center gap-2">
+                          <ArrowUpRight className={`w-4 h-4 ${ed.accent}`} />
+                          Ver Certificado
+                        </span>
+                      </div>
+                      <a href={ed.certificate} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20"></a>
+                      
+                      {ed.certificate.endsWith('.pdf') ? (
+                        <div className="w-full h-full relative overflow-hidden bg-white/5">
+                          <iframe 
+                            src={`${ed.certificate}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                            className="absolute top-0 left-0 w-[calc(100%+24px)] h-[calc(100%+24px)] pointer-events-none border-none max-w-none"
+                            style={{ overflow: 'hidden' }}
+                            scrolling="no"
+                            tabIndex={-1}
+                          />
+                        </div>
+                      ) : (
+                        <img 
+                          src={ed.certificate} 
+                          alt={`Certificado de ${ed.title}`}
+                          className="w-full h-full object-cover object-center group-hover/preview:scale-105 transition-transform duration-500"
+                        />
+                      )}
+                    </div>
+                  )}
+
                   {/* Header: Period & Icon */}
                   <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
                     <span className={`px-4 py-1.5 bg-[#050505] border border-white/10 rounded-full text-[10px] md:text-xs font-black tracking-[0.2em] uppercase ${ed.accent} shadow-inner`}>
@@ -340,14 +374,16 @@ export default function WhoPage() {
 
                   {/* Bottom Footer: Status Badge for EGRESADO */}
                   {ed.status && (
-                    <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
-                      <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
-                        Condición
-                      </span>
-                      <span className={`px-3 py-1 rounded-full border text-[10px] font-black tracking-widest uppercase flex items-center gap-1.5 ${ed.badge}`}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-                        {ed.status}
-                      </span>
+                    <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3 relative z-10">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                          Condición
+                        </span>
+                        <span className={`px-3 py-1 rounded-full border text-[10px] font-black tracking-widest uppercase flex items-center gap-1.5 ${ed.badge}`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                          {ed.status}
+                        </span>
+                      </div>
                     </div>
                   )}
 
